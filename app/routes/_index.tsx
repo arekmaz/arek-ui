@@ -1,5 +1,6 @@
 import type { MetaFunction } from "@remix-run/node";
 import { useState } from "react";
+import { Button } from "~/components/ui/button";
 import { Checkbox } from "~/components/ui/checkbox_1";
 import { cn } from "~/components/utils/cn";
 
@@ -15,6 +16,8 @@ export default function Index() {
   return (
     <div>
       <h1>Welcome to Remix</h1>
+
+      <Button>button</Button>
 
       {/* <Checkbox />
       <Checkbox checked="indeterminate" />

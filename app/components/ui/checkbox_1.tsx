@@ -1,10 +1,7 @@
-import { Checkbox as C, CheckboxProps as CP } from "@ark-ui/react";
-import { ComponentProps, useMemo } from "react";
-import { VariantProps, tv } from "tailwind-variants";
-import {
-  createStyleContext,
-  splitVariantProps,
-} from "../utils/create-style-context";
+import { Checkbox as C } from "@ark-ui/react";
+import { ComponentProps } from "react";
+import { tv } from "tailwind-variants";
+import { createStyleContext } from "../utils/create-style-context";
 // import { createStyleContext } from "../utils/create-style-context";
 
 const checkbox = tv({
