@@ -2,6 +2,7 @@ import type { MetaFunction } from "@remix-run/node";
 import { useState } from "react";
 import { Button } from "~/components/ui/button";
 import { Checkbox } from "~/components/ui/checkbox_1";
+import { Stack } from "~/components/ui/stack";
 import { cn } from "~/components/utils/cn";
 
 export const meta: MetaFunction = () => {
@@ -17,13 +18,15 @@ export default function Index() {
     <div>
       <h1>Welcome to Remix</h1>
 
-      <Button>button</Button>
-      <Button variant="destructive">destructive</Button>
-      <Button variant="ghost">ghost</Button>
-      <Button variant="link">link</Button>
-      <Button variant="outline" disabled>
-        link
-      </Button>
+      <Stack>
+        <Button>button</Button>
+        <Button variant="destructive">destructive</Button>
+        <Button variant="ghost">ghost</Button>
+        <Button variant="link">link</Button>
+        <Button variant="outline" disabled>
+          link
+        </Button>
+      </Stack>
 
       {/* <Checkbox />
       <Checkbox checked="indeterminate" />

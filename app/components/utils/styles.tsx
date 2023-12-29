@@ -16,14 +16,21 @@ type ProviderComponentProps<ComponentProps extends {}> =
 
 export const styled = <ComponentProps extends {}>(
   Component: ProviderComponentProps<ComponentProps>,
-  createStyles: (...args: any) => any
+  createStyles: (...args: any) => any,
+  defaultProps?: Partial<ComponentProps>
 ) => {
   const Comp = forwardRef<typeof Component, ComponentProps>((props, ref) => {
     const classNames = createStyles(props);
 
-    const componentProps = mergeProps(props, {
-      className: classNames,
-    } as any); // TODO remove variant props from component props
+    const componentProps = mergeProps(
+      {
+        ...defaultProps,
+        ...props,
+      },
+      {
+        className: classNames,
+      } as any
+    ); // TODO remove variant props from component props
 
     return <Component {...componentProps} ref={ref} />;
   });
