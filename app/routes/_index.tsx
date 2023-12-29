@@ -18,6 +18,12 @@ export default function Index() {
       <h1>Welcome to Remix</h1>
 
       <Button>button</Button>
+      <Button variant="destructive">destructive</Button>
+      <Button variant="ghost">ghost</Button>
+      <Button variant="link">link</Button>
+      <Button variant="outline" disabled>
+        link
+      </Button>
 
       {/* <Checkbox />
       <Checkbox checked="indeterminate" />
