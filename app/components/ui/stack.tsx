@@ -1,6 +1,6 @@
 import { ark, HTMLArkProps } from "@ark-ui/react/factory";
 import { tv, type VariantProps } from "tailwind-variants";
-import { styled } from "../utils/styles";
+import { styled } from "../utils/styled";
 
 type StackVariantProps = VariantProps<typeof stackVariants>;
 export type StackProps = StackVariantProps & HTMLArkProps<"div">;
@@ -35,13 +35,18 @@ const stackVariants = tv({
   },
 });
 
-export const Stack = styled<StackProps>(ark.div, stackVariants);
+export const Stack = styled(ark.div, stackVariants);
 
-export const VStack = styled<StackProps>(ark.div, stackVariants, {
+export const VStack = styled(ark.div, stackVariants, {
   align: "center",
 });
 
-export const HStack = styled<StackProps>(ark.div, stackVariants, {
+export const HStack = styled(ark.div, stackVariants, {
   direction: "row",
   align: "center",
+});
+
+export const Center = styled(ark.div, stackVariants, {
+  align: "center",
+  justify: "center",
 });

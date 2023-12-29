@@ -1,6 +1,6 @@
 import { ark, HTMLArkProps } from "@ark-ui/react/factory";
 import { tv, type VariantProps } from "tailwind-variants";
-import { styled } from "../utils/styles";
+import { styled } from "../utils/styled";
 
 type ButtonVariantProps = VariantProps<typeof buttonVariants>;
 export type ButtonProps = ButtonVariantProps & HTMLArkProps<"button">;
@@ -31,4 +31,4 @@ const buttonVariants = tv({
   },
 });
 
-export const Button = styled<ButtonProps>(ark.button, buttonVariants);
+export const Button = styled(ark.button, buttonVariants);
