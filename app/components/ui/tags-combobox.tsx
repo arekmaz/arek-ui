@@ -1,6 +1,6 @@
 import { matchSorter } from "match-sorter";
 import { useState } from "react";
-import { Combobox as C } from "./combobox_1";
+import { Combobox as C } from "./combobox";
 import { ChevronsUpDownIcon } from "lucide-react";
 import { Portal } from "@ark-ui/react";
 

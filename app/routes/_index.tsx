@@ -1,8 +1,9 @@
 import type { MetaFunction } from "@remix-run/node";
-import { MultipleCombobox, SingleCombobox } from "~/components/ui/combobox_1";
-import { MultipleSelect, SingleSelect } from "~/components/ui/select";
-import { Center, VStack } from "~/components/ui/stack";
-import { TagsCombobox } from "~/components/ui/tags-combobox";
+import { Center, HStack } from "~/components/ui/stack";
+import { Buttons } from "~/demo/button.stories";
+import { Checkboxes } from "~/demo/checkbox.stories";
+import { Comboboxes } from "~/demo/combobox.stories";
+import { Selects } from "~/demo/select.stories";
 
 export const meta: MetaFunction = () => {
   return [
@@ -14,10 +15,12 @@ export const meta: MetaFunction = () => {
 export default function Index() {
   return (
     <Center className="w-screen h-screen">
-      <VStack className="w-min" spacing={5}>
-        <SingleSelect />
-        <MultipleSelect />
-      </VStack>
+      <HStack className="w-min" spacing={5}>
+        <Buttons />
+        <Checkboxes />
+        <Comboboxes />
+        <Selects />
+      </HStack>
     </Center>
   );
 }

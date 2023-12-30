@@ -1,65 +1,69 @@
-import {
-  CollectionItem,
-  Combobox as C,
-  ComboboxProps,
-} from "@ark-ui/react/combobox";
-import { Portal } from "@ark-ui/react/portal";
-import { forwardRef, useMemo } from "react";
-import { tv, VariantProps } from "tailwind-variants";
-
-type ColectionItem = any;
+import { Combobox as C } from "@ark-ui/react/combobox";
+import { tv } from "tailwind-variants";
+import { createStyleContext } from "../utils/create-style-context";
 
 const combobox = tv({
   slots: {
-    root: "",
-    label: "",
-    control: "",
-    input: "",
+    root: "flex flex-col gap-1.5 w-full",
+    label: "text-foreground font-medium",
+    control: "relative",
+    input:
+      "rounded-sm cursor-pointer content-between duration-75 transition-all hover:bg-muted disabled:text-muted disabled:cursor-not-allowed disabled:hover:bg-transparent border border-border outline-none focus-visible:ring-2 ring-black",
+    trigger:
+      "bottom-0 text-muted-foreground absolute top-0 size-4 h-full cursor-pointer",
+    clearTrigger: "",
+    positioner: "",
+    content:
+      "bg-popover rounded-md shadow-lg flex flex-col z-[1000] data-[state=closed]:opacity-0 data-[state=open]:opacity-1 transition-opacity duration-500 ease-out",
+    itemGroup: "",
+    itemGroupLabel: "px-2 py-1.5 text-sm font-semibold",
+    item: "items-center rounded-md cursor-pointer flex justify-between transition-all duration-75 hover:bg-gray-100 data-[highlighted]:bg-gray-200 data-[disabled]:text-stone-200 data-[disabled]:cursor-not-allowed data-[disabled]:hover:bg-transparent ",
+    itemText: "",
+    itemIndicator: "",
   },
   variants: {
-    size: { default: "", sm: "" },
+    size: {
+      md: {
+        content: "p-1 gap-1",
+        item: "text-md px-2 h-10",
+        itemGroupLabel: "px-2 py-1.5",
+        trigger: "right-3",
+        input: "px-3 h-10 min-w-10 text-md",
+      },
+    },
+  },
+  defaultVariants: {
+    size: "md",
   },
 });
 
-const { root } = combobox();
+const { withContext, withProvider } = createStyleContext(combobox);
 
-export const Root = forwardRef<HTMLDivElement, ComboboxProps<CollectionItem>>(
-  ({ className, ...props }, ref) => (
-    <C.Root {...props} ref={ref} className={root({ className })} />
-  )
-);
-Root.displayName = "Combobox.Root";
+export const Root = withProvider(C.Root, "root");
+export const Label = withContext(C.Label, "label");
+export const Control = withContext(C.Control, "control");
+export const Input = withContext(C.Input, "input");
+export const Trigger = withContext(C.Trigger, "trigger");
+export const ClearTrigger = withContext(C.ClearTrigger, "clearTrigger");
+export const Positioner = withContext(C.Positioner, "positioner");
+export const Content = withContext(C.Content, "content");
+export const ItemGroup = withContext(C.ItemGroup, "itemGroup");
+export const ItemGroupLabel = withContext(C.ItemGroupLabel, "itemGroupLabel");
+export const Item = withContext(C.Item, "item");
+export const ItemText = withContext(C.ItemText, "itemText");
+export const ItemIndicator = withContext(C.ItemIndicator, "itemIndicator");
 
-export const Combobox = (props: VariantProps<typeof combobox>) => {
-  const items = ["React", "Solid", "Vue"];
-
-  const { root } = useMemo(() => combobox({ ...props }), []);
-
-  return (
-    <C.Root items={[]} lazyMount unmountOnExit>
-      <C.Label>Framework</C.Label>
-      <C.Control>
-        <C.Input />
-        <C.Trigger>Open</C.Trigger>
-        <C.ClearTrigger>Clear</C.ClearTrigger>
-      </C.Control>
-      <Portal>
-        <C.Positioner>
-          <C.Content>
-            <C.ItemGroup id="framework">
-              <C.ItemGroupLabel htmlFor="framework">
-                Frameworks
-              </C.ItemGroupLabel>
-              {items.map((item) => (
-                <C.Item key={item} item={item}>
-                  <C.ItemText>{item}</C.ItemText>
-                  <C.ItemIndicator>✓</C.ItemIndicator>
-                </C.Item>
-              ))}
-            </C.ItemGroup>
-          </C.Content>
-        </C.Positioner>
-      </Portal>
-    </Root>
-  );
-};
+export const Combobox = Object.assign(Root, {
+  Label,
+  Control,
+  Input,
+  Trigger,
+  ClearTrigger,
+  Positioner,
+  Content,
+  ItemGroup,
+  ItemGroupLabel,
+  Item,
+  ItemIndicator,
+  ItemText,
+});

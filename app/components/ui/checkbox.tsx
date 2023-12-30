@@ -1,30 +1,22 @@
-import { Checkbox as C, CheckboxProps as CP } from "@ark-ui/react";
-import { ComponentProps, useMemo } from "react";
-import { VariantProps, tv } from "tailwind-variants";
+import { Checkbox as C } from "@ark-ui/react";
+import { ComponentProps } from "react";
+import { tv } from "tailwind-variants";
+import { createStyleContext } from "../utils/create-style-context";
 
 const checkbox = tv({
   slots: {
     root: "flex items-center gap-2 cursor-pointer group/checkbox",
     label: "margin-start-2",
-    control: "border border-black rounded-sm size-5 relative",
+    control:
+      "border border-black rounded-sm size-5 relative outline-none data-[focus]:ring-2 ring-black shrink-0",
     controlCheckedIcon:
       "transition-opacity absolute top-0 opacity-0 group-data-[state=checked]/checkbox:opacity-100",
     controlIndeterminateIcon:
       "transition-opacity absolute top-0 opacity-0 group-data-[state=indeterminate]/checkbox:opacity-100",
   },
-  variants: {
-    size: { default: "", sm: "" },
-  },
 });
 
-console.log({ checkbox, k: checkbox.variantKeys });
-
-type CheckboxProps = CP &
-  VariantProps<typeof checkbox> & {
-    classes?: { [key in keyof ReturnType<typeof checkbox>]?: string };
-  };
-
-const CheckIcon = (props: ComponentProps<"svg">) => (
+const CI = (props: ComponentProps<"svg">) => (
   <svg
     viewBox="0 0 14 14"
     fill="none"
@@ -41,7 +33,7 @@ const CheckIcon = (props: ComponentProps<"svg">) => (
   </svg>
 );
 
-const MinusIcon = (props: ComponentProps<"svg">) => (
+const II = (props: ComponentProps<"svg">) => (
   <svg
     viewBox="0 0 14 14"
     fill="none"
@@ -58,28 +50,18 @@ const MinusIcon = (props: ComponentProps<"svg">) => (
   </svg>
 );
 
-export const Checkbox = ({ classes, size, ...rootProps }: CheckboxProps) => {
-  const { control, label, root, controlCheckedIcon, controlIndeterminateIcon } =
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    useMemo(() => checkbox({ size }), [size]);
+const { withProvider, withContext } = createStyleContext(checkbox);
 
-  return (
-    <C.Root {...rootProps} className={root({ className: classes?.root })}>
-      <C.Control className={control({ className: classes?.control })}>
-        <CheckIcon
-          className={controlCheckedIcon({
-            className: classes?.controlCheckedIcon,
-          })}
-        />
-        <MinusIcon
-          className={controlIndeterminateIcon({
-            className: classes?.controlIndeterminateIcon,
-          })}
-        />
-      </C.Control>
-      <C.Label className={label({ className: classes?.label })}>
-        Checkboxxx
-      </C.Label>
-    </C.Root>
-  );
-};
+const Root = withProvider(C.Root, "root");
+const Control = withContext(C.Control, "control");
+const Label = withContext(C.Label, "label");
+const CheckIcon = withContext(CI, "controlCheckedIcon");
+const IndeterminateIcon = withContext(II, "controlIndeterminateIcon");
+
+export const Checkbox = Object.assign(Root, {
+  Root,
+  Control,
+  CheckIcon,
+  IndeterminateIcon,
+  Label,
+});

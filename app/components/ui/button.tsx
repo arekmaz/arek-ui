@@ -32,3 +32,18 @@ const buttonVariants = tv({
 });
 
 export const Button = styled(ark.button, buttonVariants);
+export const ButtonSecondary = styled(ark.button, buttonVariants, {
+  variant: "secondary",
+});
+export const ButtonDestructive = styled(ark.button, buttonVariants, {
+  variant: "destructive",
+});
+export const ButtonOutline = styled(ark.button, buttonVariants, {
+  variant: "outline",
+});
+export const ButtonGhost = styled(ark.button, buttonVariants, {
+  variant: "ghost",
+});
+export const ButtonLink = styled(ark.button, buttonVariants, {
+  variant: "link",
+});

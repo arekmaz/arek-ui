@@ -1,13 +1,11 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/no-autofocus */
-import { Portal, Select as S } from "@ark-ui/react";
-import { ChevronDownIcon } from "lucide-react";
-import { matchSorter } from "match-sorter";
-import { ComponentProps, useEffect, useRef, useState } from "react";
+import { Select as S, useSelectContext } from "@ark-ui/react";
 import { tv } from "tailwind-variants";
 import { createStyleContext } from "../utils/create-style-context";
+import { ComponentProps, useRef, useEffect } from "react";
 
-const data = [
+export const data = [
   { label: "React", value: "react" },
   { label: "Solid", value: "solid" },
   { label: "Vue", value: "vue" },
@@ -16,14 +14,17 @@ const data = [
 
 const combobox = tv({
   slots: {
-    root: "flex flex-col gap-1.5 w-full",
+    root: "flex flex-col gap-1.5 w-full ",
     label: "text-foreground font-medium",
     control: "relative cursor-pointer",
-    valueText: "flex gap-1 flex-row whitespace-nowrap",
+    indicator:
+      "text-muted-foreground h-full absolute top-0 bottom-0 right-3 size-4",
+    trigger:
+      "group/select-trigger items-center rounded-sm cursor-pointer flex justify-between duration-75 transition-all hover:bg-muted disabled:text-muted disabled:cursor-not-allowed disabled:hover:bg-transparent border border-border outline-none focus-visible:ring-2 ring-black w-full",
+    valueText:
+      "flex gap-1 flex-row whitespace-nowrap group-data-[placeholder-shown]/select-trigger:text-gray-400",
     filterInput:
       "items-center rounded-sm cursor-pointer flex content-between duration-75 transition-all hover:bg-muted disabled:text-muted disabled:cursor-not-allowed disabled:hover:bg-transparent border border-border outline-none focus-visible:ring-2 ring-black",
-    trigger:
-      "items-center rounded-sm cursor-pointer flex justify-between duration-75 transition-all hover:bg-muted disabled:text-muted disabled:cursor-not-allowed disabled:hover:bg-transparent border border-border outline-none focus-visible:ring-2 ring-black w-full",
     clearTrigger: "",
     positioner: "",
     content:
@@ -66,12 +67,13 @@ export const ItemGroupLabel = withContext(S.ItemGroupLabel, "itemGroupLabel");
 export const Item = withContext(S.Item, "item");
 export const ItemText = withContext(S.ItemText, "itemText");
 export const ItemIndicator = withContext(S.ItemIndicator, "itemIndicator");
+export const Indicator = withContext(S.Indicator, "indicator");
 
-const AutoFocusableFilterInput = ({
-  isOpen,
-  ...props
-}: ComponentProps<typeof FilterInput> & { isOpen: boolean }) => {
+export const AutoFocusingFilterInput = (
+  props: ComponentProps<typeof FilterInput>
+) => {
   const filterInputRef = useRef<HTMLInputElement>(null!);
+  const { isOpen } = useSelectContext();
 
   useEffect(() => {
     if (isOpen) {
@@ -84,106 +86,20 @@ const AutoFocusableFilterInput = ({
   return <FilterInput tabIndex={0} {...props} ref={filterInputRef} />;
 };
 
-export const MultipleSelect = () => {
-  const [items, setItems] = useState(data);
-
-  const handleChange = (e: any) => {
-    const filtered = matchSorter(data, e.value, { keys: ["label"] });
-    setItems(filtered.length > 0 ? filtered : data);
-  };
-
-  return (
-    <Root items={items} multiple>
-      {(props) => {
-        return (
-          <>
-            <Label>Framework</Label>
-            <Control>
-              <Trigger>
-                <ValueText placeholder="Select a Framework..." />
-                <S.Indicator>
-                  <ChevronDownIcon />
-                </S.Indicator>
-              </Trigger>
-            </Control>
-            <Portal>
-              <Positioner>
-                <Content>
-                  <AutoFocusableFilterInput
-                    isOpen={props.isOpen}
-                    placeholder="Filter frameworks"
-                    onChange={(e) => handleChange(e.target)}
-                    className="pointer-events-auto"
-                  />
-                  <ItemGroup id="framework">
-                    <ItemGroupLabel htmlFor="framework">
-                      Frameworks
-                    </ItemGroupLabel>
-                    {items.map((item) => (
-                      <Item key={item.value} item={item}>
-                        <ItemText>{item.label}</ItemText>
-                        <ItemIndicator>✓</ItemIndicator>
-                      </Item>
-                    ))}
-                  </ItemGroup>
-                </Content>
-              </Positioner>
-            </Portal>
-          </>
-        );
-      }}
-    </Root>
-  );
-};
-
-export const SingleSelect = () => {
-  const [items, setItems] = useState(data);
-
-  const handleChange = (e: any) => {
-    const filtered = matchSorter(data, e.value, { keys: ["label"] });
-    setItems(filtered.length > 0 ? filtered : data);
-  };
-
-  return (
-    <Root items={items}>
-      {(props) => {
-        return (
-          <>
-            <Label>Framework</Label>
-            <Control>
-              <Trigger>
-                <ValueText placeholder="Select a Framework..." />
-                <S.Indicator>
-                  <ChevronDownIcon />
-                </S.Indicator>
-              </Trigger>
-            </Control>
-            <Portal>
-              <Positioner>
-                <Content>
-                  <AutoFocusableFilterInput
-                    isOpen={props.isOpen}
-                    placeholder="Filter frameworks"
-                    onChange={(e) => handleChange(e.target)}
-                    className="pointer-events-auto"
-                  />
-                  <ItemGroup id="framework">
-                    <ItemGroupLabel htmlFor="framework">
-                      Frameworks
-                    </ItemGroupLabel>
-                    {items.map((item) => (
-                      <Item key={item.value} item={item}>
-                        <ItemText>{item.label}</ItemText>
-                        <ItemIndicator>✓</ItemIndicator>
-                      </Item>
-                    ))}
-                  </ItemGroup>
-                </Content>
-              </Positioner>
-            </Portal>
-          </>
-        );
-      }}
-    </Root>
-  );
-};
+export const Select = Object.assign(Root, {
+  Root,
+  Label,
+  Control,
+  Trigger,
+  FilterInput,
+  ClearTrigger,
+  ValueText,
+  Positioner,
+  Content,
+  ItemGroup,
+  ItemGroupLabel,
+  Item,
+  ItemText,
+  ItemIndicator,
+  AutoFocusingFilterInput,
+});
