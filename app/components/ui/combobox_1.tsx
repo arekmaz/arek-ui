@@ -5,6 +5,7 @@ import { createStyleContext } from "../utils/create-style-context";
 import { CheckIcon, ChevronsUpDownIcon } from "lucide-react";
 import { useState } from "react";
 import { matchSorter } from "match-sorter";
+import { HStack } from "./stack";
 
 const combobox = tv({
   slots: {
@@ -56,6 +57,22 @@ export const ItemGroupLabel = withContext(C.ItemGroupLabel, "itemGroupLabel");
 export const Item = withContext(C.Item, "item");
 export const ItemText = withContext(C.ItemText, "itemText");
 export const ItemIndicator = withContext(C.ItemIndicator, "itemIndicator");
+
+export const Combobox = Object.assign(Root, {
+  Label,
+  Control,
+  Input,
+  Trigger,
+  ClearTrigger,
+  Positioner,
+  Content,
+  ItemGroup,
+  ItemGroupLabel,
+  Item,
+  ItemIndicator,
+  ItemText,
+});
+
 const data = [
   { label: "React", value: "react" },
   { label: "Solid", value: "solid" },
@@ -63,7 +80,7 @@ const data = [
   { label: "Svelte", value: "svelte", disabled: true },
 ];
 
-export const Combobox = () => {
+export const SingleCombobox = () => {
   const [items, setItems] = useState(data);
 
   const handleChange = (e: any) => {
@@ -73,6 +90,43 @@ export const Combobox = () => {
 
   return (
     <Root items={items} onInputValueChange={handleChange}>
+      <Label>Framework</Label>
+      <Control>
+        <Input placeholder="select a framework" />
+        <Trigger asChild>
+          <ChevronsUpDownIcon />
+        </Trigger>
+        {/* <ClearTrigger>Clear</ClearTrigger> */}
+      </Control>
+      <Portal>
+        <Positioner>
+          <Content>
+            <ItemGroup id="framework">
+              <ItemGroupLabel htmlFor="framework">Frameworks</ItemGroupLabel>
+              {items.map((item) => (
+                <Item key={item.value} item={item}>
+                  <ItemText>{item.label}</ItemText>
+                  <ItemIndicator>✓</ItemIndicator>
+                </Item>
+              ))}
+            </ItemGroup>
+          </Content>
+        </Positioner>
+      </Portal>
+    </Root>
+  );
+};
+
+export const MultipleCombobox = () => {
+  const [items, setItems] = useState(data);
+
+  const handleChange = (e: any) => {
+    const filtered = matchSorter(data, e.value, { keys: ["label"] });
+    setItems(filtered.length > 0 ? filtered : data);
+  };
+
+  return (
+    <Root items={items} onInputValueChange={handleChange} multiple>
       <Label>Framework</Label>
       <Control>
         <Input placeholder="select a framework" />

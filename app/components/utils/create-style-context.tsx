@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react/display-name */
 import {
@@ -106,13 +107,27 @@ export const createStyleContext = <R extends StyleRecipe>(recipe: R) => {
 
     const StyledComponent = forwardRef((props: ComponentProps<T>, ref) => {
       const { slotStyles, classes } = useContext(StyleContext) as any;
-      return createElement(Component, {
+      const el = createElement(Component, {
         ...props,
         className: slotStyles?.[slot]({
           className: cn(classes[slot], props.className),
         }),
         ref,
       });
+      if (slot === "input") {
+        console.log(
+          {
+            ...props,
+            className: slotStyles?.[slot]({
+              className: cn(classes[slot], props.className),
+            }),
+            ref,
+          },
+          el
+        );
+      }
+
+      return el;
     });
     return StyledComponent as unknown as T;
   };
