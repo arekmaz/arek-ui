@@ -4,6 +4,7 @@ import { Select as S, useSelectContext } from "@ark-ui/react";
 import { tv } from "tailwind-variants";
 import { createStyleContext } from "../utils/create-style-context";
 import { ComponentProps, useRef, useEffect } from "react";
+import { ark, HTMLArkProps } from "@ark-ui/react/factory";
 
 export const data = [
   { label: "React", value: "react" },
@@ -57,7 +58,7 @@ export const Root = withProvider(S.Root, "root");
 export const Label = withContext(S.Label, "label");
 export const Control = withContext(S.Control, "control");
 export const Trigger = withContext(S.Trigger, "trigger");
-export const FilterInput = withContext("input", "filterInput");
+export const FilterInput = withContext(ark.input, "filterInput");
 export const ClearTrigger = withContext(S.ClearTrigger, "clearTrigger");
 export const ValueText = withContext(S.ValueText, "valueText");
 export const Positioner = withContext(S.Positioner, "positioner");
