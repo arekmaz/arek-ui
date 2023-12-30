@@ -19,6 +19,7 @@
     "express": "^4.18.2",
     "isbot": "^3.6.8",
     "lucide-react": "^0.303.0",
+    "match-sorter": "^6.3.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "tailwind-merge": "^2.2.0",

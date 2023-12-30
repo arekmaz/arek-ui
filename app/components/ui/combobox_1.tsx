@@ -3,6 +3,8 @@ import { Portal } from "@ark-ui/react/portal";
 import { tv } from "tailwind-variants";
 import { createStyleContext } from "../utils/create-style-context";
 import { CheckIcon, ChevronsUpDownIcon } from "lucide-react";
+import { useState } from "react";
+import { matchSorter } from "match-sorter";
 
 const combobox = tv({
   slots: {
@@ -54,17 +56,23 @@ export const ItemGroupLabel = withContext(C.ItemGroupLabel, "itemGroupLabel");
 export const Item = withContext(C.Item, "item");
 export const ItemText = withContext(C.ItemText, "itemText");
 export const ItemIndicator = withContext(C.ItemIndicator, "itemIndicator");
+const data = [
+  { label: "React", value: "react" },
+  { label: "Solid", value: "solid" },
+  { label: "Vue", value: "vue" },
+  { label: "Svelte", value: "svelte", disabled: true },
+];
 
 export const Combobox = () => {
-  const items = [
-    { label: "React", value: "react" },
-    { label: "Solid", value: "solid" },
-    { label: "Vue", value: "vue" },
-    { label: "Svelte", value: "svelte", disabled: true },
-  ];
+  const [items, setItems] = useState(data);
+
+  const handleChange = (e: any) => {
+    const filtered = matchSorter(data, e.value, { keys: ["label"] });
+    setItems(filtered.length > 0 ? filtered : data);
+  };
 
   return (
-    <Root items={items}>
+    <Root items={items} onInputValueChange={handleChange}>
       <Label>Framework</Label>
       <Control>
         <Input placeholder="select a framework" />
