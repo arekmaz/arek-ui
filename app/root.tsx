@@ -13,7 +13,7 @@ import { useState } from "react";
 import { cn } from "./components/utils/cn";
 
 export default function App() {
-  const [mode, setMode] = useState<"dark" | "light">("dark");
+  const [mode, setMode] = useState<"dark" | "light">("light");
   return (
     <html lang="en">
       <head>

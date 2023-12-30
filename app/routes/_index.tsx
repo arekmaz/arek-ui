@@ -1,4 +1,5 @@
 import type { MetaFunction } from "@remix-run/node";
+import { BasicDatePicker, ParkDatePicker } from "~/demo/datePicker.stories";
 import { Center, HStack, Stack } from "~/components/ui/stack";
 import { Buttons } from "~/demo/button.stories";
 import { Checkboxes } from "~/demo/checkbox.stories";
@@ -15,11 +16,13 @@ export const meta: MetaFunction = () => {
 export default function Index() {
   return (
     <Center className="w-screen flex-1">
-      <HStack className="w-min" spacing={5}>
-        <Buttons />
+      <HStack spacing={5}>
+        {/* <Buttons />
         <Checkboxes />
         <Comboboxes />
-        <Selects />
+        <Selects /> */}
+        {/* <BasicDatePicker /> */}
+        <ParkDatePicker />
       </HStack>
     </Center>
   );
