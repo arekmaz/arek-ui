@@ -11,7 +11,9 @@ export const BasicDatePicker = () => {
     <D>
       <D.Label>Label</D.Label>
       <D.Control>
-        <D.Input />
+        <D.Input asChild>
+          <Input />
+        </D.Input>
         <D.Trigger>📅</D.Trigger>
         <D.ClearTrigger>Clear</D.ClearTrigger>
       </D.Control>
@@ -45,7 +47,11 @@ export const BasicDatePicker = () => {
                         <D.TableRow key={id}>
                           {week.map((day, id) => (
                             <D.TableCell key={id} value={day}>
-                              <D.TableCellTrigger>{day.day}</D.TableCellTrigger>
+                              <D.TableCellTrigger asChild>
+                                <IconButton variant="ghost">
+                                  {day.day}
+                                </IconButton>
+                              </D.TableCellTrigger>
                             </D.TableCell>
                           ))}
                         </D.TableRow>

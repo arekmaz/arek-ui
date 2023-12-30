@@ -5,7 +5,7 @@ import { styled } from "../utils/styled";
 const input = tv({
   base: [
     "appearance-none",
-    "bg-none",
+    "bg-background",
     "border-border",
     "rounded-sm",
     "border",
