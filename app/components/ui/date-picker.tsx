@@ -24,7 +24,9 @@ const datePickerStyles = tv({
     tableCell: "text-center",
     tableCellTrigger: [
       "w-full",
-      "data-[in-range]:bg-foreground data-[in-range]:text-background data-[today]:border data-[today]:border-primary",
+      "data-[in-range]:bg-muted data-[today]:border data-[today]:border-primary",
+      "transition-all",
+      "duration-100",
     ],
     clearTrigger: "",
     input: "",
