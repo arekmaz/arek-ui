@@ -2,6 +2,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { forwardRef, type ExoticComponent } from "react";
 import { VariantProps } from "tailwind-variants";
+import { cn } from "./cn";
 
 const mergeProps = <T extends Record<string, any>>(
   baseProps: T,
@@ -55,7 +56,7 @@ export const styled = <ComponentProps extends {}, R extends StyleRecipe>(
       const classNames = recipe(variantProps);
 
       const componentProps = mergeProps(otherProps, {
-        className: classNames,
+        className: cn(classNames, (props as any).className),
       } as any);
 
       return <Component {...componentProps} ref={ref} />;
