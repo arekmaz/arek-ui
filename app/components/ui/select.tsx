@@ -14,13 +14,13 @@ export const data = [
 
 const combobox = tv({
   slots: {
-    root: "flex flex-col gap-1.5 w-full bg-background text-foreground",
+    root: "flex flex-col gap-1.5 w-full bg-background text-foreground ",
     label: "text-foreground font-medium",
     control: "relative cursor-pointer",
     indicator:
       "text-muted-foreground h-full absolute top-0 bottom-0 right-3 size-4",
     trigger:
-      "group/select-trigger items-center rounded-sm cursor-pointer flex justify-between duration-75 transition-all hover:bg-muted disabled:text-muted disabled:cursor-not-allowed disabled:hover:bg-transparent border border-border outline-none focus-visible:ring-2 ring-black w-full",
+      "group/select-trigger items-center rounded-sm cursor-pointer flex justify-between duration-75 transition-all hover:bg-muted disabled:text-muted disabled:cursor-not-allowed disabled:hover:bg-transparent border border-border outline-none focus-visible:ring-2 ring-muted-foreground w-full",
     valueText:
       "flex gap-1 flex-row whitespace-nowrap group-data-[placeholder-shown]/select-trigger:text-gray-400",
     filterInput:
@@ -28,10 +28,10 @@ const combobox = tv({
     clearTrigger: "",
     positioner: "",
     content:
-      "bg-background rounded-md shadow-lg flex flex-col z-[1000] data-[state=closed]:opacity-0 data-[state=open]:opacity-1 transition-opacity duration-500 ease-out data-[state=closed]:h-0 data-[state=closed]:overflow-hidden",
+      "bg-background rounded-md shadow-lg flex flex-col z-[1000] data-[state=closed]:opacity-0 data-[state=open]:opacity-1 transition-opacity duration-500 ease-out data-[state=closed]:h-0 data-[state=closed]:overflow-hidden border-border outline-muted",
     itemGroup: "",
     itemGroupLabel: "px-2 py-1.5 text-sm font-semibold",
-    item: "items-center rounded-md cursor-pointer flex justify-between transition-all duration-75 hover:bg-muted data-[highlighted]:ring-1 data-[highlighted]:ring-muted-foreground data-[disabled]:text-muted-foreground data-[disabled]:cursor-not-allowed data-[disabled]:hover:bg-transparent data-[state=checked]:bg-muted",
+    item: "items-center rounded-md cursor-pointer flex justify-between transition-all duration-75 hover:bg-muted data-[highlighted]:bg-accent data-[disabled]:text-muted-foreground data-[disabled]:cursor-not-allowed data-[disabled]:hover:bg-transparent",
     itemText: "",
     itemIndicator: "",
   },

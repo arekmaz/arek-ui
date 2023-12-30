@@ -8,16 +8,16 @@ const combobox = tv({
     label: "text-foreground font-medium",
     control: "relative",
     input:
-      "rounded-sm cursor-pointer content-between duration-75 transition-all hover:bg-muted disabled:text-muted disabled:cursor-not-allowed disabled:hover:bg-transparent border border-border outline-none focus-visible:ring-2 ring-black",
+      "bg-background rounded-sm cursor-pointer content-between duration-75 transition-all hover:bg-muted disabled:text-muted disabled:cursor-not-allowed disabled:hover:bg-transparent border border-input outline-none focus-visible:ring-2 ring-muted-foreground",
     trigger:
       "bottom-0 text-muted-foreground absolute top-0 size-4 h-full cursor-pointer",
     clearTrigger: "",
     positioner: "",
     content:
-      "bg-popover rounded-md shadow-lg flex flex-col z-[1000] data-[state=closed]:opacity-0 data-[state=open]:opacity-1 transition-opacity duration-500 ease-out",
+      "bg-popover rounded-md shadow-lg flex flex-col z-[1000] data-[state=closed]:opacity-0 data-[state=open]:opacity-1 transition-opacity duration-500 ease-out ring-1 ring-border outline-muted",
     itemGroup: "",
     itemGroupLabel: "px-2 py-1.5 text-sm font-semibold",
-    item: "items-center rounded-md cursor-pointer flex justify-between transition-all duration-75 hover:bg-gray-100 data-[highlighted]:bg-gray-200 data-[disabled]:text-stone-200 data-[disabled]:cursor-not-allowed data-[disabled]:hover:bg-transparent ",
+    item: "items-center rounded-md cursor-pointer flex justify-between transition-all duration-75 hover:bg-accent data-[disabled]:text-muted-foreground data-[disabled]:cursor-not-allowed data-[disabled]:hover:bg-transparent",
     itemText: "",
     itemIndicator: "",
   },
