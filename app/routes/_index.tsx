@@ -1,5 +1,5 @@
 import type { MetaFunction } from "@remix-run/node";
-import { Center, HStack } from "~/components/ui/stack";
+import { Center, HStack, Stack } from "~/components/ui/stack";
 import { Buttons } from "~/demo/button.stories";
 import { Checkboxes } from "~/demo/checkbox.stories";
 import { Comboboxes } from "~/demo/combobox.stories";
@@ -14,7 +14,7 @@ export const meta: MetaFunction = () => {
 
 export default function Index() {
   return (
-    <Center className="w-screen h-screen">
+    <Center className="w-screen flex-1">
       <HStack className="w-min" spacing={5}>
         <Buttons />
         <Checkboxes />
