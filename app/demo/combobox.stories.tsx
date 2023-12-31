@@ -99,12 +99,50 @@ export const MultipleCombobox = () => {
   );
 };
 
+export const DisabledCombobox = () => {
+  const [items, setItems] = useState(data);
+
+  const handleChange = (e: any) => {
+    const filtered = matchSorter(data, e.value, { keys: ["label"] });
+    setItems(filtered.length > 0 ? filtered : data);
+  };
+
+  return (
+    <Root items={items} onInputValueChange={handleChange} disabled>
+      <Label>Disabled combobox</Label>
+      <Control>
+        <Input placeholder="select a framework" />
+        <Trigger asChild>
+          <ChevronsUpDownIcon />
+        </Trigger>
+        {/* <ClearTrigger>Clear</ClearTrigger> */}
+      </Control>
+      <Portal>
+        <Positioner>
+          <Content>
+            <ItemGroup id="framework">
+              <ItemGroupLabel htmlFor="framework">Frameworks</ItemGroupLabel>
+              {items.map((item) => (
+                <Item key={item.value} item={item}>
+                  <ItemText>{item.label}</ItemText>
+                  <ItemIndicator>✓</ItemIndicator>
+                </Item>
+              ))}
+            </ItemGroup>
+          </Content>
+        </Positioner>
+      </Portal>
+    </Root>
+  );
+};
+
 export const Comboboxes = () => {
   return (
     <VStack spacing={3} className="border border-black rounded-md p-5">
       <p>COMBOBOXES:</p>
       <SingleCombobox />
       <MultipleCombobox />
+      <DisabledCombobox />
     </VStack>
   );
 };

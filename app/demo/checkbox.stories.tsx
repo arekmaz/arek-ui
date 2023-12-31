@@ -23,12 +23,24 @@ export const IndeterminateCheckbox = () => {
   );
 };
 
+export const DisabledCheckbox = () => {
+  return (
+    <C disabled>
+      <C.Label>Disabled checkbox</C.Label>
+      <C.Control>
+        <C.IndeterminateIcon />
+      </C.Control>
+    </C>
+  );
+};
+
 export const Checkboxes = () => {
   return (
     <VStack spacing={3} className="border border-black rounded-md p-5">
       <p>CHECKBOXES:</p>
       <Checkbox />
       <IndeterminateCheckbox />
+      <DisabledCheckbox />
     </VStack>
   );
 };

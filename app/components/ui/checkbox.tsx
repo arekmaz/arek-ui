@@ -5,10 +5,16 @@ import { createStyleContext } from "../utils/create-style-context";
 
 const checkbox = tv({
   slots: {
-    root: "flex items-center gap-2 cursor-pointer group/checkbox text-foreground",
+    root: [
+      "flex items-center gap-2 cursor-pointer group/checkbox text-foreground",
+      "data-[disabled]:text-muted-foreground data-[disabled]:cursor-not-allowed",
+    ],
     label: "margin-start-2",
-    control:
-      "border border-foreground rounded-sm size-5 relative outline-none data-[focus]:ring-1 ring-foreground shrink-0",
+    control: [
+      "border border-foreground",
+      "data-[disabled]:border-muted-foreground",
+      "rounded-sm size-5 relative outline-none data-[focus]:ring-1 ring-foreground shrink-0",
+    ],
     controlCheckedIcon:
       "transition-opacity absolute top-0 opacity-0 group-data-[state=checked]/checkbox:opacity-100",
     controlIndeterminateIcon:

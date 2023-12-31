@@ -5,7 +5,7 @@ import { createStyleContext } from "../utils/create-style-context";
 const combobox = tv({
   slots: {
     root: "flex flex-col gap-1.5 w-full",
-    label: "text-foreground font-medium",
+    label: "text-foreground font-medium data-[disabled]:text-muted-foreground",
     control: "relative",
     input:
       "bg-background rounded-sm cursor-pointer content-between duration-75 transition-all hover:bg-muted disabled:text-muted disabled:cursor-not-allowed disabled:hover:bg-transparent border border-input outline-none focus-visible:ring-1 ring-muted-foreground",

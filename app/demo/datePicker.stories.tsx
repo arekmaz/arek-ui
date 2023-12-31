@@ -5,6 +5,7 @@ import { Button } from "~/components/ui/button";
 import { IconButton } from "~/components/ui/icon-button";
 
 import { Input } from "~/components/ui/input";
+import { VStack } from "~/components/ui/stack";
 
 export const BasicDatePicker = () => {
   return (
@@ -273,5 +274,16 @@ export const ParkDatePicker = (props: {}) => {
         </D.Content>
       </D.Positioner>
     </D>
+  );
+};
+
+export const DatePickers = () => {
+  return (
+    <VStack spacing={3} className="border border-black rounded-md p-5">
+      <p>DATE PICKERS:</p>
+
+      <BasicDatePicker />
+      <ParkDatePicker />
+    </VStack>
   );
 };

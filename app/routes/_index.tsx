@@ -1,9 +1,10 @@
 import type { MetaFunction } from "@remix-run/node";
-import { BasicDatePicker, ParkDatePicker } from "~/demo/datePicker.stories";
-import { Center, HStack, Stack } from "~/components/ui/stack";
+import { Center, VStack } from "~/components/ui/stack";
 import { Buttons } from "~/demo/button.stories";
 import { Checkboxes } from "~/demo/checkbox.stories";
 import { Comboboxes } from "~/demo/combobox.stories";
+import { DatePickers } from "~/demo/datePicker.stories";
+import { IconButtons } from "~/demo/iconButton.stories";
 import { Selects } from "~/demo/select.stories";
 
 export const meta: MetaFunction = () => {
@@ -16,14 +17,14 @@ export const meta: MetaFunction = () => {
 export default function Index() {
   return (
     <Center className="w-screen flex-1">
-      <HStack spacing={5}>
-        {/* <Buttons />
+      <VStack spacing={5} className="md:flex-row flex-wrap">
+        <Buttons />
         <Checkboxes />
         <Comboboxes />
-        <Selects /> */}
-        <BasicDatePicker />
-        <ParkDatePicker />
-      </HStack>
+        <Selects />
+        <DatePickers />
+        <IconButtons />
+      </VStack>
     </Center>
   );
 }
