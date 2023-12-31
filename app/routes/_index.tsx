@@ -6,6 +6,7 @@ import { Comboboxes } from "~/demo/combobox.stories";
 import { DatePickers } from "~/demo/datePicker.stories";
 import { IconButtons } from "~/demo/iconButton.stories";
 import { Inputs } from "~/demo/input.stories";
+import { InputGroups } from "~/demo/inputGroup.stories";
 import { Selects } from "~/demo/select.stories";
 
 export const meta: MetaFunction = () => {
@@ -26,6 +27,7 @@ export default function Index() {
         <DatePickers />
         <IconButtons />
         <Inputs />
+        <InputGroups />
       </VStack>
     </Center>
   );

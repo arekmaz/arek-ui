@@ -34,7 +34,7 @@ export const MultipleSelect = () => {
       <Label>Multiple select</Label>
       <Control>
         <Trigger>
-          <ValueText placeholder="Select a Framework..." />
+          <ValueText placeholder="select a framework" />
           <Indicator asChild>
             <ChevronsUpDownIcon />
           </Indicator>
@@ -77,7 +77,7 @@ export const SingleSelect = () => {
       <Label>Single select</Label>
       <Control>
         <Trigger>
-          <ValueText placeholder="Select a Framework..." />
+          <ValueText placeholder="select a framework" />
           <Indicator asChild>
             <ChevronsUpDownIcon />
           </Indicator>
@@ -120,7 +120,7 @@ export const DisabledSelect = () => {
       <Label>Disabled select</Label>
       <Control>
         <Trigger>
-          <ValueText placeholder="Select a Framework..." />
+          <ValueText placeholder="select a framework" />
           <Indicator asChild>
             <ChevronsUpDownIcon />
           </Indicator>

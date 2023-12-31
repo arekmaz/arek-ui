@@ -22,7 +22,7 @@ const combobox = tv({
       "h-full",
       "cursor-pointer",
       "data-[disabled]:cursor-not-allowed",
-      "disabled:opacity-50",
+      "data-[disabled]:opacity-50",
     ],
     clearTrigger: "",
     positioner: "",

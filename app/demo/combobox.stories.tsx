@@ -2,20 +2,7 @@ import { Portal } from "@ark-ui/react/portal";
 import { ChevronsUpDownIcon } from "lucide-react";
 import { matchSorter } from "match-sorter";
 import { useState } from "react";
-import {
-  Content,
-  Control,
-  Input,
-  Item,
-  ItemGroup,
-  ItemGroupLabel,
-  ItemIndicator,
-  ItemText,
-  Label,
-  Positioner,
-  Root,
-  Trigger,
-} from "~/components/ui/combobox";
+import { Combobox as C } from "~/components/ui/combobox";
 import { VStack } from "~/components/ui/stack";
 
 const data = [
@@ -34,31 +21,72 @@ export const SingleCombobox = () => {
   };
 
   return (
-    <Root items={items} onInputValueChange={handleChange}>
-      <Label>Single combobox</Label>
-      <Control>
-        <Input placeholder="select a framework" />
-        <Trigger asChild>
+    <C items={items} onInputValueChange={handleChange}>
+      <C.Label>Single combobox</C.Label>
+      <C.Control>
+        <C.Input placeholder="select a framework" />
+        <C.Trigger asChild>
           <ChevronsUpDownIcon />
-        </Trigger>
+        </C.Trigger>
         {/* <ClearTrigger>Clear</ClearTrigger> */}
-      </Control>
+      </C.Control>
       <Portal>
-        <Positioner>
-          <Content>
-            <ItemGroup id="framework">
-              <ItemGroupLabel htmlFor="framework">Frameworks</ItemGroupLabel>
+        <C.Positioner>
+          <C.Content>
+            <C.ItemGroup id="framework">
+              <C.ItemGroupLabel htmlFor="framework">
+                Frameworks
+              </C.ItemGroupLabel>
               {items.map((item) => (
-                <Item key={item.value} item={item}>
-                  <ItemText>{item.label}</ItemText>
-                  <ItemIndicator>✓</ItemIndicator>
-                </Item>
+                <C.Item key={item.value} item={item}>
+                  <C.ItemText>{item.label}</C.ItemText>
+                  <C.ItemIndicator>✓</C.ItemIndicator>
+                </C.Item>
               ))}
-            </ItemGroup>
-          </Content>
-        </Positioner>
+            </C.ItemGroup>
+          </C.Content>
+        </C.Positioner>
       </Portal>
-    </Root>
+    </C>
+  );
+};
+
+export const OpenOnClickCombobox = () => {
+  const [items, setItems] = useState(data);
+
+  const handleChange = (e: any) => {
+    const filtered = matchSorter(data, e.value, { keys: ["label"] });
+    setItems(filtered.length > 0 ? filtered : data);
+  };
+
+  return (
+    <C items={items} onInputValueChange={handleChange} openOnClick>
+      <C.Label>Single combobox - open on click</C.Label>
+      <C.Control>
+        <C.Input placeholder="select a framework" />
+        <C.Trigger asChild>
+          <ChevronsUpDownIcon />
+        </C.Trigger>
+        {/* <ClearTrigger>Clear</ClearTrigger> */}
+      </C.Control>
+      <Portal>
+        <C.Positioner>
+          <C.Content>
+            <C.ItemGroup id="framework">
+              <C.ItemGroupLabel htmlFor="framework">
+                Frameworks
+              </C.ItemGroupLabel>
+              {items.map((item) => (
+                <C.Item key={item.value} item={item}>
+                  <C.ItemText>{item.label}</C.ItemText>
+                  <C.ItemIndicator>✓</C.ItemIndicator>
+                </C.Item>
+              ))}
+            </C.ItemGroup>
+          </C.Content>
+        </C.Positioner>
+      </Portal>
+    </C>
   );
 };
 
@@ -71,31 +99,33 @@ export const MultipleCombobox = () => {
   };
 
   return (
-    <Root items={items} onInputValueChange={handleChange} multiple>
-      <Label>Multiple combobox</Label>
-      <Control>
-        <Input placeholder="select a framework" />
-        <Trigger asChild>
+    <C items={items} onInputValueChange={handleChange} multiple>
+      <C.Label>Multiple combobox</C.Label>
+      <C.Control>
+        <C.Input placeholder="select a framework" />
+        <C.Trigger asChild>
           <ChevronsUpDownIcon />
-        </Trigger>
+        </C.Trigger>
         {/* <ClearTrigger>Clear</ClearTrigger> */}
-      </Control>
+      </C.Control>
       <Portal>
-        <Positioner>
-          <Content>
-            <ItemGroup id="framework">
-              <ItemGroupLabel htmlFor="framework">Frameworks</ItemGroupLabel>
+        <C.Positioner>
+          <C.Content>
+            <C.ItemGroup id="framework">
+              <C.ItemGroupLabel htmlFor="framework">
+                Frameworks
+              </C.ItemGroupLabel>
               {items.map((item) => (
-                <Item key={item.value} item={item}>
-                  <ItemText>{item.label}</ItemText>
-                  <ItemIndicator>✓</ItemIndicator>
-                </Item>
+                <C.Item key={item.value} item={item}>
+                  <C.ItemText>{item.label}</C.ItemText>
+                  <C.ItemIndicator>✓</C.ItemIndicator>
+                </C.Item>
               ))}
-            </ItemGroup>
-          </Content>
-        </Positioner>
+            </C.ItemGroup>
+          </C.Content>
+        </C.Positioner>
       </Portal>
-    </Root>
+    </C>
   );
 };
 
@@ -108,31 +138,33 @@ export const DisabledCombobox = () => {
   };
 
   return (
-    <Root items={items} onInputValueChange={handleChange} disabled>
-      <Label>Disabled combobox</Label>
-      <Control>
-        <Input placeholder="select a framework" />
-        <Trigger asChild>
+    <C items={items} onInputValueChange={handleChange} disabled>
+      <C.Label>Disabled combobox</C.Label>
+      <C.Control>
+        <C.Input placeholder="select a framework" />
+        <C.Trigger asChild>
           <ChevronsUpDownIcon />
-        </Trigger>
+        </C.Trigger>
         {/* <ClearTrigger>Clear</ClearTrigger> */}
-      </Control>
+      </C.Control>
       <Portal>
-        <Positioner>
-          <Content>
-            <ItemGroup id="framework">
-              <ItemGroupLabel htmlFor="framework">Frameworks</ItemGroupLabel>
+        <C.Positioner>
+          <C.Content>
+            <C.ItemGroup id="framework">
+              <C.ItemGroupLabel htmlFor="framework">
+                Frameworks
+              </C.ItemGroupLabel>
               {items.map((item) => (
-                <Item key={item.value} item={item}>
-                  <ItemText>{item.label}</ItemText>
-                  <ItemIndicator>✓</ItemIndicator>
-                </Item>
+                <C.Item key={item.value} item={item}>
+                  <C.ItemText>{item.label}</C.ItemText>
+                  <C.ItemIndicator>✓</C.ItemIndicator>
+                </C.Item>
               ))}
-            </ItemGroup>
-          </Content>
-        </Positioner>
+            </C.ItemGroup>
+          </C.Content>
+        </C.Positioner>
       </Portal>
-    </Root>
+    </C>
   );
 };
 
@@ -141,6 +173,7 @@ export const Comboboxes = () => {
     <VStack spacing={3} className="border border-black rounded-md p-5">
       <p>COMBOBOXES:</p>
       <SingleCombobox />
+      <OpenOnClickCombobox />
       <MultipleCombobox />
       <DisabledCombobox />
     </VStack>

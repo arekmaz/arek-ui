@@ -12,7 +12,7 @@ export const Inputs = () => {
       </label>
 
       <label>
-        Input
+        Disabled
         <Input disabled />
       </label>
 

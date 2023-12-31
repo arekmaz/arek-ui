@@ -7,6 +7,7 @@
     "jsx": "react-jsx",
     "module": "ESNext",
     "moduleResolution": "Bundler",
+    "skipLibCheck": true,
     "resolveJsonModule": true,
     "target": "ES2022",
     "strict": true,
