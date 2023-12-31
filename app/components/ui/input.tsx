@@ -6,7 +6,6 @@ const input = tv({
   base: [
     "appearance-none",
     "bg-background",
-    "border-border",
     "rounded-sm",
     "border",
     "text-foreground",
