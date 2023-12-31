@@ -1,23 +1,62 @@
 import { Combobox as C } from "@ark-ui/react/combobox";
 import { tv } from "tailwind-variants";
 import { createStyleContext } from "../utils/create-style-context";
+import { inputClasses } from "./input";
 
 const combobox = tv({
   slots: {
-    root: "flex flex-col gap-1.5 w-full",
-    label: "text-foreground font-medium data-[disabled]:text-muted-foreground",
+    root: ["flex flex-col gap-1.5 w-full"],
+    label: [
+      "text-foreground",
+      "font-medium",
+      "data-[disabled]:text-muted-foreground",
+    ],
     control: "relative",
-    input:
-      "bg-background rounded-sm cursor-pointer content-between duration-75 transition-all hover:bg-muted disabled:text-muted disabled:cursor-not-allowed disabled:hover:bg-transparent border border-input outline-none focus-visible:ring-1 ring-muted-foreground",
-    trigger:
-      "bottom-0 text-muted-foreground absolute top-0 size-4 h-full cursor-pointer",
+    input: [...inputClasses, "px-3", "h-11", "min-w-11", "text-base"],
+    trigger: [
+      "bottom-0",
+      "text-muted-foreground",
+      "absolute",
+      "top-0",
+      "size-4",
+      "h-full",
+      "cursor-pointer",
+      "data-[disabled]:cursor-not-allowed",
+      "disabled:opacity-50",
+    ],
     clearTrigger: "",
     positioner: "",
-    content:
-      "bg-popover rounded-md shadow-lg flex flex-col z-[1000] data-[state=closed]:opacity-0 data-[state=open]:opacity-1 transition-opacity duration-500 ease-out ring-1 ring-border outline-muted",
+    content: [
+      "bg-popover",
+      "rounded-md",
+      "shadow-lg",
+      "flex",
+      "flex-col",
+      "z-[1000]",
+      "data-[state=closed]:opacity-0",
+      "data-[state=open]:opacity-1",
+      "transition-opacity",
+      "duration-500",
+      "ease-out",
+      "ring-1",
+      "ring-border",
+      "outline-muted",
+    ],
     itemGroup: "",
-    itemGroupLabel: "px-2 py-1.5 text-sm font-semibold",
-    item: "items-center rounded-md cursor-pointer flex justify-between transition-all duration-75 data-[highlighted]:bg-accent data-[disabled]:text-muted-foreground data-[disabled]:cursor-not-allowed data-[disabled]:hover:bg-transparent",
+    itemGroupLabel: ["px-2 py-1.5 text-sm font-semibold"],
+    item: [
+      "items-center",
+      "rounded-md",
+      "cursor-pointer",
+      "flex",
+      "justify-between",
+      "transition-all",
+      "duration-75",
+      "data-[highlighted]:bg-accent",
+      "data-[disabled]:text-muted-foreground",
+      "data-[disabled]:cursor-not-allowed",
+      "data-[disabled]:hover:bg-transparent",
+    ],
     itemText: "",
     itemIndicator: "",
   },

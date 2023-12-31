@@ -5,6 +5,7 @@ import { tv } from "tailwind-variants";
 import { createStyleContext } from "../utils/create-style-context";
 import { ComponentProps, useRef, useEffect } from "react";
 import { ark, HTMLArkProps } from "@ark-ui/react/factory";
+import { inputClasses } from "./input";
 
 export const data = [
   { label: "React", value: "react" },
@@ -20,16 +21,12 @@ const combobox = tv({
     control: "relative cursor-pointer",
     indicator:
       "text-muted-foreground h-full absolute top-0 bottom-0 right-3 size-4",
-    trigger: [
-      "group/select-trigger items-center rounded-sm cursor-pointer flex justify-between duration-75 transition-all hover:bg-muted disabled:text-muted disabled:cursor-not-allowed disabled:hover:bg-transparent border",
-      "outline-none focus-visible:ring-2 ring-muted-foreground w-full",
-    ],
-    valueText:
+    trigger: [...inputClasses, "px-3", "h-11", "min-w-11"],
+    valueText: [
       "flex gap-1 flex-row whitespace-nowrap group-data-[placeholder-shown]/select-trigger:text-gray-400",
-    filterInput: [
-      "bg-background items-center rounded-sm cursor-pointer flex content-between duration-75 transition-all hover:bg-muted disabled:text-muted disabled:cursor-not-allowed disabled:hover:bg-transparent border",
-      "outline-none focus-visible:ring-2 ring-primary",
+      "disabled:opacity-50",
     ],
+    filterInput: [...inputClasses, "px-3", "h-11", "min-w-11"],
     clearTrigger: "",
     positioner: "",
     content: [

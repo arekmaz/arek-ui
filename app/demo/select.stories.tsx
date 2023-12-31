@@ -107,12 +107,56 @@ export const SingleSelect = () => {
   );
 };
 
+export const DisabledSelect = () => {
+  const [items, setItems] = useState(data);
+
+  const handleChange = (e: any) => {
+    const filtered = matchSorter(data, e.value, { keys: ["label"] });
+    setItems(filtered.length > 0 ? filtered : data);
+  };
+
+  return (
+    <Root items={items} disabled>
+      <Label>Disabled select</Label>
+      <Control>
+        <Trigger>
+          <ValueText placeholder="Select a Framework..." />
+          <Indicator asChild>
+            <ChevronsUpDownIcon />
+          </Indicator>
+        </Trigger>
+      </Control>
+      <Portal>
+        <Positioner>
+          <Content>
+            <AutoFocusingFilterInput
+              placeholder="Filter frameworks"
+              onChange={(e) => handleChange(e.target)}
+              className="pointer-events-auto"
+            />
+            <ItemGroup id="framework">
+              <ItemGroupLabel htmlFor="framework">Frameworks</ItemGroupLabel>
+              {items.map((item) => (
+                <Item key={item.value} item={item}>
+                  <ItemText>{item.label}</ItemText>
+                  <ItemIndicator>✓</ItemIndicator>
+                </Item>
+              ))}
+            </ItemGroup>
+          </Content>
+        </Positioner>
+      </Portal>
+    </Root>
+  );
+};
+
 export const Selects = () => {
   return (
     <VStack spacing={3} className="border border-black rounded-md p-5">
       <p>SELECTS:</p>
       <SingleSelect />
       <MultipleSelect />
+      <DisabledSelect />
     </VStack>
   );
 };

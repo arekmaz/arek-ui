@@ -23,15 +23,15 @@ export default function App() {
         <Links />
       </head>
       <body className={cn(mode, "h-screen w-screen flex flex-col")}>
-        <Outlet />
-        <ScrollRestoration />
-        <Scripts />
-        <LiveReload />
         <Button
           onClick={() => setMode((m) => (m === "light" ? "dark" : "light"))}
         >
           mode {mode}
         </Button>
+        <Outlet />
+        <ScrollRestoration />
+        <Scripts />
+        <LiveReload />
       </body>
     </html>
   );
