@@ -10,6 +10,7 @@ const data = [
   { label: "Solid", value: "solid" },
   { label: "Vue", value: "vue" },
   { label: "Svelte", value: "svelte", disabled: true },
+  { label: "Angular JS", value: "angularjs" },
 ];
 
 export const SingleCombobox = () => {
@@ -99,7 +100,12 @@ export const MultipleCombobox = () => {
   };
 
   return (
-    <C items={items} onInputValueChange={handleChange} multiple>
+    <C
+      items={items}
+      onInputValueChange={handleChange}
+      multiple
+      onValueChange={() => setItems(data)}
+    >
       <C.Label>Multiple combobox</C.Label>
       <C.Control>
         <C.Input placeholder="select a framework" />

@@ -10,12 +10,14 @@ import { Cards } from "~/demo/card.stories";
 import { Checkboxes } from "~/demo/checkbox.stories";
 import { Collapsibles } from "~/demo/collapsible.stories";
 import { Comboboxes } from "~/demo/combobox.stories";
+import { ContextMenus } from "~/demo/contextMenu.stories";
 import { DatePickers } from "~/demo/datePicker.stories";
 import { Dialogs } from "~/demo/dialog.stories";
 import { IconButtons } from "~/demo/iconButton.stories";
 import { Inputs } from "~/demo/input.stories";
 import { InputGroups } from "~/demo/inputGroup.stories";
 import { Selects } from "~/demo/select.stories";
+import { TagsInputs } from "~/demo/tagsInput.stories";
 
 export const meta: MetaFunction = () => {
   return [
@@ -44,6 +46,8 @@ export default function Index() {
         <Calendars />
         <Cards />
         <Collapsibles />
+        <TagsInputs />
+        <ContextMenus />
       </VStack>
     </Center>
   );
