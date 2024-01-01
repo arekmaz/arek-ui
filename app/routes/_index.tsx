@@ -6,7 +6,9 @@ import { Avatars } from "~/demo/avatar.stories";
 import { Badges } from "~/demo/badge.stories";
 import { Buttons } from "~/demo/button.stories";
 import { Calendars } from "~/demo/calendar.stories";
+import { Cards } from "~/demo/card.stories";
 import { Checkboxes } from "~/demo/checkbox.stories";
+import { Collapsibles } from "~/demo/collapsible.stories";
 import { Comboboxes } from "~/demo/combobox.stories";
 import { DatePickers } from "~/demo/datePicker.stories";
 import { Dialogs } from "~/demo/dialog.stories";
@@ -40,6 +42,8 @@ export default function Index() {
         <Avatars />
         <Badges />
         <Calendars />
+        <Cards />
+        <Collapsibles />
       </VStack>
     </Center>
   );
