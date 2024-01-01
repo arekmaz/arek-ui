@@ -25,6 +25,7 @@ export default function App() {
       <body className={cn(mode, "h-screen w-screen flex flex-col")}>
         <Button
           onClick={() => setMode((m) => (m === "light" ? "dark" : "light"))}
+          className="fixed top-1 right-1"
         >
           mode {mode}
         </Button>
