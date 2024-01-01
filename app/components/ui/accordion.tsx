@@ -17,6 +17,9 @@ const accordionStyles = tv({
       "transition-all",
       "hover:underline",
       "[&[data-state=open]>svg]:rotate-180",
+      "disabled:text-muted-foreground",
+      "disabled:cursor-not-allowed",
+      "disabled:hover:no-underline",
     ],
     itemIndicator: ["h-4 w-4 shrink-0 transition-transform duration-200"],
     itemContent: [

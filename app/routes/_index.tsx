@@ -1,6 +1,7 @@
 import type { MetaFunction } from "@remix-run/node";
 import { Center, VStack } from "~/components/ui/stack";
 import { Accordions } from "~/demo/accordion.stories";
+import { Alerts } from "~/demo/alert.stories";
 import { Buttons } from "~/demo/button.stories";
 import { Checkboxes } from "~/demo/checkbox.stories";
 import { Comboboxes } from "~/demo/combobox.stories";
@@ -30,6 +31,7 @@ export default function Index() {
         <Inputs />
         <InputGroups />
         <Accordions />
+        <Alerts />
       </VStack>
     </Center>
   );
