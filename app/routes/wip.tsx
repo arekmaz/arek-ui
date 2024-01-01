@@ -1,11 +1,10 @@
-import { FormControl } from "~/components/ui/form-control_1";
 import { Center } from "~/components/ui/stack";
-import { Accordions } from "~/demo/accordion.stories";
+import { Avatars } from "~/demo/avatar.stories";
 
 export default function Wip() {
   return (
     <Center className="flex-1">
-      <Accordions />
+      <Avatars />
     </Center>
   );
 }
