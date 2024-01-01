@@ -10,6 +10,8 @@ import { Story } from "./storyHelpers";
 import { Input } from "~/components/ui/input";
 import { Select } from "~/components/ui/select";
 import { Button } from "~/components/ui/button";
+import { Portal } from "@ark-ui/react";
+import { ChevronsUpDownIcon } from "lucide-react";
 
 const Basic = () => {
   return (
@@ -26,12 +28,21 @@ const Basic = () => {
             </div>
             <div className="flex flex-col space-y-1.5">
               <Select items={[]}>
-                <Select.Trigger id="framework">
-                  <Select.ValueText placeholder="Select" />
-                </Select.Trigger>
-                <Select.Content>
-                  <Select.Item item={{ value: "react" }}>react</Select.Item>
-                </Select.Content>
+                <Select.Control>
+                  <Select.Trigger id="framework">
+                    <Select.ValueText placeholder="Select" />
+                  </Select.Trigger>
+                  <Select.Indicator asChild>
+                    <ChevronsUpDownIcon />
+                  </Select.Indicator>
+                </Select.Control>
+                <Portal>
+                  <Select.Positioner>
+                    <Select.Content>
+                      <Select.Item item={{ value: "react" }}>react</Select.Item>
+                    </Select.Content>
+                  </Select.Positioner>
+                </Portal>
               </Select>
             </div>
           </div>

@@ -2,23 +2,7 @@ import { Portal } from "@ark-ui/react";
 import { ChevronsUpDownIcon } from "lucide-react";
 import { matchSorter } from "match-sorter";
 import { useState } from "react";
-import {
-  AutoFocusingFilterInput,
-  Content,
-  Control,
-  Indicator,
-  Item,
-  ItemGroup,
-  ItemGroupLabel,
-  ItemIndicator,
-  ItemText,
-  Label,
-  Positioner,
-  Root,
-  Trigger,
-  ValueText,
-  data,
-} from "~/components/ui/select";
+import { Select as S, data } from "~/components/ui/select";
 import { Story } from "./storyHelpers";
 
 export const MultipleSelect = () => {
@@ -30,37 +14,39 @@ export const MultipleSelect = () => {
   };
 
   return (
-    <Root items={items} multiple>
-      <Label>Multiple select</Label>
-      <Control>
-        <Trigger>
-          <ValueText placeholder="select a framework" />
-          <Indicator asChild>
+    <S.Root items={items} multiple>
+      <S.Label>Multiple select</S.Label>
+      <S.Control>
+        <S.Trigger>
+          <S.ValueText placeholder="select a framework" />
+          <S.Indicator asChild>
             <ChevronsUpDownIcon />
-          </Indicator>
-        </Trigger>
-      </Control>
+          </S.Indicator>
+        </S.Trigger>
+      </S.Control>
       <Portal>
-        <Positioner>
-          <Content>
-            <AutoFocusingFilterInput
+        <S.Positioner>
+          <S.Content>
+            <S.AutoFocusingFilterInput
               placeholder="Filter frameworks"
               onChange={(e) => handleChange(e.target)}
               className="pointer-events-auto"
             />
-            <ItemGroup id="framework">
-              <ItemGroupLabel htmlFor="framework">Frameworks</ItemGroupLabel>
+            <S.ItemGroup id="framework">
+              <S.ItemGroupLabel htmlFor="framework">
+                Frameworks
+              </S.ItemGroupLabel>
               {items.map((item) => (
-                <Item key={item.value} item={item}>
-                  <ItemText>{item.label}</ItemText>
-                  <ItemIndicator>✓</ItemIndicator>
-                </Item>
+                <S.Item key={item.value} item={item}>
+                  <S.ItemText>{item.label}</S.ItemText>
+                  <S.ItemIndicator>✓</S.ItemIndicator>
+                </S.Item>
               ))}
-            </ItemGroup>
-          </Content>
-        </Positioner>
+            </S.ItemGroup>
+          </S.Content>
+        </S.Positioner>
       </Portal>
-    </Root>
+    </S.Root>
   );
 };
 
@@ -73,37 +59,39 @@ export const SingleSelect = () => {
   };
 
   return (
-    <Root items={items}>
-      <Label>Single select</Label>
-      <Control>
-        <Trigger>
-          <ValueText placeholder="select a framework" />
-          <Indicator asChild>
+    <S.Root items={items}>
+      <S.Label>Single select</S.Label>
+      <S.Control>
+        <S.Trigger>
+          <S.ValueText placeholder="select a framework" />
+          <S.Indicator asChild>
             <ChevronsUpDownIcon />
-          </Indicator>
-        </Trigger>
-      </Control>
+          </S.Indicator>
+        </S.Trigger>
+      </S.Control>
       <Portal>
-        <Positioner>
-          <Content>
-            <AutoFocusingFilterInput
+        <S.Positioner>
+          <S.Content>
+            <S.AutoFocusingFilterInput
               placeholder="Filter frameworks"
               onChange={(e) => handleChange(e.target)}
               className="pointer-events-auto"
             />
-            <ItemGroup id="framework">
-              <ItemGroupLabel htmlFor="framework">Frameworks</ItemGroupLabel>
+            <S.ItemGroup id="framework">
+              <S.ItemGroupLabel htmlFor="framework">
+                Frameworks
+              </S.ItemGroupLabel>
               {items.map((item) => (
-                <Item key={item.value} item={item}>
-                  <ItemText>{item.label}</ItemText>
-                  <ItemIndicator>✓</ItemIndicator>
-                </Item>
+                <S.Item key={item.value} item={item}>
+                  <S.ItemText>{item.label}</S.ItemText>
+                  <S.ItemIndicator>✓</S.ItemIndicator>
+                </S.Item>
               ))}
-            </ItemGroup>
-          </Content>
-        </Positioner>
+            </S.ItemGroup>
+          </S.Content>
+        </S.Positioner>
       </Portal>
-    </Root>
+    </S.Root>
   );
 };
 
@@ -116,37 +104,39 @@ export const DisabledSelect = () => {
   };
 
   return (
-    <Root items={items} disabled>
-      <Label>Disabled select</Label>
-      <Control>
-        <Trigger>
-          <ValueText placeholder="select a framework" />
-          <Indicator asChild>
+    <S.Root items={items} disabled>
+      <S.Label>Disabled select</S.Label>
+      <S.Control>
+        <S.Trigger>
+          <S.ValueText placeholder="select a framework" />
+          <S.Indicator asChild>
             <ChevronsUpDownIcon />
-          </Indicator>
-        </Trigger>
-      </Control>
+          </S.Indicator>
+        </S.Trigger>
+      </S.Control>
       <Portal>
-        <Positioner>
-          <Content>
-            <AutoFocusingFilterInput
+        <S.Positioner>
+          <S.Content>
+            <S.AutoFocusingFilterInput
               placeholder="Filter frameworks"
               onChange={(e) => handleChange(e.target)}
               className="pointer-events-auto"
             />
-            <ItemGroup id="framework">
-              <ItemGroupLabel htmlFor="framework">Frameworks</ItemGroupLabel>
+            <S.ItemGroup id="framework">
+              <S.ItemGroupLabel htmlFor="framework">
+                Frameworks
+              </S.ItemGroupLabel>
               {items.map((item) => (
-                <Item key={item.value} item={item}>
-                  <ItemText>{item.label}</ItemText>
-                  <ItemIndicator>✓</ItemIndicator>
-                </Item>
+                <S.Item key={item.value} item={item}>
+                  <S.ItemText>{item.label}</S.ItemText>
+                  <S.ItemIndicator>✓</S.ItemIndicator>
+                </S.Item>
               ))}
-            </ItemGroup>
-          </Content>
-        </Positioner>
+            </S.ItemGroup>
+          </S.Content>
+        </S.Positioner>
       </Portal>
-    </Root>
+    </S.Root>
   );
 };
 

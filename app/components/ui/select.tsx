@@ -83,21 +83,21 @@ const combobox = tv({
 
 const { withContext, withProvider } = createStyleContext(combobox);
 
-export const Root = withProvider(S.Root, "root");
-export const Label = withContext(S.Label, "label");
-export const Control = withContext(S.Control, "control");
-export const Trigger = withContext(S.Trigger, "trigger");
-export const FilterInput = withContext(ark.input, "filterInput");
-export const ClearTrigger = withContext(S.ClearTrigger, "clearTrigger");
-export const ValueText = withContext(S.ValueText, "valueText");
-export const Positioner = withContext(S.Positioner, "positioner");
-export const Content = withContext(S.Content, "content");
-export const ItemGroup = withContext(S.ItemGroup, "itemGroup");
-export const ItemGroupLabel = withContext(S.ItemGroupLabel, "itemGroupLabel");
-export const Item = withContext(S.Item, "item");
-export const ItemText = withContext(S.ItemText, "itemText");
-export const ItemIndicator = withContext(S.ItemIndicator, "itemIndicator");
-export const Indicator = withContext(S.Indicator, "indicator");
+const Root = withProvider(S.Root, "root");
+const Label = withContext(S.Label, "label");
+const Control = withContext(S.Control, "control");
+const Trigger = withContext(S.Trigger, "trigger");
+const FilterInput = withContext(ark.input, "filterInput");
+const ClearTrigger = withContext(S.ClearTrigger, "clearTrigger");
+const ValueText = withContext(S.ValueText, "valueText");
+const Positioner = withContext(S.Positioner, "positioner");
+const Content = withContext(S.Content, "content");
+const ItemGroup = withContext(S.ItemGroup, "itemGroup");
+const ItemGroupLabel = withContext(S.ItemGroupLabel, "itemGroupLabel");
+const Item = withContext(S.Item, "item");
+const ItemText = withContext(S.ItemText, "itemText");
+const ItemIndicator = withContext(S.ItemIndicator, "itemIndicator");
+const Indicator = withContext(S.Indicator, "indicator");
 
 export const AutoFocusingFilterInput = (
   props: ComponentProps<typeof FilterInput>
@@ -125,6 +125,7 @@ export const Select = Object.assign(Root, {
   ClearTrigger,
   ValueText,
   Positioner,
+  Indicator,
   Content,
   ItemGroup,
   ItemGroupLabel,
