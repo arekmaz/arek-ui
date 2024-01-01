@@ -56,6 +56,9 @@ module.exports = {
       // fontFamily: {
       //   sans: ["var(--font-sans)", ...fontFamily.sans],
       // },
+      transitionTimingFunction: {
+        default: "cubic-bezier(0.2, 0.0, 0, 1.0)",
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },

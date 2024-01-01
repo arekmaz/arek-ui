@@ -1,8 +1,9 @@
 import { ark } from "@ark-ui/react/factory";
 import { tv } from "tailwind-variants";
 import { styled } from "../utils/styled";
+import { id } from "../utils/id";
 
-export const inputClasses = [
+export const inputClasses = id([
   "flex",
   "h-10",
   "w-full",
@@ -25,7 +26,7 @@ export const inputClasses = [
   "focus-visible:ring-offset-2",
   "disabled:cursor-not-allowed",
   "disabled:opacity-50",
-];
+]);
 
 const input = tv({
   base: inputClasses,

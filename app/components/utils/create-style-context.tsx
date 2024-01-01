@@ -35,22 +35,22 @@ export interface ComponentVariants<
   ): JSX.Element;
 }
 
-export const splitVariantProps = (
-  variantKeys: (string | number)[],
+export const splitProps = (
+  keys: (string | number)[],
   props: Record<string, any>
 ) => {
-  const variantProps: any = {};
+  const keyProps: any = {};
   const otherProps: any = {};
 
   for (const [key, value] of Object.entries(props)) {
-    if (variantKeys.includes(key)) {
-      variantProps[key] = value;
+    if (keys.includes(key)) {
+      keyProps[key] = value;
       continue;
     }
     otherProps[key] = value;
   }
 
-  return [variantProps, otherProps];
+  return [keyProps, otherProps];
 };
 
 export const createStyleContext = <R extends StyleRecipe>(recipe: R) => {
@@ -74,10 +74,10 @@ export const createStyleContext = <R extends StyleRecipe>(recipe: R) => {
         },
         ref
       ) => {
-        const [variantProps, otherProps] = splitVariantProps(
-          recipe.variantKeys,
-          { ...defaultProps, ...props }
-        );
+        const [variantProps, otherProps] = splitProps(recipe.variantKeys, {
+          ...defaultProps,
+          ...props,
+        });
 
         const slotStyles = useMemo(
           () => recipe(variantProps) as any,
