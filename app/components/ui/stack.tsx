@@ -25,6 +25,7 @@ const stackVariants = tv({
       center: "justify-center",
       start: "justify-start",
       end: "justify-end",
+      between: "justify-between",
     },
   },
   defaultVariants: {

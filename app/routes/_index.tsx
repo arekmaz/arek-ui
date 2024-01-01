@@ -6,6 +6,7 @@ import { Buttons } from "~/demo/button.stories";
 import { Checkboxes } from "~/demo/checkbox.stories";
 import { Comboboxes } from "~/demo/combobox.stories";
 import { DatePickers } from "~/demo/datePicker.stories";
+import { Dialogs } from "~/demo/dialog.stories";
 import { IconButtons } from "~/demo/iconButton.stories";
 import { Inputs } from "~/demo/input.stories";
 import { InputGroups } from "~/demo/inputGroup.stories";
@@ -32,6 +33,7 @@ export default function Index() {
         <InputGroups />
         <Accordions />
         <Alerts />
+        <Dialogs />
       </VStack>
     </Center>
   );
