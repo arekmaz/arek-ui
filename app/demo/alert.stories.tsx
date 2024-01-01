@@ -1,6 +1,6 @@
 import { Terminal } from "lucide-react";
 import { Alert } from "~/components/ui/alert";
-import { VStack } from "~/components/ui/stack";
+import { Story } from "./storyHelpers";
 
 const Basic = () => {
   return (
@@ -28,10 +28,9 @@ const Error = () => {
 
 export const Alerts = () => {
   return (
-    <VStack spacing={3} className="border border-black rounded-md p-5">
-      <p>Alerts:</p>
+    <Story title="alerts">
       <Basic />
       <Error />
-    </VStack>
+    </Story>
   );
 };

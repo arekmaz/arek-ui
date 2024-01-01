@@ -12,13 +12,12 @@ import {
 } from "lucide-react";
 import { createElement } from "react";
 import { IconButton } from "~/components/ui/icon-button";
-import { VStack } from "~/components/ui/stack";
+import { Story } from "./storyHelpers";
 
 export const IconButtons = () => {
   // eslint-disable-next-line react/jsx-key
   return (
-    <VStack spacing={3} className="border border-black rounded-md p-5">
-      <p>ICON BUTTONS:</p>
+    <Story title="icon buttons">
       {[
         CoffeeIcon,
         ChevronDown,
@@ -33,6 +32,6 @@ export const IconButtons = () => {
       ].map((icon, index) => (
         <IconButton key={index}>{createElement(icon)}</IconButton>
       ))}
-    </VStack>
+    </Story>
   );
 };

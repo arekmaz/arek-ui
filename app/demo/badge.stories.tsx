@@ -1,14 +1,13 @@
 import { Badge } from "~/components/ui/badge";
-import { VStack } from "~/components/ui/stack";
+import { Story } from "./storyHelpers";
 
 export const Badges = () => {
   return (
-    <VStack spacing={3} className="border border-black rounded-md p-5">
-      <p>BADGES:</p>
+    <Story title="badges">
       <Badge variant="default">Default</Badge>
       <Badge variant="secondary">Secondary</Badge>
       <Badge variant="outline">Outline</Badge>
       <Badge variant="destructive">Destructive</Badge>
-    </VStack>
+    </Story>
   );
 };

@@ -1,12 +1,12 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import { Mail } from "lucide-react";
 import { InputGroup } from "~/components/ui/input-group";
 import { VStack } from "~/components/ui/stack";
+import { Story } from "./storyHelpers";
 
 export const InputGroups = () => {
   return (
-    <VStack spacing={3} className="border border-black rounded-md p-5">
-      <p>Input Group:</p>
-
+    <Story title="input groups">
       <label>
         Normal
         <InputGroup>
@@ -56,6 +56,6 @@ export const InputGroups = () => {
           </InputGroup.RightAddon>
         </InputGroup>
       </label>
-    </VStack>
+    </Story>
   );
 };

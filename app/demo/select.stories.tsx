@@ -1,10 +1,12 @@
-import { Portal, Select as S } from "@ark-ui/react";
+import { Portal } from "@ark-ui/react";
+import { ChevronsUpDownIcon } from "lucide-react";
 import { matchSorter } from "match-sorter";
 import { useState } from "react";
 import {
   AutoFocusingFilterInput,
   Content,
   Control,
+  Indicator,
   Item,
   ItemGroup,
   ItemGroupLabel,
@@ -16,10 +18,8 @@ import {
   Trigger,
   ValueText,
   data,
-  Indicator,
 } from "~/components/ui/select";
-import { ChevronsUpDownIcon } from "lucide-react";
-import { VStack } from "~/components/ui/stack";
+import { Story } from "./storyHelpers";
 
 export const MultipleSelect = () => {
   const [items, setItems] = useState(data);
@@ -152,11 +152,10 @@ export const DisabledSelect = () => {
 
 export const Selects = () => {
   return (
-    <VStack spacing={3} className="border border-black rounded-md p-5">
-      <p>SELECTS:</p>
+    <Story title="selects">
       <SingleSelect />
       <MultipleSelect />
       <DisabledSelect />
-    </VStack>
+    </Story>
   );
 };

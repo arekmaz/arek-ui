@@ -3,7 +3,8 @@ import { XIcon } from "lucide-react";
 import { Button } from "~/components/ui/button";
 import { Dialog } from "~/components/ui/dialog";
 import { IconButton } from "~/components/ui/icon-button";
-import { HStack, Stack, VStack } from "~/components/ui/stack";
+import { HStack, Stack } from "~/components/ui/stack";
+import { Story } from "./storyHelpers";
 
 export const Normal = () => {
   return (
@@ -45,9 +46,8 @@ export const Normal = () => {
 
 export const Dialogs = () => {
   return (
-    <VStack spacing={3} className="border border-black rounded-md p-5">
-      <p>Dialogs:</p>
+    <Story title="dialogs">
       <Normal />
-    </VStack>
+    </Story>
   );
 };

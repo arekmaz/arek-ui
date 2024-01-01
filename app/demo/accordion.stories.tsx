@@ -1,6 +1,7 @@
 import { ChevronDownIcon } from "lucide-react";
 import { Accordion } from "~/components/ui/accordion";
 import { Stack, VStack } from "~/components/ui/stack";
+import { Story } from "./storyHelpers";
 
 const Single = () => {
   return (
@@ -79,11 +80,10 @@ const Disabled = () => {
 
 export const Accordions = () => {
   return (
-    <VStack spacing={3} className="border border-black rounded-md p-5">
-      <p>Accordions:</p>
+    <Story title="accordions">
       <Single />
       <Collapsible />
       <Disabled />
-    </VStack>
+    </Story>
   );
 };

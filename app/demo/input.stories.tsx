@@ -1,11 +1,10 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import { Input } from "~/components/ui/input";
-import { VStack } from "~/components/ui/stack";
+import { Story } from "./storyHelpers";
 
 export const Inputs = () => {
   return (
-    <VStack spacing={3} className="border border-black rounded-md p-5">
-      <p>Inputs:</p>
-
+    <Story title="inputs">
       <label>
         Input
         <Input />
@@ -30,6 +29,6 @@ export const Inputs = () => {
         Error placeholder
         <Input placeholder="placeholder" status="error" />
       </label>
-    </VStack>
+    </Story>
   );
 };

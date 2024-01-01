@@ -3,7 +3,7 @@ import { ChevronsUpDownIcon } from "lucide-react";
 import { matchSorter } from "match-sorter";
 import { useState } from "react";
 import { Combobox as C } from "~/components/ui/combobox";
-import { VStack } from "~/components/ui/stack";
+import { Story } from "./storyHelpers";
 
 const data = [
   { label: "React", value: "react" },
@@ -170,12 +170,11 @@ export const DisabledCombobox = () => {
 
 export const Comboboxes = () => {
   return (
-    <VStack spacing={3} className="border border-black rounded-md p-5">
-      <p>COMBOBOXES:</p>
+    <Story title="combobox">
       <SingleCombobox />
       <OpenOnClickCombobox />
       <MultipleCombobox />
       <DisabledCombobox />
-    </VStack>
+    </Story>
   );
 };

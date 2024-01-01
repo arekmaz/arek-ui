@@ -1,5 +1,5 @@
 import { Checkbox as C } from "~/components/ui/checkbox";
-import { VStack } from "~/components/ui/stack";
+import { Story } from "./storyHelpers";
 
 export const Checkbox = () => {
   return (
@@ -36,11 +36,10 @@ export const DisabledCheckbox = () => {
 
 export const Checkboxes = () => {
   return (
-    <VStack spacing={3} className="border border-black rounded-md p-5">
-      <p>CHECKBOXES:</p>
+    <Story title="checkbox">
       <Checkbox />
       <IndeterminateCheckbox />
       <DisabledCheckbox />
-    </VStack>
+    </Story>
   );
 };

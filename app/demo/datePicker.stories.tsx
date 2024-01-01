@@ -1,11 +1,11 @@
 import { Portal } from "@ark-ui/react";
-import { DatePicker as D } from "../components/ui/date-picker";
 import { CalendarIcon, ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 import { Button } from "~/components/ui/button";
 import { IconButton } from "~/components/ui/icon-button";
+import { DatePicker as D } from "../components/ui/date-picker";
 
 import { Input } from "~/components/ui/input";
-import { VStack } from "~/components/ui/stack";
+import { Story } from "./storyHelpers";
 
 export const BasicDatePicker = () => {
   return (
@@ -279,11 +279,9 @@ export const ParkDatePicker = (props: {}) => {
 
 export const DatePickers = () => {
   return (
-    <VStack spacing={3} className="border border-black rounded-md p-5">
-      <p>DATE PICKERS:</p>
-
+    <Story title="date pickers">
       <BasicDatePicker />
       <ParkDatePicker />
-    </VStack>
+    </Story>
   );
 };
