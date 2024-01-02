@@ -23,6 +23,7 @@ const menuStyles = tv({
     root: [],
     itemGroupLabel: ["font-semibold", "text-sm"],
     content: [
+      "border",
       "bg-background",
       "rounded-md",
       "shadow-lg",
