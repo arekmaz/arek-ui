@@ -114,7 +114,7 @@ const Root = pipe(
   (c) =>
     withSplitPropsProvider(c, FormControlProvider as any, [
       "isInvalid",
-      "idDisabled",
+      "isDisabled",
     ])
 );
 

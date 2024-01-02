@@ -28,7 +28,7 @@ const datePickerStyles = tv({
       "data-[today]:border data-[today]:border-primary",
       "hover:bg-foreground hover:text-background",
       "data-[selected]:bg-foreground data-[selected]:text-background",
-      "data-[disabled]:text-muted-foreground hover:data-[disabled]:bg-transparent",
+      "_disabled:text-muted-foreground hover:_disabled:bg-transparent",
     ],
     clearTrigger: "",
     input: "",

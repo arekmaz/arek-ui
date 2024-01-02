@@ -14,7 +14,7 @@ const itemStyle = id([
   "ease-default",
   "duration-150",
   "hover:bg-muted",
-  "data-[state=highlighted]:bg-muted",
+  "_highlighted:bg-muted",
   "[&_:where(svg)]:text-muted-foreground",
 ]);
 

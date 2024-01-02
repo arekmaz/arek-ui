@@ -7,12 +7,13 @@ const checkbox = tv({
   slots: {
     root: [
       "flex items-center gap-2 cursor-pointer group/checkbox text-foreground",
-      "data-[disabled]:text-muted-foreground data-[disabled]:cursor-not-allowed",
+      "_disabled:text-muted-foreground",
+      "_disabled:cursor-not-allowed",
     ],
     label: "margin-start-2",
     control: [
       "border border-foreground",
-      "data-[disabled]:border-muted-foreground",
+      "_disabled:border-muted-foreground",
       "rounded-sm size-5 relative outline-none data-[focus]:ring-1 ring-foreground shrink-0",
     ],
     controlCheckedIcon:

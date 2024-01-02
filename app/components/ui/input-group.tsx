@@ -26,7 +26,7 @@ const inputGroup = tv({
       "bg-transparent",
       "file:font-medium",
       "placeholder-muted-foreground",
-      "disabled:cursor-not-allowed",
+      "_disabled:cursor-not-allowed",
     ],
   },
   variants: {

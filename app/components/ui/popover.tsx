@@ -18,8 +18,8 @@ const styles = tv({
       "max-w-sm",
       "p-4",
       // TODO: align animation
-      "data-[state=closed]:opacity-0",
-      "data-[state=open]:opacity-1",
+      "_closed:opacity-0",
+      "_open:opacity-1",
       "_hidden:hidden",
       "transition-opacity",
       "duration-500",

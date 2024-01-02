@@ -1,6 +1,6 @@
 import { Avatar } from "~/components/ui/avatar";
+import { VStack } from "~/components/ui/stack";
 import { Story } from "./storyHelpers";
-import { Stack, VStack } from "~/components/ui/stack";
 
 export const Avatars = () => {
   return (

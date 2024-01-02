@@ -49,20 +49,20 @@ const combobox = tv({
       "flex-col",
       "z-dropdown",
       // TODO: align animation
-      "data-[state=closed]:opacity-0",
-      "data-[state=open]:opacity-1",
+      "_closed:opacity-0",
+      "_open:opacity-1",
       "transition-opacity",
       "duration-500",
       "ease-out",
       "ring-1",
       "ring-border",
-      "data-[state=closed]:h-0",
-      "data-[state=closed]:overflow-hidden",
+      "_closed:h-0",
+      "_closed:overflow-hidden",
       "outline-muted",
     ],
     itemGroup: "",
     itemGroupLabel: "px-2 py-1.5 text-sm font-semibold",
-    item: "items-center rounded-md cursor-pointer flex justify-between transition-all duration-75 hover:bg-muted data-[highlighted]:bg-accent data-[disabled]:text-muted-foreground data-[disabled]:cursor-not-allowed data-[disabled]:hover:bg-transparent",
+    item: "items-center rounded-md cursor-pointer flex justify-between transition-all duration-75 hover:bg-muted data-[highlighted]:bg-accent _disabled:text-muted-foreground _disabled:cursor-not-allowed _disabled:hover:bg-transparent",
     itemText: "",
     itemIndicator: "",
   },
@@ -118,7 +118,6 @@ export const AutoFocusingFilterInput = (
 };
 
 export const Select = Object.assign(Root, {
-  Root,
   Label,
   Control,
   Trigger,

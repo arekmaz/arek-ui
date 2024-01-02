@@ -14,7 +14,7 @@ export const MultipleSelect = () => {
   };
 
   return (
-    <S.Root items={items} multiple>
+    <S items={items} multiple>
       <S.Label>Multiple select</S.Label>
       <S.Control>
         <S.Trigger>
@@ -46,7 +46,7 @@ export const MultipleSelect = () => {
           </S.Content>
         </S.Positioner>
       </Portal>
-    </S.Root>
+    </S>
   );
 };
 
@@ -59,7 +59,7 @@ export const SingleSelect = () => {
   };
 
   return (
-    <S.Root items={items}>
+    <S items={items}>
       <S.Label>Single select</S.Label>
       <S.Control>
         <S.Trigger>
@@ -91,7 +91,7 @@ export const SingleSelect = () => {
           </S.Content>
         </S.Positioner>
       </Portal>
-    </S.Root>
+    </S>
   );
 };
 
@@ -104,7 +104,7 @@ export const DisabledSelect = () => {
   };
 
   return (
-    <S.Root items={items} disabled>
+    <S items={items} disabled>
       <S.Label>Disabled select</S.Label>
       <S.Control>
         <S.Trigger>
@@ -136,7 +136,7 @@ export const DisabledSelect = () => {
           </S.Content>
         </S.Positioner>
       </Portal>
-    </S.Root>
+    </S>
   );
 };
 

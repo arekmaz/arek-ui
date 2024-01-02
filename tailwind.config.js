@@ -97,6 +97,13 @@ module.exports = {
     require("@savvywombat/tailwindcss-grid-areas"),
     plugin(({ addVariant }) => {
       addVariant("_hidden", "&[hidden]");
+      addVariant("_disabled", ["&:disabled", "&[data-disabled]"]);
+
+      const states = ["closed", "open", "checked", "highlighted"];
+
+      states.forEach((state) =>
+        addVariant(`_${state}`, `&[data-state=${state}]`)
+      );
     }),
   ],
 };

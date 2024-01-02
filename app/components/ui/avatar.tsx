@@ -12,7 +12,7 @@ const avatarStyles = tv({
       "bg-muted-foreground",
       "font-semibold",
       "h-[inherit]",
-      "data-[state=hidden]:hidden",
+      "_hidden:hidden",
     ],
     image: ["object-cover"],
   },
