@@ -22,7 +22,10 @@ import { Menus } from "~/demo/menu.stories";
 import { Paginations } from "~/demo/pagination.stories";
 import { Popovers } from "~/demo/popover.stories";
 import { RadioGroups } from "~/demo/radioGroup.stories";
+import { ScrollAreas } from "~/demo/scroll-area.stories";
 import { Selects } from "~/demo/select.stories";
+import { Separators } from "~/demo/separator.stories";
+import { Skeletons } from "~/demo/skeleton.stories";
 import { TagsInputs } from "~/demo/tagsInput.stories";
 
 export const meta: MetaFunction = () => {
@@ -35,7 +38,7 @@ export const meta: MetaFunction = () => {
 export default function Index() {
   return (
     <Center className="w-screen flex-1">
-      <VStack spacing={5} className="md:flex-row flex-wrap">
+      <VStack spacing={5} className="md:flex-row flex-wrap pb-20">
         <Buttons />
         <Checkboxes />
         <Comboboxes />
@@ -60,6 +63,9 @@ export default function Index() {
         <Paginations />
         <Popovers />
         <RadioGroups />
+        <ScrollAreas />
+        <Separators />
+        <Skeletons />
       </VStack>
     </Center>
   );
