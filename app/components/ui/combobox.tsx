@@ -32,7 +32,7 @@ const combobox = tv({
       "shadow-lg",
       "flex",
       "flex-col",
-      "z-[1000]",
+      "z-dropdown",
       "data-[state=closed]:opacity-0",
       "data-[state=open]:opacity-1",
       "transition-opacity",

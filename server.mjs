@@ -1,8 +1,15 @@
 import { createRequestHandler } from "@remix-run/express";
 import { installGlobals } from "@remix-run/node";
 import express from "express";
+import expressStaticGzip from "express-static-gzip";
+import { fileURLToPath } from "node:url";
+import path from "node:path";
 
 installGlobals();
+
+const __filename = fileURLToPath(import.meta.url);
+
+const __dirname = path.dirname(__filename);
 
 const viteDevServer =
   process.env.NODE_ENV === "production"
@@ -21,10 +28,23 @@ if (viteDevServer) {
 } else {
   app.use(
     "/assets",
-    express.static("build/client/assets", { immutable: true, maxAge: "1y" })
+    expressStaticGzip(path.join(__dirname, "build/client/assets"), {
+      immutable: true,
+      maxAge: "1y",
+      enableBrotli: true,
+      index: false,
+      serveStatic: { fallthrough: true },
+    })
   );
 }
-app.use(express.static("build/client", { maxAge: "1h" }));
+app.use(
+  expressStaticGzip(path.join(__dirname, "build/client"), {
+    maxAge: "1h",
+    enableBrotli: true,
+    index: false,
+    serveStatic: { fallthrough: true },
+  })
+);
 
 // handle SSR requests
 app.all(

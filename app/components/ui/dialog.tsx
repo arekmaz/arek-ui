@@ -13,7 +13,7 @@ const dialogStyles = tv({
       "fixed",
       "top-0",
       "w-screen",
-      "z-[1300]",
+      "z-overlay",
       // TODO: animation
     ],
     positioner: [
@@ -26,7 +26,7 @@ const dialogStyles = tv({
       "overflow-auto",
       "w-screen",
       "h-[100dvh]",
-      "z-[1400]",
+      "z-modal",
     ],
     content: [
       "bg-popover",

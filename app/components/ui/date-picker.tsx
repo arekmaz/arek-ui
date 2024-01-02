@@ -14,7 +14,7 @@ const datePickerStyles = tv({
       "gap-3",
       "p-4",
       "w-[344px]",
-      "z-[1000]",
+      "z-dropdown",
     ],
     control: ["flex", "gap-2"],
     label: ["text-foreground", "font-medium", "text-sm"],

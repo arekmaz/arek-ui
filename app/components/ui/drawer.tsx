@@ -14,7 +14,7 @@ const drawerStyles = tv({
       "fixed",
       "top-0",
       "w-screen",
-      "z-[1300]",
+      "z-overlay",
       // TODO: animation
     ],
     positioner: [
@@ -26,7 +26,7 @@ const drawerStyles = tv({
       "top-0",
       "w-screen",
       "sm:w-96",
-      "z-[1400]",
+      "z-modal",
     ],
     content: [
       "bg-background",
@@ -37,7 +37,7 @@ const drawerStyles = tv({
       "grid-rows-[auto_1fr_auto]",
       "grid-areas-drawerContent",
       "size-full",
-      "data-[state=closed]:hidden",
+      "_hidden:hidden",
     ],
     header: [
       "flex",
