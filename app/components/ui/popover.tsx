@@ -22,7 +22,7 @@ const styles = tv({
       "_open:opacity-1",
       "_hidden:hidden",
       "transition-opacity",
-      "duration-500",
+      "duration-slowest",
       "ease-out",
     ],
     title: ["font-medium", "text-sm"],

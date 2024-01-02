@@ -12,7 +12,7 @@ const itemStyle = id([
   "text-sm",
   "transition-[background,color]",
   "ease-default",
-  "duration-150",
+  "duration-fast",
   "hover:bg-muted",
   "_highlighted:bg-muted",
   "[&_:where(svg)]:text-muted-foreground",

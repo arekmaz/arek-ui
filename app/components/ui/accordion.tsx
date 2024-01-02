@@ -22,11 +22,11 @@ const accordionStyles = tv({
       "_disabled:cursor-not-allowed",
       "_disabled:hover:no-underline",
     ],
-    itemIndicator: ["h-4 w-4 shrink-0 transition-transform duration-200"],
+    itemIndicator: ["h-4 w-4 shrink-0 transition-transform duration-normal"],
     itemContent: [
       "transition-all",
       "grid",
-      "duration-200",
+      "duration-normal",
       "ease-default",
       "grid-rows-[0fr]",
       "_open:grid-rows-[1fr]",

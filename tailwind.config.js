@@ -91,18 +91,47 @@ module.exports = {
         tooltip: 1800,
       },
     },
+    transitionDuration: {
+      fastest: "50ms",
+      faster: "100ms",
+      fast: "150ms",
+      normal: "200ms",
+      slow: "300ms",
+      slower: "400ms",
+      slowest: "500ms",
+    },
   },
   plugins: [
     require("tailwindcss-animate"),
     require("@savvywombat/tailwindcss-grid-areas"),
     plugin(({ addVariant }) => {
-      addVariant("_hidden", "&[hidden]");
-      addVariant("_disabled", ["&:disabled", "&[data-disabled]"]);
+      const all = ["checked", "focus"];
 
-      const states = ["closed", "open", "checked", "highlighted"];
+      all.forEach((a) =>
+        addVariant(`_${a}`, [
+          `&:[${a}]`,
+          `&[${a}]`,
+          `&[data-${a}]`,
+          `&[data-state=${a}]`,
+        ])
+      );
+
+      const attrs = ["hidden", "disabled"];
+
+      attrs.forEach((attr) =>
+        addVariant(`_${attr}`, [`&[${attr}]`, `&[data-${attr}]`])
+      );
+
+      const states = ["closed", "open", "highlighted"];
 
       states.forEach((state) =>
         addVariant(`_${state}`, `&[data-state=${state}]`)
+      );
+
+      const orientations = ["vertical", "horizontal"];
+
+      orientations.forEach((orientation) =>
+        addVariant(`_${orientation}`, `&[data-orientation=${orientation}]`)
       );
     }),
   ],

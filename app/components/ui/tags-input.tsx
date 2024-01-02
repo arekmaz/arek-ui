@@ -11,7 +11,7 @@ const tagsInputStyles = tv({
       "rounded-md",
       "flex-wrap",
       "outline-0",
-      "duration-200",
+      "duration-normal",
       "transition-[border-color,box-shadow]",
       "ease-default",
       "focus-within:outline-none",
