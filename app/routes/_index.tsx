@@ -19,6 +19,7 @@ import { IconButtons } from "~/demo/iconButton.stories";
 import { Inputs } from "~/demo/input.stories";
 import { InputGroups } from "~/demo/inputGroup.stories";
 import { Menus } from "~/demo/menu.stories";
+import { Paginations } from "~/demo/pagination.stories";
 import { Selects } from "~/demo/select.stories";
 import { TagsInputs } from "~/demo/tagsInput.stories";
 
@@ -54,6 +55,7 @@ export default function Index() {
         <HoverCards />
         <Drawers />
         <Menus />
+        <Paginations />
       </VStack>
     </Center>
   );
