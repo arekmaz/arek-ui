@@ -70,6 +70,9 @@ devDependencies:
   '@remix-run/dev':
     specifier: ^2.4.1
     version: 2.4.1(typescript@5.3.3)(vite@5.0.10)
+  '@savvywombat/tailwindcss-grid-areas':
+    specifier: ^3.1.0
+    version: 3.1.0(tailwindcss@3.4.0)
   '@types/express':
     specifier: ^4.17.20
     version: 4.17.21
@@ -2222,6 +2225,16 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /@savvywombat/tailwindcss-grid-areas@3.1.0(tailwindcss@3.4.0):
+    resolution: {integrity: sha512-CaNoCS7Zr3OeDDhCSXXU7dnqYjehdjNmDy6NdFxkLAyDcxA8YTI3rjPm6X+bTWyYINHXr+RONG3UKWrSv2UYSw==}
+    engines: {node: '>=14.18.2'}
+    peerDependencies:
+      tailwindcss: ^3.0.1
+    dependencies:
+      lodash: 4.17.21
+      tailwindcss: 3.4.0
+    dev: true
 
   /@swc/helpers@0.5.3:
     resolution: {integrity: sha512-FaruWX6KdudYloq1AHD/4nU+UsMTdNE8CKyrseXWEcgjDAbvkwJg2QGPAnfIJLIWsjZOSPLOAykK6fuYp4vp4A==}

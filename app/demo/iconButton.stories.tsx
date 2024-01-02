@@ -1,14 +1,19 @@
 import {
-  AArrowDown,
   AArrowDownIcon,
-  AArrowUp,
   AArrowUpIcon,
-  ALargeSmall,
   ALargeSmallIcon,
-  ChevronDown,
-  ChevronDownCircle,
+  ChevronDownIcon,
+  ChevronDownCircleIcon,
   CoffeeIcon,
-  Mail,
+  MailIcon,
+  ActivitySquareIcon,
+  ActivityIcon,
+  AirplayIcon,
+  AirVentIcon,
+  AlarmClockCheckIcon,
+  AlarmSmokeIcon,
+  AlertCircleIcon,
+  ArchiveXIcon,
 } from "lucide-react";
 import { createElement } from "react";
 import { IconButton } from "~/components/ui/icon-button";
@@ -20,15 +25,20 @@ export const IconButtons = () => {
     <Story title="icon buttons">
       {[
         CoffeeIcon,
-        ChevronDown,
-        ChevronDownCircle,
-        Mail,
-        AArrowDown,
+        ChevronDownIcon,
+        ChevronDownCircleIcon,
+        MailIcon,
         AArrowDownIcon,
-        AArrowUp,
         AArrowUpIcon,
-        ALargeSmall,
         ALargeSmallIcon,
+        ActivitySquareIcon,
+        ActivityIcon,
+        AirplayIcon,
+        AirVentIcon,
+        AlarmClockCheckIcon,
+        AlarmSmokeIcon,
+        AlertCircleIcon,
+        ArchiveXIcon,
       ].map((icon, index) => (
         <IconButton key={index}>{createElement(icon)}</IconButton>
       ))}

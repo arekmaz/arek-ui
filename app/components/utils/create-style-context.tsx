@@ -61,7 +61,7 @@ export const createStyleContext = <R extends StyleRecipe>(recipe: R) => {
 
   const withProvider = <T extends ElementType>(
     Component: T,
-    slot?: StyleSlot<R>,
+    slot: StyleSlot<R>,
     defaultProps?: Partial<ComponentProps<T>>
   ): ComponentVariants<T, R, { classes?: Classes<R> }> => {
     const StyledComponent = forwardRef(
@@ -102,7 +102,7 @@ export const createStyleContext = <R extends StyleRecipe>(recipe: R) => {
 
   const withContext = <T extends ElementType>(
     Component: T,
-    slot?: StyleSlot<R>,
+    slot: StyleSlot<R>,
     defaultProps?: Partial<ComponentProps<T>>
   ): T => {
     if (!slot) return Component;

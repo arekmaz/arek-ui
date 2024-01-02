@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
 import { VStack } from "~/components/ui/stack";
 
 export const Story = ({
@@ -9,9 +10,13 @@ export const Story = ({
   children: ReactNode;
 }) => {
   return (
-    <VStack spacing={3} className="border rounded-md p-5">
-      <p>{title.toUpperCase()}:</p>
-      {children}
-    </VStack>
+    <Card>
+      <CardHeader>
+        <CardTitle className="capitalize">{title.toLowerCase()}:</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <VStack spacing={3}>{children}</VStack>
+      </CardContent>
+    </Card>
   );
 };

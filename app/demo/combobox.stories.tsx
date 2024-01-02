@@ -176,7 +176,7 @@ export const DisabledCombobox = () => {
 
 export const Comboboxes = () => {
   return (
-    <Story title="combobox">
+    <Story title="comboboxes">
       <SingleCombobox />
       <OpenOnClickCombobox />
       <MultipleCombobox />

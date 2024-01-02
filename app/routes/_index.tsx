@@ -13,6 +13,7 @@ import { Comboboxes } from "~/demo/combobox.stories";
 import { ContextMenus } from "~/demo/contextMenu.stories";
 import { DatePickers } from "~/demo/datePicker.stories";
 import { Dialogs } from "~/demo/dialog.stories";
+import { Drawers } from "~/demo/drawer.stories";
 import { HoverCards } from "~/demo/hoverCard.stories";
 import { IconButtons } from "~/demo/iconButton.stories";
 import { Inputs } from "~/demo/input.stories";
@@ -50,6 +51,7 @@ export default function Index() {
         <TagsInputs />
         <ContextMenus />
         <HoverCards />
+        <Drawers />
       </VStack>
     </Center>
   );
