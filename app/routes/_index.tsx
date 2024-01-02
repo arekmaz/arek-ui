@@ -20,6 +20,7 @@ import { Inputs } from "~/demo/input.stories";
 import { InputGroups } from "~/demo/inputGroup.stories";
 import { Menus } from "~/demo/menu.stories";
 import { Paginations } from "~/demo/pagination.stories";
+import { Popovers } from "~/demo/popover.stories";
 import { Selects } from "~/demo/select.stories";
 import { TagsInputs } from "~/demo/tagsInput.stories";
 
@@ -56,6 +57,7 @@ export default function Index() {
         <Drawers />
         <Menus />
         <Paginations />
+        <Popovers />
       </VStack>
     </Center>
   );
