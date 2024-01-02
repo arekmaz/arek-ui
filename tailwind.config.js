@@ -106,7 +106,6 @@ module.exports = {
     require("@savvywombat/tailwindcss-grid-areas"),
     plugin(({ addVariant }) => {
       const all = ["checked", "focus"];
-
       all.forEach((a) =>
         addVariant(`_${a}`, [
           `&:[${a}]`,
@@ -115,21 +114,15 @@ module.exports = {
           `&[data-state=${a}]`,
         ])
       );
-
       const attrs = ["hidden", "disabled"];
-
       attrs.forEach((attr) =>
         addVariant(`_${attr}`, [`&[${attr}]`, `&[data-${attr}]`])
       );
-
       const states = ["closed", "open", "highlighted"];
-
       states.forEach((state) =>
         addVariant(`_${state}`, `&[data-state=${state}]`)
       );
-
       const orientations = ["vertical", "horizontal"];
-
       orientations.forEach((orientation) =>
         addVariant(`_${orientation}`, `&[data-orientation=${orientation}]`)
       );

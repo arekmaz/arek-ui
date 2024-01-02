@@ -31,9 +31,8 @@ const styles = tv({
       "_disabled:hover:bg-[initial]",
       "_disabled:hover:text-muted-foreground",
 
-      "_focus:ring-1",
-      "_focus:rounded-lg",
-      "_focus:ring-foreground",
+      "_focus:ring-2",
+      "_focus:ring-muted-foreground",
       "_focus:ring-offset-2",
     ],
     item: [
