@@ -17,7 +17,11 @@ const hoverCardStyles = tv({
       "relative",
       // TODO: animation
     ],
-    arrow: [],
+    arrow: [
+      "[--arrow-background:hsl(var(--background))]",
+      "[--arrow-size:12px]",
+      "z-auto",
+    ],
     arrowTip: ["border-t-[1px]", "border-l-[1px]"],
   },
 });

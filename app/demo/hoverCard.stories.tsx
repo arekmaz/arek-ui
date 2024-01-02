@@ -22,7 +22,7 @@ const Basic = () => (
 );
 
 export const Demo = () => (
-  <HoverCard>
+  <HoverCard open>
     <HoverCard.Trigger asChild>
       <a
         href="https://twitter.com/grizzly_codes/"
