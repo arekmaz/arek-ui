@@ -14,7 +14,7 @@ const stackVariants = tv({
       column: "flex-col",
       columnReverse: "flex-col-reverse",
     },
-    spacing: ["gap-0", "gap-1", "gap-2", "gap-3"],
+    spacing: ["gap-0", "gap-1", "gap-2", "gap-3", "gap-4", "gap-5", "gap-6"],
     align: {
       start: "items-start",
       stretch: "items-stretch",

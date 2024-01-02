@@ -18,6 +18,7 @@ import { HoverCards } from "~/demo/hoverCard.stories";
 import { IconButtons } from "~/demo/iconButton.stories";
 import { Inputs } from "~/demo/input.stories";
 import { InputGroups } from "~/demo/inputGroup.stories";
+import { Menus } from "~/demo/menu.stories";
 import { Selects } from "~/demo/select.stories";
 import { TagsInputs } from "~/demo/tagsInput.stories";
 
@@ -52,6 +53,7 @@ export default function Index() {
         <ContextMenus />
         <HoverCards />
         <Drawers />
+        <Menus />
       </VStack>
     </Center>
   );
