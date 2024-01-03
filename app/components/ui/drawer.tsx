@@ -71,14 +71,14 @@ const drawerStyles = tv({
         ],
       },
       top: {
-        positioner: ["top-0", "sm:h-1/2"],
+        positioner: ["top-0", "left-0", "right-0", "sm:h-1/2"],
         content: [
           "_open:animate-drawer-in-top",
           "_closed:animate-drawer-out-top",
         ],
       },
       bottom: {
-        positioner: ["bottom-0", "sm:h-1/2"],
+        positioner: ["bottom-0", "left-0", "right-0", "sm:h-1/2"],
         content: [
           "_open:animate-drawer-in-bottom",
           "_closed:animate-drawer-out-bottom",
