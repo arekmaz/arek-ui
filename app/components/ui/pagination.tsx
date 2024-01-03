@@ -5,9 +5,7 @@ import { tv } from "tailwind-variants";
 const paginationStyles = tv({
   slots: {
     root: ["flex", "justify-between", "gap-4"],
-    item: [
-      //TODO: investigate
-    ],
+    item: ["tabular-nums"],
     ellipsis: [
       "inline-flex",
       "items-center",
