@@ -58,6 +58,8 @@ module.exports = {
       // },
       transitionTimingFunction: {
         default: "cubic-bezier(0.2, 0.0, 0, 1.0)",
+        "emphasized-in": "cubic-bezier(0.05, 0.7, 0.1, 1.0)",
+        "emphasized-out": "cubic-bezier(0.3, 0.0, 0.8, 0.15)",
       },
       keyframes: {
         "accordion-down": {
@@ -76,13 +78,41 @@ module.exports = {
           from: { opacity: "1" },
           to: { opacity: "0" },
         },
+        "slide-in-left": {
+          "0%": { transform: "translateX(-100%)" },
+          "100%": { transform: "translateX(0%)" },
+        },
+        "slide-out-left": {
+          "0%": { transform: "translateX(0%)" },
+          "100%": { transform: "translateX(-100%)" },
+        },
+        "slide-in-right": {
+          "0%": { transform: "translateX(100%)" },
+          "100%": { transform: "translateX(0%)" },
+        },
+        "slide-out-right": {
+          "0%": { transform: "translateX(0%)" },
+          "100%": { transform: "translateX(100%)" },
+        },
       },
-      animation: {
+      animation: ({ theme }) => ({
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "fade-in": "fade-in 0.25s ease-out",
         "fade-out": "fade-out 0.2s ease-out",
-      },
+        "drawer-in-left": `slide-in-left 400ms ${theme(
+          "transitionTimingFunction.emphasized-in"
+        )}`,
+        "drawer-out-left": `slide-out-left 200ms ${theme(
+          "transitionTimingFunction.emphasized-out"
+        )}`,
+        "drawer-in-right": `slide-in-right 400ms ${theme(
+          "transitionTimingFunction.emphasized-in"
+        )}`,
+        "drawer-out-right": `slide-out-right 200ms ${theme(
+          "transitionTimingFunction.emphasized-out"
+        )}`,
+      }),
       gridTemplateAreas: {
         drawerContent: ["header", "body", "footer"],
       },

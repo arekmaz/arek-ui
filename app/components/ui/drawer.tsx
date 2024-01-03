@@ -15,7 +15,8 @@ const drawerStyles = tv({
       "top-0",
       "w-screen",
       "z-overlay",
-      // TODO: animation
+      "_open:animate-fade-in",
+      "_closed:animate-fade-out",
     ],
     positioner: [
       "flex",
@@ -60,13 +61,15 @@ const drawerStyles = tv({
       left: {
         positioner: ["left-0"],
         content: [
-          //TODO: animation
+          "_open:animate-drawer-in-left",
+          "_closed:animate-drawer-out-left",
         ],
       },
       right: {
         positioner: ["right-0"],
         content: [
-          //TODO: animation
+          "_open:animate-drawer-in-right",
+          "_closed:animate-drawer-out-right",
         ],
       },
     },

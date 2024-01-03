@@ -46,22 +46,25 @@ export const styled = <ComponentProps extends {}, R extends StyleRecipe>(
   recipe: R,
   defaultProps?: Partial<ComponentProps & VariantProps<R>>
 ) => {
-  const Comp = forwardRef<typeof Component, ComponentProps & VariantProps<R>>(
-    (props, ref) => {
-      const [variantProps, otherProps] = splitVariantProps(recipe.variantKeys, {
-        ...defaultProps,
-        ...props,
-      });
+  const Comp = forwardRef<
+    typeof Component,
+    ComponentProps & VariantProps<R> & { unstyled?: boolean }
+  >(({ unstyled, ...props }, ref) => {
+    const [variantProps, otherProps] = splitVariantProps(recipe.variantKeys, {
+      ...defaultProps,
+      ...props,
+    });
 
-      const classNames = recipe(variantProps);
+    const classNames = recipe(variantProps);
 
-      const componentProps = mergeProps(otherProps, {
-        className: cn(classNames, (props as any).className),
-      } as any);
+    const componentProps = mergeProps(otherProps, {
+      className: unstyled
+        ? (props as any).className
+        : cn(classNames, (props as any).className),
+    } as any);
 
-      return <Component {...componentProps} ref={ref} />;
-    }
-  );
+    return <Component {...componentProps} ref={ref} />;
+  });
   // @ts-expect-error - it exists
   Comp.displayName = Component.displayName || Component.name;
   return Comp;
