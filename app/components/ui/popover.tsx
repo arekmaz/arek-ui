@@ -1,6 +1,6 @@
 import { Popover as P } from "@ark-ui/react/popover";
 import { tv } from "tailwind-variants";
-import { createStyleContext } from "../utils/create-style-context";
+import { createStyleContext } from "../utils/create-styled-context";
 
 const styles = tv({
   base: "popover",

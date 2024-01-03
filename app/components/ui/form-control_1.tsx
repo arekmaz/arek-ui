@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { tv } from "tailwind-variants";
 import { createContext } from "../utils/createContext";
-import { createStyleContext, splitProps } from "../utils/create-style-context";
+import { createStyleContext, splitProps } from "../utils/create-styled-context";
 import {
   ComponentProps,
   ComponentType,

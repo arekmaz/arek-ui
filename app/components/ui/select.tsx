@@ -1,10 +1,9 @@
 /* eslint-disable react/prop-types */
-/* eslint-disable jsx-a11y/no-autofocus */
 import { Select as S, useSelectContext } from "@ark-ui/react";
+import { ark } from "@ark-ui/react/factory";
+import { ComponentProps, useEffect, useRef } from "react";
 import { tv } from "tailwind-variants";
-import { createStyleContext } from "../utils/create-style-context";
-import { ComponentProps, useRef, useEffect } from "react";
-import { ark, HTMLArkProps } from "@ark-ui/react/factory";
+import { createStyleContext } from "../utils/create-styled-context";
 import { inputClasses } from "./input";
 
 export const data = [
@@ -14,7 +13,7 @@ export const data = [
   { label: "Svelte", value: "svelte", disabled: true },
 ];
 
-const combobox = tv({
+const selectStyles = tv({
   slots: {
     root: "flex flex-col gap-1.5 w-full bg-background text-foreground ",
     label: "text-foreground font-medium",
@@ -48,21 +47,32 @@ const combobox = tv({
       "flex",
       "flex-col",
       "z-dropdown",
-      // TODO: align animation
-      "_closed:opacity-0",
-      "_open:opacity-1",
-      "transition-opacity",
-      "duration-slowest",
-      "ease-out",
-      "ring-1",
-      "ring-border",
-      "_closed:h-0",
-      "_closed:overflow-hidden",
-      "outline-muted",
+      "_closed:animate-fade-out",
+      "_open:animate-fade-in",
+      "_hidden:hidden",
+      "border",
+      "focus-visible:outline",
+      "focus-visible:outline-offset-2",
+      "focus-visible:outline-2",
+      "focus-visible:outline-offset-2",
+      "focus-visible:outline-foreground",
     ],
     itemGroup: "",
     itemGroupLabel: "px-2 py-1.5 text-sm font-semibold",
-    item: "items-center rounded-md cursor-pointer flex justify-between transition-all duration-faster hover:bg-muted data-[highlighted]:bg-accent _disabled:text-muted-foreground _disabled:cursor-not-allowed _disabled:hover:bg-transparent",
+    item: [
+      "items-center",
+      "rounded-md",
+      "cursor-pointer",
+      "flex",
+      "justify-between",
+      "transition-all",
+      "duration-faster",
+      "hover:bg-muted",
+      "data-[highlighted]:bg-accent",
+      "_disabled:text-muted-foreground",
+      "_disabled:cursor-not-allowed",
+      "_disabled:hover:bg-transparent",
+    ],
     itemText: "",
     itemIndicator: "",
   },
@@ -82,7 +92,7 @@ const combobox = tv({
   },
 });
 
-const { withContext, withProvider } = createStyleContext(combobox);
+const { withContext, withProvider } = createStyleContext(selectStyles);
 
 const Root = withProvider(S.Root, "root");
 const Label = withContext(S.Label, "label");
@@ -104,7 +114,7 @@ export const AutoFocusingFilterInput = (
   props: ComponentProps<typeof FilterInput>
 ) => {
   const filterInputRef = useRef<HTMLInputElement>(null!);
-  const { isOpen } = useSelectContext();
+  const { isOpen, value } = useSelectContext();
 
   useEffect(() => {
     if (isOpen) {
@@ -112,7 +122,7 @@ export const AutoFocusingFilterInput = (
         filterInputRef.current?.focus();
       }, 0);
     }
-  }, [isOpen]);
+  }, [isOpen, value]);
 
   return <FilterInput tabIndex={0} {...props} ref={filterInputRef} />;
 };

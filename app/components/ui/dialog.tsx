@@ -1,5 +1,5 @@
 import { tv } from "tailwind-variants";
-import { createStyleContext } from "../utils/create-style-context";
+import { createStyleContext } from "../utils/create-styled-context";
 import { Dialog as D } from "@ark-ui/react/dialog";
 
 const dialogStyles = tv({

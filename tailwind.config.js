@@ -68,10 +68,20 @@ module.exports = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        "fade-in": {
+          from: { opacity: "0" },
+          to: { opacity: "1" },
+        },
+        "fade-out": {
+          from: { opacity: "1" },
+          to: { opacity: "0" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "fade-in": "fade-in 0.25s ease-out",
+        "fade-out": "fade-out 0.2s ease-out",
       },
       gridTemplateAreas: {
         drawerContent: ["header", "body", "footer"],
@@ -108,12 +118,13 @@ module.exports = {
       const all = ["checked", "focus"];
       all.forEach((a) =>
         addVariant(`_${a}`, [
-          `&:[${a}]`,
+          `&:${a}`,
           `&[${a}]`,
           `&[data-${a}]`,
           `&[data-state=${a}]`,
         ])
       );
+
       const attrs = ["hidden", "disabled"];
       attrs.forEach((attr) =>
         addVariant(`_${attr}`, [`&[${attr}]`, `&[data-${attr}]`])

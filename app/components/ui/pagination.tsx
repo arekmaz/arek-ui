@@ -1,5 +1,5 @@
 import { Pagination as P } from "@ark-ui/react/pagination";
-import { createStyleContext } from "../utils/create-style-context";
+import { createStyleContext } from "../utils/create-styled-context";
 import { tv } from "tailwind-variants";
 
 const paginationStyles = tv({

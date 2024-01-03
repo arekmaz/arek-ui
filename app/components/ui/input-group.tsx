@@ -1,27 +1,42 @@
 import { ark } from "@ark-ui/react/factory";
 import { tv } from "tailwind-variants";
-import { createStyleContext } from "../utils/create-style-context";
-import { Input as I, inputClasses } from "./input";
+import { createStyleContext } from "../utils/create-styled-context";
+import { inputClasses } from "./input";
 
 const inputGroup = tv({
   slots: {
     root: [
-      "relative",
       "flex",
+      "items-center",
       "gap-1",
       "px-1",
-      ...inputClasses,
-      "w-auto",
+      "px-2",
+      "h-10",
+      "rounded-md",
+      "border",
+      "border-input",
+      "bg-background",
+      "text-sm",
+      "ring-offset-background",
+      "file:border-0",
+      "file:bg-transparent",
+      "file:text-sm",
+      "file:font-medium",
+      "focus-within:outline-none",
+      "focus-within:ring-2",
+      "focus-within:ring-ring",
+      "focus-within:ring-offset-2",
+      "_disabled:cursor-not-allowed",
+      "_disabled:opacity-50",
+
       "has-[input:focus-visible]:ring-2",
       "has-[input:focus-visible]:ring-ring",
       "has-[input:focus-visible]:ring-offset-2",
-      "px-2",
     ],
-    addonRight: ["flex", "items-center"],
-    addonLeft: ["flex", "items-center"],
+    addonRight: ["flex", "items-center", "[&_svg]:text-muted-foreground"],
+    addonLeft: ["flex", "items-center", "[&_svg]:text-muted-foreground"],
     input: [
       "flex-1",
-      "h-full",
       "outline-none",
       "bg-transparent",
       "file:font-medium",
@@ -37,6 +52,7 @@ const inputGroup = tv({
           "text-destructive",
           "placeholder-destructive",
           "border-destructive",
+          "[&_svg]:text-destructive",
         ],
       },
     },

@@ -1,6 +1,6 @@
 import { Combobox as C } from "@ark-ui/react/combobox";
 import { tv } from "tailwind-variants";
-import { createStyleContext } from "../utils/create-style-context";
+import { createStyleContext } from "../utils/create-styled-context";
 import { inputClasses } from "./input";
 
 const combobox = tv({

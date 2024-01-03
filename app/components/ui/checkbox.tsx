@@ -1,7 +1,7 @@
 import { Checkbox as C } from "@ark-ui/react";
 import { ComponentProps } from "react";
 import { tv } from "tailwind-variants";
-import { createStyleContext } from "../utils/create-style-context";
+import { createStyleContext } from "../utils/create-styled-context";
 
 const checkbox = tv({
   slots: {

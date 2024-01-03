@@ -1,6 +1,6 @@
 import { Menu as M } from "@ark-ui/react/menu";
 import { tv } from "tailwind-variants";
-import { createStyleContext } from "../utils/create-style-context";
+import { createStyleContext } from "../utils/create-styled-context";
 import { id } from "../utils/id";
 
 const itemStyle = id([

@@ -1,10 +1,12 @@
 import { Center } from "~/components/ui/stack";
-import { RadioGroups } from "~/demo/radioGroup.stories";
+import { InputGroups } from "~/demo/inputGroup.stories";
+import { Selects } from "~/demo/select.stories";
 
 export default function Wip() {
   return (
     <Center className="flex-1">
-      <RadioGroups />
+      <Selects />
+      <InputGroups />
     </Center>
   );
 }

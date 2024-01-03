@@ -1,6 +1,6 @@
 import { HoverCard as HC } from "@ark-ui/react";
 import { tv } from "tailwind-variants";
-import { createStyleContext } from "../utils/create-style-context";
+import { createStyleContext } from "../utils/create-styled-context";
 
 const hoverCardStyles = tv({
   slots: {

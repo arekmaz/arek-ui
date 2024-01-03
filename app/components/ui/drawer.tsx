@@ -1,7 +1,7 @@
 import { Dialog as ArkDrawer } from "@ark-ui/react/dialog";
 import { ark } from "@ark-ui/react/factory";
 import { tv } from "tailwind-variants";
-import { createStyleContext } from "../utils/create-style-context";
+import { createStyleContext } from "../utils/create-styled-context";
 
 const drawerStyles = tv({
   slots: {

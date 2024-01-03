@@ -57,20 +57,30 @@ export const createStyleContext = <R extends StyleRecipe>(recipe: R) => {
   const StyleContext = createContext<{
     slotStyles: StyleSlotRecipe<R> | null;
     classes: Classes<R>;
+    unstyled?: boolean;
   }>({ slotStyles: null, classes: {} });
 
   const withProvider = <T extends ElementType>(
     Component: T,
     slot: StyleSlot<R>,
     defaultProps?: Partial<ComponentProps<T>>
-  ): ComponentVariants<T, R, { classes?: Classes<R> }> => {
+  ): ComponentVariants<
+    T,
+    R,
+    {
+      classes?: Classes<R>;
+      unstyled?: boolean;
+    }
+  > => {
     const StyledComponent = forwardRef(
       (
         {
           classes = {},
+          unstyled = false,
           ...props
         }: ComponentProps<T> & {
           classes?: Classes<R>;
+          unstyled?: boolean;
         },
         ref
       ) => {
@@ -85,13 +95,17 @@ export const createStyleContext = <R extends StyleRecipe>(recipe: R) => {
           Object.values(variantProps)
         );
         return (
-          <StyleContext.Provider value={{ slotStyles, classes }}>
+          <StyleContext.Provider value={{ slotStyles, classes, unstyled }}>
             <Component
               ref={ref}
               {...otherProps}
-              className={slotStyles[slot]({
-                className: cn(classes[slot], props.className),
-              })}
+              className={
+                unstyled
+                  ? props.className
+                  : slotStyles[slot]({
+                      className: cn(classes[slot], props.className),
+                    })
+              }
             />
           </StyleContext.Provider>
         );
@@ -104,23 +118,34 @@ export const createStyleContext = <R extends StyleRecipe>(recipe: R) => {
     Component: T,
     slot: StyleSlot<R>,
     defaultProps?: Partial<ComponentProps<T>>
-  ): T => {
-    if (!slot) return Component;
+  ): ElementType<ComponentProps<T> & { unstyled?: boolean }> => {
+    const StyledComponent = forwardRef(
+      (
+        {
+          unstyled: unstyledProp,
+          ...props
+        }: ComponentProps<T> & { unstyled?: boolean },
+        ref
+      ) => {
+        const { slotStyles, classes, unstyled } = useContext(
+          StyleContext
+        ) as any;
+        const el = createElement(Component, {
+          ...defaultProps,
+          ...props,
+          className:
+            unstyled || unstyledProp
+              ? props.className
+              : slotStyles?.[slot]({
+                  className: cn(classes[slot], props.className),
+                }),
+          ref,
+        });
 
-    const StyledComponent = forwardRef((props: ComponentProps<T>, ref) => {
-      const { slotStyles, classes } = useContext(StyleContext) as any;
-      const el = createElement(Component, {
-        ...defaultProps,
-        ...props,
-        className: slotStyles?.[slot]({
-          className: cn(classes[slot], props.className),
-        }),
-        ref,
-      });
-
-      return el;
-    });
-    return StyledComponent as unknown as T;
+        return el;
+      }
+    );
+    return StyledComponent as any;
   };
 
   return {

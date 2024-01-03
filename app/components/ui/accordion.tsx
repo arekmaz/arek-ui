@@ -1,5 +1,5 @@
 import { tv } from "tailwind-variants";
-import { createStyleContext } from "../utils/create-style-context";
+import { createStyleContext } from "../utils/create-styled-context";
 import { Accordion as A, ark } from "@ark-ui/react";
 
 const accordionStyles = tv({
