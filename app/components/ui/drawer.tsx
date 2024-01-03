@@ -24,9 +24,7 @@ const drawerStyles = tv({
       "h-[100dvh]",
       "justify-center",
       "fixed",
-      "top-0",
       "w-screen",
-      "sm:w-96",
       "z-modal",
     ],
     content: [
@@ -59,17 +57,31 @@ const drawerStyles = tv({
   variants: {
     variant: {
       left: {
-        positioner: ["left-0"],
+        positioner: ["top-0", "left-0", "sm:w-96"],
         content: [
           "_open:animate-drawer-in-left",
           "_closed:animate-drawer-out-left",
         ],
       },
       right: {
-        positioner: ["right-0"],
+        positioner: ["top-0", "right-0", "sm:w-96"],
         content: [
           "_open:animate-drawer-in-right",
           "_closed:animate-drawer-out-right",
+        ],
+      },
+      top: {
+        positioner: ["top-0", "sm:h-1/2"],
+        content: [
+          "_open:animate-drawer-in-top",
+          "_closed:animate-drawer-out-top",
+        ],
+      },
+      bottom: {
+        positioner: ["bottom-0", "sm:h-1/2"],
+        content: [
+          "_open:animate-drawer-in-bottom",
+          "_closed:animate-drawer-out-bottom",
         ],
       },
     },

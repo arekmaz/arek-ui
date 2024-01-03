@@ -94,6 +94,22 @@ module.exports = {
           "0%": { transform: "translateX(0%)" },
           "100%": { transform: "translateX(100%)" },
         },
+        "slide-in-bottom": {
+          "0%": { transform: "translateY(100%)" },
+          "100%": { transform: "translateY(0%)" },
+        },
+        "slide-out-bottom": {
+          "0%": { transform: "translateY(0%)" },
+          "100%": { transform: "translateY(100%)" },
+        },
+        "slide-in-top": {
+          "0%": { transform: "translateY(-100%)" },
+          "100%": { transform: "translateY(0%)" },
+        },
+        "slide-out-top": {
+          "0%": { transform: "translateY(0%)" },
+          "100%": { transform: "translateY(-100%)" },
+        },
       },
       animation: ({ theme }) => ({
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -110,6 +126,18 @@ module.exports = {
           "transitionTimingFunction.emphasized-in"
         )}`,
         "drawer-out-right": `slide-out-right 200ms ${theme(
+          "transitionTimingFunction.emphasized-out"
+        )}`,
+        "drawer-in-top": `slide-in-top 400ms ${theme(
+          "transitionTimingFunction.emphasized-in"
+        )}`,
+        "drawer-out-top": `slide-out-top 200ms ${theme(
+          "transitionTimingFunction.emphasized-out"
+        )}`,
+        "drawer-in-bottom": `slide-in-bottom 400ms ${theme(
+          "transitionTimingFunction.emphasized-in"
+        )}`,
+        "drawer-out-bottom": `slide-out-bottom 200ms ${theme(
           "transitionTimingFunction.emphasized-out"
         )}`,
       }),

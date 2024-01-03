@@ -44,6 +44,8 @@ export const Drawers = () => {
     <Story title="drawers">
       <Demo label="drawer right" />
       <Demo variant="left" label="drawer left" />
+      <Demo variant="top" label="drawer top" />
+      <Demo variant="bottom" label="drawer bottom" />
     </Story>
   );
 };

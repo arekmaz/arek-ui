@@ -10,9 +10,7 @@ import { Selects } from "~/demo/select.stories";
 export default function Wip() {
   return (
     <Center className="flex-1">
-      <Menus />
-      <HoverCards />
-      <Popovers />
+      <Drawers />
     </Center>
   );
 }
