@@ -30,8 +30,11 @@ import { TagsInputs } from "~/demo/tagsInput.stories";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "New Remix App" },
-    { name: "description", content: "Welcome to Remix!" },
+    { title: "Arek UI - Ark UI + TailwindCSS" },
+    {
+      name: "description",
+      content: "Arek UI - Ark UI + TailwindCSS Component collection",
+    },
   ];
 };
 
