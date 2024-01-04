@@ -187,7 +187,7 @@ module.exports = {
       attrs.forEach((attr) =>
         addVariant(`_${attr}`, [`&[${attr}]`, `&[data-${attr}]`])
       );
-      const states = ["closed", "open", "highlighted"];
+      const states = ["closed", "open", "highlighted", "on", "off"];
       states.forEach((state) =>
         addVariant(`_${state}`, `&[data-state=${state}]`)
       );

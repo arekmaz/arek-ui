@@ -1,11 +1,11 @@
 import { ChevronDownIcon } from "lucide-react";
 import { Accordion } from "~/components/ui/accordion";
-import { Stack, VStack } from "~/components/ui/stack";
+import { Card } from "~/components/ui/card";
 import { Story } from "./storyHelpers";
 
 const Single = () => {
   return (
-    <Stack className="border p-2">
+    <Card>
       Single
       <Accordion defaultValue={["React"]}>
         {["React", "Solid", "Vue"].map((item, id) => (
@@ -24,13 +24,13 @@ const Single = () => {
           </Accordion.Item>
         ))}
       </Accordion>
-    </Stack>
+    </Card>
   );
 };
 
 const Collapsible = () => {
   return (
-    <Stack className="border p-2">
+    <Card>
       Collapsible
       <Accordion defaultValue={["React"]} collapsible>
         {["React", "Solid", "Vue"].map((item, id) => (
@@ -49,13 +49,13 @@ const Collapsible = () => {
           </Accordion.Item>
         ))}
       </Accordion>
-    </Stack>
+    </Card>
   );
 };
 
 const Disabled = () => {
   return (
-    <Stack className="border p-2">
+    <Card>
       Disabled
       <Accordion defaultValue={["React"]} disabled>
         {(["React", "disabled", "Vue"] as const).map((item, id) => (
@@ -74,7 +74,7 @@ const Disabled = () => {
           </Accordion.Item>
         ))}
       </Accordion>
-    </Stack>
+    </Card>
   );
 };
 

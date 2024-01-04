@@ -1,22 +1,21 @@
-import { ReactNode } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
+import { Card, CardProps } from "~/components/ui/card";
 import { VStack } from "~/components/ui/stack";
 
 export const Story = ({
   title,
   children,
+  ...props
 }: {
   title: string;
-  children: ReactNode;
-}) => {
+} & CardProps) => {
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle className="capitalize">{title.toLowerCase()}:</CardTitle>
-      </CardHeader>
-      <CardContent>
+    <Card {...props}>
+      <Card.Header>
+        <Card.Title className="capitalize">{title.toLowerCase()}:</Card.Title>
+      </Card.Header>
+      <Card.Content asChild>
         <VStack spacing={3}>{children}</VStack>
-      </CardContent>
+      </Card.Content>
     </Card>
   );
 };

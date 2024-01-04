@@ -1,87 +1,39 @@
-/* eslint-disable jsx-a11y/heading-has-content */
-/* eslint-disable react/prop-types */
-import * as React from "react";
-import { cn } from "../utils/cn";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { ark } from "@ark-ui/react";
+import { tv } from "tailwind-variants";
+import { createStyleContext } from "../utils/create-styled-context";
+import { ComponentProps } from "react";
 
-const Card = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn(
-      "rounded-lg border bg-card text-card-foreground shadow-sm",
-      className
-    )}
-    {...props}
-  />
-));
-Card.displayName = "Card";
+const cardStyles = tv({
+  slots: {
+    root: ["rounded-lg border bg-card text-card-foreground shadow-sm"],
+    header: ["flex flex-col space-y-1.5 p-6"],
+    title: ["text-2xl font-semibold leading-none tracking-tight"],
+    description: ["text-sm text-muted-foreground"],
+    content: ["p-6 pt-0"],
+    footer: ["flex items-center p-6 pt-0"],
+  },
+});
 
-const CardHeader = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn("flex flex-col space-y-1.5 p-6", className)}
-    {...props}
-  />
-));
-CardHeader.displayName = "CardHeader";
+const { withProvider, withContext } = createStyleContext(cardStyles);
 
-const CardTitle = React.forwardRef<
-  HTMLParagraphElement,
-  React.HTMLAttributes<HTMLHeadingElement>
->(({ className, ...props }, ref) => (
-  <h3
-    ref={ref}
-    className={cn(
-      "text-2xl font-semibold leading-none tracking-tight",
-      className
-    )}
-    {...props}
-  />
-));
-CardTitle.displayName = "CardTitle";
+const Root = withProvider(ark.div, "root", { "data-part": "card" } as any);
+const Header = withContext(ark.div, "header", { "data-part": "header" } as any);
+const Title = withContext(ark.h3, "title", { "data-part": "title" } as any);
+const Description = withContext(ark.p, "description", {
+  "data-part": "description",
+} as any);
+const Content = withContext(ark.div, "content", {
+  "data-part": "content",
+} as any);
+const Footer = withContext(ark.div, "footer", { "data-part": "footer" } as any);
 
-const CardDescription = React.forwardRef<
-  HTMLParagraphElement,
-  React.HTMLAttributes<HTMLParagraphElement>
->(({ className, ...props }, ref) => (
-  <p
-    ref={ref}
-    className={cn("text-sm text-muted-foreground", className)}
-    {...props}
-  />
-));
-CardDescription.displayName = "CardDescription";
+export const Card = Object.assign(Root, {
+  Header,
+  Title,
+  Description,
+  Content,
+  Footer,
+});
 
-const CardContent = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn("p-6 pt-0", className)} {...props} />
-));
-CardContent.displayName = "CardContent";
-
-const CardFooter = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn("flex items-center p-6 pt-0", className)}
-    {...props}
-  />
-));
-CardFooter.displayName = "CardFooter";
-
-export {
-  Card,
-  CardHeader,
-  CardFooter,
-  CardTitle,
-  CardDescription,
-  CardContent,
-};
+export type CardProps = ComponentProps<typeof Card>;

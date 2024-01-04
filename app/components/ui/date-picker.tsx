@@ -40,7 +40,7 @@ const datePickerStyles = tv({
     tableBody: "",
     tableHead: "",
     tableRow: "",
-    trigger: "",
+    trigger: [],
     view: "",
     viewTrigger: "",
     yearSelect: "",

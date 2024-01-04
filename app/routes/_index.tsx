@@ -27,6 +27,7 @@ import { Selects } from "~/demo/select.stories";
 import { Separators } from "~/demo/separator.stories";
 import { Skeletons } from "~/demo/skeleton.stories";
 import { TagsInputs } from "~/demo/tagsInput.stories";
+import { ToggleGroups } from "~/demo/toggleGroup.stories";
 
 export const meta: MetaFunction = () => {
   return [
@@ -41,7 +42,10 @@ export const meta: MetaFunction = () => {
 export default function Index() {
   return (
     <Center className="w-screen flex-1">
-      <VStack spacing={5} className="md:flex-row flex-wrap pb-20">
+      <VStack
+        spacing={5}
+        className="md:flex-row flex-wrap pb-20 justify-center pt-5 px-5"
+      >
         <Buttons />
         <Checkboxes />
         <Comboboxes />
@@ -69,6 +73,7 @@ export default function Index() {
         <ScrollAreas />
         <Separators />
         <Skeletons />
+        <ToggleGroups />
       </VStack>
     </Center>
   );
