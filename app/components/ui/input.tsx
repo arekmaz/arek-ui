@@ -38,7 +38,7 @@ const input = tv({
       normal: [],
       error: [
         "text-destructive",
-        "placeholder-destructive",
+        "placeholder-destructive/50",
         "border-destructive",
       ],
     },

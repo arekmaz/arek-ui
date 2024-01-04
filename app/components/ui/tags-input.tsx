@@ -4,7 +4,7 @@ import { createStyleContext } from "../utils/create-styled-context";
 
 const tagsInputStyles = tv({
   slots: {
-    root: ["flex", "flex-col", "gap-1.5", "w-full"],
+    root: ["flex", "flex-col", "gap-1.5", "w-full", "group/tags-input"],
     control: [
       "flex",
       "border",
@@ -20,22 +20,23 @@ const tagsInputStyles = tv({
       "focus-within:ring-offset-2",
       "shadow-sm",
       "min-h-10",
+      "_disabled:cursor-not-allowed",
     ],
-    input: ["outline-none", "bg-transparent"],
+    input: ["outline-none", "bg-transparent", "_disabled:cursor-not-allowed"],
     item: [
       "inline-flex",
       "items-center",
       "border",
       "rounded-md",
-      "_highlighted:border-accent",
+      "_highlighted:border-foreground",
       "_highlighted:shadow-sm",
       "_hidden:hidden",
-      "data-[focus]:text-red-500",
+      "_disabled:cursor-not-allowed",
     ],
     itemInput: ["bg-transparent", "outline-none"],
     label: ["text-sm"],
     itemText: [],
-    itemDeleteTrigger: [],
+    itemDeleteTrigger: ["group-data-[disabled]/tags-input:cursor-not-allowed"],
     clearTrigger: [],
   },
   variants: {

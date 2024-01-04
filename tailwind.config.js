@@ -173,28 +173,38 @@ module.exports = {
     require("tailwindcss-animate"),
     require("@savvywombat/tailwindcss-grid-areas"),
     plugin(({ addVariant }) => {
-      const all = ["checked", "focus"];
-      all.forEach((a) =>
-        addVariant(`_${a}`, [
-          `&:${a}`,
-          `&[${a}]`,
-          `&[data-${a}]`,
-          `&[data-state=${a}]`,
-        ])
-      );
+      const attr = (a) => `&[${a}]`;
 
-      const attrs = ["hidden", "disabled"];
-      attrs.forEach((attr) =>
-        addVariant(`_${attr}`, [`&[${attr}]`, `&[data-${attr}]`])
-      );
-      const states = ["closed", "open", "highlighted", "on", "off"];
-      states.forEach((state) =>
-        addVariant(`_${state}`, `&[data-state=${state}]`)
-      );
-      const orientations = ["vertical", "horizontal"];
-      orientations.forEach((orientation) =>
-        addVariant(`_${orientation}`, `&[data-orientation=${orientation}]`)
-      );
+      const pseudoclass = (a) => `&:${a}`;
+      const dataBool = (key) => attr(`data-${key}`);
+
+      const dataVal = (val) => (key) => attr(`data-${key}=${val}`);
+
+      const dataState = (val) => dataVal(val)("state");
+      const dataOrientation = (val) => dataVal("orientation")(val);
+
+      const attrs = {
+        checked: [pseudoclass, dataBool, attr, dataState],
+        focus: [pseudoclass, dataBool, attr, dataState],
+        hidden: [attr, dataBool],
+        disabled: [attr, dataBool],
+        closed: [dataState],
+        open: [dataState],
+        on: [dataState],
+        off: [dataState],
+        highlighted: [dataBool, dataState],
+        horizontal: [dataOrientation],
+        vertical: [dataOrientation],
+      };
+
+      const buildVariantKey = (name) => `_${name}`;
+
+      Object.entries(attrs).forEach(([variantName, builders]) => {
+        addVariant(
+          buildVariantKey(variantName),
+          builders.map((builder) => builder(variantName))
+        );
+      });
     }),
   ],
 };
