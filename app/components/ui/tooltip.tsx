@@ -15,7 +15,7 @@ const styles = tv({
     arrowTip: ["border-t-[1px]", "border-l-[1px]"],
     positioner: [],
     content: [
-      "z-50",
+      "z-tooltip",
       "overflow-hidden",
       "rounded-md",
       "border",
