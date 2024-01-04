@@ -195,6 +195,7 @@ module.exports = {
         highlighted: [dataBool, dataState],
         horizontal: [dataOrientation],
         vertical: [dataOrientation],
+        selected: [dataBool],
       };
 
       const buildVariantKey = (name) => `_${name}`;

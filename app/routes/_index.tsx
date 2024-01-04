@@ -27,6 +27,7 @@ import { Selects } from "~/demo/select.stories";
 import { Separators } from "~/demo/separator.stories";
 import { Skeletons } from "~/demo/skeleton.stories";
 import { Switches } from "~/demo/switch.stories";
+import { TabsStories } from "~/demo/tabs.stories";
 import { TagsInputs } from "~/demo/tagsInput.stories";
 import { Textareas } from "~/demo/textarea.stories";
 import { ToggleGroups } from "~/demo/toggleGroup.stories";
@@ -78,6 +79,7 @@ export default function Index() {
         <ToggleGroups />
         <Switches />
         <Textareas />
+        <TabsStories />
       </VStack>
     </Center>
   );
