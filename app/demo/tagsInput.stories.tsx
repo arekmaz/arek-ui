@@ -48,7 +48,7 @@ const WithInputGroup = () => {
                 </TagsInput.ItemDeleteTrigger>
               </TagsInput.Item>
             ))}
-            <InputGroup variant="standalone">
+            <InputGroup variant="ghost">
               <InputGroup.LeftAddon>
                 <PiIcon />
               </InputGroup.LeftAddon>

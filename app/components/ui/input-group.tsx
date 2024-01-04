@@ -20,8 +20,6 @@ const inputGroup = tv({
       "focus-within:outline-none",
       "_disabled:cursor-not-allowed",
       "_disabled:opacity-50",
-      "has-[input:focus-visible]:ring-ring",
-      "has-[input:focus-visible]:ring-offset-2",
     ],
     addonRight: ["flex", "items-center", "[&_svg]:text-muted-foreground"],
     addonLeft: ["flex", "items-center", "[&_svg]:text-muted-foreground"],
@@ -47,24 +45,23 @@ const inputGroup = tv({
       },
     },
     variant: {
-      ghost: [],
-      standalone: [
-        "focus-within:ring-2",
-        "focus-within:ring-ring",
-        "focus-within:ring-offset-2",
-        "px-1",
-        "px-2",
-        "h-10",
-      ],
+      ghost: {},
+      standalone: {
+        root: [
+          "focus-within:ring-2",
+          "focus-within:ring-ring",
+          "focus-within:ring-offset-2",
+          "px-1",
+          "px-2",
+          "h-10",
+          "has-[input:focus-visible]:ring-2",
+          "has-[input:focus-visible]:ring-ring",
+          "has-[input:focus-visible]:ring-offset-2",
+          "border",
+        ],
+      },
     },
   },
-  compoundVariants: [
-    {
-      status: "error",
-      variant: "standalone",
-      className: ["border", "has-[input:focus-visible]:ring-2"],
-    },
-  ],
   defaultVariants: { status: "normal", variant: "standalone" },
 });
 
