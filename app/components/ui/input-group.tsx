@@ -37,6 +37,7 @@ const inputGroup = tv({
     input: [
       "flex-1",
       "outline-none",
+      "text-base",
       "bg-transparent",
       "file:font-medium",
       "placeholder-muted-foreground",
