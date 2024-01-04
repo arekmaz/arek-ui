@@ -6,6 +6,7 @@ const inputGroup = tv({
   slots: {
     root: [
       "flex",
+      "cursor-text",
       "items-center",
       "gap-1",
       "rounded-md",
@@ -21,8 +22,18 @@ const inputGroup = tv({
       "_disabled:cursor-not-allowed",
       "_disabled:opacity-50",
     ],
-    addonRight: ["flex", "items-center", "[&_svg]:text-muted-foreground"],
-    addonLeft: ["flex", "items-center", "[&_svg]:text-muted-foreground"],
+    addonRight: [
+      "flex",
+      "items-center",
+      "[&_svg]:text-muted-foreground",
+      "cursor-auto",
+    ],
+    addonLeft: [
+      "flex",
+      "items-center",
+      "[&_svg]:text-muted-foreground",
+      "cursor-auto",
+    ],
     input: [
       "flex-1",
       "outline-none",
