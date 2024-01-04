@@ -174,14 +174,13 @@ module.exports = {
     require("@savvywombat/tailwindcss-grid-areas"),
     plugin(({ addVariant }) => {
       const attr = (a) => `&[${a}]`;
+      const dataVal = (key) => (val) => attr(`data-${key}=${val}`);
 
       const pseudoclass = (a) => `&:${a}`;
       const dataBool = (key) => attr(`data-${key}`);
 
-      const dataVal = (val) => (key) => attr(`data-${key}=${val}`);
-
-      const dataState = (val) => dataVal(val)("state");
-      const dataOrientation = (val) => dataVal("orientation")(val);
+      const dataState = dataVal("state");
+      const dataOrientation = dataVal("orientation");
 
       const attrs = {
         checked: [pseudoclass, dataBool, attr, dataState],
