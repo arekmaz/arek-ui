@@ -28,6 +28,7 @@ import { Separators } from "~/demo/separator.stories";
 import { Skeletons } from "~/demo/skeleton.stories";
 import { Switches } from "~/demo/switch.stories";
 import { TagsInputs } from "~/demo/tagsInput.stories";
+import { Textareas } from "~/demo/textarea.stories";
 import { ToggleGroups } from "~/demo/toggleGroup.stories";
 
 export const meta: MetaFunction = () => {
@@ -76,6 +77,7 @@ export default function Index() {
         <Skeletons />
         <ToggleGroups />
         <Switches />
+        <Textareas />
       </VStack>
     </Center>
   );
