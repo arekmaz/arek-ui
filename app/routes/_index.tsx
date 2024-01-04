@@ -26,6 +26,7 @@ import { ScrollAreas } from "~/demo/scroll-area.stories";
 import { Selects } from "~/demo/select.stories";
 import { Separators } from "~/demo/separator.stories";
 import { Skeletons } from "~/demo/skeleton.stories";
+import { Switches } from "~/demo/switch.stories";
 import { TagsInputs } from "~/demo/tagsInput.stories";
 import { ToggleGroups } from "~/demo/toggleGroup.stories";
 
@@ -74,6 +75,7 @@ export default function Index() {
         <Separators />
         <Skeletons />
         <ToggleGroups />
+        <Switches />
       </VStack>
     </Center>
   );

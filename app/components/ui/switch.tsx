@@ -1,15 +1,20 @@
 import { Switch as ArkSwitch } from "@ark-ui/react/switch";
 import { tv } from "tailwind-variants";
 import { createStyleContext } from "../utils/create-styled-context";
+import { ComponentProps } from "react";
 
 const styles = tv({
   base: "switchRecipe",
   defaultVariants: { size: "md" },
   slots: {
     root: ["flex", "items-center", "relative"],
-    label: ["select-none", "text-md", "font-medium"],
     control: [
+      "bg-input",
       "inline-flex",
+      "ring-1",
+      "ring-foreground",
+      "shadow-md",
+      "border-foreground",
       "items-center",
       "rounded-full",
       "cursor-pointer",
@@ -18,28 +23,39 @@ const styles = tv({
       "transition-[background]",
       "ease-default",
       "_checked:bg-foreground",
+      "_checked:border-background",
     ],
-    thumb: "switchRecipe__thumb",
+    label: ["select-none", "text-md", "font-medium"],
+    thumb: [
+      "bg-foreground",
+      "rounded-full",
+      "shadow-sm",
+      "duration-normal",
+      "transition-[transform,background]",
+      "ease-default",
+      "_checked:translate-x-full",
+      "_checked:bg-background",
+    ],
   },
   variants: {
     size: {
       sm: {
-        root: "switchRecipe__root--size_sm",
-        label: "switchRecipe__label--size_sm",
-        control: "switchRecipe__control--size_sm",
-        thumb: "switchRecipe__thumb--size_sm",
+        root: ["gap-2"],
+        control: ["w-7", "p-0.5"],
+        thumb: ["size-3"],
+        label: ["text-sm"],
       },
       md: {
-        root: "switchRecipe__root--size_md",
-        label: "switchRecipe__label--size_md",
-        control: "switchRecipe__control--size_md",
-        thumb: "switchRecipe__thumb--size_md",
+        root: ["gap-3"],
+        control: ["w-9", "p-0.5"],
+        thumb: ["size-4"],
+        label: ["text-md"],
       },
       lg: {
-        root: "switchRecipe__root--size_lg",
-        label: "switchRecipe__label--size_lg",
-        control: "switchRecipe__control--size_lg",
-        thumb: "switchRecipe__thumb--size_lg",
+        root: ["gap-4"],
+        control: ["w-11", "p-0.5"],
+        thumb: ["size-5"],
+        label: ["text-lg"],
       },
     },
   },
@@ -57,3 +73,5 @@ export const Switch = Object.assign(Root, {
   Label,
   Thumb,
 });
+
+export type SwitchProps = ComponentProps<typeof Switch>;

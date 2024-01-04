@@ -184,6 +184,7 @@ module.exports = {
 
       const attrs = {
         checked: [pseudoclass, dataBool, attr, dataState],
+        unchecked: [dataState],
         focus: [pseudoclass, dataBool, attr, dataState],
         hidden: [attr, dataBool],
         disabled: [attr, dataBool],
