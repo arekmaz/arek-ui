@@ -11,7 +11,6 @@ const inputGroup = tv({
       "gap-1",
       "border-input",
       "bg-background",
-      "text-sm",
       "ring-offset-background",
       "file:border-0",
       "file:bg-transparent",
@@ -23,12 +22,14 @@ const inputGroup = tv({
     ],
     addonRight: [
       "flex",
+      "text-sm",
       "items-center",
       "[&_svg]:text-muted-foreground",
       "cursor-auto",
     ],
     addonLeft: [
       "flex",
+      "text-sm",
       "items-center",
       "[&_svg]:text-muted-foreground",
       "cursor-auto",
@@ -36,16 +37,17 @@ const inputGroup = tv({
     input: [
       "flex-1",
       "outline-none",
-      "text-base",
+      "text-md",
       "bg-transparent",
       "file:font-medium",
-      "placeholder-muted-foreground",
       "_disabled:cursor-not-allowed",
     ],
   },
   variants: {
     status: {
-      normal: [],
+      normal: {
+        input: ["placeholder-muted-foreground"],
+      },
       error: {
         root: [
           "text-destructive",
@@ -63,7 +65,6 @@ const inputGroup = tv({
           "focus-within:ring-2",
           "focus-within:ring-ring",
           "focus-within:ring-offset-2",
-          "px-1",
           "px-2",
           "h-10",
           "has-[input:focus-visible]:ring-2",

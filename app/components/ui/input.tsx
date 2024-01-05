@@ -4,16 +4,11 @@ import { styled } from "../utils/styled";
 import { id } from "../utils/id";
 
 export const inputClasses = id([
-  "flex",
-  "h-10",
   "w-full",
   "rounded-md",
   "border",
   "border-input",
   "bg-background",
-  "px-3",
-  "py-2",
-  "text-sm",
   "ring-offset-background",
   "file:border-0",
   "file:bg-transparent",
@@ -31,8 +26,14 @@ export const inputClasses = id([
 const input = tv({
   base: inputClasses,
   variants: {
-    size: {
-      md: ["px-3", "h-11", "min-w-11"],
+    variant: {
+      "2xs": ["px-1.5", "h-7", "min-w-7", "text-xs"],
+      xs: ["px-2", "h-8", "min-w-8", "text-xs"],
+      sm: ["px-2.5", "h-9", "min-w-9", "text-sm"],
+      md: ["px-3", "h-10", "min-w-10", "text-md"],
+      lg: ["px-3.5", "h-11", "min-w-11", "text-md"],
+      xl: ["px-4", "h-12", "min-w-12", "text-lg"],
+      "2xl": ["px-2", "h-16", "min-w-16", "text-3xl"],
     },
     status: {
       normal: [],
@@ -43,7 +44,7 @@ const input = tv({
       ],
     },
   },
-  defaultVariants: { size: "md", status: "normal" },
+  defaultVariants: { variant: "md", status: "normal" },
 });
 
 export const Input = styled(ark.input, input);

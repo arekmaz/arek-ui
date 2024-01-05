@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { Mail } from "lucide-react";
 import { InputGroup } from "~/components/ui/input-group";
-import { VStack } from "~/components/ui/stack";
 import { Story } from "./storyHelpers";
 
 export const InputGroups = () => {
@@ -10,7 +9,7 @@ export const InputGroups = () => {
       <label>
         Normal
         <InputGroup>
-          <InputGroup.Input />
+          <InputGroup.Input placeholder="enter some text" />
         </InputGroup>
       </label>
 

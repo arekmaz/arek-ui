@@ -22,9 +22,12 @@ const selectStyles = tv({
       "text-muted-foreground h-full absolute top-0 bottom-0 right-3 size-4",
     trigger: [
       ...inputClasses,
+      "flex",
+      "items-center",
       "px-3",
-      "h-11",
-      "min-w-11",
+      "h-10",
+      "min-w-10",
+      "text-md",
       "group/select-trigger",
     ],
     valueText: [
@@ -33,7 +36,6 @@ const selectStyles = tv({
       "flex-row",
       "whitespace-nowrap",
       "group-data-[disabled]/select-trigger:text-muted-foreground",
-      // "group-data-[disabled]/select-trigger:opacity-50",
       "whitespace-nowrap",
     ],
     filterInput: [

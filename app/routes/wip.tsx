@@ -1,12 +1,12 @@
 import { Center } from "~/components/ui/stack";
-import { Comboboxes } from "~/demo/combobox.stories";
-import { Sliders } from "~/demo/slider.stories";
-import { Spinners } from "~/demo/spinner.stories";
+import { Inputs } from "~/demo/input.stories";
+import { InputGroups } from "~/demo/inputGroup.stories";
 
 export default function Wip() {
   return (
     <Center className="flex-1">
-      <Spinners />
+      <InputGroups />
+      <Inputs />
     </Center>
   );
 }
