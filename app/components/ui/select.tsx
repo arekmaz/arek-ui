@@ -15,9 +15,9 @@ export const data = [
 
 const selectStyles = tv({
   slots: {
-    root: "flex flex-col gap-1.5 w-full bg-background text-foreground ",
+    root: "flex flex-col gap-1.5 w-full text-foreground ",
     label: "text-foreground font-medium",
-    control: "relative cursor-pointer",
+    control: "relative cursor-pointer bg-background",
     indicator:
       "text-muted-foreground h-full absolute top-0 bottom-0 right-3 size-4",
     trigger: [
@@ -37,10 +37,31 @@ const selectStyles = tv({
       // "group-data-[disabled]/select-trigger:opacity-50",
       "whitespace-nowrap",
     ],
-    filterInput: [...inputClasses, "px-3", "h-11", "min-w-11"],
+    filterInput: [
+      "h-10",
+      "w-full",
+      "border-b",
+      "border-input",
+      "bg-transparent",
+      "px-3",
+      "py-2",
+      "text-sm",
+      "ring-offset-background",
+      "file:border-0",
+      "file:text-sm",
+      "file:font-medium",
+      "placeholder-muted-foreground",
+      "focus-visible:outline-none",
+      "_disabled:cursor-not-allowed",
+      "_disabled:opacity-50",
+      "px-3",
+      "h-11",
+      "min-w-11",
+    ],
     clearTrigger: "",
     positioner: "",
     content: [
+      "overflow-hidden",
       "bg-popover",
       "rounded-md",
       "shadow-lg",
@@ -79,11 +100,12 @@ const selectStyles = tv({
   variants: {
     size: {
       md: {
-        content: "p-1 gap-1",
+        content: "gap-1",
         item: "text-md px-2 h-10",
         itemGroupLabel: "px-2 py-1.5",
         filterInput: "px-3 h-10 min-w-10 text-md",
         trigger: "px-3 h-10 text-md min-w-52",
+        itemGroup: "px-1 pb-1",
       },
     },
   },

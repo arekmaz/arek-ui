@@ -149,7 +149,7 @@ export const WithGroupInput = () => {
 
   return (
     <S items={items} multiple onValueChange={() => setSearch("")}>
-      <S.Label>With group input</S.Label>
+      <S.Label>With input group</S.Label>
       <S.Control>
         <S.Trigger>
           <S.ValueText placeholder="select a framework" />
@@ -161,7 +161,11 @@ export const WithGroupInput = () => {
       <Portal>
         <S.Positioner>
           <S.Content>
-            <InputGroup asChild>
+            <InputGroup
+              asChild
+              variant="ghost"
+              className="px-2 py-1 border-b h-10"
+            >
               <HStack>
                 <InputGroup.LeftAddon>
                   <SearchIcon />

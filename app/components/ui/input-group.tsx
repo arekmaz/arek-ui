@@ -9,7 +9,6 @@ const inputGroup = tv({
       "cursor-text",
       "items-center",
       "gap-1",
-      "rounded-md",
       "border-input",
       "bg-background",
       "text-sm",
@@ -60,6 +59,7 @@ const inputGroup = tv({
       ghost: {},
       standalone: {
         root: [
+          "rounded-md",
           "focus-within:ring-2",
           "focus-within:ring-ring",
           "focus-within:ring-offset-2",
