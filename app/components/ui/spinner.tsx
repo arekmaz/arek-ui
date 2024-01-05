@@ -4,7 +4,7 @@ import { ark } from "@ark-ui/react";
 import { createStyleContext } from "../utils/create-styled-context";
 
 const spinnerStyles = tv({
-  slots: { root: ["shrink-0"], icon: ["size-full", "animate-spin"] },
+  slots: { root: ["shrink-0"], icon: ["size-full"] },
   variants: {
     size: {
       xs: { root: ["size-3"] },
@@ -13,16 +13,12 @@ const spinnerStyles = tv({
       lg: { root: ["size-9"] },
       xl: { root: ["size-12"] },
     },
-    direction: {
-      default: { icon: ["animate-spin"] },
-      alternate: { icon: ["animate-spin", "direction-alternate"] },
-      reverse: { icon: ["animate-spin", "direction-reverse"] },
-      reverseAlternate: {
-        icon: ["animate-spin", "direction-alternate-reverse"],
-      },
+    animation: {
+      spin: { icon: ["animate-spin"] },
+      custom: { icon: [] },
     },
   },
-  defaultVariants: { size: "md", direction: "default" },
+  defaultVariants: { size: "md", animation: "spin" },
 });
 
 const { withProvider, withContext } = createStyleContext(spinnerStyles);

@@ -33,17 +33,17 @@ export const Spinners = () => {
 
       <VStack>
         alternate
-        <Spinner direction="alternate" />
+        <Spinner className="direction-alternate" />
       </VStack>
 
       <VStack>
         reverse
-        <Spinner direction="reverse" />
+        <Spinner className="direction-reverse" />
       </VStack>
 
       <VStack>
         reverse alternate
-        <Spinner direction="reverseAlternate" />
+        <Spinner className="direction-reverse-alternate" />
       </VStack>
 
       <VStack>
@@ -53,6 +53,14 @@ export const Spinners = () => {
             <FanIcon className="text-muted-foreground" />
           </Spinner.Icon>
         </Spinner>
+      </VStack>
+
+      <VStack>
+        custom animation
+        <Spinner
+          animation="custom"
+          classes={{ icon: "animate-bounce duration-fast" }}
+        />
       </VStack>
     </Story>
   );
