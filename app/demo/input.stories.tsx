@@ -12,17 +12,17 @@ export const Inputs = () => {
 
       <label>
         Input 2xs
-        <Input variant="2xs" placeholder="Enter email" />
+        <Input scale="2xs" placeholder="Enter email" />
       </label>
 
       <label>
         Input xs
-        <Input variant="xs" placeholder="Enter email" />
+        <Input scale="xs" placeholder="Enter email" />
       </label>
 
       <label>
         Input sm
-        <Input variant="sm" placeholder="Enter email" />
+        <Input scale="sm" placeholder="Enter email" />
       </label>
 
       <label>
@@ -32,17 +32,17 @@ export const Inputs = () => {
 
       <label>
         Input lg
-        <Input variant="lg" placeholder="Enter email" />
+        <Input scale="lg" placeholder="Enter email" />
       </label>
 
       <label>
         Input xl
-        <Input variant="xl" placeholder="Enter email" />
+        <Input scale="xl" placeholder="Enter email" />
       </label>
 
       <label>
         Input 2xl
-        <Input variant="2xl" placeholder="Enter email" />
+        <Input scale="2xl" placeholder="Enter email" />
       </label>
 
       <label>

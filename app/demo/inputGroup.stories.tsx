@@ -10,6 +10,79 @@ export const InputGroups = () => {
         Normal
         <InputGroup>
           <InputGroup.Input placeholder="enter some text" />
+          <InputGroup.LeftAddon>
+            <Mail />
+          </InputGroup.LeftAddon>
+        </InputGroup>
+      </label>
+
+      <label>
+        Input Group 2xs
+        <InputGroup scale="2xs">
+          <InputGroup.LeftAddon>
+            <Mail />
+          </InputGroup.LeftAddon>
+          <InputGroup.Input placeholder="enter some text" />
+        </InputGroup>
+      </label>
+
+      <label>
+        Input Group xs
+        <InputGroup scale="xs">
+          <InputGroup.LeftAddon>
+            <Mail />
+          </InputGroup.LeftAddon>
+          <InputGroup.Input placeholder="enter some text" />
+        </InputGroup>
+      </label>
+
+      <label>
+        Input Group sm
+        <InputGroup scale="sm">
+          <InputGroup.LeftAddon>
+            <Mail />
+          </InputGroup.LeftAddon>
+          <InputGroup.Input placeholder="enter some text" />
+        </InputGroup>
+      </label>
+
+      <label>
+        Input Group md (default)
+        <InputGroup scale="md">
+          <InputGroup.LeftAddon>
+            <Mail />
+          </InputGroup.LeftAddon>
+          <InputGroup.Input placeholder="enter some text" />
+        </InputGroup>
+      </label>
+
+      <label>
+        Input Group lg
+        <InputGroup scale="lg">
+          <InputGroup.LeftAddon>
+            <Mail />
+          </InputGroup.LeftAddon>
+          <InputGroup.Input placeholder="enter some text" />
+        </InputGroup>
+      </label>
+
+      <label>
+        Input Group xl
+        <InputGroup scale="xl">
+          <InputGroup.LeftAddon>
+            <Mail />
+          </InputGroup.LeftAddon>
+          <InputGroup.Input placeholder="enter some text" />
+        </InputGroup>
+      </label>
+
+      <label>
+        Input Group 2xl
+        <InputGroup scale="2xl">
+          <InputGroup.LeftAddon>
+            <Mail />
+          </InputGroup.LeftAddon>
+          <InputGroup.Input placeholder="enter some text" />
         </InputGroup>
       </label>
 

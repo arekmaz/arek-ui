@@ -26,7 +26,7 @@ export const inputClasses = id([
 const input = tv({
   base: inputClasses,
   variants: {
-    variant: {
+    scale: {
       "2xs": ["px-1.5", "h-7", "min-w-7", "text-xs"],
       xs: ["px-2", "h-8", "min-w-8", "text-xs"],
       sm: ["px-2.5", "h-9", "min-w-9", "text-sm"],
@@ -44,7 +44,7 @@ const input = tv({
       ],
     },
   },
-  defaultVariants: { variant: "md", status: "normal" },
+  defaultVariants: { scale: "md", status: "normal" },
 });
 
 export const Input = styled(ark.input, input);
