@@ -71,9 +71,21 @@ const combobox = tv({
         input: "px-3 h-10 min-w-10 text-md",
       },
     },
+    variant: {
+      default: {},
+      error: {
+        label: ["text-destructive"],
+        input: [
+          "text-destructive",
+          "placeholder:text-destructive/50",
+          "border-destructive",
+        ],
+      },
+    },
   },
   defaultVariants: {
     size: "md",
+    variant: "default",
   },
 });
 

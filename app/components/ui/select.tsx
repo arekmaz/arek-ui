@@ -15,8 +15,8 @@ export const data = [
 
 const selectStyles = tv({
   slots: {
-    root: "flex flex-col gap-1.5 w-full text-foreground ",
-    label: "text-foreground font-medium",
+    root: "flex flex-col gap-1.5 w-full",
+    label: "font-medium",
     control: "relative cursor-pointer bg-background",
     indicator:
       "text-muted-foreground h-full absolute top-0 bottom-0 right-3 size-4",
@@ -32,7 +32,6 @@ const selectStyles = tv({
       "gap-1",
       "flex-row",
       "whitespace-nowrap",
-      "group-data-[placeholder-shown]/select-trigger:text-muted-foreground",
       "group-data-[disabled]/select-trigger:text-muted-foreground",
       // "group-data-[disabled]/select-trigger:opacity-50",
       "whitespace-nowrap",
@@ -108,9 +107,27 @@ const selectStyles = tv({
         itemGroup: "px-1 pb-1",
       },
     },
+    variant: {
+      default: {
+        label: ["text-foreground"],
+        valueText: [
+          "group-data-[placeholder-shown]/select-trigger:text-muted-foreground",
+        ],
+      },
+      error: {
+        root: [],
+        label: ["text-destructive"],
+        valueText: [
+          "text-destructive",
+          "group-data-[placeholder-shown]/select-trigger:text-destructive/50",
+        ],
+        trigger: ["border-destructive"],
+      },
+    },
   },
   defaultVariants: {
     size: "md",
+    variant: "default",
   },
 });
 

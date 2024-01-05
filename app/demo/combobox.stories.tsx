@@ -54,6 +54,44 @@ export const SingleCombobox = () => {
   );
 };
 
+export const WithError = () => {
+  const [items, setItems] = useState(data);
+
+  const handleChange = (e: any) => {
+    const filtered = matchSorter(data, e.value, { keys: ["label"] });
+    setItems(filtered.length > 0 ? filtered : data);
+  };
+
+  return (
+    <C items={items} onInputValueChange={handleChange} variant="error">
+      <C.Label>With Error</C.Label>
+      <C.Control>
+        <C.Input placeholder="select a framework" />
+        <C.Trigger asChild>
+          <ChevronsUpDownIcon />
+        </C.Trigger>
+      </C.Control>
+      <Portal>
+        <C.Positioner>
+          <C.Content>
+            <C.ItemGroup id="framework">
+              <C.ItemGroupLabel htmlFor="framework">
+                Frameworks
+              </C.ItemGroupLabel>
+              {items.map((item) => (
+                <C.Item key={item.value} item={item}>
+                  <C.ItemText>{item.label}</C.ItemText>
+                  <C.ItemIndicator>✓</C.ItemIndicator>
+                </C.Item>
+              ))}
+            </C.ItemGroup>
+          </C.Content>
+        </C.Positioner>
+      </Portal>
+    </C>
+  );
+};
+
 export const OpenOnClickCombobox = () => {
   const [items, setItems] = useState(data);
 
@@ -241,6 +279,7 @@ export const Comboboxes = () => {
       <MultipleCombobox />
       <DisabledCombobox />
       <WithInputGroup />
+      <WithError />
     </Story>
   );
 };

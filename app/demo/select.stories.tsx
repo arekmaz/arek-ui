@@ -97,6 +97,51 @@ export const SingleSelect = () => {
   );
 };
 
+export const WithError = () => {
+  const [items, setItems] = useState(data);
+
+  const handleChange = (e: any) => {
+    const filtered = matchSorter(data, e.value, { keys: ["label"] });
+    setItems(filtered.length > 0 ? filtered : data);
+  };
+
+  return (
+    <S items={items} variant="error">
+      <S.Label>With error</S.Label>
+      <S.Control>
+        <S.Trigger>
+          <S.ValueText placeholder="select a framework" />
+          <S.Indicator asChild>
+            <ChevronsUpDownIcon />
+          </S.Indicator>
+        </S.Trigger>
+      </S.Control>
+      <Portal>
+        <S.Positioner>
+          <S.Content>
+            <S.AutoFocusingFilterInput
+              placeholder="Filter frameworks"
+              onChange={(e) => handleChange(e.target)}
+              className="pointer-events-auto"
+            />
+            <S.ItemGroup id="framework">
+              <S.ItemGroupLabel htmlFor="framework">
+                Frameworks
+              </S.ItemGroupLabel>
+              {items.map((item) => (
+                <S.Item key={item.value} item={item}>
+                  <S.ItemText>{item.label}</S.ItemText>
+                  <S.ItemIndicator>✓</S.ItemIndicator>
+                </S.Item>
+              ))}
+            </S.ItemGroup>
+          </S.Content>
+        </S.Positioner>
+      </Portal>
+    </S>
+  );
+};
+
 export const DisabledSelect = () => {
   const [items, setItems] = useState(data);
 
@@ -205,6 +250,7 @@ export const Selects = () => {
       <MultipleSelect />
       <DisabledSelect />
       <WithGroupInput />
+      <WithError />
     </Story>
   );
 };
