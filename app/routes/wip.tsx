@@ -1,10 +1,10 @@
 import { Center } from "~/components/ui/stack";
-import { Toasts } from "~/demo/toast.stories";
+import { Sliders } from "~/demo/slider.stories";
 
 export default function Wip() {
   return (
     <Center className="flex-1">
-      <Toasts />
+      <Sliders />
     </Center>
   );
 }

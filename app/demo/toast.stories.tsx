@@ -27,7 +27,7 @@ export const Demo = () => (
     <Button
       onClick={() =>
         toast.create({
-          title: "Title",
+          title: "info",
           description: "Description",
           type: "info",
         })
@@ -39,7 +39,7 @@ export const Demo = () => (
       variant="destructive"
       onClick={() =>
         toast.create({
-          title: "Title",
+          title: "error",
           description: "Description",
           type: "error",
         })
@@ -51,7 +51,7 @@ export const Demo = () => (
       variant="outline"
       onClick={() =>
         toast.create({
-          title: "Title",
+          title: "success",
           description: "Description",
           type: "success",
         })
@@ -63,7 +63,7 @@ export const Demo = () => (
       variant="outline"
       onClick={() =>
         toast.create({
-          title: "Title",
+          title: "loading",
           description: "Description",
           type: "loading",
         })
@@ -75,7 +75,7 @@ export const Demo = () => (
       variant="outline"
       onClick={() =>
         toast.create({
-          title: "Title",
+          title: "custom",
           description: "Description",
           type: "custom",
         })
