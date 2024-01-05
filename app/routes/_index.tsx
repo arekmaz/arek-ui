@@ -34,6 +34,7 @@ import { Toasts } from "~/demo/toast.stories";
 import { ToggleGroups } from "~/demo/toggleGroup.stories";
 import { Tooltips } from "~/demo/tooltip.stories";
 import { Sliders } from "~/demo/slider.stories";
+import { Spinners } from "~/demo/spinner.stories";
 
 export const meta: MetaFunction = () => {
   return [
@@ -86,6 +87,7 @@ export default function Index() {
         <Tooltips />
         <Toasts />
         <Sliders />
+        <Spinners />
       </VStack>
     </Center>
   );
