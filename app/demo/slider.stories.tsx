@@ -100,13 +100,9 @@ export const Sliders = () => {
       <Single />
       <Single size="lg" />
 
-      <Range size="sm" />
       <Range />
-      <Range size="lg" />
 
-      <Range3 size="sm" />
       <Range3 />
-      <Range3 size="lg" />
     </Story>
   );
 };
