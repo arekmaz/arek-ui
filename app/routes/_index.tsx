@@ -35,6 +35,7 @@ import { ToggleGroups } from "~/demo/toggleGroup.stories";
 import { Tooltips } from "~/demo/tooltip.stories";
 import { Sliders } from "~/demo/slider.stories";
 import { Spinners } from "~/demo/spinner.stories";
+import { Tables } from "~/demo/table.stories";
 
 export const meta: MetaFunction = () => {
   return [
@@ -88,6 +89,7 @@ export default function Index() {
         <Toasts />
         <Sliders />
         <Spinners />
+        <Tables />
       </VStack>
     </Center>
   );
