@@ -50,6 +50,7 @@ export const meta: MetaFunction = () => {
 export default function Index() {
   return (
     <Center className="w-screen flex-1">
+      <p className="text-2xl">Arek UI - React</p>
       <VStack
         spacing={5}
         className="md:flex-row flex-wrap pb-20 justify-center pt-5 px-5"
