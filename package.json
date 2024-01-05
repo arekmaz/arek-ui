@@ -3,6 +3,9 @@
   "private": true,
   "sideEffects": false,
   "type": "module",
+  "imports": {
+    "#components": "./app/components/ui"
+  },
   "scripts": {
     "build": "remix vite:build",
     "dev": "node ./server.mjs",

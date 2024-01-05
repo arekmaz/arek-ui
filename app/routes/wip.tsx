@@ -1,12 +1,10 @@
 import { Center } from "~/components/ui/stack";
-import { Inputs } from "~/demo/input.stories";
-import { InputGroups } from "~/demo/inputGroup.stories";
+import { Tables } from "~/demo/table.stories";
 
 export default function Wip() {
   return (
     <Center className="flex-1">
-      <InputGroups />
-      <Inputs />
+      <Tables />
     </Center>
   );
 }
