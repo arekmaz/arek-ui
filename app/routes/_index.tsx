@@ -39,7 +39,7 @@ import { Tables } from "~/demo/table.stories";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "Arek UI - Ark UI + TailwindCSS" },
+    { title: "Arek UI React - Ark UI + TailwindCSS" },
     {
       name: "description",
       content: "Arek UI - Ark UI + TailwindCSS Component collection",
