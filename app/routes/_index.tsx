@@ -30,6 +30,7 @@ import { Switches } from "~/demo/switch.stories";
 import { TabsStories } from "~/demo/tabs.stories";
 import { TagsInputs } from "~/demo/tagsInput.stories";
 import { Textareas } from "~/demo/textarea.stories";
+import { Toasts } from "~/demo/toast.stories";
 import { ToggleGroups } from "~/demo/toggleGroup.stories";
 import { Tooltips } from "~/demo/tooltip.stories";
 
@@ -82,6 +83,7 @@ export default function Index() {
         <Textareas />
         <TabsStories />
         <Tooltips />
+        <Toasts />
       </VStack>
     </Center>
   );
