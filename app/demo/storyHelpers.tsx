@@ -6,11 +6,11 @@ import { HStack, VStack } from "~/components/ui/stack";
 export const Story = ({
   title,
   children,
-  componentCodePath,
+  componentFilename,
   ...props
 }: {
   title: string;
-  componentCodePath: string;
+  componentFilename: string;
 } & CardProps) => {
   return (
     <Card {...props}>
@@ -18,10 +18,10 @@ export const Story = ({
         <HStack justify="between">
           <Card.Title className="capitalize">{title.toLowerCase()}:</Card.Title>
 
-          {componentCodePath && (
+          {componentFilename && (
             <IconButton asChild>
               <a
-                href={`https://github.com/arekmaz/arek-ui/app/components/ui${componentCodePath}`}
+                href={`https://github.com/arekmaz/arek-ui/blob/main/app/components/ui/${componentFilename}.tsx`}
               >
                 <GithubIcon />
               </a>

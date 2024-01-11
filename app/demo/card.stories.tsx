@@ -68,7 +68,7 @@ const Basic = () => {
 
 export const Cards = () => {
   return (
-    <Story title="cards" componentCodePath="/card.tsx">
+    <Story title="cards" componentFilename="/card.tsx">
       <Basic />
     </Story>
   );
