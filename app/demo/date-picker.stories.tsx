@@ -5,7 +5,7 @@ import { IconButton } from "~/components/ui/icon-button";
 import { DatePicker as D } from "../components/ui/date-picker";
 
 import { Input } from "~/components/ui/input";
-import { Story, filenameFromImportMetaUrl } from "./storyHelpers";
+import { Story } from "./storyHelpers";
 import { InputGroup } from "~/components/ui/input-group";
 
 export const BasicDatePicker = () => {
@@ -434,13 +434,7 @@ export const WithInputGroup = (props: {}) => {
 
 export const DatePickers = () => {
   return (
-    <Story
-      title="date pickers"
-      componentFilename={filenameFromImportMetaUrl(import.meta.url)?.replace(
-        ".stories.tsx",
-        ""
-      )}
-    >
+    <Story title="date pickers" componentFilename="date-picker">
       <BasicDatePicker />
       <ParkDatePicker />
       <WithInputGroup />

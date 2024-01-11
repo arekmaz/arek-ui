@@ -1,5 +1,5 @@
 import { Checkbox as C } from "~/components/ui/checkbox";
-import { Story, filenameFromImportMetaUrl } from "./storyHelpers";
+import { Story } from "./storyHelpers";
 
 export const Checkbox = () => {
   return (
@@ -36,13 +36,7 @@ export const DisabledCheckbox = () => {
 
 export const Checkboxes = () => {
   return (
-    <Story
-      title="checkbox"
-      componentFilename={filenameFromImportMetaUrl(import.meta.url)?.replace(
-        ".stories.tsx",
-        ""
-      )}
-    >
+    <Story title="checkbox" componentFilename="checkbox">
       <Checkbox />
       <IndeterminateCheckbox />
       <DisabledCheckbox />

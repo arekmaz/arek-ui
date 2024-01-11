@@ -1,15 +1,9 @@
 import { Textarea } from "~/components/ui/textarea";
-import { Story, filenameFromImportMetaUrl } from "./storyHelpers";
+import { Story } from "./storyHelpers";
 
 export const Textareas = () => {
   return (
-    <Story
-      title="textareas"
-      componentFilename={filenameFromImportMetaUrl(import.meta.url)?.replace(
-        ".stories.tsx",
-        ""
-      )}
-    >
+    <Story title="textareas" componentFilename="textarea">
       <Textarea placeholder="Enter the text" />
     </Story>
   );

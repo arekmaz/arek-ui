@@ -4,7 +4,7 @@ import { Button } from "~/components/ui/button";
 import { Dialog } from "~/components/ui/dialog";
 import { IconButton } from "~/components/ui/icon-button";
 import { HStack, Stack } from "~/components/ui/stack";
-import { Story, filenameFromImportMetaUrl } from "./storyHelpers";
+import { Story } from "./storyHelpers";
 
 export const Normal = () => {
   return (
@@ -46,13 +46,7 @@ export const Normal = () => {
 
 export const Dialogs = () => {
   return (
-    <Story
-      title="dialogs"
-      componentFilename={filenameFromImportMetaUrl(import.meta.url)?.replace(
-        ".stories.tsx",
-        ""
-      )}
-    >
+    <Story title="dialogs" componentFilename="dialog">
       <Normal />
     </Story>
   );

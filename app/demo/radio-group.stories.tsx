@@ -1,6 +1,6 @@
 import { ComponentProps } from "react";
 import { RadioGroup } from "~/components/ui/radio-group";
-import { Story, filenameFromImportMetaUrl } from "./storyHelpers";
+import { Story } from "./storyHelpers";
 
 export const Demo = (props: ComponentProps<typeof RadioGroup>) => {
   const options = [
@@ -27,13 +27,7 @@ export const Demo = (props: ComponentProps<typeof RadioGroup>) => {
 
 export const RadioGroups = () => {
   return (
-    <Story
-      title="radio groups"
-      componentFilename={filenameFromImportMetaUrl(import.meta.url)?.replace(
-        ".stories.tsx",
-        ""
-      )}
-    >
+    <Story title="radio groups" componentFilename="radio-group">
       <Demo />
       <Demo orientation="horizontal" />
     </Story>

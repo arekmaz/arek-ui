@@ -3,7 +3,7 @@ import { ComponentProps } from "react";
 import { Button } from "~/components/ui/button";
 import { IconButton } from "~/components/ui/icon-button";
 import { Pagination } from "~/components/ui/pagination";
-import { Story, filenameFromImportMetaUrl } from "./storyHelpers";
+import { Story } from "./storyHelpers";
 
 export const Demo = (props: ComponentProps<typeof Pagination>) => {
   return (
@@ -44,13 +44,7 @@ export const Demo = (props: ComponentProps<typeof Pagination>) => {
 
 export const Paginations = () => {
   return (
-    <Story
-      title="paginations"
-      componentFilename={filenameFromImportMetaUrl(import.meta.url)?.replace(
-        ".stories.tsx",
-        ""
-      )}
-    >
+    <Story title="paginations" componentFilename="pagination">
       <Demo count={90} />
     </Story>
   );

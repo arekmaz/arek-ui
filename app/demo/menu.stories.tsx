@@ -1,4 +1,3 @@
-import { Story, filenameFromImportMetaUrl } from "./storyHelpers";
 import {
   ChevronRightIcon,
   CreditCardIcon,
@@ -14,6 +13,7 @@ import { ComponentProps } from "react";
 import { Button } from "~/components/ui/button";
 import { Menu } from "~/components/ui/menu";
 import { HStack } from "~/components/ui/stack";
+import { Story } from "./storyHelpers";
 
 export const Demo = (props: ComponentProps<typeof Menu>) => {
   return (
@@ -99,13 +99,7 @@ export const Demo = (props: ComponentProps<typeof Menu>) => {
 
 export const Menus = () => {
   return (
-    <Story
-      title="menus"
-      componentFilename={filenameFromImportMetaUrl(import.meta.url)?.replace(
-        ".stories.tsx",
-        ""
-      )}
-    >
+    <Story title="menus" componentFilename="menu">
       <Demo />
     </Story>
   );

@@ -1,17 +1,11 @@
 import { Spinner } from "~/components/ui/spinner";
-import { Story, filenameFromImportMetaUrl } from "./storyHelpers";
+import { Story } from "./storyHelpers";
 import { VStack } from "~/components/ui/stack";
 import { FanIcon } from "lucide-react";
 
 export const Spinners = () => {
   return (
-    <Story
-      title="spinners"
-      componentFilename={filenameFromImportMetaUrl(import.meta.url)?.replace(
-        ".stories.tsx",
-        ""
-      )}
-    >
+    <Story title="spinners" componentFilename="spinner">
       <VStack>
         xs
         <Spinner size="xs" />

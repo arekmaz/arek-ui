@@ -11,7 +11,7 @@ import { ComponentProps } from "react";
 import { Stack } from "~/components/ui/stack";
 import { ToggleGroup } from "~/components/ui/toggle-group";
 import { cn } from "~/components/utils/cn";
-import { Story, filenameFromImportMetaUrl } from "./storyHelpers";
+import { Story } from "./storyHelpers";
 import { Card } from "~/components/ui/card";
 
 export const Demo = (props: ComponentProps<typeof ToggleGroup>) => {
@@ -56,10 +56,7 @@ export const ToggleGroups = () => {
     <Story
       title="toggle groups"
       classes={{ content: "md:flex-row" }}
-      componentFilename={filenameFromImportMetaUrl(import.meta.url)?.replace(
-        ".stories.tsx",
-        ""
-      )}
+      componentFilename="toggle-group"
     >
       <Card>
         <Card.Header>

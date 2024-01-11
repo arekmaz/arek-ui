@@ -13,7 +13,7 @@ import {
   ContextMenuSubTrigger,
   ContextMenuTrigger,
 } from "../components/ui/context-menu";
-import { Story, filenameFromImportMetaUrl } from "./storyHelpers";
+import { Story } from "./storyHelpers";
 
 export function ContextMenuDemo() {
   return (
@@ -69,13 +69,7 @@ export function ContextMenuDemo() {
 
 export const ContextMenus = () => {
   return (
-    <Story
-      title="context menus"
-      componentFilename={filenameFromImportMetaUrl(import.meta.url)?.replace(
-        ".stories.tsx",
-        ""
-      )}
-    >
+    <Story title="context menus" componentFilename="context-menu">
       <ContextMenuDemo />
     </Story>
   );

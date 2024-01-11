@@ -3,7 +3,7 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "~/components/ui/collapsible";
-import { Story, filenameFromImportMetaUrl } from "./storyHelpers";
+import { Story } from "./storyHelpers";
 
 export const Normal = () => {
   return (
@@ -18,13 +18,7 @@ export const Normal = () => {
 };
 export const Collapsibles = () => {
   return (
-    <Story
-      title="collapsibles"
-      componentFilename={filenameFromImportMetaUrl(import.meta.url)?.replace(
-        ".stories.tsx",
-        ""
-      )}
-    >
+    <Story title="collapsibles" componentFilename="collapsible">
       <Normal />
     </Story>
   );

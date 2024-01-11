@@ -1,6 +1,5 @@
 import { Slider, SliderProps } from "~/components/ui/slider";
-import { Story, filenameFromImportMetaUrl } from "./storyHelpers";
-import { Card } from "~/components/ui/card";
+import { Story } from "./storyHelpers";
 import { useState } from "react";
 
 export const Single = (props: SliderProps) => {
@@ -98,10 +97,7 @@ export const Sliders = () => {
     <Story
       title="sliders"
       classes={{ content: "min-w-80 gap-10 pb-10" }}
-      componentFilename={filenameFromImportMetaUrl(import.meta.url)?.replace(
-        ".stories.tsx",
-        ""
-      )}
+      componentFilename="slider"
     >
       <Single size="sm" />
       <Single />

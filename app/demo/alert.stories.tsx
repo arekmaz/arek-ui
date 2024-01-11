@@ -1,6 +1,6 @@
 import { Terminal } from "lucide-react";
 import { Alert } from "~/components/ui/alert";
-import { Story, filenameFromImportMetaUrl } from "./storyHelpers";
+import { Story } from "./storyHelpers";
 
 const Basic = () => {
   return (
@@ -28,13 +28,7 @@ const Error = () => {
 
 export const Alerts = () => {
   return (
-    <Story
-      title="alerts"
-      componentFilename={filenameFromImportMetaUrl(import.meta.url)?.replace(
-        ".stories.tsx",
-        ""
-      )}
-    >
+    <Story title="alerts" componentFilename="alert">
       <Basic />
       <Error />
     </Story>

@@ -3,7 +3,7 @@ import { XIcon } from "lucide-react";
 import { Button } from "~/components/ui/button";
 import { IconButton } from "~/components/ui/icon-button";
 import { Toast } from "~/components/ui/toast";
-import { Story, filenameFromImportMetaUrl } from "./storyHelpers";
+import { Story } from "./storyHelpers";
 
 const [Toaster, toast] = createToaster({
   placement: "top-end",
@@ -89,13 +89,7 @@ export const Demo = () => (
 
 export const Toasts = () => {
   return (
-    <Story
-      title="toasts"
-      componentFilename={filenameFromImportMetaUrl(import.meta.url)?.replace(
-        ".stories.tsx",
-        ""
-      )}
-    >
+    <Story title="toasts" componentFilename="toast">
       <Demo />
     </Story>
   );

@@ -1,5 +1,5 @@
 import { Table } from "~/components/ui/table";
-import { Story, filenameFromImportMetaUrl } from "./storyHelpers";
+import { Story } from "./storyHelpers";
 
 const invoices = [
   {
@@ -82,13 +82,7 @@ export function TableDemo() {
 
 export const Tables = () => {
   return (
-    <Story
-      title="tables"
-      componentFilename={filenameFromImportMetaUrl(import.meta.url)?.replace(
-        ".stories.tsx",
-        ""
-      )}
-    >
+    <Story title="tables" componentFilename="table">
       <TableDemo />
     </Story>
   );

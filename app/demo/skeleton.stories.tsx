@@ -1,5 +1,5 @@
 import { Skeleton } from "~/components/ui/skeleton";
-import { Story, filenameFromImportMetaUrl } from "./storyHelpers";
+import { Story } from "./storyHelpers";
 import { HStack, Stack } from "~/components/ui/stack";
 
 export function SkeletonDemo() {
@@ -54,13 +54,7 @@ const List = () => {
 
 export const Skeletons = () => {
   return (
-    <Story
-      title="skeletons"
-      componentFilename={filenameFromImportMetaUrl(import.meta.url)?.replace(
-        ".stories.tsx",
-        ""
-      )}
-    >
+    <Story title="skeletons" componentFilename="skeleton">
       <SkeletonDemo />
       <List />
     </Story>

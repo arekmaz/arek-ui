@@ -1,11 +1,11 @@
 import { Portal } from "@ark-ui/react/portal";
-import { ChevronsUpDownIcon, ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronsUpDownIcon } from "lucide-react";
 import { matchSorter } from "match-sorter";
 import { useState } from "react";
 import { Combobox as C } from "~/components/ui/combobox";
-import { Story, filenameFromImportMetaUrl } from "./storyHelpers";
 import { InputGroup } from "~/components/ui/input-group";
 import { cn } from "~/components/utils/cn";
+import { Story } from "./storyHelpers";
 
 const data = [
   { label: "React", value: "react" },
@@ -273,13 +273,7 @@ export const WithInputGroup = () => {
 
 export const Comboboxes = () => {
   return (
-    <Story
-      title="comboboxes"
-      componentFilename={filenameFromImportMetaUrl(import.meta.url)?.replace(
-        ".stories.tsx",
-        ""
-      )}
-    >
+    <Story title="comboboxes" componentFilename="combobox">
       <SingleCombobox />
       <OpenOnClickCombobox />
       <MultipleCombobox />

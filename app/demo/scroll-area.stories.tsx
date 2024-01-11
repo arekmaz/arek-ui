@@ -1,6 +1,6 @@
 import { Separator } from "~/components/ui/separator";
 import { ScrollArea } from "~/components/ui/scroll-area";
-import { Story, filenameFromImportMetaUrl } from "./storyHelpers";
+import { Story } from "./storyHelpers";
 import { Fragment } from "react";
 
 const tags = Array.from({ length: 50 }).map(
@@ -25,13 +25,7 @@ export function ScrollAreaDemo() {
 
 export const ScrollAreas = () => {
   return (
-    <Story
-      title="scroll areas"
-      componentFilename={filenameFromImportMetaUrl(import.meta.url)?.replace(
-        ".stories.tsx",
-        ""
-      )}
-    >
+    <Story title="scroll areas" componentFilename="scroll-area">
       <ScrollAreaDemo />
     </Story>
   );

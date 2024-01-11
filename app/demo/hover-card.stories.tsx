@@ -1,6 +1,6 @@
 import { Portal } from "@ark-ui/react";
 import { HoverCard } from "~/components/ui/hover-card";
-import { Story, filenameFromImportMetaUrl } from "./storyHelpers";
+import { Story } from "./storyHelpers";
 import { MapPinIcon } from "lucide-react";
 import { HStack, Stack } from "~/components/ui/stack";
 import { Avatar } from "~/components/ui/avatar";
@@ -65,13 +65,7 @@ export const Demo = () => (
 
 export const HoverCards = () => {
   return (
-    <Story
-      title="hover cards"
-      componentFilename={filenameFromImportMetaUrl(import.meta.url)?.replace(
-        ".stories.tsx",
-        ""
-      )}
-    >
+    <Story title="hover cards" componentFilename="hover-card">
       <Basic />
       <Demo />
     </Story>

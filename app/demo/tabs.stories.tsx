@@ -5,7 +5,7 @@ import { Input } from "~/components/ui/input";
 import { Label } from "~/components/ui/label";
 import { Stack } from "~/components/ui/stack";
 import { Tabs } from "~/components/ui/tabs";
-import { Story, filenameFromImportMetaUrl } from "./storyHelpers";
+import { Story } from "./storyHelpers";
 
 export const ParkDemo = () => {
   const options = [
@@ -155,10 +155,7 @@ export const TabsStories = () => {
     <Story
       title="tabs"
       classes={{ content: "gap-10" }}
-      componentFilename={filenameFromImportMetaUrl(import.meta.url)?.replace(
-        ".stories.tsx",
-        ""
-      )}
+      componentFilename="tabs"
     >
       <ShadDemo />
       <ParkDemo />

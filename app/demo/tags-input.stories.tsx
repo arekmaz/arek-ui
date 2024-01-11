@@ -1,6 +1,6 @@
 import { TagsInput } from "~/components/ui/tags-input";
 import { Combobox as C } from "~/components/ui/combobox";
-import { Story, filenameFromImportMetaUrl } from "./storyHelpers";
+import { Story } from "./storyHelpers";
 import { ArrowRight, ChevronsUpDownIcon, PiIcon, XIcon } from "lucide-react";
 import { IconButton } from "~/components/ui/icon-button";
 import { InputGroup } from "~/components/ui/input-group";
@@ -169,13 +169,7 @@ const Disabled = () => {
 
 export const TagsInputs = () => {
   return (
-    <Story
-      title="TAGS INPUTS"
-      componentFilename={filenameFromImportMetaUrl(import.meta.url)?.replace(
-        ".stories.tsx",
-        ""
-      )}
-    >
+    <Story title="TAGS INPUTS" componentFilename="tags-input">
       <Normal />
       <WithInputGroup />
       <Disabled />

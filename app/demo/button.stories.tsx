@@ -1,3 +1,4 @@
+import { Loader2, Mail } from "lucide-react";
 import {
   Button,
   ButtonDestructive,
@@ -6,18 +7,11 @@ import {
   ButtonOutline,
   ButtonSecondary,
 } from "~/components/ui/button";
-import { Story, filenameFromImportMetaUrl } from "./storyHelpers";
-import { Loader2, Mail } from "lucide-react";
+import { Story } from "./storyHelpers";
 
 export const Buttons = () => {
   return (
-    <Story
-      title="buttons"
-      componentFilename={filenameFromImportMetaUrl(import.meta.url)?.replace(
-        ".stories.tsx",
-        ""
-      )}
-    >
+    <Story title="buttons" componentFilename="button">
       <Button>Primary</Button>
 
       <ButtonSecondary>Secondary</ButtonSecondary>
