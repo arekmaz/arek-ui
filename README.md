@@ -1,8 +1,14 @@
 # Arek UI: [tailwindCSS](https://tailwindcss.com/) + [Ark UI](https://ark-ui.com/)
 
-Copy paste components to your project.
+## Copy paste components to your project.
 
-### Inspired by:
+## Supported frameworks:
+
+React https://arek-ui.fly.dev/
+
+SolidJs https://arek-ui-solid.fly.dev/
+
+## Inspired by:
 
 https://ui.shadcn.com/
 
@@ -10,15 +16,7 @@ https://park-ui.com/
 
 https://chakra-ui.com/
 
-### Supported frameworks:
-
-React https://arek-ui.fly.dev/
-
-SolidJs https://arek-ui-solid.fly.dev/
-
-Only Typescript Supported!
-
-### Setup:
+## Setup:
 
 - React:
 - setup tailwind css - https://tailwindcss.com/docs/installation
