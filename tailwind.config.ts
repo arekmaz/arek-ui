@@ -1,14 +1,6 @@
 import type { Config } from "tailwindcss";
 import plugin from "tailwindcss/plugin";
 
-export default {
-  content: [],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-} satisfies Config;
-
 const addVariantsPlugin = (
   makeVariants: (d: {
     attr: (a: string) => string;
