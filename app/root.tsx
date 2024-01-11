@@ -11,6 +11,9 @@ import "./tailwind.css";
 import { Button } from "./components/ui/button";
 import { useState } from "react";
 import { cn } from "./components/utils/cn";
+import { HStack } from "./components/ui/stack";
+import { IconButton } from "./components/ui/icon-button";
+import { GithubIcon, MoonIcon, SunIcon } from "lucide-react";
 
 export default function App() {
   const [mode, setMode] = useState<"dark" | "light">("light");
@@ -23,12 +26,21 @@ export default function App() {
         <Links />
       </head>
       <body className={cn(mode, "h-screen w-screen flex flex-col")}>
-        <Button
-          onClick={() => setMode((m) => (m === "light" ? "dark" : "light"))}
-          className="fixed bottom-1 left-1 z-overlay"
+        <HStack
+          className="fixed bottom-0 left-0 z-overlay w-full pointer-events-none *:pointer-events-auto pb-1 px-1"
+          justify="between"
         >
-          mode {mode}
-        </Button>
+          <IconButton
+            onClick={() => setMode((m) => (m === "light" ? "dark" : "light"))}
+          >
+            {mode === "light" ? <SunIcon /> : <MoonIcon />}
+          </IconButton>
+          <IconButton asChild>
+            <a href="https://github.com/arekmaz/arek-ui">
+              <GithubIcon />
+            </a>
+          </IconButton>
+        </HStack>
         <Outlet />
         <ScrollRestoration />
         <Scripts />

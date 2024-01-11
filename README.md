@@ -4,9 +4,9 @@
 
 ## Supported frameworks:
 
-React https://arek-ui.fly.dev/
+### React https://arek-ui.fly.dev/
 
-SolidJs https://arek-ui-solid.fly.dev/
+### SolidJs https://arek-ui-solid.fly.dev/
 
 ## Inspired by:
 
