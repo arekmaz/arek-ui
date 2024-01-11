@@ -32,6 +32,7 @@ export const Story = ({
                 <Tooltip.Trigger>
                   <IconButton asChild variant="outline">
                     <a
+                      target="_blank"
                       href={`https://github.com/arekmaz/arek-ui/blob/main/app/components/ui/${componentFilename}.tsx`}
                     >
                       <GithubIcon />

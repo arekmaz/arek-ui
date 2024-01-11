@@ -68,7 +68,7 @@ const Disabled = () => {
         <Card.Title>Disabled</Card.Title>
       </Card.Header>
       <Card.Content>
-        <Accordion defaultValue={["React"]} disabled>
+        <Accordion defaultValue={["React"]}>
           {(["React", "disabled", "Vue"] as const).map((item, id) => (
             <Accordion.Item
               key={id}
