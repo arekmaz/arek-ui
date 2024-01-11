@@ -1,5 +1,5 @@
 import { Tooltip } from "~/components/ui/tooltip";
-import { Story } from "./storyHelpers";
+import { Story, filenameFromImportMetaUrl } from "./storyHelpers";
 
 export const Demo = () => (
   <Tooltip>
@@ -24,7 +24,13 @@ export const WithArrow = () => (
 
 export const Tooltips = () => {
   return (
-    <Story title="tooltips">
+    <Story
+      title="tooltips"
+      componentFilename={filenameFromImportMetaUrl(import.meta.url)?.replace(
+        ".stories.tsx",
+        ""
+      )}
+    >
       <Demo />
       <WithArrow />
     </Story>

@@ -1,5 +1,5 @@
 import { Switch, SwitchProps } from "~/components/ui/switch";
-import { Story } from "./storyHelpers";
+import { Story, filenameFromImportMetaUrl } from "./storyHelpers";
 
 export const Demo = ({ label, ...props }: SwitchProps & { label: string }) => (
   <Switch defaultChecked {...props}>
@@ -12,7 +12,13 @@ export const Demo = ({ label, ...props }: SwitchProps & { label: string }) => (
 
 export const Switches = () => {
   return (
-    <Story title="switches">
+    <Story
+      title="switches"
+      componentFilename={filenameFromImportMetaUrl(import.meta.url)?.replace(
+        ".stories.tsx",
+        ""
+      )}
+    >
       <Demo label="small" size="sm" />
       <Demo label="medium" />
       <Demo label="large" size="lg" />

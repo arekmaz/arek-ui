@@ -1,10 +1,16 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { Input } from "~/components/ui/input";
-import { Story } from "./storyHelpers";
+import { Story, filenameFromImportMetaUrl } from "./storyHelpers";
 
 export const Inputs = () => {
   return (
-    <Story title="inputs">
+    <Story
+      title="inputs"
+      componentFilename={filenameFromImportMetaUrl(import.meta.url)?.replace(
+        ".stories.tsx",
+        ""
+      )}
+    >
       <label>
         Input
         <Input placeholder="Enter email" />

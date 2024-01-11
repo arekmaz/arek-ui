@@ -3,7 +3,7 @@ import { ChevronsUpDownIcon, ArrowRight } from "lucide-react";
 import { matchSorter } from "match-sorter";
 import { useState } from "react";
 import { Combobox as C } from "~/components/ui/combobox";
-import { Story } from "./storyHelpers";
+import { Story, filenameFromImportMetaUrl } from "./storyHelpers";
 import { InputGroup } from "~/components/ui/input-group";
 import { cn } from "~/components/utils/cn";
 
@@ -273,7 +273,13 @@ export const WithInputGroup = () => {
 
 export const Comboboxes = () => {
   return (
-    <Story title="comboboxes">
+    <Story
+      title="comboboxes"
+      componentFilename={filenameFromImportMetaUrl(import.meta.url)?.replace(
+        ".stories.tsx",
+        ""
+      )}
+    >
       <SingleCombobox />
       <OpenOnClickCombobox />
       <MultipleCombobox />

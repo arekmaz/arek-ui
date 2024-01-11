@@ -1,11 +1,17 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { Mail } from "lucide-react";
 import { InputGroup } from "~/components/ui/input-group";
-import { Story } from "./storyHelpers";
+import { Story, filenameFromImportMetaUrl } from "./storyHelpers";
 
 export const InputGroups = () => {
   return (
-    <Story title="input groups">
+    <Story
+      title="input groups"
+      componentFilename={filenameFromImportMetaUrl(import.meta.url)?.replace(
+        ".stories.tsx",
+        ""
+      )}
+    >
       <label>
         Normal
         <InputGroup>

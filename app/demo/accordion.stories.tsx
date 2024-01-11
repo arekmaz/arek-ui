@@ -1,7 +1,7 @@
 import { ChevronDownIcon } from "lucide-react";
 import { Accordion } from "~/components/ui/accordion";
 import { Card } from "~/components/ui/card";
-import { Story } from "./storyHelpers";
+import { Story, filenameFromImportMetaUrl } from "./storyHelpers";
 
 const Single = () => {
   return (
@@ -96,7 +96,13 @@ const Disabled = () => {
 
 export const Accordions = () => {
   return (
-    <Story title="accordions">
+    <Story
+      title="accordions"
+      componentFilename={filenameFromImportMetaUrl(import.meta.url)?.replace(
+        ".stories.tsx",
+        ""
+      )}
+    >
       <Single />
       <Collapsible />
       <Disabled />

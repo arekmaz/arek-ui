@@ -3,7 +3,7 @@ import { ChevronsUpDownIcon, SearchIcon } from "lucide-react";
 import { matchSorter } from "match-sorter";
 import { useState } from "react";
 import { Select as S, data } from "~/components/ui/select";
-import { Story } from "./storyHelpers";
+import { Story, filenameFromImportMetaUrl } from "./storyHelpers";
 import { InputGroup } from "~/components/ui/input-group";
 import { HStack } from "~/components/ui/stack";
 
@@ -245,7 +245,13 @@ export const WithGroupInput = () => {
 
 export const Selects = () => {
   return (
-    <Story title="selects">
+    <Story
+      title="selects"
+      componentFilename={filenameFromImportMetaUrl(import.meta.url)?.replace(
+        ".stories.tsx",
+        ""
+      )}
+    >
       <SingleSelect />
       <MultipleSelect />
       <DisabledSelect />

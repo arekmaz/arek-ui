@@ -1,16 +1,16 @@
-import { Textarea } from "~/components/ui/textarea";
+import { TagsCombobox } from "~/components/ui/tags-combobox";
 import { Story, filenameFromImportMetaUrl } from "./storyHelpers";
 
-export const Textareas = () => {
+export const TagsComboboxes = () => {
   return (
     <Story
-      title="textareas"
+      title="tags comboboxes"
       componentFilename={filenameFromImportMetaUrl(import.meta.url)?.replace(
         ".stories.tsx",
         ""
       )}
     >
-      <Textarea placeholder="Enter the text" />
+      <TagsCombobox />
     </Story>
   );
 };

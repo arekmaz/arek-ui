@@ -2,7 +2,7 @@ import { XIcon } from "lucide-react";
 import { Button } from "~/components/ui/button";
 import { Drawer } from "~/components/ui/drawer";
 import { IconButton } from "~/components/ui/icon-button";
-import { Story } from "./storyHelpers";
+import { Story, filenameFromImportMetaUrl } from "./storyHelpers";
 import { ComponentProps } from "react";
 
 export const Demo = ({
@@ -41,7 +41,13 @@ export const Demo = ({
 
 export const Drawers = () => {
   return (
-    <Story title="drawers">
+    <Story
+      title="drawers"
+      componentFilename={filenameFromImportMetaUrl(import.meta.url)?.replace(
+        ".stories.tsx",
+        ""
+      )}
+    >
       <Demo label="drawer right" />
       <Demo variant="left" label="drawer left" />
       <Demo variant="top" label="drawer top" />

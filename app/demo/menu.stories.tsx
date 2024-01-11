@@ -1,4 +1,4 @@
-import { Story } from "./storyHelpers";
+import { Story, filenameFromImportMetaUrl } from "./storyHelpers";
 import {
   ChevronRightIcon,
   CreditCardIcon,
@@ -99,7 +99,13 @@ export const Demo = (props: ComponentProps<typeof Menu>) => {
 
 export const Menus = () => {
   return (
-    <Story title="menus">
+    <Story
+      title="menus"
+      componentFilename={filenameFromImportMetaUrl(import.meta.url)?.replace(
+        ".stories.tsx",
+        ""
+      )}
+    >
       <Demo />
     </Story>
   );

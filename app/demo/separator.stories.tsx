@@ -1,5 +1,5 @@
 import { Separator } from "~/components/ui/separator";
-import { Story } from "./storyHelpers";
+import { Story, filenameFromImportMetaUrl } from "./storyHelpers";
 
 export function SeparatorDemo() {
   return (
@@ -24,7 +24,13 @@ export function SeparatorDemo() {
 
 export const Separators = () => {
   return (
-    <Story title="separators">
+    <Story
+      title="separators"
+      componentFilename={filenameFromImportMetaUrl(import.meta.url)?.replace(
+        ".stories.tsx",
+        ""
+      )}
+    >
       <SeparatorDemo />
     </Story>
   );

@@ -1,10 +1,16 @@
 import { Avatar } from "~/components/ui/avatar";
 import { VStack } from "~/components/ui/stack";
-import { Story } from "./storyHelpers";
+import { Story, filenameFromImportMetaUrl } from "./storyHelpers";
 
 export const Avatars = () => {
   return (
-    <Story title="avatars">
+    <Story
+      title="avatars"
+      componentFilename={filenameFromImportMetaUrl(import.meta.url)?.replace(
+        ".stories.tsx",
+        ""
+      )}
+    >
       <VStack>
         Normal
         <Avatar>

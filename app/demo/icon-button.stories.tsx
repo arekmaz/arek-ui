@@ -17,12 +17,18 @@ import {
 } from "lucide-react";
 import { createElement } from "react";
 import { IconButton } from "~/components/ui/icon-button";
-import { Story } from "./storyHelpers";
+import { Story, filenameFromImportMetaUrl } from "./storyHelpers";
 
 export const IconButtons = () => {
   // eslint-disable-next-line react/jsx-key
   return (
-    <Story title="icon buttons">
+    <Story
+      title="icon buttons"
+      componentFilename={filenameFromImportMetaUrl(import.meta.url)?.replace(
+        ".stories.tsx",
+        ""
+      )}
+    >
       {[
         CoffeeIcon,
         ChevronDownIcon,

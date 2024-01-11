@@ -4,7 +4,7 @@ import { Button } from "~/components/ui/button";
 import { Card } from "~/components/ui/card";
 import { Input } from "~/components/ui/input";
 import { Select, data } from "~/components/ui/select";
-import { Story } from "./storyHelpers";
+import { Story, filenameFromImportMetaUrl } from "./storyHelpers";
 
 const Basic = () => {
   return (
@@ -68,7 +68,13 @@ const Basic = () => {
 
 export const Cards = () => {
   return (
-    <Story title="cards" componentFilename="/card.tsx">
+    <Story
+      title="cards"
+      componentFilename={filenameFromImportMetaUrl(import.meta.url)?.replace(
+        ".stories.tsx",
+        ""
+      )}
+    >
       <Basic />
     </Story>
   );

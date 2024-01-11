@@ -5,7 +5,7 @@ import { Input } from "~/components/ui/input";
 import { Label } from "~/components/ui/label";
 import { Stack } from "~/components/ui/stack";
 import { Tabs } from "~/components/ui/tabs";
-import { Story } from "./storyHelpers";
+import { Story, filenameFromImportMetaUrl } from "./storyHelpers";
 
 export const ParkDemo = () => {
   const options = [
@@ -152,7 +152,14 @@ const ShadDemo = () => {
 
 export const TabsStories = () => {
   return (
-    <Story title="tabs" classes={{ content: "gap-10" }}>
+    <Story
+      title="tabs"
+      classes={{ content: "gap-10" }}
+      componentFilename={filenameFromImportMetaUrl(import.meta.url)?.replace(
+        ".stories.tsx",
+        ""
+      )}
+    >
       <ShadDemo />
       <ParkDemo />
       <CustomIndicator />

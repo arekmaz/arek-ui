@@ -3,7 +3,7 @@ import { Button } from "~/components/ui/button";
 import { IconButton } from "~/components/ui/icon-button";
 import { Popover } from "~/components/ui/popover";
 import { Stack } from "~/components/ui/stack";
-import { Story } from "./storyHelpers";
+import { Story, filenameFromImportMetaUrl } from "./storyHelpers";
 
 export const Demo = () => (
   <Popover>
@@ -35,7 +35,13 @@ export const Demo = () => (
 
 export const Popovers = () => {
   return (
-    <Story title="popovers">
+    <Story
+      title="popovers"
+      componentFilename={filenameFromImportMetaUrl(import.meta.url)?.replace(
+        ".stories.tsx",
+        ""
+      )}
+    >
       <Demo />
     </Story>
   );
