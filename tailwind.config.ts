@@ -1,46 +1,6 @@
 import type { Config } from "tailwindcss";
 import plugin from "tailwindcss/plugin";
-
-const addVariantsPlugin = (
-  makeVariants: (d: {
-    attr: (a: string) => string;
-    dataVal: (key: string) => (val: string) => string;
-    pseudoclass: (a: string) => string;
-    dataState: (val: string) => string;
-    dataBool: (key: string) => string;
-    dataOrientation: (val: string) => string;
-  }) => Record<string, ((v: string) => string)[]>,
-  buildVariantKey = (name: string) => `_${name}`
-) => {
-  const attr = (a: string) => `&[${a}]`;
-  const dataVal = (key: string) => (val: string) => attr(`data-${key}=${val}`);
-
-  const pseudoclass = (a: string) => `&:${a}`;
-  const dataBool = (key: string) => attr(`data-${key}`);
-
-  const dataState = dataVal("state");
-  const dataOrientation = dataVal("orientation");
-
-  const config = {
-    attr,
-    dataVal,
-    pseudoclass,
-    dataState,
-    dataBool,
-    dataOrientation,
-  };
-
-  const variants = makeVariants(config);
-
-  return plugin(({ addVariant }) => {
-    Object.entries(variants).forEach(([variantName, builders]) => {
-      addVariant(
-        buildVariantKey(variantName),
-        builders.map((builder) => builder(variantName))
-      );
-    });
-  });
-};
+import pluginVariants from "tailwind-plugin-variants";
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -214,22 +174,28 @@ module.exports = {
   plugins: [
     require("tailwindcss-animate"),
     require("@savvywombat/tailwindcss-grid-areas"),
-    addVariantsPlugin(
-      ({ attr, pseudoclass, dataState, dataBool, dataOrientation }) => ({
-        checked: [pseudoclass, dataBool, attr, dataState],
-        unchecked: [dataState],
-        focus: [pseudoclass, dataBool, attr, dataState],
-        hidden: [attr, dataBool],
-        disabled: [attr, dataBool],
-        closed: [dataState],
-        open: [dataState],
-        on: [dataState],
-        off: [dataState],
-        highlighted: [dataBool, dataState],
-        horizontal: [dataOrientation],
-        vertical: [dataOrientation],
-        selected: [dataBool],
-      })
+    pluginVariants(
+      ({ attribute, pseudoclass, dataValue, dataBool }) => {
+        const dataState = dataValue("state");
+        const dataOrientation = dataValue("orientation");
+
+        return {
+          checked: [pseudoclass, dataBool, attribute, dataState],
+          unchecked: [dataState],
+          focus: [pseudoclass, dataBool, attribute, dataState],
+          hidden: [attribute, dataBool],
+          disabled: [attribute, dataBool],
+          closed: [dataState],
+          open: [dataState],
+          on: [dataState],
+          off: [dataState],
+          highlighted: [dataBool, dataState],
+          horizontal: [dataOrientation],
+          vertical: [dataOrientation],
+          selected: [dataBool],
+        };
+      },
+      (name) => `_${name}`
     ),
   ],
 };
