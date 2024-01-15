@@ -1,10 +1,11 @@
 import { Center } from "~/components/ui/stack";
-import { Tables } from "~/demo/table.stories";
+import { Accordions } from "~/demo/accordion.stories";
+import { Collapsibles } from "~/demo/collapsible.stories";
 
 export default function Wip() {
   return (
     <Center className="flex-1">
-      <Tables />
+      <Accordions />
     </Center>
   );
 }
