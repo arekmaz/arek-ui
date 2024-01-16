@@ -1,5 +1,13 @@
+import { Portal } from "@ark-ui/react";
 import type { MetaFunction } from "@remix-run/node";
-import { Center, VStack } from "~/components/ui/stack";
+import { ChevronsUpDownIcon } from "lucide-react";
+import { matchSorter } from "match-sorter";
+import { useEffect, useState, useTransition } from "react";
+import { Combobox } from "~/components/ui/combobox";
+import { InputGroup } from "~/components/ui/input-group";
+import { ScrollArea } from "~/components/ui/scroll-area";
+import { VStack } from "~/components/ui/stack";
+import { cn } from "~/components/utils/cn";
 import { Accordions } from "~/demo/accordion.stories";
 import { Alerts } from "~/demo/alert.stories";
 import { Avatars } from "~/demo/avatar.stories";
@@ -16,8 +24,8 @@ import { Dialogs } from "~/demo/dialog.stories";
 import { Drawers } from "~/demo/drawer.stories";
 import { HoverCards } from "~/demo/hover-card.stories";
 import { IconButtons } from "~/demo/icon-button.stories";
-import { Inputs } from "~/demo/input.stories";
 import { InputGroups } from "~/demo/input-group.stories";
+import { Inputs } from "~/demo/input.stories";
 import { Menus } from "~/demo/menu.stories";
 import { Paginations } from "~/demo/pagination.stories";
 import { Popovers } from "~/demo/popover.stories";
@@ -26,16 +34,16 @@ import { ScrollAreas } from "~/demo/scroll-area.stories";
 import { Selects } from "~/demo/select.stories";
 import { Separators } from "~/demo/separator.stories";
 import { Skeletons } from "~/demo/skeleton.stories";
+import { Sliders } from "~/demo/slider.stories";
+import { Spinners } from "~/demo/spinner.stories";
 import { Switches } from "~/demo/switch.stories";
+import { Tables } from "~/demo/table.stories";
 import { TabsStories } from "~/demo/tabs.stories";
 import { TagsInputs } from "~/demo/tags-input.stories";
 import { Textareas } from "~/demo/textarea.stories";
 import { Toasts } from "~/demo/toast.stories";
 import { ToggleGroups } from "~/demo/toggle-group.stories";
 import { Tooltips } from "~/demo/tooltip.stories";
-import { Sliders } from "~/demo/slider.stories";
-import { Spinners } from "~/demo/spinner.stories";
-import { Tables } from "~/demo/table.stories";
 
 export const meta: MetaFunction = () => {
   return [
@@ -47,51 +55,125 @@ export const meta: MetaFunction = () => {
   ];
 };
 
+const storyComponents = [
+  Buttons,
+  Checkboxes,
+  Comboboxes,
+  Selects,
+  DatePickers,
+  IconButtons,
+  Inputs,
+  InputGroups,
+  Accordions,
+  Alerts,
+  Dialogs,
+  Avatars,
+  Badges,
+  Calendars,
+  Cards,
+  Collapsibles,
+  TagsInputs,
+  ContextMenus,
+  HoverCards,
+  Drawers,
+  Menus,
+  Paginations,
+  Popovers,
+  RadioGroups,
+  ScrollAreas,
+  Separators,
+  Skeletons,
+  ToggleGroups,
+  Switches,
+  Textareas,
+  TabsStories,
+  Tooltips,
+  Toasts,
+  Sliders,
+  Spinners,
+  Tables,
+]
+  .map((Comp) => [Comp.name, Comp] as const)
+  .sort(([a], [b]) => (a === b ? 0 : a > b ? 1 : -1));
+
+const componentNames = storyComponents.map(([name]) => name);
+
 export default function Index() {
+  const [, startTransition] = useTransition();
+  const [phrase, setPhrase] = useState("");
+
+  const [filteredPairs, setFilteredPairs] = useState(storyComponents);
+
+  useEffect(() => {
+    startTransition(() => {
+      const matches = matchSorter(storyComponents, phrase, { keys: [0] });
+      setFilteredPairs(matches.length ? matches : storyComponents);
+    });
+  }, [phrase]);
+
   return (
-    <Center className="w-screen flex-1">
-      <p className="text-2xl text-center font-semibold">Arek UI - React</p>
+    <VStack className="w-screen flex-1 py-5" spacing={5}>
+      <p className="text-4xl text-center font-semibold">Arek UI - React</p>
+      <div>
+        <Combobox
+          items={componentNames}
+          onInputValueChange={(value) => setPhrase(value.value)}
+          inputValue={phrase}
+          onValueChange={(value) =>
+            value.value.length && setPhrase(value.value[0])
+          }
+          openOnClick
+          autoFocus
+        >
+          <Combobox.Control>
+            <InputGroup scale="2xl">
+              <Combobox.Input placeholder="select a framework" asChild unstyled>
+                <InputGroup.Input />
+              </Combobox.Input>
+              <Combobox.Trigger
+                asChild
+                unstyled
+                className={cn(
+                  "text-muted-foreground",
+                  "size-4",
+                  "cursor-pointer",
+                  "_disabled:cursor-not-allowed",
+                  "_disabled:opacity-50"
+                )}
+              >
+                <InputGroup.RightAddon>
+                  <ChevronsUpDownIcon />
+                </InputGroup.RightAddon>
+              </Combobox.Trigger>
+            </InputGroup>
+          </Combobox.Control>
+          <Portal>
+            <Combobox.Positioner>
+              <Combobox.Content className="max-h-80 overflow-scroll">
+                <Combobox.ItemGroup id="component">
+                  <Combobox.ItemGroupLabel htmlFor="component">
+                    Components
+                  </Combobox.ItemGroupLabel>
+                  {filteredPairs.map(([name]) => (
+                    <Combobox.Item key={name} item={name}>
+                      <Combobox.ItemText>{name}</Combobox.ItemText>
+                      <Combobox.ItemIndicator>✓</Combobox.ItemIndicator>
+                    </Combobox.Item>
+                  ))}
+                </Combobox.ItemGroup>
+              </Combobox.Content>
+            </Combobox.Positioner>
+          </Portal>
+        </Combobox>
+      </div>
       <VStack
         spacing={5}
         className="md:flex-row flex-wrap pb-20 justify-center pt-5 px-5"
       >
-        <Buttons />
-        <Checkboxes />
-        <Comboboxes />
-        <Selects />
-        <DatePickers />
-        <IconButtons />
-        <Inputs />
-        <InputGroups />
-        <Accordions />
-        <Alerts />
-        <Dialogs />
-        <Avatars />
-        <Badges />
-        <Calendars />
-        <Cards />
-        <Collapsibles />
-        <TagsInputs />
-        <ContextMenus />
-        <HoverCards />
-        <Drawers />
-        <Menus />
-        <Paginations />
-        <Popovers />
-        <RadioGroups />
-        <ScrollAreas />
-        <Separators />
-        <Skeletons />
-        <ToggleGroups />
-        <Switches />
-        <Textareas />
-        <TabsStories />
-        <Tooltips />
-        <Toasts />
-        <Sliders />
-        <Spinners />
-        <Tables />
+        {filteredPairs.map(([name, Comp]) => {
+          return <Comp key={name} />;
+        })}
       </VStack>
-    </Center>
+    </VStack>
   );
 }

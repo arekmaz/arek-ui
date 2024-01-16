@@ -36,7 +36,7 @@ export const DisabledCheckbox = () => {
 
 export const Checkboxes = () => {
   return (
-    <Story title="checkbox" componentFilename="checkbox">
+    <Story title="checkboxes" componentFilename="checkbox">
       <Checkbox />
       <IndeterminateCheckbox />
       <DisabledCheckbox />
