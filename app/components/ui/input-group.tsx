@@ -1,4 +1,4 @@
-import { ark } from "@ark-ui/react/factory";
+import { ark } from "@ark-ui/react";
 import { tv } from "tailwind-variants";
 import { createStyleContext } from "../utils/create-styled-context";
 

@@ -34,6 +34,7 @@ export const Story = ({
                     <a
                       target="_blank"
                       href={`https://github.com/arekmaz/arek-ui/blob/main/app/components/ui/${componentFilename}.tsx`}
+                      rel="noreferrer"
                     >
                       <GithubIcon />
                     </a>

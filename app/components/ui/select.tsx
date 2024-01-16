@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { Select as S, useSelectContext } from "@ark-ui/react";
-import { ark } from "@ark-ui/react/factory";
+import { ark } from "@ark-ui/react";
 import { ComponentProps, useEffect, useRef } from "react";
 import { tv } from "tailwind-variants";
 import { createStyleContext } from "../utils/create-styled-context";

@@ -12,7 +12,7 @@ import {
   ReactElement,
   forwardRef,
 } from "react";
-import { ark } from "@ark-ui/react/factory";
+import { ark } from "@ark-ui/react";
 import { pipe } from "effect";
 
 type FormControlContextValue = {
