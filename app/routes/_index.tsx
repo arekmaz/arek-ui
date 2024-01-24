@@ -2,10 +2,9 @@ import { Portal } from "@ark-ui/react";
 import type { MetaFunction } from "@remix-run/node";
 import { ChevronsUpDownIcon } from "lucide-react";
 import { matchSorter } from "match-sorter";
-import { useEffect, useState, useTransition } from "react";
+import { ReactElement, useEffect, useState, useTransition } from "react";
 import { Combobox } from "~/components/ui/combobox";
 import { InputGroup } from "~/components/ui/input-group";
-import { ScrollArea } from "~/components/ui/scroll-area";
 import { VStack } from "~/components/ui/stack";
 import { cn } from "~/components/utils/cn";
 import { Accordions } from "~/demo/accordion.stories";
@@ -55,46 +54,48 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-const storyComponents = [
-  Buttons,
-  Checkboxes,
-  Comboboxes,
-  Selects,
-  DatePickers,
-  IconButtons,
-  Inputs,
-  InputGroups,
-  Accordions,
-  Alerts,
-  Dialogs,
-  Avatars,
-  Badges,
-  Calendars,
-  Cards,
-  Collapsibles,
-  TagsInputs,
-  ContextMenus,
-  HoverCards,
-  Drawers,
-  Menus,
-  Paginations,
-  Popovers,
-  RadioGroups,
-  ScrollAreas,
-  Separators,
-  Skeletons,
-  ToggleGroups,
-  Switches,
-  Textareas,
-  TabsStories,
-  Tooltips,
-  Toasts,
-  Sliders,
-  Spinners,
-  Tables,
-]
-  .map((Comp) => [Comp.name, Comp] as const)
-  .sort(([a], [b]) => (a === b ? 0 : a > b ? 1 : -1));
+const components = [
+  ["Buttons", Buttons],
+  ["Checkboxes", Checkboxes],
+  ["Comboboxes", Comboboxes],
+  ["Selects", Selects],
+  ["DatePickers", DatePickers],
+  ["IconButtons", IconButtons],
+  ["Inputs", Inputs],
+  ["InputGroups", InputGroups],
+  ["Accordions", Accordions],
+  ["Alerts", Alerts],
+  ["Dialogs", Dialogs],
+  ["Avatars", Avatars],
+  ["Badges", Badges],
+  ["Calendars", Calendars],
+  ["Cards", Cards],
+  ["Collapsibles", Collapsibles],
+  ["TagsInputs", TagsInputs],
+  ["ContextMenus", ContextMenus],
+  ["HoverCards", HoverCards],
+  ["Drawers", Drawers],
+  ["Menus", Menus],
+  ["Paginations", Paginations],
+  ["Popovers", Popovers],
+  ["RadioGroups", RadioGroups],
+  ["ScrollAreas", ScrollAreas],
+  ["Separators", Separators],
+  ["Skeletons", Skeletons],
+  ["ToggleGroups", ToggleGroups],
+  ["Switches", Switches],
+  ["Textareas", Textareas],
+  ["TabsStories", TabsStories],
+  ["Tooltips", Tooltips],
+  ["Toasts", Toasts],
+  ["Sliders", Sliders],
+  ["Spinners", Spinners],
+  ["Tables", Tables],
+] as Array<[string, () => ReactElement]>;
+
+const storyComponents = components.sort(([a], [b]) =>
+  a === b ? 0 : a > b ? 1 : -1
+);
 
 const componentNames = storyComponents.map(([name]) => name);
 
@@ -106,7 +107,7 @@ export default function Index() {
 
   useEffect(() => {
     startTransition(() => {
-      const matches = matchSorter(storyComponents, phrase, { keys: [0] });
+      const matches = matchSorter(storyComponents, phrase, { keys: ["0"] });
       setFilteredPairs(matches.length ? matches : storyComponents);
     });
   }, [phrase]);
