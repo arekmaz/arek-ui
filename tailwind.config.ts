@@ -1,9 +1,7 @@
-import type { Config } from "tailwindcss";
-import plugin from "tailwindcss/plugin";
 import pluginVariants from "tailwind-plugin-variants";
+import type { Config } from "tailwindcss";
 
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   darkMode: ["class"],
   content: ["app/**/*.{ts,tsx}", "components/**/*.{ts,tsx}"],
   theme: {
@@ -147,18 +145,18 @@ module.exports = {
         drawerContent: ["header", "body", "footer"],
       },
       zIndex: {
-        hide: -1,
-        base: 0,
-        docked: 10,
-        dropdown: 1000,
-        sticky: 1100,
-        banner: 1200,
-        overlay: 1300,
-        modal: 1400,
-        popover: 1500,
-        skipLink: 1600,
-        toast: 1700,
-        tooltip: 1800,
+        hide: "-1",
+        base: "0",
+        docked: "10",
+        dropdown: "1000",
+        sticky: "1100",
+        banner: "1200",
+        overlay: "1300",
+        modal: "1400",
+        popover: "1500",
+        skipLink: "1600",
+        toast: "1700",
+        tooltip: "1800",
       },
     },
     transitionDuration: {
@@ -198,4 +196,4 @@ module.exports = {
       (name) => `_${name}`
     ),
   ],
-};
+} satisfies Config;

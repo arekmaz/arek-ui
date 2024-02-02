@@ -10,6 +10,7 @@ const datePickerStyles = tv({
       "rounded-sm",
       "shadow-lg",
       "flex",
+      "_hidden:hidden",
       "flex-col",
       "gap-3",
       "p-4",
@@ -74,6 +75,7 @@ const ViewTrigger = withContext(D.ViewTrigger, "viewTrigger");
 const YearSelect = withContext(D.YearSelect, "yearSelect");
 
 export const DatePicker = Object.assign(Root, {
+  Root,
   ClearTrigger,
   Content,
   Control,
