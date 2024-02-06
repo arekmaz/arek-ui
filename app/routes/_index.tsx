@@ -125,7 +125,7 @@ export default function Index() {
       <p className="text-4xl text-center font-semibold">Arek UI - React</p>
       <div>
         <Combobox
-          items={filteredPairs}
+          items={filteredPairs.map(([name]) => name)}
           inputValue={inputValue}
           onInputValueChange={(value) => {
             setInputValue(value.value);
