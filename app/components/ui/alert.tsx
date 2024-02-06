@@ -10,7 +10,7 @@ const alertVariants = tv({
       "rounded-lg",
       "border",
       "p-4",
-      "has-[[data-part=icon]]:pl-11",
+      "has-[.icon]:pl-11",
     ],
     icon: ["icon", "absolute", "left-4", "top-4", "text-foreground"],
     title: ["mb-1", "font-medium", "leading-none", "tracking-tight"],
@@ -36,9 +36,19 @@ const alertVariants = tv({
 
 const { withProvider, withContext } = createStyleContext(alertVariants);
 
-const Root = withProvider(ark.div, "root", { role: "alert" });
-const Icon = withContext(ark.div, "icon", { "data-part": "icon" } as any);
+const Root = withProvider(ark.div, "root", {
+  role: "alert",
+  "data-part": "test",
+});
+const Icon = withContext(ark.div, "icon");
 const Title = withContext(ark.h5, "title");
-const Description = withContext(ark.div, "description");
+const Description = withContext(ark.div, "description", {
+  "data-part": "description",
+});
 
-export const Alert = Object.assign(Root, { Icon, Title, Description });
+export const Alert = Object.assign(Root, {
+  Root,
+  Icon,
+  Title,
+  Description,
+});

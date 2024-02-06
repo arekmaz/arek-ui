@@ -19,9 +19,6 @@ const Basic = () => {
 const NoIcon = () => {
   return (
     <Alert>
-      {/* <Alert.Icon asChild>
-        <Terminal className="h-4 w-4" />
-      </Alert.Icon> */}
       <Alert.Title>Basic Alert! - no icon</Alert.Title>
       <Alert.Description>
         You can add components and dependencies to your app using the cli.

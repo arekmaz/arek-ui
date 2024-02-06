@@ -21,7 +21,7 @@ const avatarStyles = tv({
       md: {
         root: ["size-10"],
         image: ["size-10"],
-        fallback: ["text-md", "[&_svg]:size-5"],
+        fallback: ["text-md"],
       },
     },
   },
@@ -33,4 +33,4 @@ const Root = withProvider(A.Root, "root");
 const Fallback = withContext(A.Fallback, "fallback");
 const Image = withContext(A.Image, "image");
 
-export const Avatar = Object.assign(Root, { Fallback, Image });
+export const Avatar = Object.assign(Root, { Root, Fallback, Image });

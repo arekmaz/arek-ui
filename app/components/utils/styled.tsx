@@ -3,6 +3,7 @@
 import { forwardRef, type ExoticComponent } from "react";
 import { VariantProps } from "tailwind-variants";
 import { cn } from "./cn";
+import { DataAttributes } from "./create-styled-context";
 
 const mergeProps = <T extends Record<string, any>>(
   baseProps: T,
@@ -44,11 +45,11 @@ export const splitVariantProps = (
 export const styled = <ComponentProps extends {}, R extends StyleRecipe>(
   Component: Component<ComponentProps>,
   recipe: R,
-  defaultProps?: Partial<ComponentProps & VariantProps<R>>
+  defaultProps?: Partial<ComponentProps & VariantProps<R> & DataAttributes>
 ) => {
   const Comp = forwardRef<
     typeof Component,
-    ComponentProps & VariantProps<R> & { unstyled?: boolean }
+    ComponentProps & VariantProps<R> & { unstyled?: boolean } & DataAttributes
   >(({ unstyled, ...props }, ref) => {
     const [variantProps, otherProps] = splitVariantProps(recipe.variantKeys, {
       ...defaultProps,

@@ -16,13 +16,15 @@ const accordionStyles = tv({
       "font-medium",
       "transition-all",
       "hover:underline",
-      "[&[data-state=open]>svg]:rotate-180",
       "_disabled:text-muted-foreground",
       "_disabled:text-muted-foreground",
       "_disabled:cursor-not-allowed",
       "_disabled:hover:no-underline",
     ],
-    itemIndicator: ["h-4 w-4 shrink-0 transition-transform duration-normal"],
+    itemIndicator: [
+      "h-4 w-4 shrink-0 transition-transform duration-normal",
+      "_open:rotate-180",
+    ],
     itemContent: [
       "transition-all",
       "grid",
@@ -46,6 +48,7 @@ const ItemContent = withContext(A.ItemContent, "itemContent");
 const ItemContentContainer = withContext(ark.div, "itemContentContainer");
 
 export const Accordion = Object.assign(Root, {
+  Root,
   Item,
   ItemTrigger,
   ItemIndicator,

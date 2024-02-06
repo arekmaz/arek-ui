@@ -1,6 +1,7 @@
 import { Avatar } from "~/components/ui/avatar";
 import { VStack } from "~/components/ui/stack";
 import { Story } from "./storyHelpers";
+import { AxeIcon } from "lucide-react";
 
 export const Avatars = () => {
   return (
@@ -16,6 +17,14 @@ export const Avatars = () => {
         Placeholder
         <Avatar>
           <Avatar.Fallback>CN</Avatar.Fallback>
+        </Avatar>
+      </VStack>
+      <VStack>
+        Fallback icon
+        <Avatar>
+          <Avatar.Fallback>
+            <AxeIcon />
+          </Avatar.Fallback>
         </Avatar>
       </VStack>
     </Story>

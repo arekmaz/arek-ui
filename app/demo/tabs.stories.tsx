@@ -69,7 +69,7 @@ export const CustomIndicator = () => {
               </Tabs.Trigger>
             ))}
             <Tabs.Indicator asChild>
-              <CrosshairIcon className="opacity-50" />
+              <p className="opacity-50 duration-default">▷</p>
             </Tabs.Indicator>
           </Tabs.List>
           <Tabs.Content value="react">

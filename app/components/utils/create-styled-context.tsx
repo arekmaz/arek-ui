@@ -25,6 +25,8 @@ type StyleSlotRecipe<R extends StyleRecipe> = Record<StyleSlot<R>, string>;
 type StyleVariantProps<R extends StyleRecipe> = Parameters<R>[0];
 type CombineProps<T, U> = Omit<T, keyof U> & U;
 
+export type DataAttributes = Record<`data-${string}`, string | number>;
+
 export interface ComponentVariants<
   T extends ElementType,
   R extends StyleRecipe,
@@ -63,9 +65,9 @@ export const createStyleContext = <R extends StyleRecipe>(recipe: R) => {
   const withProvider = <T extends ElementType>(
     Component: T,
     slot: StyleSlot<R>,
-    defaultProps?: Partial<ComponentProps<T>>
+    defaultProps?: Partial<ComponentProps<T> & DataAttributes>
   ): ComponentVariants<
-    T,
+    T & DataAttributes,
     R,
     {
       classes?: Classes<R>;
@@ -117,8 +119,10 @@ export const createStyleContext = <R extends StyleRecipe>(recipe: R) => {
   const withContext = <T extends ElementType>(
     Component: T,
     slot: StyleSlot<R>,
-    defaultProps?: Partial<ComponentProps<T>>
-  ): ElementType<ComponentProps<T> & { unstyled?: boolean }> => {
+    defaultProps?: Partial<ComponentProps<T> & DataAttributes>
+  ): ElementType<
+    ComponentProps<T> & DataAttributes & { unstyled?: boolean }
+  > => {
     const StyledComponent = forwardRef(
       (
         {

@@ -18,14 +18,14 @@ const inputGroup = tv({
       "input-group-addon-right",
       "flex",
       "items-center",
-      "[&_svg]:text-muted-foreground",
+      "text-muted-foreground",
       "cursor-auto",
     ],
     addonLeft: [
       "input-group-addon-left",
       "flex",
       "items-center",
-      "[&_svg]:text-muted-foreground",
+      "text-muted-foreground",
       "cursor-auto",
     ],
     input: [
@@ -167,15 +167,15 @@ const { withProvider, withContext } = createStyleContext(inputGroup);
 
 const Root = withProvider(ark.fieldset, "root", {
   "data-part": "input-group",
-} as any);
+});
 
 const LeftAddon = withContext(ark.div, "addonLeft", {
   "data-part": "addon-left",
-} as any);
+});
 
 const RightAddon = withContext(ark.div, "addonRight", {
   "data-part": "addon-right",
-} as any);
+});
 
 const Input = withContext(ark.input, "input");
 
