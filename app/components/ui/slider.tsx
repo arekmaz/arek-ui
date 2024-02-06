@@ -6,7 +6,16 @@ import { ComponentProps } from "react";
 const styles = tv({
   slots: {
     root: ["flex", "flex-col", "gap-1", "w-full"],
-    control: ["relative", "flex", "items-center", "cursor-pointer"],
+    control: [
+      "relative",
+      "flex",
+      "items-center",
+      "cursor-pointer",
+      "_focus:ring-2",
+      "_focus:ring-ring",
+      "_focus:ring-offset-2",
+      "_focus:rounded-sm",
+    ],
     track: ["bg-input", "rounded-full", "overflow-hidden", "flex-1"],
     range: ["bg-foreground"],
     thumb: [
@@ -17,6 +26,9 @@ const styles = tv({
       "outline-none",
       "shadow-sm",
       "z-[1]",
+      "_focus:ring-2",
+      "_focus:border-ring",
+      "_focus:ring-foreground",
     ],
     label: ["font-medium"],
     valueText: [],

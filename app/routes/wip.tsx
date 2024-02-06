@@ -4,11 +4,14 @@ import { Checkboxes } from "~/demo/checkbox.stories";
 import { DatePickers } from "~/demo/date-picker.stories";
 import { Forms } from "~/demo/form.stories";
 import { Highlights } from "~/demo/highlight.stories";
+import { InputGroups } from "~/demo/input-group.stories";
+import { Sliders } from "~/demo/slider.stories";
 
 export default function Wip() {
   return (
     <Center className="flex-1">
-      <Highlights />
+      <Sliders />
+      <InputGroups />
     </Center>
   );
 }

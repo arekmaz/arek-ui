@@ -29,7 +29,7 @@ export const Story = ({
             {title.toLowerCase()}:
             {componentFilename && (
               <Tooltip>
-                <Tooltip.Trigger>
+                <Tooltip.Trigger asChild>
                   <IconButton asChild variant="outline">
                     <a
                       target="_blank"
