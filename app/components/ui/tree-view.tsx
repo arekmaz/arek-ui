@@ -5,8 +5,21 @@ import { createStyleContext } from "../utils/create-styled-context";
 const treeViewStyles = tv({
   slots: {
     root: [],
-    branch: ["cursor-default", "flex", "flex-col", "gap-1.5"],
-    branchContent: ["ps-3", "_open:flex", "flex-col", "gap-1.5"],
+    branch: ["cursor-default", "flex", "flex-col"],
+    branchContent: [
+      "ps-3",
+      "flex",
+      "max-h-[10000px]",
+      "_open:mt-1.5",
+      "_open:ease-emphasized-in",
+      "_closed:max-h-0",
+      "_closed:overflow-hidden",
+      "_closed:ease-emphasized-out",
+      "transition-[max-height,margin]",
+      "duration-fast",
+      "flex-col",
+      "gap-1.5",
+    ],
     branchControl: [
       "flex",
       "gap-1",
@@ -30,6 +43,7 @@ const treeViewStyles = tv({
       "_focus:outline-2",
       "_focus:outline-ring",
       "rounded-sm",
+      "cursor-default",
       "p-1",
     ],
     itemText: [],
