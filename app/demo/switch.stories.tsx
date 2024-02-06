@@ -16,6 +16,13 @@ export const Switches = () => {
       <Demo label="small" size="sm" />
       <Demo label="medium" />
       <Demo label="large" size="lg" />
+      <Demo label="disabled checked" size="lg" disabled />
+      <Demo
+        label="disabled unchecked"
+        size="lg"
+        defaultChecked={false}
+        disabled
+      />
     </Story>
   );
 };

@@ -27,6 +27,9 @@ const styles = tv({
       "_focus:ring-2",
       "_focus:ring-ring",
       "_focus:ring-offset-2",
+      "_disabled:cursor-not-allowed",
+      "_disabled:bg-muted-foreground",
+      "_disabled:ring-0",
     ],
     label: ["select-none", "text-md", "font-medium"],
     thumb: [
@@ -38,6 +41,7 @@ const styles = tv({
       "ease-default",
       "_checked:translate-x-full",
       "_checked:bg-background",
+      "_disabled:bg-input",
     ],
   },
   variants: {
