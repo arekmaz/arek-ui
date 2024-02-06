@@ -6,12 +6,13 @@ import { Forms } from "~/demo/form.stories";
 import { Highlights } from "~/demo/highlight.stories";
 import { InputGroups } from "~/demo/input-group.stories";
 import { Sliders } from "~/demo/slider.stories";
+import { Switches } from "~/demo/switch.stories";
 
 export default function Wip() {
   return (
     <Center className="flex-1">
       <Sliders />
-      <InputGroups />
+      <Switches />
     </Center>
   );
 }

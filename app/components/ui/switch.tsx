@@ -24,6 +24,9 @@ const styles = tv({
       "ease-default",
       "_checked:bg-foreground",
       "_checked:border-background",
+      "_focus:ring-2",
+      "_focus:ring-ring",
+      "_focus:ring-offset-2",
     ],
     label: ["select-none", "text-md", "font-medium"],
     thumb: [
