@@ -21,6 +21,9 @@ export const inputClasses = id([
   "focus-visible:ring-offset-2",
   "_disabled:cursor-not-allowed",
   "_disabled:opacity-50",
+  "_invalid:text-destructive",
+  "_invalid:placeholder-destructive/50",
+  "_invalid:border-destructive",
 ]);
 
 const input = tv({
@@ -35,16 +38,8 @@ const input = tv({
       xl: ["px-4", "h-12", "min-w-12", "text-lg"],
       "2xl": ["px-2", "h-16", "min-w-16", "text-3xl"],
     },
-    status: {
-      normal: [],
-      error: [
-        "text-destructive",
-        "placeholder-destructive/50",
-        "border-destructive",
-      ],
-    },
   },
-  defaultVariants: { scale: "md", status: "normal" },
+  defaultVariants: { scale: "md" },
 });
 
 export const Input = styled(ark.input, input);

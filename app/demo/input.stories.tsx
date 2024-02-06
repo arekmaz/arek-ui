@@ -57,12 +57,12 @@ export const Inputs = () => {
 
       <label>
         Error
-        <Input status="error" defaultValue="error" />
+        <Input aria-invalid="true" defaultValue="error" />
       </label>
 
       <label>
         Error placeholder
-        <Input placeholder="placeholder" status="error" />
+        <Input placeholder="placeholder" aria-invalid="true" />
       </label>
     </Story>
   );

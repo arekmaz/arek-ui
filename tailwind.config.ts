@@ -173,7 +173,7 @@ export default {
     require("tailwindcss-animate"),
     require("@savvywombat/tailwindcss-grid-areas"),
     pluginVariants(
-      ({ attribute, pseudoclass, dataValue, dataBool }) => {
+      ({ attribute, pseudoclass, dataValue, dataBool, ariaValue }) => {
         const dataState = dataValue("state");
         const dataOrientation = dataValue("orientation");
 
@@ -191,7 +191,7 @@ export default {
           horizontal: [dataOrientation],
           vertical: [dataOrientation],
           selected: [dataBool],
-          invalid: [dataBool],
+          invalid: [dataBool, () => ariaValue("invalid")("true")],
         };
       },
       (name) => `_${name}`
