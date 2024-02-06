@@ -10,13 +10,9 @@ const alertVariants = tv({
       "rounded-lg",
       "border",
       "p-4",
-      "[&>svg~*]:pl-7",
-      "[&>svg+div]:translate-y-[-3px]",
-      "[&>svg]:absolute",
-      "[&>svg]:left-4",
-      "[&>svg]:top-4",
-      "[&>svg]:text-foreground",
+      "has-[[data-part=icon]]:pl-11",
     ],
+    icon: ["icon", "absolute", "left-4", "top-4", "text-foreground"],
     title: ["mb-1", "font-medium", "leading-none", "tracking-tight"],
     description: ["text-sm", "[&_p]:leading-relaxed"],
   },
@@ -28,8 +24,8 @@ const alertVariants = tv({
           "border-destructive/50",
           "text-destructive",
           "dark:border-destructive",
-          "[&>svg]:text-destructive",
         ],
+        icon: ["text-destructive"],
       },
     },
   },
@@ -41,7 +37,8 @@ const alertVariants = tv({
 const { withProvider, withContext } = createStyleContext(alertVariants);
 
 const Root = withProvider(ark.div, "root", { role: "alert" });
+const Icon = withContext(ark.div, "icon", { "data-part": "icon" } as any);
 const Title = withContext(ark.h5, "title");
 const Description = withContext(ark.div, "description");
 
-export const Alert = Object.assign(Root, { Title, Description });
+export const Alert = Object.assign(Root, { Icon, Title, Description });

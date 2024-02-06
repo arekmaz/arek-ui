@@ -5,8 +5,24 @@ import { Story } from "./storyHelpers";
 const Basic = () => {
   return (
     <Alert>
-      <Terminal className="h-4 w-4" />
+      <Alert.Icon asChild>
+        <Terminal className="h-4 w-4" />
+      </Alert.Icon>
       <Alert.Title>Basic Alert!</Alert.Title>
+      <Alert.Description>
+        You can add components and dependencies to your app using the cli.
+      </Alert.Description>
+    </Alert>
+  );
+};
+
+const NoIcon = () => {
+  return (
+    <Alert>
+      {/* <Alert.Icon asChild>
+        <Terminal className="h-4 w-4" />
+      </Alert.Icon> */}
+      <Alert.Title>Basic Alert! - no icon</Alert.Title>
       <Alert.Description>
         You can add components and dependencies to your app using the cli.
       </Alert.Description>
@@ -17,7 +33,9 @@ const Basic = () => {
 const Error = () => {
   return (
     <Alert variant="destructive">
-      <Terminal className="h-4 w-4" />
+      <Alert.Icon asChild>
+        <Terminal className="h-4 w-4" />
+      </Alert.Icon>
       <Alert.Title>Error Alert!</Alert.Title>
       <Alert.Description>
         You can add components and dependencies to your app using the cli.
@@ -31,6 +49,7 @@ export const Alerts = () => {
     <Story title="alerts" componentFilename="alert">
       <Basic />
       <Error />
+      <NoIcon />
     </Story>
   );
 };
