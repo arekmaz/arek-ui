@@ -125,10 +125,13 @@ export default function Index() {
       <p className="text-4xl text-center font-semibold">Arek UI - React</p>
       <div>
         <Combobox
-          items={componentNames}
+          items={filteredPairs}
           inputValue={inputValue}
           onInputValueChange={(value) => {
             setInputValue(value.value);
+          }}
+          onValueChange={(value) => {
+            setInputValue(value.value[0]);
           }}
           allowCustomValue
           openOnClick
