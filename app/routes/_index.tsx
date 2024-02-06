@@ -17,6 +17,7 @@ import { Accordions } from "~/demo/accordion.stories";
 import { Alerts } from "~/demo/alert.stories";
 import { Avatars } from "~/demo/avatar.stories";
 import { Badges } from "~/demo/badge.stories";
+import { TreeViews } from "~/demo/tree-view.stories";
 import { Buttons } from "~/demo/button.stories";
 import { Calendars } from "~/demo/calendar.stories";
 import { Forms } from "~/demo/form.stories";
@@ -77,6 +78,7 @@ const components = [
   ["Dialog", Dialogs],
   ["Avatar", Avatars],
   ["Badge", Badges],
+  ["Tree View", TreeViews],
   ["Calendar", Calendars],
   ["Card", Cards],
   ["Collapsible", Collapsibles],

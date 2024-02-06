@@ -181,6 +181,7 @@ export default {
           checked: [pseudoclass, dataBool, attribute, dataState],
           unchecked: [dataState],
           focus: [pseudoclass, dataBool, attribute, dataState],
+          focused: [dataBool],
           hidden: [attribute, dataBool],
           disabled: [attribute, dataBool],
           closed: [dataState],
