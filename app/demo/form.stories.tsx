@@ -64,7 +64,11 @@ export function ProfileForm() {
                     </InputGroup.LeftAddon>
                     <FormControl>
                       {/* @ts-expect-error too complex */}
-                      <InputGroup.Input placeholder="∗∗∗∗∗∗" {...field} />
+                      <InputGroup.Input
+                        type="password"
+                        placeholder="∗∗∗∗∗∗"
+                        {...field}
+                      />
                     </FormControl>
                     <InputGroup.RightAddon>
                       <IconButton unstyled>

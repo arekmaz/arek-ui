@@ -15,4 +15,7 @@ const iconButton = tv({
   },
 });
 
-export const IconButton = styled(ark.button, iconButton, { size: "icon" });
+export const IconButton = styled(ark.button, iconButton, {
+  size: "icon",
+  type: "button",
+});
