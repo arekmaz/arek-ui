@@ -50,6 +50,7 @@ import { Textareas } from "~/demo/textarea.stories";
 import { Toasts } from "~/demo/toast.stories";
 import { ToggleGroups } from "~/demo/toggle-group.stories";
 import { Tooltips } from "~/demo/tooltip.stories";
+import { Highlights } from "~/demo/highlight.stories";
 
 export const meta: MetaFunction = () => {
   return [
@@ -97,6 +98,7 @@ const components = [
   ["Toast", Toasts],
   ["Slider", Sliders],
   ["Spinner", Spinners],
+  ["Hightlight", Highlights],
   ["Table", Tables],
   ["Form", Forms],
 ] as Array<[string, () => ReactElement]>;
