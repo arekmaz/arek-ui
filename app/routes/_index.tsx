@@ -51,6 +51,7 @@ import { Toasts } from "~/demo/toast.stories";
 import { ToggleGroups } from "~/demo/toggle-group.stories";
 import { Tooltips } from "~/demo/tooltip.stories";
 import { Highlights } from "~/demo/highlight.stories";
+import { useSearchParams } from "@remix-run/react";
 
 export const meta: MetaFunction = () => {
   return [
@@ -63,14 +64,14 @@ export const meta: MetaFunction = () => {
 };
 
 const components = [
-  ["Buttos", Buttons],
+  ["Button", Buttons],
   ["Checkbox", Checkboxes],
   ["Combobox", Comboboxes],
   ["Select", Selects],
-  ["DatePicker", DatePickers],
-  ["IconButton", IconButtons],
+  ["Date Picker", DatePickers],
+  ["Icon Button", IconButtons],
   ["Input", Inputs],
-  ["InputGroup", InputGroups],
+  ["Input Group", InputGroups],
   ["Accordion", Accordions],
   ["Alert", Alerts],
   ["Dialog", Dialogs],
@@ -79,18 +80,18 @@ const components = [
   ["Calendar", Calendars],
   ["Card", Cards],
   ["Collapsible", Collapsibles],
-  ["TagsInput", TagsInputs],
-  ["ContextMenu", ContextMenus],
-  ["HoverCard", HoverCards],
+  ["Tags Input", TagsInputs],
+  ["Context Menu", ContextMenus],
+  ["Hover Card", HoverCards],
   ["Drawer", Drawers],
   ["Menu", Menus],
   ["Pagination", Paginations],
   ["Popover", Popovers],
-  ["RadioGroup", RadioGroups],
-  ["ScrollArea", ScrollAreas],
+  ["Radio Group", RadioGroups],
+  ["Scroll Area", ScrollAreas],
   ["Separator", Separators],
   ["Skeleton", Skeletons],
-  ["ToggleGroup", ToggleGroups],
+  ["Toggle Group", ToggleGroups],
   ["Switch", Switches],
   ["Textarea", Textareas],
   ["Tabs", TabsStories],
@@ -107,22 +108,31 @@ const storyComponents = components.sort(([a], [b]) =>
   a === b ? 0 : a > b ? 1 : -1
 );
 
-const componentNames = storyComponents.map(([name]) => name);
-
 export default function Index() {
   const [, startTransition] = useTransition();
-  const [inputValue, setInputValue] = useState("");
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [inputValue, setInputValue] = useState(searchParams.get("q") ?? "");
 
-  const [filteredPairs, setFilteredPairs] = useState(storyComponents);
+  const [filteredPairs, setFilteredPairs] = useState(() => {
+    const matches = matchSorter(storyComponents, inputValue, {
+      keys: ["0"],
+    });
+    return matches;
+  });
 
   const inputRef = useRef<HTMLInputElement>(null!);
 
   useEffect(() => {
-    startTransition(() => {
-      const matches = matchSorter(storyComponents, inputValue, { keys: ["0"] });
-      setFilteredPairs(matches.length ? matches : storyComponents);
-    });
-  }, [inputValue]);
+    setTimeout(() => {
+      setSearchParams((p) => ({ ...p, q: inputValue }));
+      startTransition(() => {
+        const matches = matchSorter(storyComponents, inputValue, {
+          keys: ["0"],
+        });
+        setFilteredPairs(matches.length ? matches : storyComponents);
+      });
+    }, 0);
+  }, [inputValue, setSearchParams]);
 
   return (
     <VStack className="w-screen flex-1 py-5" spacing={5}>
