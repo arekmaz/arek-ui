@@ -191,6 +191,7 @@ export default {
           horizontal: [dataOrientation],
           vertical: [dataOrientation],
           selected: [dataBool],
+          invalid: [dataBool],
         };
       },
       (name) => `_${name}`

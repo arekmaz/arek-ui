@@ -1,4 +1,4 @@
-import { Checkbox as C } from "@ark-ui/react";
+import { Checkbox as C, ark } from "@ark-ui/react";
 import { ComponentProps } from "react";
 import { tv } from "tailwind-variants";
 import { createStyleContext } from "../utils/create-styled-context";
@@ -6,22 +6,52 @@ import { createStyleContext } from "../utils/create-styled-context";
 const checkbox = tv({
   slots: {
     root: [
-      "flex items-center gap-2 cursor-pointer group/checkbox text-foreground",
+      "flex",
+      "items-center",
+      "gap-2",
+      "cursor-pointer",
+      "group/checkbox",
+      "text-foreground",
       "_disabled:text-muted-foreground",
       "_disabled:cursor-not-allowed",
+      "_invalid:text-destructive",
     ],
     label: "margin-start-2",
     control: [
-      "border border-foreground",
+      "border",
+      "border-foreground",
       "_disabled:border-muted-foreground",
-      "rounded-sm size-5 relative outline-none data-[focus]:ring-1 ring-foreground shrink-0",
+      "rounded-sm",
+      "size-5",
+      "relative",
+      "outline-none",
+      "data-[focus]:ring-1",
+      "ring-foreground",
+      "shrink-0",
+      "_invalid:border-destructive",
+      "_invalid:ring-destructive",
     ],
-    controlCheckedIcon:
-      "transition-opacity absolute top-0 opacity-0 group-data-[state=checked]/checkbox:opacity-100",
-    controlIndeterminateIcon:
-      "transition-opacity absolute top-0 opacity-0 group-data-[state=indeterminate]/checkbox:opacity-100",
+    controlCheckedIcon: [
+      "transition-opacity",
+      "absolute",
+      "top-0",
+      "opacity-0",
+      "group-data-[state=checked]/checkbox:opacity-100",
+    ],
+    controlIndeterminateIcon: [
+      "transition-opacity",
+      "absolute",
+      "top-0",
+      "opacity-0",
+      "group-data-[state=indeterminate]/checkbox:opacity-100",
+    ],
   },
 });
+
+const { withProvider, withContext } = createStyleContext(checkbox);
+
+const Root = withProvider(C.Root, "root");
+const Label = withContext(C.Label, "label");
 
 const CI = (props: ComponentProps<"svg">) => (
   <svg
@@ -57,13 +87,24 @@ const II = (props: ComponentProps<"svg">) => (
   </svg>
 );
 
-const { withProvider, withContext } = createStyleContext(checkbox);
+const CheckIcon = withContext(ark.svg, "controlCheckedIcon", {
+  asChild: true,
+  children: <CI />,
+});
 
-const Root = withProvider(C.Root, "root");
-const Control = withContext(C.Control, "control");
-const Label = withContext(C.Label, "label");
-const CheckIcon = withContext(CI, "controlCheckedIcon");
-const IndeterminateIcon = withContext(II, "controlIndeterminateIcon");
+const IndeterminateIcon = withContext(ark.svg, "controlIndeterminateIcon", {
+  asChild: true,
+  children: <II />,
+});
+
+const Control = withContext(C.Control, "control", {
+  children: (
+    <>
+      <CheckIcon />
+      <IndeterminateIcon />
+    </>
+  ),
+});
 
 export const Checkbox = Object.assign(Root, {
   Root,
