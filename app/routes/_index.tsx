@@ -2,7 +2,13 @@ import { Portal } from "@ark-ui/react";
 import type { MetaFunction } from "@remix-run/node";
 import { ChevronsUpDownIcon } from "lucide-react";
 import { matchSorter } from "match-sorter";
-import { ReactElement, useEffect, useState, useTransition } from "react";
+import {
+  ReactElement,
+  useEffect,
+  useRef,
+  useState,
+  useTransition,
+} from "react";
 import { Combobox } from "~/components/ui/combobox";
 import { InputGroup } from "~/components/ui/input-group";
 import { VStack } from "~/components/ui/stack";
@@ -101,16 +107,18 @@ const componentNames = storyComponents.map(([name]) => name);
 
 export default function Index() {
   const [, startTransition] = useTransition();
-  const [phrase, setPhrase] = useState("");
+  const [inputValue, setInputValue] = useState("");
 
   const [filteredPairs, setFilteredPairs] = useState(storyComponents);
 
+  const inputRef = useRef<HTMLInputElement>(null!);
+
   useEffect(() => {
     startTransition(() => {
-      const matches = matchSorter(storyComponents, phrase, { keys: ["0"] });
+      const matches = matchSorter(storyComponents, inputValue, { keys: ["0"] });
       setFilteredPairs(matches.length ? matches : storyComponents);
     });
-  }, [phrase]);
+  }, [inputValue]);
 
   return (
     <VStack className="w-screen flex-1 py-5" spacing={5}>
@@ -118,18 +126,24 @@ export default function Index() {
       <div>
         <Combobox
           items={componentNames}
-          onInputValueChange={(value) => setPhrase(value.value)}
-          inputValue={phrase}
-          onValueChange={(value) =>
-            value.value.length && setPhrase(value.value[0])
-          }
+          inputValue={inputValue}
+          onInputValueChange={(value) => {
+            setInputValue(value.value);
+          }}
+          allowCustomValue
           openOnClick
           autoFocus
         >
           <Combobox.Control>
             <InputGroup scale="2xl">
               <Combobox.Input placeholder="select a framework" asChild unstyled>
-                <InputGroup.Input />
+                <InputGroup.Input
+                  // @ts-expect-error union too complex
+                  ref={inputRef}
+                  onFocus={() => {
+                    inputRef.current.select();
+                  }}
+                />
               </Combobox.Input>
               <Combobox.Trigger
                 asChild
