@@ -3,15 +3,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 import { Button } from "~/components/ui/button";
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "~/components/ui/form";
+import { Form } from "~/components/ui/form";
 import { Input } from "~/components/ui/input";
 import { Story } from "./storyHelpers";
 import { InputGroup } from "~/components/ui/input-group";
@@ -36,51 +28,51 @@ export function ProfileForm() {
       <Stack asChild spacing={8}>
         <form onSubmit={form.handleSubmit(() => {})}>
           <Stack>
-            <FormField
+            <Form.Field
               control={form.control}
               name="username"
               render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Username</FormLabel>
-                  <FormControl>
+                <Form.Item>
+                  <Form.Label>Username</Form.Label>
+                  <Form.Control>
                     <Input placeholder="shadcn" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                  <FormDescription>
+                  </Form.Control>
+                  <Form.Message />
+                  <Form.Description>
                     This is your public display name.
-                  </FormDescription>
-                </FormItem>
+                  </Form.Description>
+                </Form.Item>
               )}
             />
-            <FormField
+            <Form.Field
               control={form.control}
               name="password"
               render={({ field, fieldState: { invalid } }) => (
-                <FormItem>
-                  <FormLabel>Password</FormLabel>
+                <Form.Item>
+                  <Form.Label>Password</Form.Label>
                   <InputGroup status={invalid ? "error" : "normal"}>
                     <InputGroup.LeftAddon>
                       <LockIcon />
                     </InputGroup.LeftAddon>
-                    <FormControl>
+                    <Form.Control>
                       {/* @ts-expect-error too complex */}
                       <InputGroup.Input
                         type="password"
                         placeholder="∗∗∗∗∗∗"
                         {...field}
                       />
-                    </FormControl>
+                    </Form.Control>
                     <InputGroup.RightAddon>
                       <IconButton unstyled>
                         <EyeOff />
                       </IconButton>
                     </InputGroup.RightAddon>
                   </InputGroup>
-                  <FormMessage />
-                  <FormDescription>
+                  <Form.Message />
+                  <Form.Description>
                     This is your secret password.
-                  </FormDescription>
-                </FormItem>
+                  </Form.Description>
+                </Form.Item>
               )}
             />
           </Stack>

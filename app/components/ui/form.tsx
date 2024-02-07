@@ -13,7 +13,7 @@ import {
 import { Label } from "./label";
 import { cn } from "../utils/cn";
 
-const Form = FormProvider;
+const FP = FormProvider;
 
 type FormFieldContextValue<
   TFieldValues extends FieldValues = FieldValues,
@@ -165,9 +165,17 @@ const FormMessage = React.forwardRef<
 });
 FormMessage.displayName = "FormMessage";
 
+export const Form = Object.assign(FP, {
+  Item: FormItem,
+  Label: FormLabel,
+  Control: FormControl,
+  Description: FormDescription,
+  Message: FormMessage,
+  Field: FormField,
+});
+
 export {
   useFormField,
-  Form,
   FormItem,
   FormLabel,
   FormControl,
