@@ -3,12 +3,10 @@ import { tv } from "tailwind-variants";
 import { createStyleContext } from "../utils/create-styled-context";
 
 const styles = tv({
-  base: "tabs",
   slots: {
-    root: "tabs__root",
+    root: [],
     list: [
       "inline-flex",
-      "h-10",
       "items-center",
       "justify-center",
       "rounded-md",
