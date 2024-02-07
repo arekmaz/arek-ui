@@ -14,15 +14,19 @@ const progressStyles = tv({
       "ease-in-out",
       "duration-normal",
       "[--translate-x:-100%]",
+      "_indeterminate:animate-linear-indeterminate",
+      "_indeterminate:w-[210%]",
     ],
-    circle: [],
+    circle: ["_indeterminate:animate-spin"],
     circleTrack: ["stroke-muted"],
     circleRange: [
       "stroke-foreground",
       "transition-[stroke-dasharray,stroke]",
       "duration-slowest",
+      "_indeterminate:animate-circle-indeterminate",
     ],
     valueText: ["text-sm"],
+    view: [],
   },
   variants: {
     size: {
@@ -44,6 +48,7 @@ const CircleTrack = withContext(P.CircleTrack, "circleTrack");
 const CircleRange = withContext(P.CircleRange, "circleRange");
 const Circle = withContext(P.Circle, "circle");
 const ValueText = withContext(P.ValueText, "valueText");
+const View = withContext(P.View, "view");
 
 export const Progress = Object.assign(Root, {
   Root,
@@ -54,4 +59,5 @@ export const Progress = Object.assign(Root, {
   CircleTrack,
   CircleRange,
   ValueText,
+  // View,
 });

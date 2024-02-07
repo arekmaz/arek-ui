@@ -110,8 +110,31 @@ export default {
           "0%": { transform: "translateY(0%)" },
           "100%": { transform: "translateY(-100%)" },
         },
+        "linear-indeterminate": {
+          "0%": {
+            transform: "scaleX(1) translateX(var(--translate-x))",
+          },
+          "100%": {
+            transform: "scaleX(0) translateX(var(--translate-x))",
+          },
+        },
+        "circle-indeterminate": {
+          "0%": {
+            "stroke-dasharray": "1, 400",
+            "stroke-dashoffset": "0",
+          },
+
+          "100%": {
+            "stroke-dasharray": "400, 400",
+            "stroke-dashoffset": "-260",
+          },
+        },
       },
       animation: ({ theme }) => ({
+        "linear-indeterminate":
+          "1s cubic-bezier(0.694, 0.0482, 0.335, 1) 0s infinite normal none running linear-indeterminate",
+        "circle-indeterminate":
+          "1.5s ease-in-out 0s infinite normal none running circle-indeterminate",
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "fade-in": "fade-in 0.25s ease-out",
@@ -180,6 +203,7 @@ export default {
         return {
           checked: [pseudoclass, dataBool, attribute, dataState],
           unchecked: [dataState],
+          indeterminate: [dataState],
           focus: [pseudoclass, dataBool, attribute, dataState],
           focused: [dataBool],
           hidden: [attribute, dataBool],

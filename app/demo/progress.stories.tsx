@@ -20,7 +20,7 @@ const useProgress = () => {
 const Demo = () => {
   const value = useProgress();
   return (
-    <VStack align="stretch" className="w-full">
+    <VStack align="stretch" className="w-full" spacing={5}>
       <Progress value={value} min={0} max={100} size="sm">
         <Progress.Label>Linear sm</Progress.Label>
         <Progress.Track>
@@ -28,6 +28,7 @@ const Demo = () => {
         </Progress.Track>
         <Progress.ValueText />
       </Progress>
+
       <Progress value={value} min={0} max={100} size="md">
         <Progress.Label>Linear md</Progress.Label>
         <Progress.Track>
@@ -35,6 +36,7 @@ const Demo = () => {
         </Progress.Track>
         <Progress.ValueText />
       </Progress>
+
       <Progress value={value} min={0} max={100} size="lg">
         <Progress.Label>Linear lg</Progress.Label>
         <Progress.Track>
@@ -42,6 +44,15 @@ const Demo = () => {
         </Progress.Track>
         <Progress.ValueText />
       </Progress>
+
+      <Progress value={null} min={0} max={100}>
+        <Progress.Label>Linear indeterminate</Progress.Label>
+        <Progress.Track>
+          <Progress.Range />
+        </Progress.Track>
+        <Progress.ValueText />
+      </Progress>
+
       <Progress value={value} min={0} max={100} size="sm">
         <Progress.Label>Circle sm</Progress.Label>
         <Progress.Circle>
@@ -50,6 +61,7 @@ const Demo = () => {
         </Progress.Circle>
         <Progress.ValueText />
       </Progress>
+
       <Progress value={value} min={0} max={100} size="md">
         <Progress.Label>Circle md</Progress.Label>
         <Progress.Circle>
@@ -58,8 +70,18 @@ const Demo = () => {
         </Progress.Circle>
         <Progress.ValueText />
       </Progress>
+
       <Progress value={value} min={0} max={100} size="lg">
         <Progress.Label>Circle lg</Progress.Label>
+        <Progress.Circle>
+          <Progress.CircleTrack />
+          <Progress.CircleRange />
+        </Progress.Circle>
+        <Progress.ValueText />
+      </Progress>
+
+      <Progress value={null} min={0} max={100}>
+        <Progress.Label>Circle indeterminate</Progress.Label>
         <Progress.Circle>
           <Progress.CircleTrack />
           <Progress.CircleRange />
