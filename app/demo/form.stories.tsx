@@ -93,7 +93,7 @@ export function ProfileForm() {
 
 export const Forms = () => {
   return (
-    <Story title="forms">
+    <Story title="forms" componentFilename="form">
       <ProfileForm />
     </Story>
   );

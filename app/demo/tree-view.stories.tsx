@@ -5,7 +5,7 @@ import { FileIcon, FolderIcon } from "lucide-react";
 const Basic = () => {
   return (
     <TreeView>
-      <TreeView.Label>My Documents</TreeView.Label>
+      <TreeView.Label>Basic</TreeView.Label>
       <TreeView.Tree>
         <TreeView.Branch id="node_modules" depth={1}>
           <TreeView.BranchControl id="node_modules" depth={1}>
@@ -90,7 +90,7 @@ const Basic = () => {
 
 export const TreeViews = () => {
   return (
-    <Story title="Tree Views">
+    <Story title="Tree Views" componentFilename="tree-view">
       <Basic />
     </Story>
   );
