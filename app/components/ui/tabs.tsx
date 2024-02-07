@@ -1,6 +1,7 @@
 import { Tabs as ArkTabs } from "@ark-ui/react/tabs";
 import { tv } from "tailwind-variants";
 import { createStyleContext } from "../utils/create-styled-context";
+import { ComponentProps } from "react";
 
 const styles = tv({
   slots: {
@@ -74,3 +75,5 @@ export const Tabs = Object.assign(Root, {
   List,
   Trigger,
 });
+
+export type TabsProps = ComponentProps<typeof Tabs>;

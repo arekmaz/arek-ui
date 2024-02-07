@@ -4,10 +4,10 @@ import { Card } from "~/components/ui/card";
 import { Input } from "~/components/ui/input";
 import { Label } from "~/components/ui/label";
 import { Stack } from "~/components/ui/stack";
-import { Tabs } from "~/components/ui/tabs";
+import { Tabs, TabsProps } from "~/components/ui/tabs";
 import { Story } from "./storyHelpers";
 
-export const ParkDemo = () => {
+export const Disabled = () => {
   const options = [
     { id: "react", label: "React" },
     { id: "solid", label: "Solid" },
@@ -88,11 +88,11 @@ export const CustomIndicator = () => {
   );
 };
 
-const ShadDemo = () => {
+const Normal = (props: TabsProps) => {
   return (
     <Stack>
-      <p>Normal</p>
-      <Tabs defaultValue="account" className="w-[400px]">
+      <p>Normal {props.size}</p>
+      <Tabs defaultValue="account" className="w-[400px]" {...props}>
         <Tabs.List className="grid w-full grid-cols-2">
           <Tabs.Trigger value="account">Account</Tabs.Trigger>
           <Tabs.Trigger value="password">Password</Tabs.Trigger>
@@ -157,8 +157,10 @@ export const TabsStories = () => {
       classes={{ content: "gap-10" }}
       componentFilename="tabs"
     >
-      <ShadDemo />
-      <ParkDemo />
+      <Normal size="sm" />
+      <Normal size="md" />
+      <Normal size="lg" />
+      <Disabled />
       <CustomIndicator />
     </Story>
   );
