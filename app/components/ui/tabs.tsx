@@ -4,7 +4,6 @@ import { createStyleContext } from "../utils/create-styled-context";
 
 const styles = tv({
   base: "tabs",
-  defaultVariants: { size: "md", variant: "line" },
   slots: {
     root: "tabs__root",
     list: [
@@ -23,9 +22,7 @@ const styles = tv({
       "justify-center",
       "whitespace-nowrap",
       "rounded-sm",
-      "px-3",
       "py-1.5",
-      "text-sm",
       "font-medium",
       "ring-offset-background",
       "transition-all",
@@ -48,6 +45,20 @@ const styles = tv({
       "focus-visible:ring-offset-2",
     ],
     indicator: [],
+  },
+  defaultVariants: { size: "md" },
+  variants: {
+    size: {
+      sm: {
+        trigger: ["text-sm", "h-9", "min-w-9", "px-2.5"],
+      },
+      md: {
+        trigger: ["text-md", "h-10", "min-w-10", "px-3"],
+      },
+      lg: {
+        trigger: ["text-md", "h-11", "min-w-11", "px-3.5"],
+      },
+    },
   },
 });
 
