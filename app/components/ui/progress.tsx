@@ -26,7 +26,9 @@ const progressStyles = tv({
   },
   variants: {
     size: {
-      md: { track: ["h-2"], circle: ["[--size:40px]", "[--thickness:4px]"] },
+      sm: { track: ["h-0.5"], circle: ["[--size:24px]", "[--thickness:4px]"] },
+      md: { track: ["h-1.5"], circle: ["[--size:40px]", "[--thickness:8px]"] },
+      lg: { track: ["h-2.5"], circle: ["[--size:56px]", "[--thickness:16px]"] },
     },
   },
   defaultVariants: { size: "md" },

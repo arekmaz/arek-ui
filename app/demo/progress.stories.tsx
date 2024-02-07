@@ -1,6 +1,7 @@
 import { Progress } from "~/components/ui/progress";
 import { Story } from "./storyHelpers";
 import { useEffect, useState } from "react";
+import { VStack } from "~/components/ui/stack";
 
 const useProgress = () => {
   const [value, setValue] = useState(0);
@@ -16,36 +17,63 @@ const useProgress = () => {
   return value;
 };
 
-const Linear = () => {
+const Demo = () => {
+  const value = useProgress();
   return (
-    <Progress value={useProgress()} min={0} max={100}>
-      <Progress.Label>Linear</Progress.Label>
-      <Progress.Track>
-        <Progress.Range />
-      </Progress.Track>
-      <Progress.ValueText />
-    </Progress>
-  );
-};
-
-const Circle = () => {
-  return (
-    <Progress value={useProgress()} min={0} max={100}>
-      <Progress.Label>Circle</Progress.Label>
-      <Progress.Circle>
-        <Progress.CircleTrack />
-        <Progress.CircleRange />
-      </Progress.Circle>
-      <Progress.ValueText />
-    </Progress>
+    <VStack align="stretch" className="w-full">
+      <Progress value={value} min={0} max={100} size="sm">
+        <Progress.Label>Linear sm</Progress.Label>
+        <Progress.Track>
+          <Progress.Range />
+        </Progress.Track>
+        <Progress.ValueText />
+      </Progress>
+      <Progress value={value} min={0} max={100} size="md">
+        <Progress.Label>Linear md</Progress.Label>
+        <Progress.Track>
+          <Progress.Range />
+        </Progress.Track>
+        <Progress.ValueText />
+      </Progress>
+      <Progress value={value} min={0} max={100} size="lg">
+        <Progress.Label>Linear lg</Progress.Label>
+        <Progress.Track>
+          <Progress.Range />
+        </Progress.Track>
+        <Progress.ValueText />
+      </Progress>
+      <Progress value={value} min={0} max={100} size="sm">
+        <Progress.Label>Circle sm</Progress.Label>
+        <Progress.Circle>
+          <Progress.CircleTrack />
+          <Progress.CircleRange />
+        </Progress.Circle>
+        <Progress.ValueText />
+      </Progress>
+      <Progress value={value} min={0} max={100} size="md">
+        <Progress.Label>Circle md</Progress.Label>
+        <Progress.Circle>
+          <Progress.CircleTrack />
+          <Progress.CircleRange />
+        </Progress.Circle>
+        <Progress.ValueText />
+      </Progress>
+      <Progress value={value} min={0} max={100} size="lg">
+        <Progress.Label>Circle lg</Progress.Label>
+        <Progress.Circle>
+          <Progress.CircleTrack />
+          <Progress.CircleRange />
+        </Progress.Circle>
+        <Progress.ValueText />
+      </Progress>
+    </VStack>
   );
 };
 
 export const Progresses = () => {
   return (
     <Story title="Progress" componentFilename="progress">
-      <Linear />
-      <Circle />
+      <Demo />
     </Story>
   );
 };
