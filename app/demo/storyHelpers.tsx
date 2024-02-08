@@ -34,25 +34,6 @@ export const Story = ({
                     <IconButton asChild variant="outline">
                       <a
                         target="_blank"
-                        href={`https://github.com/arekmaz/arek-ui/blob/main/app/components/ui/${componentFilename}.tsx`}
-                        rel="noreferrer"
-                      >
-                        <GithubIcon />
-                      </a>
-                    </IconButton>
-                  </Tooltip.Trigger>
-                  <Tooltip.Positioner>
-                    <Tooltip.Arrow>
-                      <Tooltip.ArrowTip />
-                    </Tooltip.Arrow>
-                    <Tooltip.Content>Show code</Tooltip.Content>
-                  </Tooltip.Positioner>
-                </Tooltip>
-                <Tooltip>
-                  <Tooltip.Trigger asChild>
-                    <IconButton asChild variant="outline">
-                      <a
-                        target="_blank"
                         href={`https://github.com/arekmaz/arek-ui/blob/main/app/demo/${componentFilename}.stories.tsx`}
                         rel="noreferrer"
                       >
@@ -65,6 +46,25 @@ export const Story = ({
                       <Tooltip.ArrowTip />
                     </Tooltip.Arrow>
                     <Tooltip.Content>Show demo code</Tooltip.Content>
+                  </Tooltip.Positioner>
+                </Tooltip>
+                <Tooltip>
+                  <Tooltip.Trigger asChild>
+                    <IconButton asChild variant="outline">
+                      <a
+                        target="_blank"
+                        href={`https://github.com/arekmaz/arek-ui/blob/main/app/components/ui/${componentFilename}.tsx`}
+                        rel="noreferrer"
+                      >
+                        <GithubIcon />
+                      </a>
+                    </IconButton>
+                  </Tooltip.Trigger>
+                  <Tooltip.Positioner>
+                    <Tooltip.Arrow>
+                      <Tooltip.ArrowTip />
+                    </Tooltip.Arrow>
+                    <Tooltip.Content>Show code</Tooltip.Content>
                   </Tooltip.Positioner>
                 </Tooltip>
               </>
