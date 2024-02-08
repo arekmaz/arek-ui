@@ -1,4 +1,4 @@
-import { GithubIcon } from "lucide-react";
+import { CodeIcon, GithubIcon } from "lucide-react";
 import { Card, CardProps } from "~/components/ui/card";
 import { IconButton } from "~/components/ui/icon-button";
 import { Tooltip } from "~/components/ui/tooltip";
@@ -28,25 +28,46 @@ export const Story = ({
           <HStack justify="between">
             {title.toLowerCase()}:
             {componentFilename && (
-              <Tooltip>
-                <Tooltip.Trigger asChild>
-                  <IconButton asChild variant="outline">
-                    <a
-                      target="_blank"
-                      href={`https://github.com/arekmaz/arek-ui/blob/main/app/components/ui/${componentFilename}.tsx`}
-                      rel="noreferrer"
-                    >
-                      <GithubIcon />
-                    </a>
-                  </IconButton>
-                </Tooltip.Trigger>
-                <Tooltip.Positioner>
-                  <Tooltip.Arrow>
-                    <Tooltip.ArrowTip />
-                  </Tooltip.Arrow>
-                  <Tooltip.Content>Show code</Tooltip.Content>
-                </Tooltip.Positioner>
-              </Tooltip>
+              <>
+                <Tooltip>
+                  <Tooltip.Trigger asChild>
+                    <IconButton asChild variant="outline">
+                      <a
+                        target="_blank"
+                        href={`https://github.com/arekmaz/arek-ui/blob/main/app/components/ui/${componentFilename}.tsx`}
+                        rel="noreferrer"
+                      >
+                        <GithubIcon />
+                      </a>
+                    </IconButton>
+                  </Tooltip.Trigger>
+                  <Tooltip.Positioner>
+                    <Tooltip.Arrow>
+                      <Tooltip.ArrowTip />
+                    </Tooltip.Arrow>
+                    <Tooltip.Content>Show code</Tooltip.Content>
+                  </Tooltip.Positioner>
+                </Tooltip>
+                <Tooltip>
+                  <Tooltip.Trigger asChild>
+                    <IconButton asChild variant="outline">
+                      <a
+                        target="_blank"
+                        href={`https://github.com/arekmaz/arek-ui/blob/main/app/demo/${componentFilename}.stories.tsx`}
+                        rel="noreferrer"
+                      >
+                        <CodeIcon />
+                      </a>
+                    </IconButton>
+                  </Tooltip.Trigger>
+                  <Tooltip.Positioner>
+                    <Tooltip.Arrow>
+                      <Tooltip.ArrowTip />
+                    </Tooltip.Arrow>
+                    <Tooltip.Content>Show demo code</Tooltip.Content>
+                  </Tooltip.Positioner>
+                </Tooltip>
+              </>
             )}
           </HStack>
         </Card.Title>
