@@ -8,6 +8,7 @@ export default {
     "@storybook/addon-essentials",
     "@storybook/addon-themes",
     "@storybook/themes",
+    "storybook-source-link",
   ],
 
   framework: {

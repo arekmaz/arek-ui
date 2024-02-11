@@ -13,6 +13,8 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
+    sourceLinkPrefix:
+      "https://github.com/arekmaz/arek-ui/blob/main/app/components/ui/",
   },
 
   decorators: [
