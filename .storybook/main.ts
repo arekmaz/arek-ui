@@ -3,7 +3,12 @@ export default {
     "../app/**/*.mdx",
     "../app/stories/**/*.stories.@(js|jsx|mjs|ts|tsx)",
   ],
-  addons: ["@storybook/addon-links", "@storybook/addon-essentials"],
+  addons: [
+    "@storybook/addon-links",
+    "@storybook/addon-essentials",
+    "@storybook/addon-themes",
+    "@storybook/themes",
+  ],
 
   framework: {
     name: "@storybook/react-vite",
