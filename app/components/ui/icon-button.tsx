@@ -4,6 +4,7 @@ import { styled } from "../utils/styled";
 import { buttonVariants } from "./button";
 
 const iconButton = tv({
+  base: "size-10",
   extend: buttonVariants,
   variants: {
     size: {
@@ -16,6 +17,5 @@ const iconButton = tv({
 });
 
 export const IconButton = styled(ark.button, iconButton, {
-  size: "icon",
   type: "button",
 });
