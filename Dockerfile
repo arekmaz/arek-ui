@@ -32,7 +32,7 @@ RUN pnpm install --frozen-lockfile --prod=false
 COPY --link . .
 
 # Build application
-RUN pnpm run build
+RUN pnpm run build-storybook
 
 # Remove development dependencies
 RUN pnpm prune --prod
@@ -45,5 +45,5 @@ FROM base
 COPY --from=build /app /app
 
 # Start the server by default, this can be overwritten at runtime
-EXPOSE 3000
-CMD [ "pnpm", "run", "start" ]
+EXPOSE 8080
+CMD [ "pnpm", "run", "start-storybook" ]
