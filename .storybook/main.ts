@@ -1,22 +1,20 @@
-import type { StorybookConfig } from "@storybook/react-vite";
-
-const config: StorybookConfig = {
+export default {
   stories: [
-    "../stories/**/*.mdx",
-    "../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)",
+    "../app/**/*.mdx",
+    "../app/stories/**/*.stories.@(js|jsx|mjs|ts|tsx)",
   ],
-  addons: [
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@storybook/addon-onboarding",
-    "@storybook/addon-interactions",
-  ],
+  addons: ["@storybook/addon-links", "@storybook/addon-essentials"],
+
   framework: {
     name: "@storybook/react-vite",
-    options: {},
+    options: {
+      builder: {
+        viteConfigPath: "sb-vite.config.ts",
+      },
+    },
   },
+
   docs: {
-    autodocs: "tag",
+    autodocs: true,
   },
 };
-export default config;
