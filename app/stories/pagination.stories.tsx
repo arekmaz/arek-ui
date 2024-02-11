@@ -23,7 +23,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Demo = {
+export const Demo: Story = {
   render: (props) => {
     return (
       <Pagination
