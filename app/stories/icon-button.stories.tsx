@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Loader2, Mail } from "lucide-react";
+import { CupSodaIcon } from "lucide-react";
 
-import { Button } from "~/components/ui/button";
+import { IconButton } from "~/components/ui/icon-button";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: "Button",
-  component: Button,
+  title: "IconButton",
+  component: IconButton,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
     layout: "centered",
@@ -17,7 +17,7 @@ const meta = {
   argTypes: {
     // backgroundColor: { control: "color" },
   },
-} satisfies Meta<typeof Button>;
+} satisfies Meta<typeof IconButton>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -25,62 +25,48 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Primary: Story = {
   args: {
-    children: "Primary",
+    children: <CupSodaIcon />,
   },
 };
 
 export const Secondary: Story = {
   args: {
-    children: "Secondary",
+    children: <CupSodaIcon />,
     variant: "secondary",
   },
 };
 
 export const Destructive: Story = {
   args: {
-    children: "Destructive",
+    children: <CupSodaIcon />,
     variant: "destructive",
   },
 };
 
 export const Outline: Story = {
   args: {
-    children: "Outline",
+    children: <CupSodaIcon />,
     variant: "outline",
   },
 };
 
 export const Ghost: Story = {
   args: {
-    children: "Ghost",
+    children: <CupSodaIcon />,
     variant: "ghost",
   },
 };
 
 export const Link: Story = {
   args: {
-    children: "Link",
+    children: <CupSodaIcon />,
     variant: "link",
-  },
-};
-
-export const LeftIcon: Story = {
-  args: {
-    children: (
-      <>
-        <Mail className="mr-2 h-4 w-4" /> Login with Email
-      </>
-    ),
   },
 };
 
 export const Disabled: Story = {
   args: {
     disabled: true,
-    children: (
-      <>
-        <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Please wait
-      </>
-    ),
+    children: <CupSodaIcon />,
   },
 };
