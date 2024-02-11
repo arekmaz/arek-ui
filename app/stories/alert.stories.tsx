@@ -2,7 +2,6 @@ import { Terminal } from "lucide-react";
 import { Alert } from "~/components/ui/alert";
 
 import type { Meta, StoryObj } from "@storybook/react";
-import { Loader2, Mail } from "lucide-react";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -18,7 +17,7 @@ const meta = {
   argTypes: {
     // backgroundColor: { control: "color" },
   },
-} satisfies Meta<typeof Button>;
+} satisfies Meta<typeof Alert>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
