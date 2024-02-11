@@ -1,69 +1,69 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { Input } from "~/components/ui/input";
-import { Story } from "./storyHelpers";
+import type { Meta, StoryObj } from "@storybook/react";
 
-export const Inputs = () => {
-  return (
-    <Story title="inputs" componentFilename="input">
-      <label>
-        Input
-        <Input placeholder="Enter email" />
-      </label>
+// More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
+const meta = {
+  title: "Input",
+  component: Input,
+  parameters: {
+    // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
+    layout: "centered",
+  },
+  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
+  tags: ["autodocs"],
+  // More on argTypes: https://storybook.js.org/docs/api/argtypes
+  argTypes: {
+    // backgroundColor: { control: "color" },
+  },
+} satisfies Meta<typeof Input>;
 
-      <label>
-        Input 2xs
-        <Input scale="2xs" placeholder="Enter email" />
-      </label>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-      <label>
-        Input xs
-        <Input scale="xs" placeholder="Enter email" />
-      </label>
+export const Default: Story = {
+  render: () => <Input placeholder="Enter email" />,
+};
 
-      <label>
-        Input sm
-        <Input scale="sm" placeholder="Enter email" />
-      </label>
+export const Input2XS: Story = {
+  render: () => <Input placeholder="Enter email" scale="2xs" />,
+};
 
-      <label>
-        Input md
-        <Input placeholder="Enter email" />
-      </label>
+export const InputXS: Story = {
+  render: () => <Input placeholder="Enter email" scale="xs" />,
+};
 
-      <label>
-        Input lg
-        <Input scale="lg" placeholder="Enter email" />
-      </label>
+export const InputSM: Story = {
+  render: () => <Input placeholder="Enter email" scale="sm" />,
+};
 
-      <label>
-        Input xl
-        <Input scale="xl" placeholder="Enter email" />
-      </label>
+export const InputMD: Story = {
+  render: () => <Input placeholder="Enter email" scale="md" />,
+};
 
-      <label>
-        Input 2xl
-        <Input scale="2xl" placeholder="Enter email" />
-      </label>
+export const InputLG: Story = {
+  render: () => <Input placeholder="Enter email" scale="lg" />,
+};
 
-      <label>
-        Disabled
-        <Input disabled placeholder="Enter email" />
-      </label>
+export const InputXL: Story = {
+  render: () => <Input placeholder="Enter email" scale="xl" />,
+};
 
-      <label>
-        Placeholder
-        <Input placeholder="placeholder" />
-      </label>
+export const Input2XL: Story = {
+  render: () => <Input placeholder="Enter email" scale="2xl" />,
+};
 
-      <label>
-        Error
-        <Input aria-invalid="true" defaultValue="error" />
-      </label>
+export const Disabled: Story = {
+  render: () => <Input placeholder="Enter email" disabled />,
+};
 
-      <label>
-        Error placeholder
-        <Input placeholder="placeholder" aria-invalid="true" />
-      </label>
-    </Story>
-  );
+export const Placeholder: Story = {
+  render: () => <Input placeholder="placeholder" />,
+};
+export const Error: Story = {
+  render: () => <Input defaultValue="error" aria-invalid="true" />,
+};
+
+export const ErrorPlaceholder: Story = {
+  render: () => <Input defaultValue="placeholder" aria-invalid="true" />,
 };

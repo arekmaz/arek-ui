@@ -1,25 +1,46 @@
 import { Portal } from "@ark-ui/react";
 import { HoverCard } from "~/components/ui/hover-card";
-import { Story } from "./storyHelpers";
 import { MapPinIcon } from "lucide-react";
 import { HStack, Stack } from "~/components/ui/stack";
 import { Avatar } from "~/components/ui/avatar";
+import type { Meta, StoryObj } from "@storybook/react";
 
-const Basic = () => (
-  <HoverCard>
-    <HoverCard.Trigger>Hover me</HoverCard.Trigger>
-    <Portal>
-      <HoverCard.Positioner>
-        <HoverCard.Content>
-          <HoverCard.Arrow>
-            <HoverCard.ArrowTip />
-          </HoverCard.Arrow>
-          Content
-        </HoverCard.Content>
-      </HoverCard.Positioner>
-    </Portal>
-  </HoverCard>
-);
+// More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
+const meta = {
+  title: "HoverCard",
+  component: HoverCard,
+  parameters: {
+    // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
+    layout: "centered",
+  },
+  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
+  tags: ["autodocs"],
+  // More on argTypes: https://storybook.js.org/docs/api/argtypes
+  argTypes: {
+    // backgroundColor: { control: "color" },
+  },
+} satisfies Meta<typeof HoverCard>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Basic: Story = {
+  render: () => (
+    <HoverCard>
+      <HoverCard.Trigger>Hover me</HoverCard.Trigger>
+      <Portal>
+        <HoverCard.Positioner>
+          <HoverCard.Content>
+            <HoverCard.Arrow>
+              <HoverCard.ArrowTip />
+            </HoverCard.Arrow>
+            Content
+          </HoverCard.Content>
+        </HoverCard.Positioner>
+      </Portal>
+    </HoverCard>
+  ),
+};
 
 export const Demo = () => (
   <HoverCard>
