@@ -5,6 +5,23 @@ import { IconButton } from "~/components/ui/icon-button";
 import { Toast } from "~/components/ui/toast";
 import type { Meta, StoryObj } from "@storybook/react";
 
+// More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
+const meta = {
+  title: "Toast",
+  component: Toast,
+  parameters: {
+    // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
+    layout: "centered",
+    sourceLink: "toast.tsx",
+  },
+  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
+  tags: ["autodocs"],
+  // More on argTypes: https://storybook.js.org/docs/api/argtypes
+  argTypes: {
+    // backgroundColor: { control: "color" },
+  },
+} satisfies Meta<typeof Toast>;
+
 const [Toaster, toast] = createToaster({
   placement: "top-end",
   render(toast) {
@@ -21,22 +38,6 @@ const [Toaster, toast] = createToaster({
     );
   },
 });
-
-// More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
-const meta = {
-  title: "Toast",
-  component: Toast,
-  parameters: {
-    // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
-    layout: "centered",
-  },
-  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
-  tags: ["autodocs"],
-  // More on argTypes: https://storybook.js.org/docs/api/argtypes
-  argTypes: {
-    // backgroundColor: { control: "color" },
-  },
-} satisfies Meta<typeof Toast>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
