@@ -1,28 +1,32 @@
 import { Switch, SwitchProps } from "~/components/ui/switch";
-import { Story } from "./storyHelpers";
+import type { Meta, StoryObj } from "@storybook/react";
 
-export const Demo = ({ label, ...props }: SwitchProps & { label: string }) => (
-  <Switch defaultChecked {...props}>
-    <Switch.Control>
-      <Switch.Thumb />
-    </Switch.Control>
-    <Switch.Label>{label}</Switch.Label>
-  </Switch>
-);
+// More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
+const meta = {
+  title: "Switch",
+  component: Switch,
+  parameters: {
+    // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
+    layout: "centered",
+  },
+  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
+  tags: ["autodocs"],
+  // More on argTypes: https://storybook.js.org/docs/api/argtypes
+  argTypes: {
+    // backgroundColor: { control: "color" },
+  },
+} satisfies Meta<typeof Switch>;
 
-export const Switches = () => {
-  return (
-    <Story title="switches" componentFilename="switch">
-      <Demo label="small" size="sm" />
-      <Demo label="medium" />
-      <Demo label="large" size="lg" />
-      <Demo label="disabled checked" size="lg" disabled />
-      <Demo
-        label="disabled unchecked"
-        size="lg"
-        defaultChecked={false}
-        disabled
-      />
-    </Story>
-  );
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Demo: Story = {
+  render: ({ label = "Switch", ...props }) => (
+    <Switch defaultChecked {...props}>
+      <Switch.Control>
+        <Switch.Thumb />
+      </Switch.Control>
+      <Switch.Label>{label}</Switch.Label>
+    </Switch>
+  ),
 };

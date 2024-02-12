@@ -1,97 +1,91 @@
-import { CrosshairIcon } from "lucide-react";
+import type { Meta, StoryObj } from "@storybook/react";
 import { Button } from "~/components/ui/button";
 import { Card } from "~/components/ui/card";
 import { Input } from "~/components/ui/input";
 import { Label } from "~/components/ui/label";
-import { Stack } from "~/components/ui/stack";
-import { Tabs, TabsProps } from "~/components/ui/tabs";
-import { Story } from "./storyHelpers";
+import { Tabs } from "~/components/ui/tabs";
 
-export const Disabled = () => {
-  const options = [
-    { id: "react", label: "React" },
-    { id: "solid", label: "Solid" },
-    { id: "svelte", label: "Svelte", disabled: true },
-    { id: "vue", label: "Vue" },
-  ];
-  return (
-    <Card>
-      <Card.Header>
-        <Card.Title>Disabled</Card.Title>
-      </Card.Header>
-      <Card.Content>
-        <Tabs defaultValue="react">
-          <Tabs.List>
-            {options.map((option) => (
-              <Tabs.Trigger
-                key={option.id}
-                value={option.id}
-                disabled={option.disabled}
-              >
-                {option.label}
-              </Tabs.Trigger>
-            ))}
-          </Tabs.List>
-          <Tabs.Content value="react">
-            Know React? Check out Solid!
-          </Tabs.Content>
-          <Tabs.Content value="solid">
-            Know Solid? Check out Svelte!
-          </Tabs.Content>
-          <Tabs.Content value="svelte">
-            Know Svelte? Check out Vue!
-          </Tabs.Content>
-          <Tabs.Content value="vue">Know Vue? Check out React!</Tabs.Content>
-        </Tabs>
-      </Card.Content>
-    </Card>
-  );
+// More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
+const meta = {
+  title: "Tabs",
+  component: Tabs,
+  parameters: {
+    // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
+    layout: "centered",
+  },
+  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
+  tags: ["autodocs"],
+  // More on argTypes: https://storybook.js.org/docs/api/argtypes
+  argTypes: {
+    // backgroundColor: { control: "color" },
+  },
+} satisfies Meta<typeof Tabs>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Disabled: Story = {
+  render: (props) => {
+    const options = [
+      { id: "react", label: "React" },
+      { id: "solid", label: "Solid" },
+      { id: "svelte", label: "Svelte", disabled: true },
+      { id: "vue", label: "Vue" },
+    ];
+    return (
+      <Tabs defaultValue="react" {...props}>
+        <Tabs.List>
+          {options.map((option) => (
+            <Tabs.Trigger
+              key={option.id}
+              value={option.id}
+              disabled={option.disabled}
+            >
+              {option.label}
+            </Tabs.Trigger>
+          ))}
+        </Tabs.List>
+        <Tabs.Content value="react">Know React? Check out Solid!</Tabs.Content>
+        <Tabs.Content value="solid">Know Solid? Check out Svelte!</Tabs.Content>
+        <Tabs.Content value="svelte">Know Svelte? Check out Vue!</Tabs.Content>
+        <Tabs.Content value="vue">Know Vue? Check out React!</Tabs.Content>
+      </Tabs>
+    );
+  },
 };
 
-export const CustomIndicator = () => {
-  const options = [
-    { id: "react", label: "React" },
-    { id: "solid", label: "Solid" },
-    { id: "svelte", label: "Svelte" },
-    { id: "vue", label: "Vue" },
-  ];
-  return (
-    <Card>
-      <Card.Header>
-        <Card.Title>Custom Indicator</Card.Title>
-      </Card.Header>
-      <Card.Content>
-        <Tabs defaultValue="react">
-          <Tabs.List>
-            {options.map((option) => (
-              <Tabs.Trigger key={option.id} value={option.id}>
-                {option.label}
-              </Tabs.Trigger>
-            ))}
-            <Tabs.Indicator asChild>
-              <p className="opacity-50 duration-default">▷</p>
-            </Tabs.Indicator>
-          </Tabs.List>
-          <Tabs.Content value="react">
-            Know React? Check out Solid!
-          </Tabs.Content>
-          <Tabs.Content value="solid">
-            Know Solid? Check out Svelte!
-          </Tabs.Content>
-          <Tabs.Content value="svelte">
-            Know Svelte? Check out Vue!
-          </Tabs.Content>
-          <Tabs.Content value="vue">Know Vue? Check out React!</Tabs.Content>
-        </Tabs>
-      </Card.Content>
-    </Card>
-  );
+export const CustomIndicator: Story = {
+  render: (props) => {
+    const options = [
+      { id: "react", label: "React" },
+      { id: "solid", label: "Solid" },
+      { id: "svelte", label: "Svelte" },
+      { id: "vue", label: "Vue" },
+    ];
+    return (
+      <Tabs defaultValue="react" {...props}>
+        <Tabs.List>
+          {options.map((option) => (
+            <Tabs.Trigger key={option.id} value={option.id}>
+              {option.label}
+            </Tabs.Trigger>
+          ))}
+          <Tabs.Indicator asChild>
+            <p className="opacity-50 duration-default">▷</p>
+          </Tabs.Indicator>
+        </Tabs.List>
+        <Tabs.Content value="react">Know React? Check out Solid!</Tabs.Content>
+        <Tabs.Content value="solid">Know Solid? Check out Svelte!</Tabs.Content>
+        <Tabs.Content value="svelte">Know Svelte? Check out Vue!</Tabs.Content>
+        <Tabs.Content value="vue">Know Vue? Check out React!</Tabs.Content>
+      </Tabs>
+    );
+  },
 };
 
-const Normal = (props: TabsProps) => {
-  return (
-    <Stack>
-      <p>Normal {props.size}</p>
+export const Normal: Story = {
+  render: (props) => {
+    return (
       <Tabs defaultValue="account" className="w-[400px]" {...props}>
         <Tabs.List className="grid w-full grid-cols-2">
           <Tabs.Trigger value="account">Account</Tabs.Trigger>
@@ -146,22 +140,6 @@ const Normal = (props: TabsProps) => {
           </Card>
         </Tabs.Content>
       </Tabs>
-    </Stack>
-  );
-};
-
-export const TabsStories = () => {
-  return (
-    <Story
-      title="tabs"
-      classes={{ content: "gap-10" }}
-      componentFilename="tabs"
-    >
-      <Normal size="sm" />
-      <Normal size="md" />
-      <Normal size="lg" />
-      <Disabled />
-      <CustomIndicator />
-    </Story>
-  );
+    );
+  },
 };
