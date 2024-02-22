@@ -34,14 +34,14 @@ export default function App() {
             {mode === "light" ? <SunIcon /> : <MoonIcon />}
           </IconButton>
           <HStack>
-            <IconButton asChild>
-              <a href="https://github.com/arekmaz/arek-ui">
-                <GithubIcon />
-              </a>
-            </IconButton>
             <IconButton variant="ghost" asChild>
               <a href="https://arek-ui-storybook.fly.dev/">
                 <StorybookIcon />
+              </a>
+            </IconButton>
+            <IconButton asChild>
+              <a href="https://github.com/arekmaz/arek-ui">
+                <GithubIcon />
               </a>
             </IconButton>
           </HStack>
