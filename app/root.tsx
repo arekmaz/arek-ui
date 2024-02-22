@@ -36,7 +36,7 @@ export default function App() {
           <HStack>
             <IconButton variant="ghost" asChild>
               <a href="https://arek-ui-storybook.fly.dev/">
-                <StorybookIcon />
+                <StorybookIcon className="size-10" />
               </a>
             </IconButton>
             <IconButton asChild>
@@ -54,7 +54,7 @@ export default function App() {
   );
 }
 
-const StorybookIcon = () => {
+const StorybookIcon = (props: { className?: string }) => {
   return (
     <svg
       viewBox="-31.5 0 319 319"
@@ -63,6 +63,7 @@ const StorybookIcon = () => {
       xmlnsXlink="http://www.w3.org/1999/xlink"
       preserveAspectRatio="xMidYMid"
       fill="#000000"
+      {...props}
     >
       <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
       <g
