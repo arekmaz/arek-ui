@@ -18,11 +18,11 @@ const selectStyles = tv({
     root: "flex flex-col gap-1.5 w-full",
     label: "font-medium",
     control: "relative cursor-pointer bg-background",
-    indicator:
-      "text-muted-foreground h-full absolute top-0 bottom-0 right-3 size-4",
+    indicator: "text-muted-foreground size-4",
     trigger: [
       ...inputClasses,
       "flex",
+      "justify-between",
       "items-center",
       "px-3",
       "h-10",
