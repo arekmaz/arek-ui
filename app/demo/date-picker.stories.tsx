@@ -1,4 +1,4 @@
-import { Portal } from "@ark-ui/react";
+import { Portal, DatePickerRootProps } from "@ark-ui/react";
 import { CalendarIcon, ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 import { Button } from "~/components/ui/button";
 import { IconButton } from "~/components/ui/icon-button";
@@ -8,7 +8,7 @@ import { Input } from "~/components/ui/input";
 import { Story } from "./storyHelpers";
 import { InputGroup } from "~/components/ui/input-group";
 
-export const Demo = (props: DatePicker.RootProps) => {
+export const Demo = (props: DatePickerRootProps) => {
   return (
     <D.Root
       positioning={{ sameWidth: true }}
@@ -30,127 +30,137 @@ export const Demo = (props: DatePicker.RootProps) => {
       <D.Positioner>
         <D.Content>
           <D.View view="day">
-            {(api) => (
-              <>
-                <D.ViewControl>
-                  <D.PrevTrigger asChild>
-                    <IconButton variant="ghost" size="sm">
-                      <ChevronLeftIcon />
-                    </IconButton>
-                  </D.PrevTrigger>
-                  <D.ViewTrigger asChild>
-                    <Button variant="ghost" size="sm">
-                      <D.RangeText />
-                    </Button>
-                  </D.ViewTrigger>
-                  <D.NextTrigger asChild>
-                    <IconButton variant="ghost" size="sm">
-                      <ChevronRightIcon />
-                    </IconButton>
-                  </D.NextTrigger>
-                </D.ViewControl>
-                <D.Table>
-                  <D.TableHead>
-                    <D.TableRow>
-                      {api.weekDays.map((weekDay, id) => (
-                        <D.TableHeader key={id}>{weekDay.narrow}</D.TableHeader>
-                      ))}
-                    </D.TableRow>
-                  </D.TableHead>
-                  <D.TableBody>
-                    {api.weeks.map((week, id) => (
-                      <D.TableRow key={id}>
-                        {week.map((day, id) => (
-                          <D.TableCell key={id} value={day}>
-                            <D.TableCellTrigger asChild>
-                              <IconButton variant="ghost">{day.day}</IconButton>
-                            </D.TableCellTrigger>
-                          </D.TableCell>
+            <D.Context>
+              {(api) => (
+                <>
+                  <D.ViewControl>
+                    <D.PrevTrigger asChild>
+                      <IconButton variant="ghost" size="sm">
+                        <ChevronLeftIcon />
+                      </IconButton>
+                    </D.PrevTrigger>
+                    <D.ViewTrigger asChild>
+                      <Button variant="ghost" size="sm">
+                        <D.RangeText />
+                      </Button>
+                    </D.ViewTrigger>
+                    <D.NextTrigger asChild>
+                      <IconButton variant="ghost" size="sm">
+                        <ChevronRightIcon />
+                      </IconButton>
+                    </D.NextTrigger>
+                  </D.ViewControl>
+                  <D.Table>
+                    <D.TableHead>
+                      <D.TableRow>
+                        {api.weekDays.map((weekDay, id) => (
+                          <D.TableHeader key={id}>
+                            {weekDay.narrow}
+                          </D.TableHeader>
                         ))}
                       </D.TableRow>
-                    ))}
-                  </D.TableBody>
-                </D.Table>
-              </>
-            )}
-          </D.View>
-          <D.View view="month">
-            {(api) => (
-              <>
-                <D.ViewControl>
-                  <D.PrevTrigger asChild>
-                    <IconButton variant="ghost" size="sm">
-                      <ChevronLeftIcon />
-                    </IconButton>
-                  </D.PrevTrigger>
-                  <D.ViewTrigger asChild>
-                    <Button variant="ghost" size="sm">
-                      <D.RangeText />
-                    </Button>
-                  </D.ViewTrigger>
-                  <D.NextTrigger asChild>
-                    <IconButton variant="ghost" size="sm">
-                      <ChevronRightIcon />
-                    </IconButton>
-                  </D.NextTrigger>
-                </D.ViewControl>
-                <D.Table>
-                  <D.TableBody>
-                    {api
-                      .getMonthsGrid({ columns: 4, format: "short" })
-                      .map((months, id) => (
+                    </D.TableHead>
+                    <D.TableBody>
+                      {api.weeks.map((week, id) => (
                         <D.TableRow key={id}>
-                          {months.map((month, id) => (
-                            <D.TableCell key={id} value={month.value}>
+                          {week.map((day, id) => (
+                            <D.TableCell key={id} value={day}>
                               <D.TableCellTrigger asChild>
-                                <Button variant="ghost">{month.label}</Button>
+                                <IconButton variant="ghost">
+                                  {day.day}
+                                </IconButton>
                               </D.TableCellTrigger>
                             </D.TableCell>
                           ))}
                         </D.TableRow>
                       ))}
-                  </D.TableBody>
-                </D.Table>
-              </>
-            )}
+                    </D.TableBody>
+                  </D.Table>
+                </>
+              )}
+            </D.Context>
+          </D.View>
+          <D.View view="month">
+            <D.Context>
+              {(api) => (
+                <>
+                  <D.ViewControl>
+                    <D.PrevTrigger asChild>
+                      <IconButton variant="ghost" size="sm">
+                        <ChevronLeftIcon />
+                      </IconButton>
+                    </D.PrevTrigger>
+                    <D.ViewTrigger asChild>
+                      <Button variant="ghost" size="sm">
+                        <D.RangeText />
+                      </Button>
+                    </D.ViewTrigger>
+                    <D.NextTrigger asChild>
+                      <IconButton variant="ghost" size="sm">
+                        <ChevronRightIcon />
+                      </IconButton>
+                    </D.NextTrigger>
+                  </D.ViewControl>
+                  <D.Table>
+                    <D.TableBody>
+                      {api
+                        .getMonthsGrid({ columns: 4, format: "short" })
+                        .map((months, id) => (
+                          <D.TableRow key={id}>
+                            {months.map((month, id) => (
+                              <D.TableCell key={id} value={month.value}>
+                                <D.TableCellTrigger asChild>
+                                  <Button variant="ghost">{month.label}</Button>
+                                </D.TableCellTrigger>
+                              </D.TableCell>
+                            ))}
+                          </D.TableRow>
+                        ))}
+                    </D.TableBody>
+                  </D.Table>
+                </>
+              )}
+            </D.Context>
           </D.View>
           <D.View view="year">
-            {(api) => (
-              <>
-                <D.ViewControl>
-                  <D.PrevTrigger asChild>
-                    <IconButton variant="ghost" size="sm">
-                      <ChevronLeftIcon />
-                    </IconButton>
-                  </D.PrevTrigger>
-                  <D.ViewTrigger asChild>
-                    <Button variant="ghost" size="sm">
-                      <D.RangeText />
-                    </Button>
-                  </D.ViewTrigger>
-                  <D.NextTrigger asChild>
-                    <IconButton variant="ghost" size="sm">
-                      <ChevronRightIcon />
-                    </IconButton>
-                  </D.NextTrigger>
-                </D.ViewControl>
-                <D.Table>
-                  <D.TableBody>
-                    {api.getYearsGrid({ columns: 4 }).map((years, id) => (
-                      <D.TableRow key={id}>
-                        {years.map((year, id) => (
-                          <D.TableCell key={id} value={year.value}>
-                            <D.TableCellTrigger asChild>
-                              <Button variant="ghost">{year.label}</Button>
-                            </D.TableCellTrigger>
-                          </D.TableCell>
-                        ))}
-                      </D.TableRow>
-                    ))}
-                  </D.TableBody>
-                </D.Table>
-              </>
-            )}
+            <D.Context>
+              {(api) => (
+                <>
+                  <D.ViewControl>
+                    <D.PrevTrigger asChild>
+                      <IconButton variant="ghost" size="sm">
+                        <ChevronLeftIcon />
+                      </IconButton>
+                    </D.PrevTrigger>
+                    <D.ViewTrigger asChild>
+                      <Button variant="ghost" size="sm">
+                        <D.RangeText />
+                      </Button>
+                    </D.ViewTrigger>
+                    <D.NextTrigger asChild>
+                      <IconButton variant="ghost" size="sm">
+                        <ChevronRightIcon />
+                      </IconButton>
+                    </D.NextTrigger>
+                  </D.ViewControl>
+                  <D.Table>
+                    <D.TableBody>
+                      {api.getYearsGrid({ columns: 4 }).map((years, id) => (
+                        <D.TableRow key={id}>
+                          {years.map((year, id) => (
+                            <D.TableCell key={id} value={year.value}>
+                              <D.TableCellTrigger asChild>
+                                <Button variant="ghost">{year.label}</Button>
+                              </D.TableCellTrigger>
+                            </D.TableCell>
+                          ))}
+                        </D.TableRow>
+                      ))}
+                    </D.TableBody>
+                  </D.Table>
+                </>
+              )}
+            </D.Context>
           </D.View>
         </D.Content>
       </D.Positioner>
@@ -175,101 +185,107 @@ export const BasicDatePicker = () => {
             <D.YearSelect />
             <D.MonthSelect />
             <D.View view="day">
-              {(api) => (
-                <>
-                  <D.ViewControl>
-                    <D.PrevTrigger>Prev</D.PrevTrigger>
-                    <D.ViewTrigger>
-                      <D.RangeText />
-                    </D.ViewTrigger>
-                    <D.NextTrigger>Next</D.NextTrigger>
-                  </D.ViewControl>
-                  <D.Table>
-                    <D.TableHead>
-                      <D.TableRow>
-                        {api.weekDays.map((weekDay, id) => (
-                          <D.TableHeader key={id}>
-                            {weekDay.short}
-                          </D.TableHeader>
-                        ))}
-                      </D.TableRow>
-                    </D.TableHead>
-                    <D.TableBody>
-                      {api.weeks.map((week, id) => (
-                        <D.TableRow key={id}>
-                          {week.map((day, id) => (
-                            <D.TableCell key={id} value={day}>
-                              <D.TableCellTrigger asChild>
-                                <IconButton variant="ghost">
-                                  {day.day}
-                                </IconButton>
-                              </D.TableCellTrigger>
-                            </D.TableCell>
+              <D.Context>
+                {(api) => (
+                  <>
+                    <D.ViewControl>
+                      <D.PrevTrigger>Prev</D.PrevTrigger>
+                      <D.ViewTrigger>
+                        <D.RangeText />
+                      </D.ViewTrigger>
+                      <D.NextTrigger>Next</D.NextTrigger>
+                    </D.ViewControl>
+                    <D.Table>
+                      <D.TableHead>
+                        <D.TableRow>
+                          {api.weekDays.map((weekDay, id) => (
+                            <D.TableHeader key={id}>
+                              {weekDay.short}
+                            </D.TableHeader>
                           ))}
                         </D.TableRow>
-                      ))}
-                    </D.TableBody>
-                  </D.Table>
-                </>
-              )}
-            </D.View>
-            <D.View view="month">
-              {(api) => (
-                <>
-                  <D.ViewControl>
-                    <D.PrevTrigger>Prev</D.PrevTrigger>
-                    <D.ViewTrigger>
-                      <D.RangeText />
-                    </D.ViewTrigger>
-                    <D.NextTrigger>Next</D.NextTrigger>
-                  </D.ViewControl>
-                  <D.Table>
-                    <D.TableBody>
-                      {api
-                        .getMonthsGrid({ columns: 4, format: "short" })
-                        .map((months, id) => (
+                      </D.TableHead>
+                      <D.TableBody>
+                        {api.weeks.map((week, id) => (
                           <D.TableRow key={id}>
-                            {months.map((month, id) => (
-                              <D.TableCell key={id} value={month.value}>
-                                <D.TableCellTrigger>
-                                  {month.label}
+                            {week.map((day, id) => (
+                              <D.TableCell key={id} value={day}>
+                                <D.TableCellTrigger asChild>
+                                  <IconButton variant="ghost">
+                                    {day.day}
+                                  </IconButton>
                                 </D.TableCellTrigger>
                               </D.TableCell>
                             ))}
                           </D.TableRow>
                         ))}
-                    </D.TableBody>
-                  </D.Table>
-                </>
-              )}
+                      </D.TableBody>
+                    </D.Table>
+                  </>
+                )}
+              </D.Context>
+            </D.View>
+            <D.View view="month">
+              <D.Context>
+                {(api) => (
+                  <>
+                    <D.ViewControl>
+                      <D.PrevTrigger>Prev</D.PrevTrigger>
+                      <D.ViewTrigger>
+                        <D.RangeText />
+                      </D.ViewTrigger>
+                      <D.NextTrigger>Next</D.NextTrigger>
+                    </D.ViewControl>
+                    <D.Table>
+                      <D.TableBody>
+                        {api
+                          .getMonthsGrid({ columns: 4, format: "short" })
+                          .map((months, id) => (
+                            <D.TableRow key={id}>
+                              {months.map((month, id) => (
+                                <D.TableCell key={id} value={month.value}>
+                                  <D.TableCellTrigger>
+                                    {month.label}
+                                  </D.TableCellTrigger>
+                                </D.TableCell>
+                              ))}
+                            </D.TableRow>
+                          ))}
+                      </D.TableBody>
+                    </D.Table>
+                  </>
+                )}
+              </D.Context>
             </D.View>
             <D.View view="year">
-              {(api) => (
-                <>
-                  <D.ViewControl>
-                    <D.PrevTrigger>Prev</D.PrevTrigger>
-                    <D.ViewTrigger>
-                      <D.RangeText />
-                    </D.ViewTrigger>
-                    <D.NextTrigger>Next</D.NextTrigger>
-                  </D.ViewControl>
-                  <D.Table>
-                    <D.TableBody>
-                      {api.getYearsGrid({ columns: 4 }).map((years, id) => (
-                        <D.TableRow key={id}>
-                          {years.map((year, id) => (
-                            <D.TableCell key={id} value={year.value}>
-                              <D.TableCellTrigger>
-                                {year.label}
-                              </D.TableCellTrigger>
-                            </D.TableCell>
-                          ))}
-                        </D.TableRow>
-                      ))}
-                    </D.TableBody>
-                  </D.Table>
-                </>
-              )}
+              <D.Context>
+                {(api) => (
+                  <>
+                    <D.ViewControl>
+                      <D.PrevTrigger>Prev</D.PrevTrigger>
+                      <D.ViewTrigger>
+                        <D.RangeText />
+                      </D.ViewTrigger>
+                      <D.NextTrigger>Next</D.NextTrigger>
+                    </D.ViewControl>
+                    <D.Table>
+                      <D.TableBody>
+                        {api.getYearsGrid({ columns: 4 }).map((years, id) => (
+                          <D.TableRow key={id}>
+                            {years.map((year, id) => (
+                              <D.TableCell key={id} value={year.value}>
+                                <D.TableCellTrigger>
+                                  {year.label}
+                                </D.TableCellTrigger>
+                              </D.TableCell>
+                            ))}
+                          </D.TableRow>
+                        ))}
+                      </D.TableBody>
+                    </D.Table>
+                  </>
+                )}
+              </D.Context>
             </D.View>
           </D.Content>
         </D.Positioner>
@@ -300,127 +316,137 @@ export const ParkDatePicker = (props: {}) => {
       <D.Positioner>
         <D.Content>
           <D.View view="day">
-            {(api) => (
-              <>
-                <D.ViewControl>
-                  <D.PrevTrigger asChild>
-                    <IconButton variant="ghost" size="sm">
-                      <ChevronLeftIcon />
-                    </IconButton>
-                  </D.PrevTrigger>
-                  <D.ViewTrigger asChild>
-                    <Button variant="ghost" size="sm">
-                      <D.RangeText />
-                    </Button>
-                  </D.ViewTrigger>
-                  <D.NextTrigger asChild>
-                    <IconButton variant="ghost" size="sm">
-                      <ChevronRightIcon />
-                    </IconButton>
-                  </D.NextTrigger>
-                </D.ViewControl>
-                <D.Table>
-                  <D.TableHead>
-                    <D.TableRow>
-                      {api.weekDays.map((weekDay, id) => (
-                        <D.TableHeader key={id}>{weekDay.narrow}</D.TableHeader>
-                      ))}
-                    </D.TableRow>
-                  </D.TableHead>
-                  <D.TableBody>
-                    {api.weeks.map((week, id) => (
-                      <D.TableRow key={id}>
-                        {week.map((day, id) => (
-                          <D.TableCell key={id} value={day}>
-                            <D.TableCellTrigger asChild>
-                              <IconButton variant="ghost">{day.day}</IconButton>
-                            </D.TableCellTrigger>
-                          </D.TableCell>
+            <D.Context>
+              {(api) => (
+                <>
+                  <D.ViewControl>
+                    <D.PrevTrigger asChild>
+                      <IconButton variant="ghost" size="sm">
+                        <ChevronLeftIcon />
+                      </IconButton>
+                    </D.PrevTrigger>
+                    <D.ViewTrigger asChild>
+                      <Button variant="ghost" size="sm">
+                        <D.RangeText />
+                      </Button>
+                    </D.ViewTrigger>
+                    <D.NextTrigger asChild>
+                      <IconButton variant="ghost" size="sm">
+                        <ChevronRightIcon />
+                      </IconButton>
+                    </D.NextTrigger>
+                  </D.ViewControl>
+                  <D.Table>
+                    <D.TableHead>
+                      <D.TableRow>
+                        {api.weekDays.map((weekDay, id) => (
+                          <D.TableHeader key={id}>
+                            {weekDay.narrow}
+                          </D.TableHeader>
                         ))}
                       </D.TableRow>
-                    ))}
-                  </D.TableBody>
-                </D.Table>
-              </>
-            )}
-          </D.View>
-          <D.View view="month">
-            {(api) => (
-              <>
-                <D.ViewControl>
-                  <D.PrevTrigger asChild>
-                    <IconButton variant="ghost" size="sm">
-                      <ChevronLeftIcon />
-                    </IconButton>
-                  </D.PrevTrigger>
-                  <D.ViewTrigger asChild>
-                    <Button variant="ghost" size="sm">
-                      <D.RangeText />
-                    </Button>
-                  </D.ViewTrigger>
-                  <D.NextTrigger asChild>
-                    <IconButton variant="ghost" size="sm">
-                      <ChevronRightIcon />
-                    </IconButton>
-                  </D.NextTrigger>
-                </D.ViewControl>
-                <D.Table>
-                  <D.TableBody>
-                    {api
-                      .getMonthsGrid({ columns: 4, format: "short" })
-                      .map((months, id) => (
+                    </D.TableHead>
+                    <D.TableBody>
+                      {api.weeks.map((week, id) => (
                         <D.TableRow key={id}>
-                          {months.map((month, id) => (
-                            <D.TableCell key={id} value={month.value}>
+                          {week.map((day, id) => (
+                            <D.TableCell key={id} value={day}>
                               <D.TableCellTrigger asChild>
-                                <Button variant="ghost">{month.label}</Button>
+                                <IconButton variant="ghost">
+                                  {day.day}
+                                </IconButton>
                               </D.TableCellTrigger>
                             </D.TableCell>
                           ))}
                         </D.TableRow>
                       ))}
-                  </D.TableBody>
-                </D.Table>
-              </>
-            )}
+                    </D.TableBody>
+                  </D.Table>
+                </>
+              )}
+            </D.Context>
+          </D.View>
+          <D.View view="month">
+            <D.Context>
+              {(api) => (
+                <>
+                  <D.ViewControl>
+                    <D.PrevTrigger asChild>
+                      <IconButton variant="ghost" size="sm">
+                        <ChevronLeftIcon />
+                      </IconButton>
+                    </D.PrevTrigger>
+                    <D.ViewTrigger asChild>
+                      <Button variant="ghost" size="sm">
+                        <D.RangeText />
+                      </Button>
+                    </D.ViewTrigger>
+                    <D.NextTrigger asChild>
+                      <IconButton variant="ghost" size="sm">
+                        <ChevronRightIcon />
+                      </IconButton>
+                    </D.NextTrigger>
+                  </D.ViewControl>
+                  <D.Table>
+                    <D.TableBody>
+                      {api
+                        .getMonthsGrid({ columns: 4, format: "short" })
+                        .map((months, id) => (
+                          <D.TableRow key={id}>
+                            {months.map((month, id) => (
+                              <D.TableCell key={id} value={month.value}>
+                                <D.TableCellTrigger asChild>
+                                  <Button variant="ghost">{month.label}</Button>
+                                </D.TableCellTrigger>
+                              </D.TableCell>
+                            ))}
+                          </D.TableRow>
+                        ))}
+                    </D.TableBody>
+                  </D.Table>
+                </>
+              )}
+            </D.Context>
           </D.View>
           <D.View view="year">
-            {(api) => (
-              <>
-                <D.ViewControl>
-                  <D.PrevTrigger asChild>
-                    <IconButton variant="ghost" size="sm">
-                      <ChevronLeftIcon />
-                    </IconButton>
-                  </D.PrevTrigger>
-                  <D.ViewTrigger asChild>
-                    <Button variant="ghost" size="sm">
-                      <D.RangeText />
-                    </Button>
-                  </D.ViewTrigger>
-                  <D.NextTrigger asChild>
-                    <IconButton variant="ghost" size="sm">
-                      <ChevronRightIcon />
-                    </IconButton>
-                  </D.NextTrigger>
-                </D.ViewControl>
-                <D.Table>
-                  <D.TableBody>
-                    {api.getYearsGrid({ columns: 4 }).map((years, id) => (
-                      <D.TableRow key={id}>
-                        {years.map((year, id) => (
-                          <D.TableCell key={id} value={year.value}>
-                            <D.TableCellTrigger asChild>
-                              <Button variant="ghost">{year.label}</Button>
-                            </D.TableCellTrigger>
-                          </D.TableCell>
-                        ))}
-                      </D.TableRow>
-                    ))}
-                  </D.TableBody>
-                </D.Table>
-              </>
-            )}
+            <D.Context>
+              {(api) => (
+                <>
+                  <D.ViewControl>
+                    <D.PrevTrigger asChild>
+                      <IconButton variant="ghost" size="sm">
+                        <ChevronLeftIcon />
+                      </IconButton>
+                    </D.PrevTrigger>
+                    <D.ViewTrigger asChild>
+                      <Button variant="ghost" size="sm">
+                        <D.RangeText />
+                      </Button>
+                    </D.ViewTrigger>
+                    <D.NextTrigger asChild>
+                      <IconButton variant="ghost" size="sm">
+                        <ChevronRightIcon />
+                      </IconButton>
+                    </D.NextTrigger>
+                  </D.ViewControl>
+                  <D.Table>
+                    <D.TableBody>
+                      {api.getYearsGrid({ columns: 4 }).map((years, id) => (
+                        <D.TableRow key={id}>
+                          {years.map((year, id) => (
+                            <D.TableCell key={id} value={year.value}>
+                              <D.TableCellTrigger asChild>
+                                <Button variant="ghost">{year.label}</Button>
+                              </D.TableCellTrigger>
+                            </D.TableCell>
+                          ))}
+                        </D.TableRow>
+                      ))}
+                    </D.TableBody>
+                  </D.Table>
+                </>
+              )}
+            </D.Context>
           </D.View>
         </D.Content>
       </D.Positioner>
@@ -454,127 +480,137 @@ export const WithInputGroup = (props: {}) => {
       <D.Positioner>
         <D.Content>
           <D.View view="day">
-            {(api) => (
-              <>
-                <D.ViewControl>
-                  <D.PrevTrigger asChild>
-                    <IconButton variant="ghost" size="sm">
-                      <ChevronLeftIcon />
-                    </IconButton>
-                  </D.PrevTrigger>
-                  <D.ViewTrigger asChild>
-                    <Button variant="ghost" size="sm">
-                      <D.RangeText />
-                    </Button>
-                  </D.ViewTrigger>
-                  <D.NextTrigger asChild>
-                    <IconButton variant="ghost" size="sm">
-                      <ChevronRightIcon />
-                    </IconButton>
-                  </D.NextTrigger>
-                </D.ViewControl>
-                <D.Table>
-                  <D.TableHead>
-                    <D.TableRow>
-                      {api.weekDays.map((weekDay, id) => (
-                        <D.TableHeader key={id}>{weekDay.narrow}</D.TableHeader>
-                      ))}
-                    </D.TableRow>
-                  </D.TableHead>
-                  <D.TableBody>
-                    {api.weeks.map((week, id) => (
-                      <D.TableRow key={id}>
-                        {week.map((day, id) => (
-                          <D.TableCell key={id} value={day}>
-                            <D.TableCellTrigger asChild>
-                              <IconButton variant="ghost">{day.day}</IconButton>
-                            </D.TableCellTrigger>
-                          </D.TableCell>
+            <D.Context>
+              {(api) => (
+                <>
+                  <D.ViewControl>
+                    <D.PrevTrigger asChild>
+                      <IconButton variant="ghost" size="sm">
+                        <ChevronLeftIcon />
+                      </IconButton>
+                    </D.PrevTrigger>
+                    <D.ViewTrigger asChild>
+                      <Button variant="ghost" size="sm">
+                        <D.RangeText />
+                      </Button>
+                    </D.ViewTrigger>
+                    <D.NextTrigger asChild>
+                      <IconButton variant="ghost" size="sm">
+                        <ChevronRightIcon />
+                      </IconButton>
+                    </D.NextTrigger>
+                  </D.ViewControl>
+                  <D.Table>
+                    <D.TableHead>
+                      <D.TableRow>
+                        {api.weekDays.map((weekDay, id) => (
+                          <D.TableHeader key={id}>
+                            {weekDay.narrow}
+                          </D.TableHeader>
                         ))}
                       </D.TableRow>
-                    ))}
-                  </D.TableBody>
-                </D.Table>
-              </>
-            )}
-          </D.View>
-          <D.View view="month">
-            {(api) => (
-              <>
-                <D.ViewControl>
-                  <D.PrevTrigger asChild>
-                    <IconButton variant="ghost" size="sm">
-                      <ChevronLeftIcon />
-                    </IconButton>
-                  </D.PrevTrigger>
-                  <D.ViewTrigger asChild>
-                    <Button variant="ghost" size="sm">
-                      <D.RangeText />
-                    </Button>
-                  </D.ViewTrigger>
-                  <D.NextTrigger asChild>
-                    <IconButton variant="ghost" size="sm">
-                      <ChevronRightIcon />
-                    </IconButton>
-                  </D.NextTrigger>
-                </D.ViewControl>
-                <D.Table>
-                  <D.TableBody>
-                    {api
-                      .getMonthsGrid({ columns: 4, format: "short" })
-                      .map((months, id) => (
+                    </D.TableHead>
+                    <D.TableBody>
+                      {api.weeks.map((week, id) => (
                         <D.TableRow key={id}>
-                          {months.map((month, id) => (
-                            <D.TableCell key={id} value={month.value}>
+                          {week.map((day, id) => (
+                            <D.TableCell key={id} value={day}>
                               <D.TableCellTrigger asChild>
-                                <Button variant="ghost">{month.label}</Button>
+                                <IconButton variant="ghost">
+                                  {day.day}
+                                </IconButton>
                               </D.TableCellTrigger>
                             </D.TableCell>
                           ))}
                         </D.TableRow>
                       ))}
-                  </D.TableBody>
-                </D.Table>
-              </>
-            )}
+                    </D.TableBody>
+                  </D.Table>
+                </>
+              )}
+            </D.Context>
+          </D.View>
+          <D.View view="month">
+            <D.Context>
+              {(api) => (
+                <>
+                  <D.ViewControl>
+                    <D.PrevTrigger asChild>
+                      <IconButton variant="ghost" size="sm">
+                        <ChevronLeftIcon />
+                      </IconButton>
+                    </D.PrevTrigger>
+                    <D.ViewTrigger asChild>
+                      <Button variant="ghost" size="sm">
+                        <D.RangeText />
+                      </Button>
+                    </D.ViewTrigger>
+                    <D.NextTrigger asChild>
+                      <IconButton variant="ghost" size="sm">
+                        <ChevronRightIcon />
+                      </IconButton>
+                    </D.NextTrigger>
+                  </D.ViewControl>
+                  <D.Table>
+                    <D.TableBody>
+                      {api
+                        .getMonthsGrid({ columns: 4, format: "short" })
+                        .map((months, id) => (
+                          <D.TableRow key={id}>
+                            {months.map((month, id) => (
+                              <D.TableCell key={id} value={month.value}>
+                                <D.TableCellTrigger asChild>
+                                  <Button variant="ghost">{month.label}</Button>
+                                </D.TableCellTrigger>
+                              </D.TableCell>
+                            ))}
+                          </D.TableRow>
+                        ))}
+                    </D.TableBody>
+                  </D.Table>
+                </>
+              )}
+            </D.Context>
           </D.View>
           <D.View view="year">
-            {(api) => (
-              <>
-                <D.ViewControl>
-                  <D.PrevTrigger asChild>
-                    <IconButton variant="ghost" size="sm">
-                      <ChevronLeftIcon />
-                    </IconButton>
-                  </D.PrevTrigger>
-                  <D.ViewTrigger asChild>
-                    <Button variant="ghost" size="sm">
-                      <D.RangeText />
-                    </Button>
-                  </D.ViewTrigger>
-                  <D.NextTrigger asChild>
-                    <IconButton variant="ghost" size="sm">
-                      <ChevronRightIcon />
-                    </IconButton>
-                  </D.NextTrigger>
-                </D.ViewControl>
-                <D.Table>
-                  <D.TableBody>
-                    {api.getYearsGrid({ columns: 4 }).map((years, id) => (
-                      <D.TableRow key={id}>
-                        {years.map((year, id) => (
-                          <D.TableCell key={id} value={year.value}>
-                            <D.TableCellTrigger asChild>
-                              <Button variant="ghost">{year.label}</Button>
-                            </D.TableCellTrigger>
-                          </D.TableCell>
-                        ))}
-                      </D.TableRow>
-                    ))}
-                  </D.TableBody>
-                </D.Table>
-              </>
-            )}
+            <D.Context>
+              {(api) => (
+                <>
+                  <D.ViewControl>
+                    <D.PrevTrigger asChild>
+                      <IconButton variant="ghost" size="sm">
+                        <ChevronLeftIcon />
+                      </IconButton>
+                    </D.PrevTrigger>
+                    <D.ViewTrigger asChild>
+                      <Button variant="ghost" size="sm">
+                        <D.RangeText />
+                      </Button>
+                    </D.ViewTrigger>
+                    <D.NextTrigger asChild>
+                      <IconButton variant="ghost" size="sm">
+                        <ChevronRightIcon />
+                      </IconButton>
+                    </D.NextTrigger>
+                  </D.ViewControl>
+                  <D.Table>
+                    <D.TableBody>
+                      {api.getYearsGrid({ columns: 4 }).map((years, id) => (
+                        <D.TableRow key={id}>
+                          {years.map((year, id) => (
+                            <D.TableCell key={id} value={year.value}>
+                              <D.TableCellTrigger asChild>
+                                <Button variant="ghost">{year.label}</Button>
+                              </D.TableCellTrigger>
+                            </D.TableCell>
+                          ))}
+                        </D.TableRow>
+                      ))}
+                    </D.TableBody>
+                  </D.Table>
+                </>
+              )}
+            </D.Context>
           </D.View>
         </D.Content>
       </D.Positioner>
@@ -608,127 +644,137 @@ export const ReadonlyInput = (props: {}) => {
       <D.Positioner>
         <D.Content>
           <D.View view="day">
-            {(api) => (
-              <>
-                <D.ViewControl>
-                  <D.PrevTrigger asChild>
-                    <IconButton variant="ghost" size="sm">
-                      <ChevronLeftIcon />
-                    </IconButton>
-                  </D.PrevTrigger>
-                  <D.ViewTrigger asChild>
-                    <Button variant="ghost" size="sm">
-                      <D.RangeText />
-                    </Button>
-                  </D.ViewTrigger>
-                  <D.NextTrigger asChild>
-                    <IconButton variant="ghost" size="sm">
-                      <ChevronRightIcon />
-                    </IconButton>
-                  </D.NextTrigger>
-                </D.ViewControl>
-                <D.Table>
-                  <D.TableHead>
-                    <D.TableRow>
-                      {api.weekDays.map((weekDay, id) => (
-                        <D.TableHeader key={id}>{weekDay.narrow}</D.TableHeader>
-                      ))}
-                    </D.TableRow>
-                  </D.TableHead>
-                  <D.TableBody>
-                    {api.weeks.map((week, id) => (
-                      <D.TableRow key={id}>
-                        {week.map((day, id) => (
-                          <D.TableCell key={id} value={day}>
-                            <D.TableCellTrigger asChild>
-                              <IconButton variant="ghost">{day.day}</IconButton>
-                            </D.TableCellTrigger>
-                          </D.TableCell>
+            <D.Context>
+              {(api) => (
+                <>
+                  <D.ViewControl>
+                    <D.PrevTrigger asChild>
+                      <IconButton variant="ghost" size="sm">
+                        <ChevronLeftIcon />
+                      </IconButton>
+                    </D.PrevTrigger>
+                    <D.ViewTrigger asChild>
+                      <Button variant="ghost" size="sm">
+                        <D.RangeText />
+                      </Button>
+                    </D.ViewTrigger>
+                    <D.NextTrigger asChild>
+                      <IconButton variant="ghost" size="sm">
+                        <ChevronRightIcon />
+                      </IconButton>
+                    </D.NextTrigger>
+                  </D.ViewControl>
+                  <D.Table>
+                    <D.TableHead>
+                      <D.TableRow>
+                        {api.weekDays.map((weekDay, id) => (
+                          <D.TableHeader key={id}>
+                            {weekDay.narrow}
+                          </D.TableHeader>
                         ))}
                       </D.TableRow>
-                    ))}
-                  </D.TableBody>
-                </D.Table>
-              </>
-            )}
-          </D.View>
-          <D.View view="month">
-            {(api) => (
-              <>
-                <D.ViewControl>
-                  <D.PrevTrigger asChild>
-                    <IconButton variant="ghost" size="sm">
-                      <ChevronLeftIcon />
-                    </IconButton>
-                  </D.PrevTrigger>
-                  <D.ViewTrigger asChild>
-                    <Button variant="ghost" size="sm">
-                      <D.RangeText />
-                    </Button>
-                  </D.ViewTrigger>
-                  <D.NextTrigger asChild>
-                    <IconButton variant="ghost" size="sm">
-                      <ChevronRightIcon />
-                    </IconButton>
-                  </D.NextTrigger>
-                </D.ViewControl>
-                <D.Table>
-                  <D.TableBody>
-                    {api
-                      .getMonthsGrid({ columns: 4, format: "short" })
-                      .map((months, id) => (
+                    </D.TableHead>
+                    <D.TableBody>
+                      {api.weeks.map((week, id) => (
                         <D.TableRow key={id}>
-                          {months.map((month, id) => (
-                            <D.TableCell key={id} value={month.value}>
+                          {week.map((day, id) => (
+                            <D.TableCell key={id} value={day}>
                               <D.TableCellTrigger asChild>
-                                <Button variant="ghost">{month.label}</Button>
+                                <IconButton variant="ghost">
+                                  {day.day}
+                                </IconButton>
                               </D.TableCellTrigger>
                             </D.TableCell>
                           ))}
                         </D.TableRow>
                       ))}
-                  </D.TableBody>
-                </D.Table>
-              </>
-            )}
+                    </D.TableBody>
+                  </D.Table>
+                </>
+              )}
+            </D.Context>
+          </D.View>
+          <D.View view="month">
+            <D.Context>
+              {(api) => (
+                <>
+                  <D.ViewControl>
+                    <D.PrevTrigger asChild>
+                      <IconButton variant="ghost" size="sm">
+                        <ChevronLeftIcon />
+                      </IconButton>
+                    </D.PrevTrigger>
+                    <D.ViewTrigger asChild>
+                      <Button variant="ghost" size="sm">
+                        <D.RangeText />
+                      </Button>
+                    </D.ViewTrigger>
+                    <D.NextTrigger asChild>
+                      <IconButton variant="ghost" size="sm">
+                        <ChevronRightIcon />
+                      </IconButton>
+                    </D.NextTrigger>
+                  </D.ViewControl>
+                  <D.Table>
+                    <D.TableBody>
+                      {api
+                        .getMonthsGrid({ columns: 4, format: "short" })
+                        .map((months, id) => (
+                          <D.TableRow key={id}>
+                            {months.map((month, id) => (
+                              <D.TableCell key={id} value={month.value}>
+                                <D.TableCellTrigger asChild>
+                                  <Button variant="ghost">{month.label}</Button>
+                                </D.TableCellTrigger>
+                              </D.TableCell>
+                            ))}
+                          </D.TableRow>
+                        ))}
+                    </D.TableBody>
+                  </D.Table>
+                </>
+              )}
+            </D.Context>
           </D.View>
           <D.View view="year">
-            {(api) => (
-              <>
-                <D.ViewControl>
-                  <D.PrevTrigger asChild>
-                    <IconButton variant="ghost" size="sm">
-                      <ChevronLeftIcon />
-                    </IconButton>
-                  </D.PrevTrigger>
-                  <D.ViewTrigger asChild>
-                    <Button variant="ghost" size="sm">
-                      <D.RangeText />
-                    </Button>
-                  </D.ViewTrigger>
-                  <D.NextTrigger asChild>
-                    <IconButton variant="ghost" size="sm">
-                      <ChevronRightIcon />
-                    </IconButton>
-                  </D.NextTrigger>
-                </D.ViewControl>
-                <D.Table>
-                  <D.TableBody>
-                    {api.getYearsGrid({ columns: 4 }).map((years, id) => (
-                      <D.TableRow key={id}>
-                        {years.map((year, id) => (
-                          <D.TableCell key={id} value={year.value}>
-                            <D.TableCellTrigger asChild>
-                              <Button variant="ghost">{year.label}</Button>
-                            </D.TableCellTrigger>
-                          </D.TableCell>
-                        ))}
-                      </D.TableRow>
-                    ))}
-                  </D.TableBody>
-                </D.Table>
-              </>
-            )}
+            <D.Context>
+              {(api) => (
+                <>
+                  <D.ViewControl>
+                    <D.PrevTrigger asChild>
+                      <IconButton variant="ghost" size="sm">
+                        <ChevronLeftIcon />
+                      </IconButton>
+                    </D.PrevTrigger>
+                    <D.ViewTrigger asChild>
+                      <Button variant="ghost" size="sm">
+                        <D.RangeText />
+                      </Button>
+                    </D.ViewTrigger>
+                    <D.NextTrigger asChild>
+                      <IconButton variant="ghost" size="sm">
+                        <ChevronRightIcon />
+                      </IconButton>
+                    </D.NextTrigger>
+                  </D.ViewControl>
+                  <D.Table>
+                    <D.TableBody>
+                      {api.getYearsGrid({ columns: 4 }).map((years, id) => (
+                        <D.TableRow key={id}>
+                          {years.map((year, id) => (
+                            <D.TableCell key={id} value={year.value}>
+                              <D.TableCellTrigger asChild>
+                                <Button variant="ghost">{year.label}</Button>
+                              </D.TableCellTrigger>
+                            </D.TableCell>
+                          ))}
+                        </D.TableRow>
+                      ))}
+                    </D.TableBody>
+                  </D.Table>
+                </>
+              )}
+            </D.Context>
           </D.View>
         </D.Content>
       </D.Positioner>

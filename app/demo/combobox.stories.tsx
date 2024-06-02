@@ -36,10 +36,8 @@ export const SingleCombobox = () => {
       <Portal>
         <C.Positioner>
           <C.Content>
-            <C.ItemGroup id="framework">
-              <C.ItemGroupLabel htmlFor="framework">
-                Frameworks
-              </C.ItemGroupLabel>
+            <C.ItemGroup>
+              <C.ItemGroupLabel>Frameworks</C.ItemGroupLabel>
               {items.map((item) => (
                 <C.Item key={item.value} item={item}>
                   <C.ItemText>{item.label}</C.ItemText>
@@ -74,10 +72,8 @@ export const WithError = () => {
       <Portal>
         <C.Positioner>
           <C.Content>
-            <C.ItemGroup id="framework">
-              <C.ItemGroupLabel htmlFor="framework">
-                Frameworks
-              </C.ItemGroupLabel>
+            <C.ItemGroup>
+              <C.ItemGroupLabel>Frameworks</C.ItemGroupLabel>
               {items.map((item) => (
                 <C.Item key={item.value} item={item}>
                   <C.ItemText>{item.label}</C.ItemText>
@@ -113,10 +109,8 @@ export const OpenOnClickCombobox = () => {
       <Portal>
         <C.Positioner>
           <C.Content>
-            <C.ItemGroup id="framework">
-              <C.ItemGroupLabel htmlFor="framework">
-                Frameworks
-              </C.ItemGroupLabel>
+            <C.ItemGroup>
+              <C.ItemGroupLabel>Frameworks</C.ItemGroupLabel>
               {items.map((item) => (
                 <C.Item key={item.value} item={item}>
                   <C.ItemText>{item.label}</C.ItemText>
@@ -157,10 +151,8 @@ export const MultipleCombobox = () => {
       <Portal>
         <C.Positioner>
           <C.Content>
-            <C.ItemGroup id="framework">
-              <C.ItemGroupLabel htmlFor="framework">
-                Frameworks
-              </C.ItemGroupLabel>
+            <C.ItemGroup>
+              <C.ItemGroupLabel>Frameworks</C.ItemGroupLabel>
               {items.map((item) => (
                 <C.Item key={item.value} item={item}>
                   <C.ItemText>{item.label}</C.ItemText>
@@ -196,10 +188,8 @@ export const DisabledCombobox = () => {
       <Portal>
         <C.Positioner>
           <C.Content>
-            <C.ItemGroup id="framework">
-              <C.ItemGroupLabel htmlFor="framework">
-                Frameworks
-              </C.ItemGroupLabel>
+            <C.ItemGroup>
+              <C.ItemGroupLabel>Frameworks</C.ItemGroupLabel>
               {items.map((item) => (
                 <C.Item key={item.value} item={item}>
                   <C.ItemText>{item.label}</C.ItemText>
@@ -253,10 +243,8 @@ export const WithInputGroup = () => {
       <Portal>
         <C.Positioner>
           <C.Content>
-            <C.ItemGroup id="framework">
-              <C.ItemGroupLabel htmlFor="framework">
-                Frameworks
-              </C.ItemGroupLabel>
+            <C.ItemGroup>
+              <C.ItemGroupLabel>Frameworks</C.ItemGroupLabel>
               {items.map((item) => (
                 <C.Item key={item.value} item={item}>
                   <C.ItemText>{item.label}</C.ItemText>

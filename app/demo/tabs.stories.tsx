@@ -1,4 +1,3 @@
-import { CrosshairIcon } from "lucide-react";
 import { Button } from "~/components/ui/button";
 import { Card } from "~/components/ui/card";
 import { Input } from "~/components/ui/input";
@@ -6,6 +5,8 @@ import { Label } from "~/components/ui/label";
 import { Stack } from "~/components/ui/stack";
 import { Tabs, TabsProps } from "~/components/ui/tabs";
 import { Story } from "./storyHelpers";
+
+const a: string = 5;
 
 export const Disabled = () => {
   const options = [

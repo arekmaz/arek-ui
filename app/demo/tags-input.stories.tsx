@@ -12,25 +12,27 @@ import { Portal } from "@ark-ui/react";
 const Normal = () => {
   return (
     <TagsInput>
-      {(api) => (
-        <>
-          <TagsInput.Label>Normal</TagsInput.Label>
-          <TagsInput.Control>
-            {api.value.map((value, index) => (
-              <TagsInput.Item key={index} index={index} value={value}>
-                <TagsInput.ItemInput />
-                <TagsInput.ItemText>{value}</TagsInput.ItemText>
-                <TagsInput.ItemDeleteTrigger asChild>
-                  <IconButton size="sm" variant="ghost">
-                    <XIcon />
-                  </IconButton>
-                </TagsInput.ItemDeleteTrigger>
-              </TagsInput.Item>
-            ))}
-            <TagsInput.Input placeholder="Add Framework" />
-          </TagsInput.Control>
-        </>
-      )}
+      <TagsInput.Context>
+        {(api) => (
+          <>
+            <TagsInput.Label>Normal</TagsInput.Label>
+            <TagsInput.Control>
+              {api.value.map((value, index) => (
+                <TagsInput.Item key={index} index={index} value={value}>
+                  <TagsInput.ItemInput />
+                  <TagsInput.ItemText>{value}</TagsInput.ItemText>
+                  <TagsInput.ItemDeleteTrigger asChild>
+                    <IconButton size="sm" variant="ghost">
+                      <XIcon />
+                    </IconButton>
+                  </TagsInput.ItemDeleteTrigger>
+                </TagsInput.Item>
+              ))}
+              <TagsInput.Input placeholder="Add Framework" />
+            </TagsInput.Control>
+          </>
+        )}
+      </TagsInput.Context>
     </TagsInput>
   );
 };
@@ -38,35 +40,37 @@ const Normal = () => {
 const WithInputGroup = () => {
   return (
     <TagsInput>
-      {(api) => (
-        <>
-          <TagsInput.Label>With input group</TagsInput.Label>
-          <TagsInput.Control>
-            {api.value.map((value, index) => (
-              <TagsInput.Item key={index} index={index} value={value}>
-                <TagsInput.ItemInput />
-                <TagsInput.ItemText>{value}</TagsInput.ItemText>
-                <TagsInput.ItemDeleteTrigger asChild>
-                  <IconButton size="sm" variant="ghost">
-                    <XIcon />
-                  </IconButton>
-                </TagsInput.ItemDeleteTrigger>
-              </TagsInput.Item>
-            ))}
-            <InputGroup variant="ghost">
-              <InputGroup.LeftAddon>
-                <PiIcon />
-              </InputGroup.LeftAddon>
-              <TagsInput.Input placeholder="Add Framework" unstyled asChild>
-                <InputGroup.Input className="w-28" />
-              </TagsInput.Input>
-              <InputGroup.RightAddon>
-                <ArrowRight />
-              </InputGroup.RightAddon>
-            </InputGroup>
-          </TagsInput.Control>
-        </>
-      )}
+      <TagsInput.Context>
+        {(api) => (
+          <>
+            <TagsInput.Label>With input group</TagsInput.Label>
+            <TagsInput.Control>
+              {api.value.map((value, index) => (
+                <TagsInput.Item key={index} index={index} value={value}>
+                  <TagsInput.ItemInput />
+                  <TagsInput.ItemText>{value}</TagsInput.ItemText>
+                  <TagsInput.ItemDeleteTrigger asChild>
+                    <IconButton size="sm" variant="ghost">
+                      <XIcon />
+                    </IconButton>
+                  </TagsInput.ItemDeleteTrigger>
+                </TagsInput.Item>
+              ))}
+              <InputGroup variant="ghost">
+                <InputGroup.LeftAddon>
+                  <PiIcon />
+                </InputGroup.LeftAddon>
+                <TagsInput.Input placeholder="Add Framework" unstyled asChild>
+                  <InputGroup.Input className="w-28" />
+                </TagsInput.Input>
+                <InputGroup.RightAddon>
+                  <ArrowRight />
+                </InputGroup.RightAddon>
+              </InputGroup>
+            </TagsInput.Control>
+          </>
+        )}
+      </TagsInput.Context>
     </TagsInput>
   );
 };
@@ -81,62 +85,62 @@ const WithCombobox = () => {
 
   return (
     <TagsInput>
-      {(api) => (
-        <>
-          <TagsInput.Label>With combobox</TagsInput.Label>
-          <TagsInput.Control>
-            {api.value.map((value, index) => (
-              <TagsInput.Item key={index} index={index} value={value}>
-                <TagsInput.ItemInput />
-                <TagsInput.ItemText>{value}</TagsInput.ItemText>
-                <TagsInput.ItemDeleteTrigger asChild>
-                  <IconButton size="sm" variant="ghost">
-                    <XIcon />
-                  </IconButton>
-                </TagsInput.ItemDeleteTrigger>
-              </TagsInput.Item>
-            ))}
+      <TagsInput.Context>
+        {(api) => (
+          <>
+            <TagsInput.Label>With combobox</TagsInput.Label>
+            <TagsInput.Control>
+              {api.value.map((value, index) => (
+                <TagsInput.Item key={index} index={index} value={value}>
+                  <TagsInput.ItemInput />
+                  <TagsInput.ItemText>{value}</TagsInput.ItemText>
+                  <TagsInput.ItemDeleteTrigger asChild>
+                    <IconButton size="sm" variant="ghost">
+                      <XIcon />
+                    </IconButton>
+                  </TagsInput.ItemDeleteTrigger>
+                </TagsInput.Item>
+              ))}
 
-            <C
-              items={items}
-              onInputValueChange={handleChange}
-              onValueChange={({ value: [firstValue] }) => {
-                console.log({ firstValue, v: Array.from(api.value) });
-                if (firstValue) {
-                  api.setValue([...api.value, firstValue]);
-                }
-              }}
-              className="w-auto"
-            >
-              <C.Control>
-                <TagsInput.Input placeholder="Add Framework" asChild>
-                  <C.Input placeholder="select a framework" unstyled />
-                </TagsInput.Input>
-                <C.Trigger asChild>
-                  <ChevronsUpDownIcon />
-                </C.Trigger>
-              </C.Control>
-              <Portal>
-                <C.Positioner>
-                  <C.Content>
-                    <C.ItemGroup id="framework">
-                      <C.ItemGroupLabel htmlFor="framework">
-                        Frameworks
-                      </C.ItemGroupLabel>
-                      {items.map((item) => (
-                        <C.Item key={item.value} item={item}>
-                          <C.ItemText>{item.label}</C.ItemText>
-                          <C.ItemIndicator>✓</C.ItemIndicator>
-                        </C.Item>
-                      ))}
-                    </C.ItemGroup>
-                  </C.Content>
-                </C.Positioner>
-              </Portal>
-            </C>
-          </TagsInput.Control>
-        </>
-      )}
+              <C
+                items={items}
+                onInputValueChange={handleChange}
+                onValueChange={({ value: [firstValue] }) => {
+                  console.log({ firstValue, v: Array.from(api.value) });
+                  if (firstValue) {
+                    api.setValue([...api.value, firstValue]);
+                  }
+                }}
+                className="w-auto"
+              >
+                <C.Control>
+                  <TagsInput.Input placeholder="Add Framework" asChild>
+                    <C.Input placeholder="select a framework" unstyled />
+                  </TagsInput.Input>
+                  <C.Trigger asChild>
+                    <ChevronsUpDownIcon />
+                  </C.Trigger>
+                </C.Control>
+                <Portal>
+                  <C.Positioner>
+                    <C.Content>
+                      <C.ItemGroup>
+                        <C.ItemGroupLabel>Frameworks</C.ItemGroupLabel>
+                        {items.map((item) => (
+                          <C.Item key={item.value} item={item}>
+                            <C.ItemText>{item.label}</C.ItemText>
+                            <C.ItemIndicator>✓</C.ItemIndicator>
+                          </C.Item>
+                        ))}
+                      </C.ItemGroup>
+                    </C.Content>
+                  </C.Positioner>
+                </Portal>
+              </C>
+            </TagsInput.Control>
+          </>
+        )}
+      </TagsInput.Context>
     </TagsInput>
   );
 };
@@ -144,25 +148,27 @@ const WithCombobox = () => {
 const Disabled = () => {
   return (
     <TagsInput disabled defaultValue={["test"]}>
-      {(api) => (
-        <>
-          <TagsInput.Label>Disabled</TagsInput.Label>
-          <TagsInput.Control>
-            {api.value.map((value, index) => (
-              <TagsInput.Item key={index} index={index} value={value}>
-                <TagsInput.ItemInput />
-                <TagsInput.ItemText>{value}</TagsInput.ItemText>
-                <TagsInput.ItemDeleteTrigger asChild>
-                  <IconButton size="sm" variant="ghost">
-                    <XIcon />
-                  </IconButton>
-                </TagsInput.ItemDeleteTrigger>
-              </TagsInput.Item>
-            ))}
-            <TagsInput.Input placeholder="Add Framework" />
-          </TagsInput.Control>
-        </>
-      )}
+      <TagsInput.Context>
+        {(api) => (
+          <>
+            <TagsInput.Label>Disabled</TagsInput.Label>
+            <TagsInput.Control>
+              {api.value.map((value, index) => (
+                <TagsInput.Item key={index} index={index} value={value}>
+                  <TagsInput.ItemInput />
+                  <TagsInput.ItemText>{value}</TagsInput.ItemText>
+                  <TagsInput.ItemDeleteTrigger asChild>
+                    <IconButton size="sm" variant="ghost">
+                      <XIcon />
+                    </IconButton>
+                  </TagsInput.ItemDeleteTrigger>
+                </TagsInput.Item>
+              ))}
+              <TagsInput.Input placeholder="Add Framework" />
+            </TagsInput.Control>
+          </>
+        )}
+      </TagsInput.Context>
     </TagsInput>
   );
 };

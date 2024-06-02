@@ -118,4 +118,5 @@ export const Combobox = Object.assign(Root, {
   Item,
   ItemIndicator,
   ItemText,
+  Context: C.Context,
 });

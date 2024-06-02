@@ -155,17 +155,18 @@ export const AutoFocusingFilterInput = (
   props: ComponentProps<typeof FilterInput>
 ) => {
   const filterInputRef = useRef<HTMLInputElement>(null!);
-  const { isOpen, value } = useSelectContext();
+  const { open, value } = useSelectContext();
 
   useEffect(() => {
-    if (isOpen) {
+    if (open) {
       setTimeout(() => {
         filterInputRef.current?.focus();
       }, 0);
     }
-  }, [isOpen, value]);
+  }, [open, value]);
 
-  return <FilterInput tabIndex={0} {...props} ref={filterInputRef} />;
+  // @ts-expect-error too complex
+  return <FilterInput tabIndex={0} {...props} ref={filterInputRef as any} />;
 };
 
 export const Select = Object.assign(Root, {

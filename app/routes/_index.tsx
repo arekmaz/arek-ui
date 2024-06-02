@@ -146,7 +146,7 @@ export default function Index() {
           items={filteredPairs.map(([name]) => name)}
           inputValue={inputValue}
           onInputValueChange={(value) => {
-            setInputValue(value.value);
+            setInputValue(value.inputValue);
           }}
           onValueChange={(value) => {
             setInputValue(value.value[0]);
@@ -186,10 +186,8 @@ export default function Index() {
           <Portal>
             <Combobox.Positioner>
               <Combobox.Content className="max-h-80 overflow-scroll">
-                <Combobox.ItemGroup id="component">
-                  <Combobox.ItemGroupLabel htmlFor="component">
-                    Components
-                  </Combobox.ItemGroupLabel>
+                <Combobox.ItemGroup>
+                  <Combobox.ItemGroupLabel>Components</Combobox.ItemGroupLabel>
                   {filteredPairs.map(([name]) => (
                     <Combobox.Item key={name} item={name}>
                       <Combobox.ItemText>{name}</Combobox.ItemText>

@@ -54,7 +54,6 @@ const menuStyles = tv({
         itemGroupLabel: ["py-2.5", "px-2.5", "mx-1"],
         content: ["py-1", "gap-1"],
         item: ["h-10", "px-2.5", "mx-1", "[&_:where(svg)]:size-4"],
-        optionItem: ["h-10", "px-2.5", "mx-1", "[&_:where(svg)]:size-4"],
         triggerItem: ["h-10", "px-2.5", "mx-1", "[&_:where(svg)]:size-4"],
       },
     },
@@ -72,7 +71,6 @@ const ContextTrigger = withContext(M.ContextTrigger, "contextTrigger");
 const Item = withContext(M.Item, "item");
 const ItemGroup = withContext(M.ItemGroup, "itemGroup");
 const ItemGroupLabel = withContext(M.ItemGroupLabel, "itemGroupLabel");
-const OptionItem = withContext(M.OptionItem, "optionItem");
 const Positioner = withContext(M.Positioner, "positioner");
 const Separator = withContext(M.Separator, "separator");
 const Trigger = withContext(M.Trigger, "trigger");
@@ -86,7 +84,6 @@ export const Menu = Object.assign(Root, {
   Item,
   ItemGroup,
   ItemGroupLabel,
-  OptionItem,
   Positioner,
   Root,
   Separator,

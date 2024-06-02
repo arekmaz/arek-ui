@@ -31,13 +31,11 @@ export const MultipleSelect = () => {
           <S.Content>
             <S.AutoFocusingFilterInput
               placeholder="Filter frameworks"
-              onChange={(e) => handleChange(e.target)}
+              onChange={(e: any) => handleChange(e.target)}
               className="pointer-events-auto"
             />
-            <S.ItemGroup id="framework">
-              <S.ItemGroupLabel htmlFor="framework">
-                Frameworks
-              </S.ItemGroupLabel>
+            <S.ItemGroup>
+              <S.ItemGroupLabel>Frameworks</S.ItemGroupLabel>
               {items.map((item) => (
                 <S.Item key={item.value} item={item}>
                   <S.ItemText>{item.label}</S.ItemText>
@@ -76,13 +74,11 @@ export const SingleSelect = () => {
           <S.Content>
             <S.AutoFocusingFilterInput
               placeholder="Filter frameworks"
-              onChange={(e) => handleChange(e.target)}
+              onChange={(e: any) => handleChange(e.target)}
               className="pointer-events-auto"
             />
-            <S.ItemGroup id="framework">
-              <S.ItemGroupLabel htmlFor="framework">
-                Frameworks
-              </S.ItemGroupLabel>
+            <S.ItemGroup>
+              <S.ItemGroupLabel>Frameworks</S.ItemGroupLabel>
               {items.map((item) => (
                 <S.Item key={item.value} item={item}>
                   <S.ItemText>{item.label}</S.ItemText>
@@ -121,13 +117,11 @@ export const WithError = () => {
           <S.Content>
             <S.AutoFocusingFilterInput
               placeholder="Filter frameworks"
-              onChange={(e) => handleChange(e.target)}
+              onChange={(e: any) => handleChange(e.target)}
               className="pointer-events-auto"
             />
-            <S.ItemGroup id="framework">
-              <S.ItemGroupLabel htmlFor="framework">
-                Frameworks
-              </S.ItemGroupLabel>
+            <S.ItemGroup>
+              <S.ItemGroupLabel>Frameworks</S.ItemGroupLabel>
               {items.map((item) => (
                 <S.Item key={item.value} item={item}>
                   <S.ItemText>{item.label}</S.ItemText>
@@ -166,13 +160,11 @@ export const DisabledSelect = () => {
           <S.Content>
             <S.AutoFocusingFilterInput
               placeholder="Filter frameworks"
-              onChange={(e) => handleChange(e.target)}
+              onChange={(e: any) => handleChange(e.target)}
               className="pointer-events-auto"
             />
-            <S.ItemGroup id="framework">
-              <S.ItemGroupLabel htmlFor="framework">
-                Frameworks
-              </S.ItemGroupLabel>
+            <S.ItemGroup>
+              <S.ItemGroupLabel>Frameworks</S.ItemGroupLabel>
               {items.map((item) => (
                 <S.Item key={item.value} item={item}>
                   <S.ItemText>{item.label}</S.ItemText>
@@ -219,16 +211,14 @@ export const WithGroupInput = () => {
                   <S.AutoFocusingFilterInput
                     unstyled
                     placeholder="Filter frameworks"
-                    onChange={(e) => setSearch(e.target.value)}
+                    onChange={(e: any) => setSearch(e.target.value)}
                     value={search}
                   />
                 </InputGroup.Input>
               </HStack>
             </InputGroup>
-            <S.ItemGroup id="framework">
-              <S.ItemGroupLabel htmlFor="framework">
-                Frameworks
-              </S.ItemGroupLabel>
+            <S.ItemGroup>
+              <S.ItemGroupLabel>Frameworks</S.ItemGroupLabel>
               {items.map((item) => (
                 <S.Item key={item.value} item={item}>
                   <S.ItemText>{item.label}</S.ItemText>

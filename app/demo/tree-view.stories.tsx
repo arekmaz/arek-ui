@@ -7,38 +7,38 @@ const Basic = () => {
     <TreeView>
       <TreeView.Label>Basic</TreeView.Label>
       <TreeView.Tree>
-        <TreeView.Branch id="node_modules" depth={1}>
-          <TreeView.BranchControl id="node_modules" depth={1}>
-            <TreeView.BranchText id="node_modules" depth={1}>
+        <TreeView.Branch value="node_modules">
+          <TreeView.BranchControl>
+            <TreeView.BranchText>
               <FolderIcon />
               node_modules
             </TreeView.BranchText>
           </TreeView.BranchControl>
 
-          <TreeView.BranchContent id="node_modules" depth={1}>
-            <TreeView.Item id="node_modules/zag-js" depth={2}>
+          <TreeView.BranchContent>
+            <TreeView.Item value="node_modules/zag-js">
               <FileIcon />
               zag-js
             </TreeView.Item>
-            <TreeView.Item id="node_modules/pandacss" depth={2}>
+            <TreeView.Item value="node_modules/pandacss">
               <FileIcon />
               panda
             </TreeView.Item>
 
-            <TreeView.Branch id="node_modules/@types" depth={2}>
-              <TreeView.BranchControl id="node_modules/@types" depth={2}>
-                <TreeView.BranchText id="node_modules/@types" depth={2}>
+            <TreeView.Branch value="node_modules/@types">
+              <TreeView.BranchControl>
+                <TreeView.BranchText>
                   <FolderIcon />
                   @types
                 </TreeView.BranchText>
               </TreeView.BranchControl>
 
-              <TreeView.BranchContent id="node_modules/@types" depth={2}>
-                <TreeView.Item id="node_modules/@types/react" depth={3}>
+              <TreeView.BranchContent>
+                <TreeView.Item value="node_modules/@types/react">
                   <FileIcon />
                   react
                 </TreeView.Item>
-                <TreeView.Item id="node_modules/@types/react-dom" depth={3}>
+                <TreeView.Item value="node_modules/@types/react-dom">
                   <FileIcon />
                   react-dom
                 </TreeView.Item>
@@ -47,39 +47,39 @@ const Basic = () => {
           </TreeView.BranchContent>
         </TreeView.Branch>
 
-        <TreeView.Branch id="src" depth={1}>
-          <TreeView.BranchControl id="src" depth={1}>
-            <TreeView.BranchText id="src" depth={1}>
+        <TreeView.Branch value="src">
+          <TreeView.BranchControl>
+            <TreeView.BranchText>
               <FolderIcon />
               src
             </TreeView.BranchText>
           </TreeView.BranchControl>
 
-          <TreeView.BranchContent id="src" depth={1}>
-            <TreeView.Item id="src/app.tsx" depth={2}>
+          <TreeView.BranchContent>
+            <TreeView.Item value="src/app.tsx">
               <FileIcon />
               app.tsx
             </TreeView.Item>
-            <TreeView.Item id="src/index.ts" depth={2}>
+            <TreeView.Item value="src/index.ts">
               <FileIcon />
               index.ts
             </TreeView.Item>
           </TreeView.BranchContent>
         </TreeView.Branch>
 
-        <TreeView.Item id="panda.config" depth={1}>
+        <TreeView.Item value="panda.config">
           <FileIcon />
           panda.config.ts
         </TreeView.Item>
-        <TreeView.Item id="package.json" depth={1}>
+        <TreeView.Item value="package.json">
           <FileIcon />
           package.json
         </TreeView.Item>
-        <TreeView.Item id="renovate.json" depth={1}>
+        <TreeView.Item value="renovate.json">
           <FileIcon />
           renovate.json
         </TreeView.Item>
-        <TreeView.Item id="readme.md" depth={1}>
+        <TreeView.Item value="readme.md">
           <FileIcon />
           README.md
         </TreeView.Item>

@@ -39,8 +39,8 @@ const Basic = () => {
                         placeholder="Filter frameworks"
                         className="pointer-events-auto"
                       />
-                      <Select.ItemGroup id="framework">
-                        <Select.ItemGroupLabel htmlFor="framework">
+                      <Select.ItemGroup>
+                        <Select.ItemGroupLabel>
                           Frameworks
                         </Select.ItemGroupLabel>
                         {data.map((item) => (

@@ -20,6 +20,7 @@ const styles = tv({
     title: ["text-sm font-semibold"],
     description: ["text-sm"],
     closeTrigger: ["absolute", "top-3", "right-3"],
+    actionTrigger: [],
   },
   variants: {
     type: {
@@ -50,13 +51,13 @@ const { withProvider, withContext } = createStyleContext(styles);
 
 export const Root = withProvider(T.Root, "root");
 export const CloseTrigger = withContext(T.CloseTrigger, "closeTrigger");
+export const ActionTrigger = withContext(T.ActionTrigger, "actionTrigger");
 export const Description = withContext(T.Description, "description");
-export const Group = withContext(T.Group, "group");
 export const Title = withContext(T.Title, "title");
 
 export const Toast = Object.assign(Root, {
   CloseTrigger,
+  ActionTrigger,
   Description,
-  Group,
   Title,
 });

@@ -98,4 +98,5 @@ export const DatePicker = Object.assign(Root, {
   View,
   ViewTrigger,
   YearSelect,
+  Context: D.Context,
 });

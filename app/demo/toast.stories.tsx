@@ -1,32 +1,18 @@
-import { createToaster } from "@ark-ui/react/toast";
-import { XIcon } from "lucide-react";
+import { createToaster, Toaster } from "@ark-ui/react/toast";
 import { Button } from "~/components/ui/button";
-import { IconButton } from "~/components/ui/icon-button";
-import { Toast } from "~/components/ui/toast";
 import { Story } from "./storyHelpers";
+import { Toast } from "~/components/ui/toast";
+import { XIcon } from "lucide-react";
 
-const [Toaster, toast] = createToaster({
+const toaster = createToaster({
   placement: "top-end",
-  render(toast) {
-    return (
-      <Toast type={toast.type}>
-        <Toast.Title>{toast.title}</Toast.Title>
-        <Toast.Description>{toast.description}</Toast.Description>
-        <Toast.CloseTrigger asChild>
-          <IconButton size="sm" variant="link">
-            <XIcon />
-          </IconButton>
-        </Toast.CloseTrigger>
-      </Toast>
-    );
-  },
 });
 
 export const Demo = () => (
   <>
     <Button
       onClick={() =>
-        toast.create({
+        toaster.create({
           title: "info",
           description: "Description",
           type: "info",
@@ -38,7 +24,7 @@ export const Demo = () => (
     <Button
       variant="destructive"
       onClick={() =>
-        toast.create({
+        toaster.create({
           title: "error",
           description: "Description",
           type: "error",
@@ -50,7 +36,7 @@ export const Demo = () => (
     <Button
       variant="outline"
       onClick={() =>
-        toast.create({
+        toaster.create({
           title: "success",
           description: "Description",
           type: "success",
@@ -62,7 +48,7 @@ export const Demo = () => (
     <Button
       variant="outline"
       onClick={() =>
-        toast.create({
+        toaster.create({
           title: "loading",
           description: "Description",
           type: "loading",
@@ -74,7 +60,7 @@ export const Demo = () => (
     <Button
       variant="outline"
       onClick={() =>
-        toast.create({
+        toaster.create({
           title: "custom",
           description: "Description",
           type: "custom",
@@ -83,7 +69,18 @@ export const Demo = () => (
     >
       Create Custom Toast
     </Button>
-    <Toaster />
+    <Toaster toaster={toaster}>
+      {(toast) => (
+        <Toast key={toast.id}>
+          <Toast.Title>{toast.title}</Toast.Title>
+          <Toast.Description>{toast.description}</Toast.Description>
+          <Toast.ActionTrigger>Do Action</Toast.ActionTrigger>
+          <Toast.CloseTrigger>
+            <XIcon />
+          </Toast.CloseTrigger>
+        </Toast>
+      )}
+    </Toaster>
   </>
 );
 

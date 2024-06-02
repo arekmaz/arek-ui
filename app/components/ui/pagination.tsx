@@ -31,4 +31,5 @@ export const Pagination = Object.assign(Root, {
   Item,
   NextTrigger,
   PrevTrigger,
+  Context: P.Context,
 });

@@ -55,7 +55,6 @@ export function ProfileForm() {
                       <LockIcon />
                     </InputGroup.LeftAddon>
                     <Form.Control>
-                      {/* @ts-expect-error too complex */}
                       <InputGroup.Input
                         type="password"
                         placeholder="∗∗∗∗∗∗"

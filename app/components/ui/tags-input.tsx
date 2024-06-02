@@ -78,4 +78,5 @@ export const TagsInput = Object.assign(Root, {
   ItemDeleteTrigger,
   Input,
   ClearTrigger,
+  Context: TA.Context,
 });
