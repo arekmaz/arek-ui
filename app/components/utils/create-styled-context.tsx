@@ -22,7 +22,10 @@ type StyleRecipe = {
 type StyleSlot<R extends StyleRecipe> = keyof ReturnType<R>;
 type Classes<R extends StyleRecipe> = { [key in StyleSlot<R>]?: string };
 type StyleSlotRecipe<R extends StyleRecipe> = Record<StyleSlot<R>, string>;
-type StyleVariantProps<R extends StyleRecipe> = Parameters<R>[0];
+type StyleVariantProps<R extends StyleRecipe> = Parameters<R>[0] & {
+  className?: string;
+  class?: never;
+};
 type CombineProps<T, U> = Omit<T, keyof U> & U;
 
 export type DataAttributes = Record<`data-${string}`, string | number>;

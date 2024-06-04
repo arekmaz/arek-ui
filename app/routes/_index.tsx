@@ -159,7 +159,6 @@ export default function Index() {
             <InputGroup scale="2xl">
               <Combobox.Input placeholder="select a framework" asChild unstyled>
                 <InputGroup.Input
-                  // @ts-expect-error union too complex
                   ref={inputRef}
                   onFocus={() => {
                     inputRef.current.select();

@@ -76,4 +76,4 @@ export const Tabs = Object.assign(Root, {
   Trigger,
 });
 
-export type TabsProps = ComponentProps<typeof Tabs>;
+export type TabsProps = ComponentProps<typeof Root>;

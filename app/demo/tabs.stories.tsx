@@ -6,8 +6,6 @@ import { Stack } from "~/components/ui/stack";
 import { Tabs, TabsProps } from "~/components/ui/tabs";
 import { Story } from "./storyHelpers";
 
-const a: string = 5;
-
 export const Disabled = () => {
   const options = [
     { id: "react", label: "React" },
@@ -15,6 +13,7 @@ export const Disabled = () => {
     { id: "svelte", label: "Svelte", disabled: true },
     { id: "vue", label: "Vue" },
   ];
+
   return (
     <Card>
       <Card.Header>
