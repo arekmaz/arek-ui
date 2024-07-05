@@ -25,8 +25,10 @@ export const Story = ({
     <Card {...props}>
       <Card.Header>
         <Card.Title className="capitalize" asChild>
-          <HStack justify="between">
-            {title.toLowerCase()}:
+          <div className="grid grid-cols-2">
+          <HStack justify="start">{title.toLowerCase()}:</HStack>
+          <HStack justify="end">
+            
             {componentFilename && (
               <>
                 <Tooltip>
@@ -70,6 +72,7 @@ export const Story = ({
               </>
             )}
           </HStack>
+          </div>
         </Card.Title>
       </Card.Header>
       <Card.Content asChild>
