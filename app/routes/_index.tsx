@@ -109,7 +109,7 @@ const components = [
 ] as Array<[string, () => ReactElement]>;
 
 const storyComponents = components.sort(([a], [b]) =>
-  a === b ? 0 : a > b ? 1 : -1
+  a === b ? 0 : a > b ? 1 : -1,
 );
 
 export default function Index() {
@@ -140,7 +140,7 @@ export default function Index() {
 
   return (
     <VStack className="w-screen flex-1 py-5" spacing={5}>
-      <p className="text-4xl text-center font-semibold">Arek UI - React</p>
+      <p className="text-center text-4xl font-semibold">Arek UI - React</p>
       <div>
         <Combobox
           items={filteredPairs.map(([name]) => name)}
@@ -173,7 +173,7 @@ export default function Index() {
                   "size-4",
                   "cursor-pointer",
                   "_disabled:cursor-not-allowed",
-                  "_disabled:opacity-50"
+                  "_disabled:opacity-50",
                 )}
               >
                 <InputGroup.RightAddon>
@@ -201,7 +201,7 @@ export default function Index() {
       </div>
       <VStack
         spacing={5}
-        className="md:flex-row flex-wrap pb-20 justify-center pt-5 px-5"
+        className="flex-wrap justify-center px-5 pb-20 pt-5 md:flex-row"
       >
         {filteredPairs.map(([name, Comp]) => {
           return <Comp key={name} />;

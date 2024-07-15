@@ -19,7 +19,7 @@ export const SingleCombobox = () => {
   const [items, setItems] = useState(data);
 
   const handleChange = (e: any) => {
-    const filtered = matchSorter(data, e.value, { keys: ["label"] });
+    const filtered = matchSorter(data, e.inputValue, { keys: ["label"] });
     setItems(filtered.length > 0 ? filtered : data);
   };
 
@@ -56,7 +56,7 @@ export const WithError = () => {
   const [items, setItems] = useState(data);
 
   const handleChange = (e: any) => {
-    const filtered = matchSorter(data, e.value, { keys: ["label"] });
+    const filtered = matchSorter(data, e.inputValue, { keys: ["label"] });
     setItems(filtered.length > 0 ? filtered : data);
   };
 
@@ -92,7 +92,7 @@ export const OpenOnClickCombobox = () => {
   const [items, setItems] = useState(data);
 
   const handleChange = (e: any) => {
-    const filtered = matchSorter(data, e.value, { keys: ["label"] });
+    const filtered = matchSorter(data, e.inputValue, { keys: ["label"] });
     setItems(filtered.length > 0 ? filtered : data);
   };
 
@@ -129,7 +129,7 @@ export const MultipleCombobox = () => {
   const [items, setItems] = useState(data);
 
   const handleChange = (e: any) => {
-    const filtered = matchSorter(data, e.value, { keys: ["label"] });
+    const filtered = matchSorter(data, e.inputValue, { keys: ["label"] });
     setItems(filtered.length > 0 ? filtered : data);
   };
 
@@ -171,7 +171,7 @@ export const DisabledCombobox = () => {
   const [items, setItems] = useState(data);
 
   const handleChange = (e: any) => {
-    const filtered = matchSorter(data, e.value, { keys: ["label"] });
+    const filtered = matchSorter(data, e.inputValue, { keys: ["label"] });
     setItems(filtered.length > 0 ? filtered : data);
   };
 
@@ -208,7 +208,7 @@ export const WithInputGroup = () => {
   const [items, setItems] = useState(data);
 
   const handleChange = (e: any) => {
-    const filtered = matchSorter(data, e.value, { keys: ["label"] });
+    const filtered = matchSorter(data, e.inputValue, { keys: ["label"] });
     setItems(filtered.length > 0 ? filtered : data);
   };
 
@@ -231,7 +231,7 @@ export const WithInputGroup = () => {
               "size-4",
               "cursor-pointer",
               "_disabled:cursor-not-allowed",
-              "_disabled:opacity-50"
+              "_disabled:opacity-50",
             )}
           >
             <InputGroup.RightAddon>

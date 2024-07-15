@@ -97,16 +97,10 @@ const IndeterminateIcon = withContext(ark.svg, "controlIndeterminateIcon", {
   children: <II />,
 });
 
-const Control = withContext(C.Control, "control", {
-  children: (
-    <>
-      <CheckIcon />
-      <IndeterminateIcon />
-    </>
-  ),
-});
+const Control = withContext(C.Control, "control");
 
 export const Checkbox = Object.assign(Root, {
+  ...C,
   Root,
   Control,
   CheckIcon,

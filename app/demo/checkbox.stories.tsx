@@ -1,12 +1,17 @@
+import { HammerIcon, ShieldQuestionIcon } from "lucide-react";
 import { Checkbox as C } from "~/components/ui/checkbox";
 import { Story } from "./storyHelpers";
-import { HammerIcon, ShieldQuestionIcon } from "lucide-react";
 
 export const Checkbox = () => {
   return (
     <C>
       <C.Label>Checkbox</C.Label>
-      <C.Control />
+      <C.Control>
+        <C.Indicator>
+          <C.CheckIcon />
+        </C.Indicator>
+      </C.Control>
+      <C.HiddenInput />
     </C>
   );
 };
@@ -15,7 +20,12 @@ export const Invalid = () => {
   return (
     <C invalid>
       <C.Label>Invalid checkbox</C.Label>
-      <C.Control />
+      <C.Control>
+        <C.Indicator>
+          <C.CheckIcon />
+        </C.Indicator>
+      </C.Control>
+      <C.HiddenInput />
     </C>
   );
 };
@@ -24,7 +34,12 @@ export const IndeterminateCheckbox = () => {
   return (
     <C checked="indeterminate">
       <C.Label>Indeterminate checkbox</C.Label>
-      <C.Control />
+      <C.Control>
+        <C.Indicator>
+          <C.CheckIcon />
+        </C.Indicator>
+      </C.Control>
+      <C.HiddenInput />
     </C>
   );
 };
@@ -33,7 +48,12 @@ export const DisabledCheckbox = () => {
   return (
     <C disabled defaultChecked>
       <C.Label>Disabled checkbox</C.Label>
-      <C.Control />
+      <C.Control>
+        <C.Indicator>
+          <C.CheckIcon />
+        </C.Indicator>
+      </C.Control>
+      <C.HiddenInput />
     </C>
   );
 };
@@ -47,6 +67,7 @@ export const CustomIcon = () => {
           <HammerIcon className="size-[18px]" />
         </C.CheckIcon>
       </C.Control>
+      <C.HiddenInput />
     </C>
   );
 };
@@ -61,6 +82,7 @@ export const CustomIndeterminateIcon = () => {
         </C.IndeterminateIcon>
         <C.CheckIcon />
       </C.Control>
+      <C.HiddenInput />
     </C>
   );
 };
