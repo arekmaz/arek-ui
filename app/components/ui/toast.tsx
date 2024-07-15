@@ -13,7 +13,7 @@ const styles = tv({
       "min-w-80",
       "p-4",
 
-      "_open:animate-[slide-in-top_200ms_ease-out]",
+      "data-[state=open]:animate-[slide-in-top_200ms_ease-out]",
       "data-[state=closed]:animate-[slide-out-top_200ms_ease-out]",
     ],
     group: ["p-4"],

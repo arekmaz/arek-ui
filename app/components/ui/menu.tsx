@@ -33,7 +33,7 @@ const menuStyles = tv({
       "z-dropdown",
       "flex",
       "_hidden:hidden",
-      "_open:animate-[fade-in_250ms_ease-out]",
+      "data-[state=open]:animate-[fade-in_250ms_ease-out]",
       "data-[state=closed]:animate-[fade-out_200ms_ease-out]",
     ],
     itemGroup: ["flex", "flex-col"],

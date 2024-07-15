@@ -15,7 +15,7 @@ const drawerStyles = tv({
       "top-0",
       "w-screen",
       "z-overlay",
-      "_open:animate-fade-in",
+      "data-[state=open]:animate-fade-in",
       "data-[state=closed]:animate-fade-out",
     ],
     positioner: [
@@ -59,28 +59,28 @@ const drawerStyles = tv({
       left: {
         positioner: ["top-0", "left-0", "sm:w-96"],
         content: [
-          "_open:animate-drawer-in-left",
+          "data-[state=open]:animate-drawer-in-left",
           "data-[state=closed]:animate-drawer-out-left",
         ],
       },
       right: {
         positioner: ["top-0", "right-0", "sm:w-96"],
         content: [
-          "_open:animate-drawer-in-right",
+          "data-[state=open]:animate-drawer-in-right",
           "data-[state=closed]:animate-drawer-out-right",
         ],
       },
       top: {
         positioner: ["top-0", "left-0", "right-0", "sm:h-1/2"],
         content: [
-          "_open:animate-drawer-in-top",
+          "data-[state=open]:animate-drawer-in-top",
           "data-[state=closed]:animate-drawer-out-top",
         ],
       },
       bottom: {
         positioner: ["bottom-0", "left-0", "right-0", "sm:h-1/2"],
         content: [
-          "_open:animate-drawer-in-bottom",
+          "data-[state=open]:animate-drawer-in-bottom",
           "data-[state=closed]:animate-drawer-out-bottom",
         ],
       },

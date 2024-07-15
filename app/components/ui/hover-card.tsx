@@ -15,7 +15,7 @@ const hoverCardStyles = tv({
       "max-w-80",
       "p-4",
       "relative",
-      "_open:animate-[fade-in_250ms_ease-out]",
+      "data-[state=open]:animate-[fade-in_250ms_ease-out]",
       "data-[state=closed]:animate-[fade-out_200ms_ease-out]",
     ],
     arrow: [

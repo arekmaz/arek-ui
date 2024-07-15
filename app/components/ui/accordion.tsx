@@ -5,7 +5,7 @@ import { Accordion as A, ark } from "@ark-ui/react";
 const accordionStyles = tv({
   slots: {
     root: [],
-    item: ["border-b", "_open:border-muted-foreground"],
+    item: ["border-b", "data-[state=open]:border-muted-foreground"],
     itemTrigger: [
       "w-full",
       "flex",
@@ -23,7 +23,7 @@ const accordionStyles = tv({
     ],
     itemIndicator: [
       "h-4 w-4 shrink-0 transition-transform duration-normal",
-      "_open:rotate-180",
+      "data-[state=open]:rotate-180",
     ],
     itemContent: [
       "transition-all",
@@ -31,8 +31,8 @@ const accordionStyles = tv({
       "duration-normal",
       "ease-default",
       "grid-rows-[0fr]",
-      "_open:grid-rows-[1fr]",
-      "_open:pb-4",
+      "data-[state=open]:grid-rows-[1fr]",
+      "data-[state=open]:pb-4",
     ],
     itemContentContainer: ["overflow-hidden"],
   },

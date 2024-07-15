@@ -14,7 +14,7 @@ const dialogStyles = tv({
       "top-0",
       "w-screen",
       "z-overlay",
-      "_open:animate-fade-in",
+      "data-[state=open]:animate-fade-in",
       "data-[state=closed]:animate-fade-out",
     ],
     positioner: [
@@ -37,7 +37,7 @@ const dialogStyles = tv({
       "min-w-96",
       "relative",
       "p-6",
-      "_open:animate-fade-in",
+      "data-[state=open]:animate-fade-in",
       "data-[state=closed]:animate-fade-out",
     ],
     title: ["font-semibold", "text-lg"],

@@ -70,7 +70,7 @@ const selectStyles = tv({
       "flex-col",
       "z-dropdown",
       "data-[state=closed]:animate-fade-out",
-      "_open:animate-fade-in",
+      "data-[state=open]:animate-fade-in",
       "_hidden:hidden",
       "border",
       "focus-visible:outline",

@@ -31,9 +31,9 @@ const styles = tv({
       "focus-visible:ring-offset-2",
       "disabled:pointer-events-none",
       "disabled:opacity-50",
-      "_selected:bg-background",
-      "_selected:text-foreground",
-      "_selected:shadow-sm",
+      "data-[state=selected]:bg-background",
+      "data-[state=selected]:text-foreground",
+      "data-[state=selected]:shadow-sm",
     ],
     content: [
       "mt-2",

@@ -25,8 +25,8 @@ const styles = tv({
 
       "hover:text-foreground",
       "hover:bg-muted",
-      "_on:text-foreground",
-      "_on:bg-muted",
+      "data-[state=on]:text-foreground",
+      "data-[state=on]:bg-muted",
 
       "_disabled:border-muted-foreground",
       "_disabled:text-muted-foreground",
@@ -42,7 +42,7 @@ const styles = tv({
         root: [
           "border",
           "rounded-sm",
-          "_horizontal:divide-x",
+          "data-[orientation=horizontal]:divide-x",
           "_vertical:divide-y",
         ],
         item: ["focus-visible:text-foreground", "bg-muted-background"],

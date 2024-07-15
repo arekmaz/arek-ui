@@ -8,7 +8,7 @@ const styles = tv({
       "bg-background",
       "flex",
       "_vertical:flex-col",
-      "_horizontal:flex-row",
+      "data-[orientation=horizontal]:flex-row",
     ],
     itemControl: [
       "bg-transparent",
@@ -52,7 +52,7 @@ const styles = tv({
   variants: {
     size: {
       sm: {
-        root: ["_vertical:gap-3", "_horizontal:gap-4"],
+        root: ["_vertical:gap-3", "data-[orientation=horizontal]:gap-4"],
         item: ["gap-2"],
         itemControl: [
           "size-4",
@@ -62,7 +62,7 @@ const styles = tv({
         itemText: ["text-sm"],
       },
       md: {
-        root: ["_vertical:gap-4", "_horizontal:gap-6"],
+        root: ["_vertical:gap-4", "data-[orientation=horizontal]:gap-6"],
         item: ["gap-3"],
         itemControl: [
           "size-5",

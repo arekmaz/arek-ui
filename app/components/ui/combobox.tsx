@@ -35,7 +35,7 @@ const combobox = tv({
       "z-dropdown",
       "_hidden:hidden",
       "data-[state=closed]:opacity-0",
-      "_open:opacity-1",
+      "data-[state=open]:opacity-1",
       "transition-opacity",
       "duration-slowest",
       "ease-out",
