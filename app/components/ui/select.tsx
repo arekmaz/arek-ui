@@ -15,10 +15,10 @@ export const data = [
 
 const selectStyles = tv({
   slots: {
-    root: "flex flex-col gap-1.5 w-full",
+    root: "flex w-full flex-col gap-1.5",
     label: "font-medium",
     control: "relative cursor-pointer bg-background",
-    indicator: "text-muted-foreground size-4",
+    indicator: "size-4 text-muted-foreground",
     trigger: [
       ...inputClasses,
       "flex",
@@ -69,7 +69,7 @@ const selectStyles = tv({
       "flex",
       "flex-col",
       "z-dropdown",
-      "_closed:animate-fade-out",
+      "data-[state=closed]:animate-fade-out",
       "_open:animate-fade-in",
       "_hidden:hidden",
       "border",
@@ -102,10 +102,10 @@ const selectStyles = tv({
     size: {
       md: {
         content: "gap-1",
-        item: "text-md px-2 h-10",
+        item: "text-md h-10 px-2",
         itemGroupLabel: "px-2 py-1.5",
-        filterInput: "px-3 h-10 min-w-10 text-md",
-        trigger: "px-3 h-10 text-md min-w-52",
+        filterInput: "text-md h-10 min-w-10 px-3",
+        trigger: "text-md h-10 min-w-52 px-3",
         itemGroup: "px-1 pb-1",
       },
     },
@@ -152,7 +152,7 @@ const ItemIndicator = withContext(S.ItemIndicator, "itemIndicator");
 const Indicator = withContext(S.Indicator, "indicator");
 
 export const AutoFocusingFilterInput = (
-  props: ComponentProps<typeof FilterInput>
+  props: ComponentProps<typeof FilterInput>,
 ) => {
   const filterInputRef = useRef<HTMLInputElement>(null!);
   const { open, value } = useSelectContext();

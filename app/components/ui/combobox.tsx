@@ -5,7 +5,7 @@ import { inputClasses } from "./input";
 
 const combobox = tv({
   slots: {
-    root: ["flex flex-col gap-1.5 w-full"],
+    root: ["flex w-full flex-col gap-1.5"],
     label: [
       "text-foreground",
       "font-medium",
@@ -34,7 +34,7 @@ const combobox = tv({
       "flex-col",
       "z-dropdown",
       "_hidden:hidden",
-      "_closed:opacity-0",
+      "data-[state=closed]:opacity-0",
       "_open:opacity-1",
       "transition-opacity",
       "duration-slowest",
@@ -64,11 +64,11 @@ const combobox = tv({
   variants: {
     size: {
       md: {
-        content: "p-1 gap-1",
-        item: "text-md px-2 h-10",
+        content: "gap-1 p-1",
+        item: "text-md h-10 px-2",
         itemGroupLabel: "px-2 py-1.5",
         trigger: "right-3",
-        input: "px-3 h-10 min-w-10 text-md",
+        input: "text-md h-10 min-w-10 px-3",
       },
     },
     variant: {

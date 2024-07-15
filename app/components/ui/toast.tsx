@@ -14,7 +14,7 @@ const styles = tv({
       "p-4",
 
       "_open:animate-[slide-in-top_200ms_ease-out]",
-      "_closed:animate-[slide-out-top_200ms_ease-out]",
+      "data-[state=closed]:animate-[slide-out-top_200ms_ease-out]",
     ],
     group: ["p-4"],
     title: ["text-sm font-semibold"],

@@ -140,28 +140,28 @@ export default {
         "fade-in": "fade-in 0.25s ease-out",
         "fade-out": "fade-out 0.2s ease-out",
         "drawer-in-left": `slide-in-left 400ms ${theme(
-          "transitionTimingFunction.emphasized-in"
+          "transitionTimingFunction.emphasized-in",
         )}`,
         "drawer-out-left": `slide-out-left 200ms ${theme(
-          "transitionTimingFunction.emphasized-out"
+          "transitionTimingFunction.emphasized-out",
         )}`,
         "drawer-in-right": `slide-in-right 400ms ${theme(
-          "transitionTimingFunction.emphasized-in"
+          "transitionTimingFunction.emphasized-in",
         )}`,
         "drawer-out-right": `slide-out-right 200ms ${theme(
-          "transitionTimingFunction.emphasized-out"
+          "transitionTimingFunction.emphasized-out",
         )}`,
         "drawer-in-top": `slide-in-top 400ms ${theme(
-          "transitionTimingFunction.emphasized-in"
+          "transitionTimingFunction.emphasized-in",
         )}`,
         "drawer-out-top": `slide-out-top 200ms ${theme(
-          "transitionTimingFunction.emphasized-out"
+          "transitionTimingFunction.emphasized-out",
         )}`,
         "drawer-in-bottom": `slide-in-bottom 400ms ${theme(
-          "transitionTimingFunction.emphasized-in"
+          "transitionTimingFunction.emphasized-in",
         )}`,
         "drawer-out-bottom": `slide-out-bottom 200ms ${theme(
-          "transitionTimingFunction.emphasized-out"
+          "transitionTimingFunction.emphasized-out",
         )}`,
       }),
       gridTemplateAreas: {
@@ -202,10 +202,7 @@ export default {
 
         return {
           checked: [pseudoclass, dataBool, attribute, dataState],
-          unchecked: [dataState],
-          indeterminate: [dataState],
           focus: [pseudoclass, dataBool, attribute, dataState],
-          focused: [dataBool],
           hidden: [attribute, dataBool],
           disabled: [attribute, dataBool],
           closed: [dataState],
@@ -219,7 +216,7 @@ export default {
           invalid: [dataBool, () => ariaValue("invalid")("true")],
         };
       },
-      (name) => `_${name}`
+      (name) => `_${name}`,
     ),
   ],
 } satisfies Config;
