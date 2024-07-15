@@ -4,7 +4,7 @@ import { createStyleContext } from "../utils/create-styled-context";
 
 const avatarStyles = tv({
   slots: {
-    root: ["rounded-full", "border", "shrink-0"],
+    root: ["rounded-full", "border", "shrink-0", "overflow-hidden"],
     fallback: [
       "flex",
       "items-center",
