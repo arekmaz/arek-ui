@@ -75,6 +75,7 @@ export const Label = withContext(ArkSwitch.Label, "label");
 export const Thumb = withContext(ArkSwitch.Thumb, "thumb");
 
 export const Switch = Object.assign(Root, {
+  ...ArkSwitch,
   Root,
   Control,
   Label,

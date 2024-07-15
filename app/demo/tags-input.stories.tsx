@@ -129,7 +129,6 @@ const WithCombobox = () => {
                         {items.map((item) => (
                           <C.Item key={item.value} item={item}>
                             <C.ItemText>{item.label}</C.ItemText>
-                            <C.ItemIndicator>✓</C.ItemIndicator>
                           </C.Item>
                         ))}
                       </C.ItemGroup>

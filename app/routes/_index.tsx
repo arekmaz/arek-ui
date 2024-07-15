@@ -161,7 +161,7 @@ export default function Index() {
                 <InputGroup.Input
                   ref={inputRef}
                   onFocus={() => {
-                    inputRef.current.select();
+                    inputRef.current?.select();
                   }}
                 />
               </Combobox.Input>

@@ -3,6 +3,7 @@ import { Story } from "./storyHelpers";
 
 export const Demo = ({ label, ...props }: SwitchProps & { label: string }) => (
   <Switch defaultChecked {...props}>
+    <Switch.HiddenInput />
     <Switch.Control>
       <Switch.Thumb />
     </Switch.Control>
