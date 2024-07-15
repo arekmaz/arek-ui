@@ -75,6 +75,7 @@ const ViewTrigger = withContext(D.ViewTrigger, "viewTrigger");
 const YearSelect = withContext(D.YearSelect, "yearSelect");
 
 export const DatePicker = Object.assign(Root, {
+  ...D,
   Root,
   ClearTrigger,
   Content,
@@ -98,5 +99,4 @@ export const DatePicker = Object.assign(Root, {
   View,
   ViewTrigger,
   YearSelect,
-  Context: D.Context,
 });

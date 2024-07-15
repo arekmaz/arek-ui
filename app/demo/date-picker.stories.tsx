@@ -294,17 +294,15 @@ export const BasicDatePicker = () => {
   );
 };
 
-export const ParkDatePicker = (props: {}) => {
+export const RangeDatePicker = () => {
   return (
-    <D
-      positioning={{ sameWidth: true }}
-      startOfWeek={1}
-      selectionMode="range"
-      {...props}
-    >
+    <D positioning={{ sameWidth: true }} startOfWeek={1} selectionMode="range">
       <D.Label>Range Date Picker</D.Label>
       <D.Control>
-        <D.Input asChild>
+        <D.Input index={0} asChild>
+          <Input />
+        </D.Input>
+        <D.Input index={1} asChild>
           <Input />
         </D.Input>
         <D.Trigger asChild>
@@ -454,14 +452,9 @@ export const ParkDatePicker = (props: {}) => {
   );
 };
 
-export const WithInputGroup = (props: {}) => {
+export const WithInputGroup = () => {
   return (
-    <D
-      positioning={{ sameWidth: true }}
-      startOfWeek={1}
-      selectionMode="range"
-      {...props}
-    >
+    <D positioning={{ sameWidth: true }} startOfWeek={1} selectionMode="single">
       <D.Label>With Input Group</D.Label>
       <D.Control>
         <InputGroup>
@@ -618,14 +611,9 @@ export const WithInputGroup = (props: {}) => {
   );
 };
 
-export const ReadonlyInput = (props: {}) => {
+export const ReadonlyInput = () => {
   return (
-    <D
-      positioning={{ sameWidth: true }}
-      startOfWeek={1}
-      selectionMode="range"
-      {...props}
-    >
+    <D positioning={{ sameWidth: true }} startOfWeek={1} selectionMode="single">
       <D.Label>With Input Group - readonly input</D.Label>
       <D.Control>
         <D.Trigger asChild>
@@ -782,14 +770,181 @@ export const ReadonlyInput = (props: {}) => {
   );
 };
 
+export const RangePickerSingleReadonlyInput = () => {
+  return (
+    <D positioning={{ sameWidth: true }} startOfWeek={1} selectionMode="range">
+      <D.Label>Range - single readonly input</D.Label>
+      <D.Control>
+        <D.Trigger asChild>
+          <InputGroup className="min-w-[300px]">
+            <D.Context>
+              {(api) => (
+                <D.Input asChild readOnly>
+                  <InputGroup.Input
+                    value={api.value.join(" - ")}
+                    placeholder="yyyy-mm-dd - yyyy-mm-dd"
+                  />
+                </D.Input>
+              )}
+            </D.Context>
+            <InputGroup.RightAddon>
+              <IconButton unstyled aria-label="Open date picker">
+                <CalendarIcon />
+              </IconButton>
+            </InputGroup.RightAddon>
+          </InputGroup>
+        </D.Trigger>
+      </D.Control>
+      <D.Positioner>
+        <D.Content>
+          <D.View view="day">
+            <D.Context>
+              {(api) => (
+                <>
+                  <D.ViewControl>
+                    <D.PrevTrigger asChild>
+                      <IconButton variant="ghost" size="sm">
+                        <ChevronLeftIcon />
+                      </IconButton>
+                    </D.PrevTrigger>
+                    <D.ViewTrigger asChild>
+                      <Button variant="ghost" size="sm">
+                        <D.RangeText />
+                      </Button>
+                    </D.ViewTrigger>
+                    <D.NextTrigger asChild>
+                      <IconButton variant="ghost" size="sm">
+                        <ChevronRightIcon />
+                      </IconButton>
+                    </D.NextTrigger>
+                  </D.ViewControl>
+                  <D.Table>
+                    <D.TableHead>
+                      <D.TableRow>
+                        {api.weekDays.map((weekDay, id) => (
+                          <D.TableHeader key={id}>
+                            {weekDay.narrow}
+                          </D.TableHeader>
+                        ))}
+                      </D.TableRow>
+                    </D.TableHead>
+                    <D.TableBody>
+                      {api.weeks.map((week, id) => (
+                        <D.TableRow key={id}>
+                          {week.map((day, id) => (
+                            <D.TableCell key={id} value={day}>
+                              <D.TableCellTrigger asChild>
+                                <IconButton variant="ghost">
+                                  {day.day}
+                                </IconButton>
+                              </D.TableCellTrigger>
+                            </D.TableCell>
+                          ))}
+                        </D.TableRow>
+                      ))}
+                    </D.TableBody>
+                  </D.Table>
+                </>
+              )}
+            </D.Context>
+          </D.View>
+          <D.View view="month">
+            <D.Context>
+              {(api) => (
+                <>
+                  <D.ViewControl>
+                    <D.PrevTrigger asChild>
+                      <IconButton variant="ghost" size="sm">
+                        <ChevronLeftIcon />
+                      </IconButton>
+                    </D.PrevTrigger>
+                    <D.ViewTrigger asChild>
+                      <Button variant="ghost" size="sm">
+                        <D.RangeText />
+                      </Button>
+                    </D.ViewTrigger>
+                    <D.NextTrigger asChild>
+                      <IconButton variant="ghost" size="sm">
+                        <ChevronRightIcon />
+                      </IconButton>
+                    </D.NextTrigger>
+                  </D.ViewControl>
+                  <D.Table>
+                    <D.TableBody>
+                      {api
+                        .getMonthsGrid({ columns: 4, format: "short" })
+                        .map((months, id) => (
+                          <D.TableRow key={id}>
+                            {months.map((month, id) => (
+                              <D.TableCell key={id} value={month.value}>
+                                <D.TableCellTrigger asChild>
+                                  <Button variant="ghost">{month.label}</Button>
+                                </D.TableCellTrigger>
+                              </D.TableCell>
+                            ))}
+                          </D.TableRow>
+                        ))}
+                    </D.TableBody>
+                  </D.Table>
+                </>
+              )}
+            </D.Context>
+          </D.View>
+          <D.View view="year">
+            <D.Context>
+              {(api) => (
+                <>
+                  <D.ViewControl>
+                    <D.PrevTrigger asChild>
+                      <IconButton variant="ghost" size="sm">
+                        <ChevronLeftIcon />
+                      </IconButton>
+                    </D.PrevTrigger>
+                    <D.ViewTrigger asChild>
+                      <Button variant="ghost" size="sm">
+                        <D.RangeText />
+                      </Button>
+                    </D.ViewTrigger>
+                    <D.NextTrigger asChild>
+                      <IconButton variant="ghost" size="sm">
+                        <ChevronRightIcon />
+                      </IconButton>
+                    </D.NextTrigger>
+                  </D.ViewControl>
+                  <D.Table>
+                    <D.TableBody>
+                      {api.getYearsGrid({ columns: 4 }).map((years, id) => (
+                        <D.TableRow key={id}>
+                          {years.map((year, id) => (
+                            <D.TableCell key={id} value={year.value}>
+                              <D.TableCellTrigger asChild>
+                                <Button variant="ghost">{year.label}</Button>
+                              </D.TableCellTrigger>
+                            </D.TableCell>
+                          ))}
+                        </D.TableRow>
+                      ))}
+                    </D.TableBody>
+                  </D.Table>
+                </>
+              )}
+            </D.Context>
+          </D.View>
+        </D.Content>
+      </D.Positioner>
+    </D>
+  );
+};
+
 export const DatePickers = () => {
   return (
     <Story title="date pickers" componentFilename="date-picker">
-      <Demo />
+      <Demo selectionMode="single" />
       <BasicDatePicker />
-      <ParkDatePicker />
+      <RangeDatePicker />
       <WithInputGroup />
       <ReadonlyInput />
+      <RangePickerSingleReadonlyInput />
     </Story>
   );
 };
