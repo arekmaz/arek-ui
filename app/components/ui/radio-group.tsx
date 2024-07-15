@@ -85,6 +85,7 @@ export const ItemText = withContext(RG.ItemText, "itemText");
 export const Label = withContext(RG.Label, "label");
 
 export const RadioGroup = Object.assign(Root, {
+  ...RG,
   Root,
   Indicator,
   Item,

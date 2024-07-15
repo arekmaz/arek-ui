@@ -11,6 +11,7 @@ export const Demo = (props: ComponentProps<typeof RadioGroup>) => {
   ];
   return (
     <RadioGroup.Root defaultValue="react" {...props}>
+      <RadioGroup.Indicator />
       {options.map((option) => (
         <RadioGroup.Item
           key={option.id}
@@ -19,6 +20,7 @@ export const Demo = (props: ComponentProps<typeof RadioGroup>) => {
         >
           <RadioGroup.ItemControl />
           <RadioGroup.ItemText>{option.label}</RadioGroup.ItemText>
+          <RadioGroup.ItemHiddenInput />
         </RadioGroup.Item>
       ))}
     </RadioGroup.Root>
