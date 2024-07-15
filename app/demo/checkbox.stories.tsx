@@ -35,9 +35,7 @@ export const IndeterminateCheckbox = () => {
     <C checked="indeterminate">
       <C.Label>Indeterminate checkbox</C.Label>
       <C.Control>
-        <C.Indicator>
-          <C.CheckIcon />
-        </C.Indicator>
+        <C.IndeterminateIcon />
       </C.Control>
       <C.HiddenInput />
     </C>
@@ -63,9 +61,11 @@ export const CustomIcon = () => {
     <C defaultChecked>
       <C.Label>Custom checked icon</C.Label>
       <C.Control>
-        <C.CheckIcon>
-          <HammerIcon className="size-[18px]" />
-        </C.CheckIcon>
+        <C.Indicator>
+          <C.CheckIcon>
+            <HammerIcon className="size-[18px]" />
+          </C.CheckIcon>
+        </C.Indicator>
       </C.Control>
       <C.HiddenInput />
     </C>
@@ -74,7 +74,7 @@ export const CustomIcon = () => {
 
 export const CustomIndeterminateIcon = () => {
   return (
-    <C defaultChecked="indeterminate">
+    <C checked="indeterminate">
       <C.Label>Custom indeterminate icon</C.Label>
       <C.Control>
         <C.IndeterminateIcon>
