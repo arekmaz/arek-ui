@@ -117,6 +117,8 @@ export default function Index() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [inputValue, setInputValue] = useState(searchParams.get("q") ?? "");
 
+  console.log({ inputValue });
+
   const [filteredPairs, setFilteredPairs] = useState(() => {
     const matches = matchSorter(storyComponents, inputValue, {
       keys: ["0"],
@@ -153,17 +155,19 @@ export default function Index() {
           }}
           allowCustomValue
           openOnClick
-          autoFocus
         >
           <Combobox.Control>
             <InputGroup scale="2xl">
-              <Combobox.Input placeholder="select a framework" asChild unstyled>
-                <InputGroup.Input
-                  ref={inputRef}
-                  onFocus={() => {
-                    inputRef.current?.select();
-                  }}
-                />
+              <Combobox.Input
+                ref={inputRef}
+                placeholder="select a framework"
+                asChild
+                unstyled
+                onFocus={() => {
+                  inputRef.current?.select();
+                }}
+              >
+                <InputGroup.Input />
               </Combobox.Input>
               <Combobox.Trigger
                 asChild
