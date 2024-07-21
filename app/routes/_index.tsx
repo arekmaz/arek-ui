@@ -166,6 +166,8 @@ export default function Index() {
                 onFocus={() => {
                   inputRef.current?.select();
                 }}
+                // eslint-disable-next-line jsx-a11y/no-autofocus
+                autoFocus
               >
                 <InputGroup.Input />
               </Combobox.Input>
