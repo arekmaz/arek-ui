@@ -8,7 +8,6 @@ import {
   useContext,
   type ComponentProps,
   type ElementType,
-  type JSX,
   useMemo,
   ForwardRefExoticComponent,
 } from "react";
