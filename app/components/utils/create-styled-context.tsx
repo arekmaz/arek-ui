@@ -10,6 +10,7 @@ import {
   type ElementType,
   type JSX,
   useMemo,
+  ForwardRefExoticComponent,
 } from "react";
 import { cn } from "./cn";
 
@@ -33,16 +34,16 @@ export type DataAttributes = Record<`data-${string}`, string | number>;
 export interface ComponentVariants<
   T extends ElementType,
   R extends StyleRecipe,
-  OtherProps
+  OtherProps,
 > {
   (
-    props: CombineProps<ComponentProps<T>, StyleVariantProps<R>> & OtherProps
+    props: CombineProps<ComponentProps<T>, StyleVariantProps<R>> & OtherProps,
   ): JSX.Element;
 }
 
 export const splitProps = (
   keys: (string | number)[],
-  props: Record<string, any>
+  props: Record<string, any>,
 ) => {
   const keyProps: any = {};
   const otherProps: any = {};
@@ -68,7 +69,7 @@ export const createStyleContext = <R extends StyleRecipe>(recipe: R) => {
   const withProvider = <T extends ElementType>(
     Component: T,
     slot: StyleSlot<R>,
-    defaultProps?: Partial<ComponentProps<T> & DataAttributes>
+    defaultProps?: Partial<ComponentProps<T> & DataAttributes>,
   ): ComponentVariants<
     T & DataAttributes,
     R,
@@ -87,7 +88,7 @@ export const createStyleContext = <R extends StyleRecipe>(recipe: R) => {
           classes?: Classes<R>;
           unstyled?: boolean;
         },
-        ref
+        ref,
       ) => {
         const [variantProps, otherProps] = splitProps(recipe.variantKeys, {
           ...defaultProps,
@@ -97,7 +98,7 @@ export const createStyleContext = <R extends StyleRecipe>(recipe: R) => {
         const slotStyles = useMemo(
           () => recipe(variantProps) as any,
           // eslint-disable-next-line react-hooks/exhaustive-deps
-          Object.values(variantProps)
+          Object.values(variantProps),
         );
         return (
           <StyleContext.Provider value={{ slotStyles, classes, unstyled }}>
@@ -114,7 +115,7 @@ export const createStyleContext = <R extends StyleRecipe>(recipe: R) => {
             />
           </StyleContext.Provider>
         );
-      }
+      },
     );
     return StyledComponent as any;
   };
@@ -122,8 +123,8 @@ export const createStyleContext = <R extends StyleRecipe>(recipe: R) => {
   const withContext = <T extends ElementType>(
     Component: T,
     slot: StyleSlot<R>,
-    defaultProps?: Partial<ComponentProps<T> & DataAttributes>
-  ): ElementType<
+    defaultProps?: Partial<ComponentProps<T> & DataAttributes>,
+  ): ForwardRefExoticComponent<
     ComponentProps<T> & DataAttributes & { unstyled?: boolean }
   > => {
     const StyledComponent = forwardRef(
@@ -132,10 +133,10 @@ export const createStyleContext = <R extends StyleRecipe>(recipe: R) => {
           unstyled: unstyledProp,
           ...props
         }: ComponentProps<T> & { unstyled?: boolean },
-        ref
+        ref,
       ) => {
         const { slotStyles, classes, unstyled } = useContext(
-          StyleContext
+          StyleContext,
         ) as any;
         const el = createElement(Component, {
           ...defaultProps,
@@ -150,7 +151,7 @@ export const createStyleContext = <R extends StyleRecipe>(recipe: R) => {
         });
 
         return el;
-      }
+      },
     );
     return StyledComponent as any;
   };

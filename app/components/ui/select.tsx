@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
-import { Select as S, useSelectContext } from "@ark-ui/react";
-import { ark } from "@ark-ui/react";
+import { Select as S, ark, useSelectContext } from "@ark-ui/react";
 import { ComponentProps, useEffect, useRef } from "react";
 import { tv } from "tailwind-variants";
 import { createStyleContext } from "../utils/create-styled-context";
@@ -165,7 +164,6 @@ export const AutoFocusingFilterInput = (
     }
   }, [open, value]);
 
-  // @ts-expect-error too complex
   return <FilterInput tabIndex={0} {...props} ref={filterInputRef as any} />;
 };
 
