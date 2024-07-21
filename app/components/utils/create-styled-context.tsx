@@ -31,15 +31,13 @@ type CombineProps<T, U> = Omit<T, keyof U> & U;
 
 export type DataAttributes = Record<`data-${string}`, string | number>;
 
-export interface ComponentVariants<
+export type ComponentVariants<
   T extends ElementType,
   R extends StyleRecipe,
   OtherProps,
-> {
-  (
-    props: CombineProps<ComponentProps<T>, StyleVariantProps<R>> & OtherProps,
-  ): JSX.Element;
-}
+> = ForwardRefExoticComponent<
+  CombineProps<ComponentProps<T>, StyleVariantProps<R>> & OtherProps
+>;
 
 export const splitProps = (
   keys: (string | number)[],
@@ -70,13 +68,11 @@ export const createStyleContext = <R extends StyleRecipe>(recipe: R) => {
     Component: T,
     slot: StyleSlot<R>,
     defaultProps?: Partial<ComponentProps<T> & DataAttributes>,
-  ): ComponentVariants<
-    T & DataAttributes,
-    R,
-    {
+  ): ForwardRefExoticComponent<
+    CombineProps<ComponentProps<T>, StyleVariantProps<R>> & {
       classes?: Classes<R>;
       unstyled?: boolean;
-    }
+    } & DataAttributes
   > => {
     const StyledComponent = forwardRef(
       (
