@@ -18,5 +18,5 @@ export const NavLink = forwardRef<HTMLInputElement, NavLinkProps>(
         }}
       </NL>
     );
-  }
+  },
 );

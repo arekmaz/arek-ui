@@ -106,7 +106,6 @@ const WithCombobox = () => {
                 items={items}
                 onInputValueChange={handleChange}
                 onValueChange={({ value: [firstValue] }) => {
-                  console.log({ firstValue, v: Array.from(api.value) });
                   if (firstValue) {
                     api.setValue([...api.value, firstValue]);
                   }

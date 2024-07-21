@@ -19,7 +19,7 @@ export const Normal = () => {
             <Stack align="stretch">
               <HStack className="justify-between">
                 <Dialog.Title>Dialog Title</Dialog.Title>
-                <Dialog.CloseTrigger>
+                <Dialog.CloseTrigger asChild>
                   <IconButton variant="ghost">
                     <XIcon />
                   </IconButton>
@@ -28,11 +28,11 @@ export const Normal = () => {
               <Dialog.Description>Dialog Description</Dialog.Description>
 
               <HStack justify="end" className="w-full">
-                <Dialog.CloseTrigger>
+                <Dialog.CloseTrigger asChild>
                   <Button variant="outline">Close</Button>
                 </Dialog.CloseTrigger>
 
-                <Dialog.CloseTrigger>
+                <Dialog.CloseTrigger asChild>
                   <Button>Save</Button>
                 </Dialog.CloseTrigger>
               </HStack>
