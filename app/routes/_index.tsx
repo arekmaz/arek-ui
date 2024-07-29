@@ -117,7 +117,6 @@ export default function Index() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [inputValue, setInputValue] = useState(searchParams.get("q") ?? "");
 
-  console.log({ inputValue });
 
   const [filteredPairs, setFilteredPairs] = useState(() => {
     const matches = matchSorter(storyComponents, inputValue, {
@@ -129,15 +128,13 @@ export default function Index() {
   const inputRef = useRef<HTMLInputElement>(null!);
 
   useEffect(() => {
-    setTimeout(() => {
-      setSearchParams((p) => ({ ...p, q: inputValue }));
-      startTransition(() => {
-        const matches = matchSorter(storyComponents, inputValue, {
-          keys: ["0"],
-        });
-        setFilteredPairs(matches.length ? matches : storyComponents);
+    setSearchParams((p) => ({ ...p, q: inputValue }));
+    startTransition(() => {
+      const matches = matchSorter(storyComponents, inputValue, {
+        keys: ["0"],
       });
-    }, 0);
+      setFilteredPairs(matches.length ? matches : storyComponents);
+    });
   }, [inputValue, setSearchParams]);
 
   return (
