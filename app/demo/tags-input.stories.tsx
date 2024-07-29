@@ -20,12 +20,12 @@ const Normal = () => {
               {api.value.map((value, index) => (
                 <TagsInput.Item key={index} index={index} value={value}>
                   <TagsInput.ItemInput />
-                  <TagsInput.ItemText>{value}</TagsInput.ItemText>
-                  <TagsInput.ItemDeleteTrigger asChild>
-                    <IconButton size="sm" variant="ghost">
+                  <TagsInput.ItemPreview>
+                    <TagsInput.ItemText>{value}</TagsInput.ItemText>
+                    <TagsInput.ItemDeleteTrigger>
                       <XIcon />
-                    </IconButton>
-                  </TagsInput.ItemDeleteTrigger>
+                    </TagsInput.ItemDeleteTrigger>
+                  </TagsInput.ItemPreview>
                 </TagsInput.Item>
               ))}
               <TagsInput.Input placeholder="Add Framework" />
@@ -48,12 +48,14 @@ const WithInputGroup = () => {
               {api.value.map((value, index) => (
                 <TagsInput.Item key={index} index={index} value={value}>
                   <TagsInput.ItemInput />
-                  <TagsInput.ItemText>{value}</TagsInput.ItemText>
-                  <TagsInput.ItemDeleteTrigger asChild>
-                    <IconButton size="sm" variant="ghost">
-                      <XIcon />
-                    </IconButton>
-                  </TagsInput.ItemDeleteTrigger>
+                  <TagsInput.ItemPreview>
+                    <TagsInput.ItemText>{value}</TagsInput.ItemText>
+                    <TagsInput.ItemDeleteTrigger asChild>
+                      <IconButton size="sm" variant="ghost">
+                        <XIcon />
+                      </IconButton>
+                    </TagsInput.ItemDeleteTrigger>
+                  </TagsInput.ItemPreview>
                 </TagsInput.Item>
               ))}
               <InputGroup variant="ghost">
@@ -79,7 +81,7 @@ const WithCombobox = () => {
   const [items, setItems] = useState(data);
 
   const handleChange = (e: any) => {
-    const filtered = matchSorter(data, e.value, { keys: ["label"] });
+    const filtered = matchSorter(data, e.inputValue, { keys: ["label"] });
     setItems(filtered.length > 0 ? filtered : data);
   };
 
@@ -89,16 +91,16 @@ const WithCombobox = () => {
         {(api) => (
           <>
             <TagsInput.Label>With combobox</TagsInput.Label>
-            <TagsInput.Control>
+            <TagsInput.Control className='p-0'>
               {api.value.map((value, index) => (
-                <TagsInput.Item key={index} index={index} value={value}>
+                <TagsInput.Item key={index} index={index} value={value} className='ps-1'>
                   <TagsInput.ItemInput />
-                  <TagsInput.ItemText>{value}</TagsInput.ItemText>
-                  <TagsInput.ItemDeleteTrigger asChild>
-                    <IconButton size="sm" variant="ghost">
+                  <TagsInput.ItemPreview>
+                    <TagsInput.ItemText>{value}</TagsInput.ItemText>
+                    <TagsInput.ItemDeleteTrigger>
                       <XIcon />
-                    </IconButton>
-                  </TagsInput.ItemDeleteTrigger>
+                    </TagsInput.ItemDeleteTrigger>
+                  </TagsInput.ItemPreview>
                 </TagsInput.Item>
               ))}
 
@@ -107,18 +109,16 @@ const WithCombobox = () => {
                 onInputValueChange={handleChange}
                 onValueChange={({ value: [firstValue] }) => {
                   if (firstValue) {
-                    api.setValue([...api.value, firstValue]);
+                    api.setValue(Array.from(new Set([...api.value, firstValue])));
                   }
                 }}
-                className="w-auto"
+                onOpenChange={() => setItems(data)}
+                className="flex-1"
               >
-                <C.Control>
-                  <TagsInput.Input placeholder="Add Framework" asChild>
-                    <C.Input placeholder="select a framework" unstyled />
+                <C.Control className="w-auto flex">
+                  <TagsInput.Input placeholder="Add Framework" className='flex-1 border-none focus-visible:ring-0' asChild>
+                    <C.Input placeholder="select a framework" />
                   </TagsInput.Input>
-                  <C.Trigger asChild>
-                    <ChevronsUpDownIcon />
-                  </C.Trigger>
                 </C.Control>
                 <Portal>
                   <C.Positioner>
@@ -154,12 +154,12 @@ const Disabled = () => {
               {api.value.map((value, index) => (
                 <TagsInput.Item key={index} index={index} value={value}>
                   <TagsInput.ItemInput />
-                  <TagsInput.ItemText>{value}</TagsInput.ItemText>
-                  <TagsInput.ItemDeleteTrigger asChild>
-                    <IconButton size="sm" variant="ghost">
+                  <TagsInput.ItemPreview>
+                    <TagsInput.ItemText>{value}</TagsInput.ItemText>
+                    <TagsInput.ItemDeleteTrigger asChild>
                       <XIcon />
-                    </IconButton>
-                  </TagsInput.ItemDeleteTrigger>
+                    </TagsInput.ItemDeleteTrigger>
+                  </TagsInput.ItemPreview>
                 </TagsInput.Item>
               ))}
               <TagsInput.Input placeholder="Add Framework" />

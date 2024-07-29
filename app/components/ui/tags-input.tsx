@@ -7,6 +7,7 @@ const tagsInputStyles = tv({
     root: ["flex", "flex-col", "gap-1.5", "w-full", "group/tags-input"],
     control: [
       "flex",
+      'items-center',
       "border",
       "rounded-md",
       "flex-wrap",
@@ -23,16 +24,17 @@ const tagsInputStyles = tv({
       "_disabled:cursor-not-allowed",
     ],
     input: ["outline-none", "bg-transparent", "_disabled:cursor-not-allowed"],
-    item: [
+    itemPreview: [
       "inline-flex",
       "items-center",
       "border",
       "rounded-md",
-      "_highlighted:border-foreground",
+      "_highlighted:border-muted-foreground",
       "_highlighted:shadow-sm",
       "_hidden:hidden",
       "_disabled:cursor-not-allowed",
     ],
+    item: [],
     itemInput: ["bg-transparent", "outline-none"],
     label: ["text-sm"],
     itemText: [],
@@ -44,7 +46,7 @@ const tagsInputStyles = tv({
       md: {
         root: "gap-1.5",
         control: ["gap-1.5", "min-w-10", "px-3", "py-[7px]"],
-        item: ["gap-1", "h-6", "pr-1", "pl-2", "text-sm"],
+        itemPreview: ["gap-1", "h-6", "pr-1", "pl-2", "text-sm"],
         itemDeleteTrigger: ["[&_svg]:size-4"],
       },
     },
@@ -68,8 +70,10 @@ const ItemDeleteTrigger = withContext(
 );
 const Input = withContext(TA.Input, "input");
 const ClearTrigger = withContext(TA.ClearTrigger, "clearTrigger");
+const ItemPreview = withContext(TA.ItemPreview, 'itemPreview')
 
 export const TagsInput = Object.assign(Root, {
+  ...TA,
   Label,
   Control,
   Item,
@@ -78,5 +82,5 @@ export const TagsInput = Object.assign(Root, {
   ItemDeleteTrigger,
   Input,
   ClearTrigger,
-  Context: TA.Context,
+  ItemPreview
 });
