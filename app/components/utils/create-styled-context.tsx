@@ -73,18 +73,9 @@ export const createStyleContext = <R extends StyleRecipe>(recipe: R) => {
       unstyled?: boolean;
     } & DataAttributes
   > => {
-    const StyledComponent = forwardRef(
-      (
-        {
-          classes = {},
-          unstyled = false,
-          ...props
-        }: ComponentProps<T> & {
-          classes?: Classes<R>;
-          unstyled?: boolean;
-        },
-        ref,
-      ) => {
+    // TODO: improve types
+    const StyledComponent = forwardRef<any, any>(
+      ({ classes = {}, unstyled = false, ...props }, ref) => {
         const [variantProps, otherProps] = splitProps(recipe.variantKeys, {
           ...defaultProps,
           ...props,
@@ -122,14 +113,9 @@ export const createStyleContext = <R extends StyleRecipe>(recipe: R) => {
   ): ForwardRefExoticComponent<
     ComponentProps<T> & DataAttributes & { unstyled?: boolean }
   > => {
-    const StyledComponent = forwardRef(
-      (
-        {
-          unstyled: unstyledProp,
-          ...props
-        }: ComponentProps<T> & { unstyled?: boolean },
-        ref,
-      ) => {
+    // TODO: improve types
+    const StyledComponent = forwardRef<any, any>(
+      ({ unstyled: unstyledProp, ...props }, ref) => {
         const { slotStyles, classes, unstyled } = useContext(
           StyleContext,
         ) as any;

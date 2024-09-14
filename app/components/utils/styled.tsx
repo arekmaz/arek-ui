@@ -7,7 +7,7 @@ import { DataAttributes } from "./create-styled-context";
 
 const mergeProps = <T extends Record<string, any>>(
   baseProps: T,
-  propsToMerge: Partial<T>
+  propsToMerge: Partial<T>,
 ): T => ({
   ...baseProps,
   ...propsToMerge,
@@ -20,13 +20,13 @@ type StyleRecipe = {
   variantKeys: (string | number)[];
 };
 
-type Component<ComponentProps extends {}> =
+type Component<ComponentProps extends object> =
   | ExoticComponent<ComponentProps>
   | ((prop: ComponentProps) => JSX.Element);
 
 export const splitVariantProps = (
   variantKeys: (string | number)[],
-  props: Record<string, any>
+  props: Record<string, any>,
 ) => {
   const variantProps: any = {};
   const otherProps: any = {};
@@ -42,30 +42,30 @@ export const splitVariantProps = (
   return [variantProps, otherProps];
 };
 
-export const styled = <ComponentProps extends {}, R extends StyleRecipe>(
+export const styled = <ComponentProps extends object, R extends StyleRecipe>(
   Component: Component<ComponentProps>,
   recipe: R,
-  defaultProps?: Partial<ComponentProps & VariantProps<R> & DataAttributes>
+  defaultProps?: Partial<ComponentProps & VariantProps<R> & DataAttributes>,
 ) => {
-  const Comp = forwardRef<
-    typeof Component,
-    ComponentProps & VariantProps<R> & { unstyled?: boolean } & DataAttributes
-  >(({ unstyled, ...props }, ref) => {
-    const [variantProps, otherProps] = splitVariantProps(recipe.variantKeys, {
-      ...defaultProps,
-      ...props,
-    });
+  // TODO: improve types
+  const Comp = forwardRef<typeof Component, any>(
+    ({ unstyled, ...props }, ref) => {
+      const [variantProps, otherProps] = splitVariantProps(recipe.variantKeys, {
+        ...defaultProps,
+        ...props,
+      });
 
-    const classNames = recipe(variantProps);
+      const classNames = recipe(variantProps);
 
-    const componentProps = mergeProps(otherProps, {
-      className: unstyled
-        ? (props as any).className
-        : cn(classNames, (props as any).className),
-    } as any);
+      const componentProps = mergeProps(otherProps, {
+        className: unstyled
+          ? (props as any).className
+          : cn(classNames, (props as any).className),
+      } as any);
 
-    return <Component {...componentProps} ref={ref} />;
-  });
+      return <Component {...componentProps} ref={ref} />;
+    },
+  );
   // @ts-expect-error - it exists
   Comp.displayName = Component.displayName || Component.name;
   return Comp;
