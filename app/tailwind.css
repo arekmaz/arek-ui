@@ -32,6 +32,7 @@
     --ring: 215 20.2% 65.1%;
 
     --radius: 0.5rem;
+
   }
 
   .dark {
@@ -104,11 +105,24 @@
   --font-family-poppins: var(--font-poppins);
   --font-family-inter: var(--font-inter);
 
+  --duration-default: cubic-bezier(0.2, 0.0, 0, 1.0);
+  --duration-emphasized-in: cubic-bezier(0.05, 0.7, 0.1, 1.0);
+  --duration-emphasized-out: cubic-bezier(0.3, 0.0, 0.8, 0.15);
+
   --animate-accordion-down: accordion-down 0.2s ease-out;
   --animate-accordion-up: accordion-up 0.2s ease-out;
 
   --animate-fade-in: fade-in 250ms ease-out;
   --animate-fade-out: fade-out 200ms ease-out;
+
+  --animate-drawer-in-left: slide-in-left 400ms var(--duration-emphasized-in);
+  --animate-drawer-out-left: slide-out-left 200ms var(--duration-emphasized-out);
+  --animate-drawer-in-right: slide-in-right 400ms var(--duration-emphasized-in);
+  --animate-drawer-out-right: slide-out-right 200ms var(--duration-emphasized-out);
+  --animate-drawer-in-bottom: slide-in-bottom 400ms var(--duration-emphasized-in);
+  --animate-drawer-out-bottom: slide-out-bottom 200ms var(--duration-emphasized-out);
+  --animate-drawer-in-top: slide-in-top 400ms var(--duration-emphasized-in);
+  --animate-drawer-out-top: slide-out-top 200ms var(--duration-emphasized-out);
 
   @keyframes accordion-down {
     from {
@@ -154,6 +168,7 @@
     from {
       transform: translateX(-100%);
     }
+
     to {
       transform: translateX(0%);
     }
@@ -163,6 +178,7 @@
     from {
       transform: translateX(0%);
     }
+
     to {
       transform: translateX(-100%);
     }
@@ -172,6 +188,7 @@
     from {
       transform: translateX(100%);
     }
+
     to {
       transform: translateX(0%);
     }
@@ -181,6 +198,7 @@
     from {
       transform: translateX(0%);
     }
+
     to {
       transform: translateX(100%);
     }
@@ -190,6 +208,7 @@
     from {
       transform: translateY(100%);
     }
+
     to {
       transform: translateY(0%);
     }
@@ -199,6 +218,7 @@
     from {
       transform: translateY(0%);
     }
+
     to {
       transform: translateY(100%);
     }
@@ -208,6 +228,7 @@
     from {
       transform: translateY(-100%);
     }
+
     to {
       transform: translateY(0%);
     }
@@ -217,6 +238,7 @@
     from {
       transform: translateY(0%);
     }
+
     to {
       transform: translateY(-100%);
     }

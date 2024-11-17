@@ -30,11 +30,12 @@ const drawerStyles = tv({
     content: [
       "bg-background",
       "shadow-lg",
-      "data-[state=open]:grid",
+      "grid",
       "divide-y",
       "grid-cols-[1fr]",
       "grid-rows-[auto_1fr_auto]",
       "size-full",
+      '[grid-template-areas:"header"_"body"_"footer"]'
     ],
     header: [
       "flex",
@@ -43,9 +44,10 @@ const drawerStyles = tv({
       "pt-6",
       "pb-4",
       "px-6",
+      "[grid-area:header]"
     ],
-    body: ["flex", "flex-col", "overflow-auto", "p-6"],
-    footer: ["flex", "justify-end", "py-4", "px-6"],
+    body: ["flex", "flex-col", "overflow-auto", "p-6", "[grid-area:body]"],
+    footer: ["flex", "justify-end", "py-4", "px-6", "[grid-area:footer]"],
     title: ["text-foreground", "font-semibold", "text-xl"],
     description: ["text-muted-foreground"],
     closeTrigger: [],
