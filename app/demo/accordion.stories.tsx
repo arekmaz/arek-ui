@@ -12,7 +12,7 @@ const Single = () => {
       <Card.Content>
         <Accordion defaultValue={["React"]}>
           {["React", "Solid", "Vue"].map((item, id) => (
-            <Accordion.Item key={id} value={item}>
+            <Accordion.Item key={id} value={item} className="min-w-[420px]">
               <Accordion.ItemTrigger>
                 {item}
                 <Accordion.ItemIndicator asChild>
@@ -20,9 +20,7 @@ const Single = () => {
                 </Accordion.ItemIndicator>
               </Accordion.ItemTrigger>
               <Accordion.ItemContent>
-                <Accordion.ItemContentContainer>
-                  {item} is a JavaScript library for building user interfaces.
-                </Accordion.ItemContentContainer>
+                {item} is a JavaScript library for building user interfaces.
               </Accordion.ItemContent>
             </Accordion.Item>
           ))}
@@ -41,7 +39,7 @@ const Collapsible = () => {
       <Card.Content>
         <Accordion defaultValue={["React"]} collapsible>
           {["React", "Solid", "Vue"].map((item, id) => (
-            <Accordion.Item key={id} value={item}>
+            <Accordion.Item key={id} value={item} className="min-w-[420px]">
               <Accordion.ItemTrigger>
                 {item}
                 <Accordion.ItemIndicator asChild>
@@ -49,9 +47,7 @@ const Collapsible = () => {
                 </Accordion.ItemIndicator>
               </Accordion.ItemTrigger>
               <Accordion.ItemContent>
-                <Accordion.ItemContentContainer>
-                  {item} is a JavaScript library for building user interfaces.
-                </Accordion.ItemContentContainer>
+                {item} is a JavaScript library for building user interfaces.
               </Accordion.ItemContent>
             </Accordion.Item>
           ))}
@@ -82,9 +78,7 @@ const Disabled = () => {
                 </Accordion.ItemIndicator>
               </Accordion.ItemTrigger>
               <Accordion.ItemContent>
-                <Accordion.ItemContentContainer>
-                  {item} is a JavaScript library for building user interfaces.
-                </Accordion.ItemContentContainer>
+                {item} is a JavaScript library for building user interfaces.
               </Accordion.ItemContent>
             </Accordion.Item>
           ))}

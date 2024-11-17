@@ -90,6 +90,7 @@ export const createStyleContext = <R extends StyleRecipe>(recipe: R) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
         Object.values(variantProps),
       );
+
       return (
         <StyleContext.Provider value={{ slotStyles, classes, unstyled }}>
           <Component
@@ -121,6 +122,7 @@ export const createStyleContext = <R extends StyleRecipe>(recipe: R) => {
       ComponentProps<T> & { unstyled?: boolean }
     >(({ unstyled: unstyledProp, ...props }, ref) => {
       const { slotStyles, classes, unstyled } = useContext(StyleContext) as any;
+
       const el = createElement(Component, {
         ...defaultProps,
         ...props,

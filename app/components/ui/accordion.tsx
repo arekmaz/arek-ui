@@ -7,14 +7,14 @@ const accordionStyles = tv({
     root: [],
     item: ["border-b", "data-[state=open]:border-muted-foreground"],
     itemTrigger: [
-      "w-full",
       "flex",
       "flex-1",
       "items-center",
       "justify-between",
       "py-4",
+      "w-full",
+      "cursor-pointer",
       "font-medium",
-      "transition-all",
       "hover:underline",
       "disabled:text-muted-foreground",
       "disabled:text-muted-foreground",
@@ -30,15 +30,10 @@ const accordionStyles = tv({
       "data-[state=open]:rotate-180",
     ],
     itemContent: [
-      "transition-all",
-      "grid",
-      "duration-normal",
-      "ease-default",
-      "grid-rows-[0fr]",
-      "data-[state=open]:grid-rows-[1fr]",
-      "data-[state=open]:pb-4",
+      "data-[state=open]:animate-accordion-down",
+      "data-[state=closed]:animate-accordion-up",
+      "overflow-hidden",
     ],
-    itemContentContainer: ["overflow-hidden"],
   },
 });
 
@@ -49,7 +44,6 @@ const Item = withContext(A.Item, "item");
 const ItemTrigger = withContext(A.ItemTrigger, "itemTrigger");
 const ItemIndicator = withContext(A.ItemIndicator, "itemIndicator");
 const ItemContent = withContext(A.ItemContent, "itemContent");
-const ItemContentContainer = withContext(ark.div, "itemContentContainer");
 
 export const Accordion = Object.assign(Root, {
   Root,
@@ -57,5 +51,4 @@ export const Accordion = Object.assign(Root, {
   ItemTrigger,
   ItemIndicator,
   ItemContent,
-  ItemContentContainer,
 });

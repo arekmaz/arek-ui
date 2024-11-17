@@ -16,14 +16,14 @@ import "./tailwind.css";
 export default function App() {
   const [mode, setMode] = useState<"dark" | "light">("light");
   return (
-    <html lang="en">
+    <html lang="en" className={cn(mode, "h-screen w-screen flex flex-col")}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
       </head>
-      <body className={cn(mode, "h-screen w-screen flex flex-col")}>
+      <body className="h-screen w-screen flex flex-col">
         <HStack
           className="fixed bottom-0 left-0 z-overlay w-full pointer-events-none *:pointer-events-auto pb-1 px-1"
           justify="between"

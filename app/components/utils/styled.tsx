@@ -7,7 +7,7 @@ import { DataAttributes } from "./create-styled-context";
 
 const mergeProps = <T extends Record<string, any>>(
   baseProps: T,
-  propsToMerge: Partial<T>
+  propsToMerge: Partial<T>,
 ): T => ({
   ...baseProps,
   ...propsToMerge,
@@ -26,7 +26,7 @@ type Component<ComponentProps extends {}> =
 
 export const splitVariantProps = (
   variantKeys: (string | number)[],
-  props: Record<string, any>
+  props: Record<string, any>,
 ) => {
   const variantProps: any = {};
   const otherProps: any = {};
@@ -46,12 +46,13 @@ export const splitVariantProps = (
 export const styled = <ComponentProps extends {}, R extends StyleRecipe>(
   Component: Component<ComponentProps>,
   recipe: R,
-  defaultProps?: Partial<ComponentProps & VariantProps<R> & DataAttributes>
+  defaultProps?: Partial<ComponentProps & VariantProps<R> & DataAttributes>,
 ) => {
   const Comp = forwardRef<
     typeof Component,
     ComponentProps & VariantProps<R> & DataAttributes & { unstyled?: boolean }
-  >((props, ref) => {
+  >((allProps, ref) => {
+    const { unstyled, ...props } = allProps as any;
     const [variantProps, otherProps] = splitVariantProps(recipe.variantKeys, {
       ...defaultProps,
       ...props,
@@ -60,8 +61,8 @@ export const styled = <ComponentProps extends {}, R extends StyleRecipe>(
     const classNames = recipe(variantProps);
 
     const componentProps = mergeProps(otherProps, {
-      className: (props as any).unstyled
-        ? (props as any).className
+      className: props.unstyled
+        ? props.className
         : cn(classNames, (props as any).className),
     } as any);
 
