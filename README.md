@@ -1,4 +1,4 @@
-# Arek UI: [tailwindCSS](https://tailwindcss.com/) + [Ark UI](https://ark-ui.com/)
+# Arek UI: [tailwindCSS](https://tailwindcss.com/) - v4 + [Ark UI](https://ark-ui.com/) - v4
 
 ## Copy paste components to your project.
 
