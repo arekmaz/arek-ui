@@ -1,11 +1,12 @@
 import { Portal } from "@ark-ui/react/portal";
 import { ArrowRight, ChevronsUpDownIcon } from "lucide-react";
 import { matchSorter } from "match-sorter";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Combobox as C } from "~/components/ui/combobox";
 import { InputGroup } from "~/components/ui/input-group";
 import { cn } from "~/components/utils/cn";
 import { Story } from "./storyHelpers";
+import { createListCollection } from "@ark-ui/react";
 
 const data = [
   { label: "React", value: "react" },
@@ -18,13 +19,18 @@ const data = [
 export const SingleCombobox = () => {
   const [items, setItems] = useState(data);
 
+  const collection = useMemo(
+    () => createListCollection({ items: data }),
+    [data],
+  );
+
   const handleChange = (e: any) => {
     const filtered = matchSorter(data, e.inputValue, { keys: ["label"] });
     setItems(filtered.length > 0 ? filtered : data);
   };
 
   return (
-    <C items={items} onInputValueChange={handleChange}>
+    <C collection={collection} onInputValueChange={handleChange}>
       <C.Label>Single combobox</C.Label>
       <C.Control>
         <C.Input placeholder="select a framework" />
@@ -55,13 +61,22 @@ export const SingleCombobox = () => {
 export const WithError = () => {
   const [items, setItems] = useState(data);
 
+  const collection = useMemo(
+    () => createListCollection({ items: data }),
+    [data],
+  );
+
   const handleChange = (e: any) => {
     const filtered = matchSorter(data, e.inputValue, { keys: ["label"] });
     setItems(filtered.length > 0 ? filtered : data);
   };
 
   return (
-    <C items={items} onInputValueChange={handleChange} variant="error">
+    <C
+      collection={collection}
+      onInputValueChange={handleChange}
+      variant="error"
+    >
       <C.Label>With Error</C.Label>
       <C.Control>
         <C.Input placeholder="select a framework" />
@@ -91,13 +106,18 @@ export const WithError = () => {
 export const OpenOnClickCombobox = () => {
   const [items, setItems] = useState(data);
 
+  const collection = useMemo(
+    () => createListCollection({ items: data }),
+    [data],
+  );
+
   const handleChange = (e: any) => {
     const filtered = matchSorter(data, e.inputValue, { keys: ["label"] });
     setItems(filtered.length > 0 ? filtered : data);
   };
 
   return (
-    <C items={items} onInputValueChange={handleChange} openOnClick>
+    <C collection={collection} onInputValueChange={handleChange} openOnClick>
       <C.Label>Single combobox - open on click</C.Label>
       <C.Control>
         <C.Input placeholder="select a framework" />
@@ -128,6 +148,11 @@ export const OpenOnClickCombobox = () => {
 export const MultipleCombobox = () => {
   const [items, setItems] = useState(data);
 
+  const collection = useMemo(
+    () => createListCollection({ items: data }),
+    [data],
+  );
+
   const handleChange = (e: any) => {
     const filtered = matchSorter(data, e.inputValue, { keys: ["label"] });
     setItems(filtered.length > 0 ? filtered : data);
@@ -135,7 +160,7 @@ export const MultipleCombobox = () => {
 
   return (
     <C
-      items={items}
+      collection={collection}
       onInputValueChange={handleChange}
       multiple
       onValueChange={() => setItems(data)}
@@ -170,13 +195,18 @@ export const MultipleCombobox = () => {
 export const DisabledCombobox = () => {
   const [items, setItems] = useState(data);
 
+  const collection = useMemo(
+    () => createListCollection({ items: data }),
+    [data],
+  );
+
   const handleChange = (e: any) => {
     const filtered = matchSorter(data, e.inputValue, { keys: ["label"] });
     setItems(filtered.length > 0 ? filtered : data);
   };
 
   return (
-    <C items={items} onInputValueChange={handleChange} disabled>
+    <C collection={collection} onInputValueChange={handleChange} disabled>
       <C.Label>Disabled combobox</C.Label>
       <C.Control>
         <C.Input placeholder="select a framework" />
@@ -207,13 +237,18 @@ export const DisabledCombobox = () => {
 export const WithInputGroup = () => {
   const [items, setItems] = useState(data);
 
+  const collection = useMemo(
+    () => createListCollection({ items: data }),
+    [data],
+  );
+
   const handleChange = (e: any) => {
     const filtered = matchSorter(data, e.inputValue, { keys: ["label"] });
     setItems(filtered.length > 0 ? filtered : data);
   };
 
   return (
-    <C items={items} onInputValueChange={handleChange}>
+    <C collection={collection} onInputValueChange={handleChange}>
       <C.Label>With input group</C.Label>
       <C.Control>
         <InputGroup>

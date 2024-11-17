@@ -73,45 +73,39 @@ export const createStyleContext = <R extends StyleRecipe>(recipe: R) => {
       unstyled?: boolean;
     } & DataAttributes
   > => {
-    const StyledComponent = forwardRef(
-      (
-        {
-          classes = {},
-          unstyled = false,
-          ...props
-        }: ComponentProps<T> & {
-          classes?: Classes<R>;
-          unstyled?: boolean;
-        },
-        ref,
-      ) => {
-        const [variantProps, otherProps] = splitProps(recipe.variantKeys, {
-          ...defaultProps,
-          ...props,
-        });
+    const StyledComponent = forwardRef<
+      T,
+      ComponentProps<T> & {
+        classes?: Classes<R>;
+        unstyled?: boolean;
+      }
+    >(({ classes = {}, unstyled = false, ...props }, ref) => {
+      const [variantProps, otherProps] = splitProps(recipe.variantKeys, {
+        ...defaultProps,
+        ...props,
+      });
 
-        const slotStyles = useMemo(
-          () => recipe(variantProps) as any,
-          // eslint-disable-next-line react-hooks/exhaustive-deps
-          Object.values(variantProps),
-        );
-        return (
-          <StyleContext.Provider value={{ slotStyles, classes, unstyled }}>
-            <Component
-              ref={ref}
-              {...otherProps}
-              className={
-                unstyled
-                  ? props.className
-                  : slotStyles[slot]({
-                      className: cn(classes[slot], props.className),
-                    })
-              }
-            />
-          </StyleContext.Provider>
-        );
-      },
-    );
+      const slotStyles = useMemo(
+        () => recipe(variantProps) as any,
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        Object.values(variantProps),
+      );
+      return (
+        <StyleContext.Provider value={{ slotStyles, classes, unstyled }}>
+          <Component
+            ref={ref}
+            {...otherProps}
+            className={
+              unstyled
+                ? props.className
+                : slotStyles[slot]({
+                    className: cn(classes[slot], props.className),
+                  })
+            }
+          />
+        </StyleContext.Provider>
+      );
+    });
     return StyledComponent as any;
   };
 
@@ -122,32 +116,25 @@ export const createStyleContext = <R extends StyleRecipe>(recipe: R) => {
   ): ForwardRefExoticComponent<
     ComponentProps<T> & DataAttributes & { unstyled?: boolean }
   > => {
-    const StyledComponent = forwardRef(
-      (
-        {
-          unstyled: unstyledProp,
-          ...props
-        }: ComponentProps<T> & { unstyled?: boolean },
+    const StyledComponent = forwardRef<
+      T,
+      ComponentProps<T> & { unstyled?: boolean }
+    >(({ unstyled: unstyledProp, ...props }, ref) => {
+      const { slotStyles, classes, unstyled } = useContext(StyleContext) as any;
+      const el = createElement(Component, {
+        ...defaultProps,
+        ...props,
+        className:
+          unstyled || unstyledProp
+            ? props.className
+            : slotStyles?.[slot]({
+                className: cn(classes[slot], props.className),
+              }),
         ref,
-      ) => {
-        const { slotStyles, classes, unstyled } = useContext(
-          StyleContext,
-        ) as any;
-        const el = createElement(Component, {
-          ...defaultProps,
-          ...props,
-          className:
-            unstyled || unstyledProp
-              ? props.className
-              : slotStyles?.[slot]({
-                  className: cn(classes[slot], props.className),
-                }),
-          ref,
-        });
+      });
 
-        return el;
-      },
-    );
+      return el;
+    });
     return StyledComponent as any;
   };
 

@@ -1,10 +1,11 @@
-import { Portal } from "@ark-ui/react";
+import { createListCollection, Portal } from "@ark-ui/react";
 import type { MetaFunction } from "@remix-run/node";
 import { ChevronsUpDownIcon } from "lucide-react";
 import { matchSorter } from "match-sorter";
 import {
   ReactElement,
   useEffect,
+  useMemo,
   useRef,
   useState,
   useTransition,
@@ -137,12 +138,14 @@ export default function Index() {
     });
   }, [inputValue, setSearchParams]);
 
+  const collection = useMemo(() => createListCollection({items: filteredPairs.map(([name]) => name)}), [filteredPairs])
+
   return (
     <VStack className="w-screen flex-1 py-5" spacing={5}>
       <p className="text-center text-4xl font-semibold">Arek UI - React</p>
       <div>
         <Combobox
-          items={filteredPairs.map(([name]) => name)}
+          collection={collection}
           inputValue={inputValue}
           onInputValueChange={(value) => {
             setInputValue(value.inputValue);

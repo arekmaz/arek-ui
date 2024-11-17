@@ -1,12 +1,18 @@
-import { Portal } from "@ark-ui/react";
+import { createListCollection, Portal } from "@ark-ui/react";
 import { ChevronsUpDownIcon } from "lucide-react";
 import { Button } from "~/components/ui/button";
 import { Card } from "~/components/ui/card";
 import { Input } from "~/components/ui/input";
 import { Select, data } from "~/components/ui/select";
 import { Story } from "./storyHelpers";
+import { useMemo } from "react";
 
 const Basic = () => {
+  const collection = useMemo(
+    () => createListCollection({ items: data }),
+    [data],
+  );
+
   return (
     <Card className="w-[350px]">
       <Card.Header>
@@ -22,7 +28,7 @@ const Basic = () => {
               <Input id="name" placeholder="Name of your project" />
             </div>
             <div className="flex flex-col space-y-1.5">
-              <Select items={data}>
+              <Select collection={collection}>
                 <Select.Label>Multiple select</Select.Label>
                 <Select.Control>
                   <Select.Trigger>

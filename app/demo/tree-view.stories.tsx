@@ -1,90 +1,108 @@
 import { TreeView } from "~/components/ui/tree-view";
 import { Story } from "./storyHelpers";
-import { FileIcon, FolderIcon } from "lucide-react";
+import {
+  CheckSquareIcon,
+  ChevronRightIcon,
+  FileIcon,
+  FolderIcon,
+} from "lucide-react";
+import { createTreeCollection, TreeViewNodeProviderProps } from "@ark-ui/react";
+
+interface Node {
+  id: string;
+  name: string;
+  children?: Node[];
+}
+
+const collection = createTreeCollection<Node>({
+  nodeToValue: (node) => node.id,
+  nodeToString: (node) => node.name,
+  rootNode: {
+    id: "ROOT",
+    name: "",
+    children: [
+      {
+        id: "node_modules",
+        name: "node_modules",
+        children: [
+          { id: "node_modules/zag-js", name: "zag-js" },
+          { id: "node_modules/pandacss", name: "panda" },
+          {
+            id: "node_modules/@types",
+            name: "@types",
+            children: [
+              { id: "node_modules/@types/react", name: "react" },
+              { id: "node_modules/@types/react-dom", name: "react-dom" },
+            ],
+          },
+        ],
+      },
+      {
+        id: "src",
+        name: "src",
+        children: [
+          { id: "src/app.tsx", name: "app.tsx" },
+          { id: "src/index.ts", name: "index.ts" },
+        ],
+      },
+      { id: "panda.config", name: "panda.config.ts" },
+      { id: "package.json", name: "package.json" },
+      { id: "renovate.json", name: "renovate.json" },
+      { id: "readme.md", name: "README.md" },
+    ],
+  },
+});
 
 const Basic = () => {
   return (
-    <TreeView>
-      <TreeView.Label>Basic</TreeView.Label>
+    <TreeView.Root collection={collection}>
+      <TreeView.Label>Tree</TreeView.Label>
       <TreeView.Tree>
-        <TreeView.Branch value="node_modules">
-          <TreeView.BranchControl>
-            <TreeView.BranchText>
-              <FolderIcon />
-              node_modules
-            </TreeView.BranchText>
-          </TreeView.BranchControl>
-
-          <TreeView.BranchContent>
-            <TreeView.Item value="node_modules/zag-js">
-              <FileIcon />
-              zag-js
-            </TreeView.Item>
-            <TreeView.Item value="node_modules/pandacss">
-              <FileIcon />
-              panda
-            </TreeView.Item>
-
-            <TreeView.Branch value="node_modules/@types">
-              <TreeView.BranchControl>
-                <TreeView.BranchText>
-                  <FolderIcon />
-                  @types
-                </TreeView.BranchText>
-              </TreeView.BranchControl>
-
-              <TreeView.BranchContent>
-                <TreeView.Item value="node_modules/@types/react">
-                  <FileIcon />
-                  react
-                </TreeView.Item>
-                <TreeView.Item value="node_modules/@types/react-dom">
-                  <FileIcon />
-                  react-dom
-                </TreeView.Item>
-              </TreeView.BranchContent>
-            </TreeView.Branch>
-          </TreeView.BranchContent>
-        </TreeView.Branch>
-
-        <TreeView.Branch value="src">
-          <TreeView.BranchControl>
-            <TreeView.BranchText>
-              <FolderIcon />
-              src
-            </TreeView.BranchText>
-          </TreeView.BranchControl>
-
-          <TreeView.BranchContent>
-            <TreeView.Item value="src/app.tsx">
-              <FileIcon />
-              app.tsx
-            </TreeView.Item>
-            <TreeView.Item value="src/index.ts">
-              <FileIcon />
-              index.ts
-            </TreeView.Item>
-          </TreeView.BranchContent>
-        </TreeView.Branch>
-
-        <TreeView.Item value="panda.config">
-          <FileIcon />
-          panda.config.ts
-        </TreeView.Item>
-        <TreeView.Item value="package.json">
-          <FileIcon />
-          package.json
-        </TreeView.Item>
-        <TreeView.Item value="renovate.json">
-          <FileIcon />
-          renovate.json
-        </TreeView.Item>
-        <TreeView.Item value="readme.md">
-          <FileIcon />
-          README.md
-        </TreeView.Item>
+        {collection.rootNode.children?.map((node, index) => (
+          <TreeNode key={node.id} node={node} indexPath={[index]} />
+        ))}
       </TreeView.Tree>
-    </TreeView>
+    </TreeView.Root>
+  );
+};
+
+const TreeNode = (props: TreeViewNodeProviderProps<Node>) => {
+  const { node, indexPath } = props;
+  return (
+    <TreeView.NodeProvider key={node.id} node={node} indexPath={indexPath}>
+      {node.children ? (
+        <TreeView.Branch>
+          <TreeView.BranchControl>
+            <TreeView.BranchText>
+              <FolderIcon /> {node.name}
+            </TreeView.BranchText>
+            <TreeView.BranchIndicator>
+              <ChevronRightIcon />
+            </TreeView.BranchIndicator>
+          </TreeView.BranchControl>
+          <TreeView.BranchContent>
+            <TreeView.BranchIndentGuide />
+            {node.children.map((child, index) => (
+              <TreeNode
+                key={child.id}
+                node={child}
+                indexPath={[...indexPath, index]}
+              />
+            ))}
+          </TreeView.BranchContent>
+        </TreeView.Branch>
+      ) : (
+        <TreeView.Item>
+          <TreeView.ItemIndicator>
+            <CheckSquareIcon />
+          </TreeView.ItemIndicator>
+          <TreeView.ItemText>
+            <FileIcon />
+            {node.name}
+          </TreeView.ItemText>
+        </TreeView.Item>
+      )}
+    </TreeView.NodeProvider>
   );
 };
 

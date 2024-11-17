@@ -1,7 +1,7 @@
-import { Portal } from "@ark-ui/react";
+import { createListCollection, Portal } from "@ark-ui/react";
 import { ChevronsUpDownIcon, SearchIcon } from "lucide-react";
 import { matchSorter } from "match-sorter";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Select as S, data } from "~/components/ui/select";
 import { Story } from "./storyHelpers";
 import { InputGroup } from "~/components/ui/input-group";
@@ -15,8 +15,10 @@ export const MultipleSelect = () => {
     setItems(filtered.length > 0 ? filtered : data);
   };
 
+  const collection = useMemo(() => createListCollection({ items }), [items]);
+
   return (
-    <S items={items} multiple>
+    <S collection={collection} multiple>
       <S.Label>Multiple select</S.Label>
       <S.Control>
         <S.Trigger>
@@ -58,8 +60,10 @@ export const SingleSelect = () => {
     setItems(filtered.length > 0 ? filtered : data);
   };
 
+  const collection = useMemo(() => createListCollection({ items }), [items]);
+
   return (
-    <S items={items}>
+    <S collection={collection}>
       <S.Label>Single select</S.Label>
       <S.Control>
         <S.Trigger>
@@ -101,8 +105,10 @@ export const WithError = () => {
     setItems(filtered.length > 0 ? filtered : data);
   };
 
+  const collection = useMemo(() => createListCollection({ items }), [items]);
+
   return (
-    <S items={items} variant="error">
+    <S collection={collection} variant="error">
       <S.Label>With error</S.Label>
       <S.Control>
         <S.Trigger>
@@ -144,8 +150,10 @@ export const DisabledSelect = () => {
     setItems(filtered.length > 0 ? filtered : data);
   };
 
+  const collection = useMemo(() => createListCollection({ items }), [items]);
+
   return (
-    <S items={items} disabled>
+    <S collection={collection} disabled>
       <S.Label>Disabled select</S.Label>
       <S.Control>
         <S.Trigger>
@@ -184,8 +192,10 @@ export const WithGroupInput = () => {
 
   const items = matchSorter(data, search, { keys: ["label"] });
 
+  const collection = useMemo(() => createListCollection({ items }), [items]);
+
   return (
-    <S items={items} multiple onValueChange={() => setSearch("")}>
+    <S collection={collection} multiple onValueChange={() => setSearch("")}>
       <S.Label>With input group</S.Label>
       <S.Control>
         <S.Trigger>
@@ -201,7 +211,7 @@ export const WithGroupInput = () => {
             <InputGroup
               asChild
               variant="ghost"
-              className="px-2 py-1 border-b h-10"
+              className="h-10 border-b px-2 py-1"
             >
               <HStack>
                 <InputGroup.LeftAddon>

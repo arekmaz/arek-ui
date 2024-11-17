@@ -1,19 +1,17 @@
 /* eslint-disable react/display-name */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { tv } from "tailwind-variants";
-import { createContext } from "../utils/createContext";
-import { createStyleContext, splitProps } from "../utils/create-styled-context";
-import {
-  ComponentProps,
-  ComponentType,
-  ElementType,
-  ForwardedRef,
-  Provider,
-  ReactElement,
-  forwardRef,
-} from "react";
 import { ark } from "@ark-ui/react";
 import { pipe } from "effect";
+import {
+    ComponentProps,
+    ElementType,
+    Provider,
+    ReactElement,
+    forwardRef
+} from "react";
+import { tv } from "tailwind-variants";
+import { createStyleContext } from "../utils/create-styled-context";
+import { createContext } from "../utils/createContext";
 
 type FormControlContextValue = {
   isDisabled: boolean;
@@ -56,8 +54,8 @@ const withSplitPropsProvider = <T extends ElementType>(
   Provider: Provider<Partial<ComponentProps<T>>>,
   providerProps: (keyof ComponentProps<T>)[]
 ): ((props: ComponentProps<T>) => ReactElement) => {
-  const WithProvider = forwardRef(
-    (props: ComponentProps<T>, ref: ForwardedRef<T>) => {
+  const WithProvider = forwardRef<T, ComponentProps<T>>(
+    (props, ref) => {
       return (
         <Provider value={propsForKeys(providerProps, props)}>
           <Component ref={ref} {...(props as any)} />

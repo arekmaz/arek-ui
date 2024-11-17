@@ -1,7 +1,7 @@
-import { Portal } from "@ark-ui/react";
+import { Portal, createListCollection } from "@ark-ui/react";
 import { ChevronsUpDownIcon, XIcon } from "lucide-react";
 import { matchSorter } from "match-sorter";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Combobox as C } from "./combobox";
 import { Input } from "./input";
 import { TagsInput } from "./tags-input";
@@ -21,8 +21,11 @@ export const TagsCombobox = () => {
     setItems(filtered.length > 0 ? filtered : data);
   };
 
+    const collection = useMemo(() => createListCollection({ items }), [items])
+
+
   return (
-    <C items={items} onInputValueChange={handleChange} multiple>
+    <C collection={collection} onInputValueChange={handleChange} multiple>
       <C.Context>
         {(comboboxApi) => {
           return (

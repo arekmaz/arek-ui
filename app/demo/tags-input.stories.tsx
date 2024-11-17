@@ -1,13 +1,13 @@
 import { TagsInput } from "~/components/ui/tags-input";
 import { Combobox as C } from "~/components/ui/combobox";
 import { Story } from "./storyHelpers";
-import { ArrowRight, ChevronsUpDownIcon, PiIcon, XIcon } from "lucide-react";
+import { ArrowRight, PiIcon, XIcon } from "lucide-react";
 import { IconButton } from "~/components/ui/icon-button";
 import { InputGroup } from "~/components/ui/input-group";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { matchSorter } from "match-sorter";
 import { data } from "~/components/ui/select";
-import { Portal } from "@ark-ui/react";
+import { createListCollection, Portal } from "@ark-ui/react";
 
 const Normal = () => {
   return (
@@ -85,15 +85,22 @@ const WithCombobox = () => {
     setItems(filtered.length > 0 ? filtered : data);
   };
 
+  const collection = useMemo(() => createListCollection({ items }), [items]);
+
   return (
     <TagsInput>
       <TagsInput.Context>
         {(api) => (
           <>
             <TagsInput.Label>With combobox</TagsInput.Label>
-            <TagsInput.Control className='p-0'>
+            <TagsInput.Control className="p-0">
               {api.value.map((value, index) => (
-                <TagsInput.Item key={index} index={index} value={value} className='ps-1'>
+                <TagsInput.Item
+                  key={index}
+                  index={index}
+                  value={value}
+                  className="ps-1"
+                >
                   <TagsInput.ItemInput />
                   <TagsInput.ItemPreview>
                     <TagsInput.ItemText>{value}</TagsInput.ItemText>
@@ -105,18 +112,24 @@ const WithCombobox = () => {
               ))}
 
               <C
-                items={items}
+                collection={collection}
                 onInputValueChange={handleChange}
                 onValueChange={({ value: [firstValue] }) => {
                   if (firstValue) {
-                    api.setValue(Array.from(new Set([...api.value, firstValue])));
+                    api.setValue(
+                      Array.from(new Set([...api.value, firstValue])),
+                    );
                   }
                 }}
                 onOpenChange={() => setItems(data)}
                 className="flex-1"
               >
-                <C.Control className="w-auto flex">
-                  <TagsInput.Input placeholder="Add Framework" className='flex-1 border-none focus-visible:ring-0' asChild>
+                <C.Control className="flex w-auto">
+                  <TagsInput.Input
+                    placeholder="Add Framework"
+                    className="flex-1 border-none focus-visible:ring-0"
+                    asChild
+                  >
                     <C.Input placeholder="select a framework" />
                   </TagsInput.Input>
                 </C.Control>

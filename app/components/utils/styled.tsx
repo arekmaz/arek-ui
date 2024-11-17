@@ -42,6 +42,7 @@ export const splitVariantProps = (
   return [variantProps, otherProps];
 };
 
+// TODO: improve typings
 export const styled = <ComponentProps extends {}, R extends StyleRecipe>(
   Component: Component<ComponentProps>,
   recipe: R,
@@ -49,8 +50,8 @@ export const styled = <ComponentProps extends {}, R extends StyleRecipe>(
 ) => {
   const Comp = forwardRef<
     typeof Component,
-    ComponentProps & VariantProps<R> & { unstyled?: boolean } & DataAttributes
-  >(({ unstyled, ...props }, ref) => {
+    ComponentProps & VariantProps<R> & DataAttributes & { unstyled?: boolean }
+  >((props, ref) => {
     const [variantProps, otherProps] = splitVariantProps(recipe.variantKeys, {
       ...defaultProps,
       ...props,
@@ -59,7 +60,7 @@ export const styled = <ComponentProps extends {}, R extends StyleRecipe>(
     const classNames = recipe(variantProps);
 
     const componentProps = mergeProps(otherProps, {
-      className: unstyled
+      className: (props as any).unstyled
         ? (props as any).className
         : cn(classNames, (props as any).className),
     } as any);
