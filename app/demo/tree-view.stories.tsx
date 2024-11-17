@@ -14,6 +14,7 @@ interface Node {
   children?: Node[];
 }
 
+// TODO: fix tree view story
 const collection = createTreeCollection<Node>({
   nodeToValue: (node) => node.id,
   nodeToString: (node) => node.name,

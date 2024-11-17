@@ -30,13 +30,12 @@ const drawerStyles = tv({
     content: [
       "bg-background",
       "shadow-lg",
-      "grid",
+      "data-[state=open]:grid",
       "divide-y",
       "grid-cols-[1fr]",
       "grid-rows-[auto_1fr_auto]",
       "grid-areas-drawerContent",
       "size-full",
-      "_hidden:hidden",
     ],
     header: [
       "flex",

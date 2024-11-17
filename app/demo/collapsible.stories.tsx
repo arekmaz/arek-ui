@@ -5,6 +5,7 @@ import {
 } from "~/components/ui/collapsible";
 import { Story } from "./storyHelpers";
 
+// TODO: align with new animation api
 export const Normal = () => {
   return (
     <Collapsible>
@@ -16,6 +17,7 @@ export const Normal = () => {
     </Collapsible>
   );
 };
+
 export const Collapsibles = () => {
   return (
     <Story title="collapsibles" componentFilename="collapsible">

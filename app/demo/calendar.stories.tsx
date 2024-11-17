@@ -7,6 +7,7 @@ import { IconButton } from "~/components/ui/icon-button";
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 import { Button } from "~/components/ui/button";
 
+// TODO: fix cal story
 const Normal = () => {
   const [date, setDate] = useState<Date | undefined>(new Date());
 

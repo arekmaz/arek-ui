@@ -11,8 +11,8 @@ const inputGroup = tv({
       "border-input",
       "bg-background",
       "ring-offset-background",
-      "_disabled:cursor-not-allowed",
-      "_disabled:opacity-50",
+      "disabled:cursor-not-allowed",
+      "disabled:opacity-50",
     ],
     addonRight: [
       "input-group-addon-right",
@@ -34,7 +34,7 @@ const inputGroup = tv({
       "bg-transparent",
       "file:text-sm",
       "file:font-medium",
-      "_disabled:cursor-not-allowed",
+      "disabled:cursor-not-allowed",
     ],
   },
   variants: {
