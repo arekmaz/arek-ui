@@ -14,7 +14,7 @@ const itemStyle = id([
   "ease-default",
   "duration-fast",
   "hover:bg-muted",
-  "_highlighted:bg-muted",
+  "data-[highlighted]:bg-muted",
   "[&_:where(svg)]:text-muted-foreground",
 ]);
 
@@ -31,8 +31,7 @@ const menuStyles = tv({
       "outline-none",
       "w-[calc(100%+2rem)]",
       "z-dropdown",
-      "flex",
-      "_hidden:hidden",
+      "data-[state=open]:flex",
       "data-[state=open]:animate-[fade-in_250ms_ease-out]",
       "data-[state=closed]:animate-[fade-out_200ms_ease-out]",
     ],

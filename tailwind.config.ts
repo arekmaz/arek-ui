@@ -1,4 +1,3 @@
-import pluginVariants from "tailwind-plugin-variants";
 import type { Config } from "tailwindcss";
 
 export default {
@@ -195,23 +194,5 @@ export default {
   plugins: [
     require("tailwindcss-animate"),
     require("@savvywombat/tailwindcss-grid-areas"),
-    pluginVariants(
-      ({ attribute, pseudoclass, dataValue, dataBool, ariaValue }) => {
-        const dataState = dataValue("state");
-        const dataOrientation = dataValue("orientation");
-
-        return {
-          checked: [pseudoclass, dataBool, attribute, dataState],
-          focus: [pseudoclass, dataBool, attribute, dataState],
-          hidden: [attribute, dataBool],
-          disabled: [attribute, dataBool],
-          highlighted: [dataBool, dataState],
-          horizontal: [dataOrientation],
-          vertical: [dataOrientation],
-          invalid: [dataBool, () => ariaValue("invalid")("true")],
-        };
-      },
-      (name) => `_${name}`,
-    ),
   ],
 } satisfies Config;

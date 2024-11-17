@@ -178,8 +178,6 @@ export default function Index() {
                   "text-muted-foreground",
                   "size-4",
                   "cursor-pointer",
-                  "_disabled:cursor-not-allowed",
-                  "_disabled:opacity-50",
                 )}
               >
                 <InputGroup.RightAddon>

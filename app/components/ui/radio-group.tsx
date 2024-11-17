@@ -52,7 +52,7 @@ const styles = tv({
   variants: {
     size: {
       sm: {
-        root: ["_vertical:gap-3", "data-[orientation=horizontal]:gap-4"],
+        root: ["data-[orientation=vertical]:gap-3", "data-[orientation=horizontal]:gap-4"],
         item: ["gap-2"],
         itemControl: [
           "size-4",

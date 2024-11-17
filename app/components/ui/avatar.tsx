@@ -6,13 +6,12 @@ const avatarStyles = tv({
   slots: {
     root: ["rounded-full", "border", "shrink-0", "overflow-hidden"],
     fallback: [
-      "flex",
+      "data-[state=visible]:flex",
       "items-center",
       "justify-center",
       "bg-muted-foreground",
       "font-semibold",
       "h-[inherit]",
-      "_hidden:hidden",
     ],
     image: ["object-cover"],
   },

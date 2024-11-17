@@ -4,7 +4,7 @@ import { createStyleContext } from "../utils/create-styled-context";
 
 const styles = tv({
   slots: {
-    root: ["flex", "overflow-hidden", "relative", "_vertical:flex-col"],
+    root: ["flex", "overflow-hidden", "relative", "data-[orientation=vertical]:flex-col"],
     item: [
       "appearance-none",
       "inline-flex",
@@ -28,12 +28,12 @@ const styles = tv({
       "data-[state=on]:text-foreground",
       "data-[state=on]:bg-muted",
 
-      "_disabled:border-muted-foreground",
-      "_disabled:text-muted-foreground",
-      "_disabled:cursor-not-allowed",
-      "_disabled:hover:bg-transparent",
-      "_disabled:hover:border-muted-foreground",
-      "_disabled:hover:text-muted-foreground",
+      "data-[disabled]:border-muted-foreground",
+      "data-[disabled]:text-muted-foreground",
+      "data-[disabled]:cursor-not-allowed",
+      "data-[disabled]:hover:bg-transparent",
+      "data-[disabled]:hover:border-muted-foreground",
+      "data-[disabled]:hover:text-muted-foreground",
     ],
   },
   variants: {
@@ -43,7 +43,7 @@ const styles = tv({
           "border",
           "rounded-sm",
           "data-[orientation=horizontal]:divide-x",
-          "_vertical:divide-y",
+          "data-[orientation=vertical]:divide-y",
         ],
         item: ["focus-visible:text-foreground", "bg-muted-background"],
       },

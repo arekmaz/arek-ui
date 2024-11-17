@@ -19,11 +19,11 @@ export const inputClasses = id([
   "focus-visible:ring-2",
   "focus-visible:ring-ring",
   "focus-visible:ring-offset-2",
-  "_disabled:cursor-not-allowed",
-  "_disabled:opacity-50",
-  "_invalid:text-destructive",
-  "_invalid:placeholder-destructive/50",
-  "_invalid:border-destructive",
+  "disabled:cursor-not-allowed",
+  "disabled:opacity-50",
+  "aria-[invalid]:text-destructive",
+  "aria-[invalid]:placeholder-destructive/50",
+  "aria-[invalid]:border-destructive",
 ]);
 
 const input = tv({
