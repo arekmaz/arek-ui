@@ -109,8 +109,8 @@
   --duration-emphasized-in: cubic-bezier(0.05, 0.7, 0.1, 1.0);
   --duration-emphasized-out: cubic-bezier(0.3, 0.0, 0.8, 0.15);
 
-  --animate-accordion-down: accordion-down 0.2s ease-out;
-  --animate-accordion-up: accordion-up 0.2s ease-out;
+  --animate-collapse-down: collapse-down 0.2s ease-out;
+  --animate-collapse-up: collapse-up 0.2s ease-out;
 
   --animate-fade-in: fade-in 250ms ease-out;
   --animate-fade-out: fade-out 200ms ease-out;
@@ -124,7 +124,7 @@
   --animate-drawer-in-top: slide-in-top 400ms var(--duration-emphasized-in);
   --animate-drawer-out-top: slide-out-top 200ms var(--duration-emphasized-out);
 
-  @keyframes accordion-down {
+  @keyframes collapse-down {
     from {
       height: 0;
       opacity: 0;
@@ -136,7 +136,7 @@
     }
   }
 
-  @keyframes accordion-up {
+  @keyframes collapse-up {
     from {
       height: var(--height);
       opacity: 1;

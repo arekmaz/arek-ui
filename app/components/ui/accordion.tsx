@@ -30,8 +30,8 @@ const accordionStyles = tv({
       "data-[state=open]:rotate-180",
     ],
     itemContent: [
-      "data-[state=open]:animate-accordion-down",
-      "data-[state=closed]:animate-accordion-up",
+      "data-[state=open]:animate-collapse-down",
+      "data-[state=closed]:animate-collapse-up",
       "overflow-hidden",
     ],
   },
