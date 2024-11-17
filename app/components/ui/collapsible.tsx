@@ -1,27 +1,33 @@
-import * as CollapsiblePrimitive from "@radix-ui/react-collapsible";
+import * as ArkCollapsible from '@ark-ui/react/collapsible'
 import { tv } from "tailwind-variants";
 import { createStyleContext } from "../utils/create-styled-context";
 
 const collapsibleStyles = tv({
   slots: {
     root: [],
-    trigger: [],
-    content: [],
+    trigger: ['cursor-pointer'],
+    content: [
+      'data-[state=closed]:animate-collapse-up',
+      'data-[state=open]:animate-collapse-down'
+    ],
   },
 });
 
 const { withContext, withProvider } = createStyleContext(collapsibleStyles);
 
-const Collapsible = withProvider(CollapsiblePrimitive.Root, "root");
+const Root = withProvider(ArkCollapsible.CollapsibleRoot, "root");
 
 const CollapsibleTrigger = withContext(
-  CollapsiblePrimitive.CollapsibleTrigger,
+  ArkCollapsible.CollapsibleTrigger,
   "trigger"
 );
 
 const CollapsibleContent = withContext(
-  CollapsiblePrimitive.CollapsibleContent,
+  ArkCollapsible.CollapsibleContent,
   "content"
 );
 
-export { Collapsible, CollapsibleTrigger, CollapsibleContent };
+export const Collapsible = Object.assign(Root, {
+  Trigger: CollapsibleTrigger,
+  Content: CollapsibleContent
+})
