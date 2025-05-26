@@ -1,10 +1,10 @@
 import { Center } from "~/components/ui/stack";
-import { TagsInputs } from "~/demo/tags-input.stories";
+import { Accordions } from "~/demo/accordion.stories";
 
 export default function Wip() {
   return (
     <Center className="flex-1">
-      <TagsInputs />
+      <Accordions />
     </Center>
   );
 }
