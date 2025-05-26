@@ -1,7 +1,4 @@
 import * as React from "react";
-import { cn, tv } from "tailwind-variants";
-import { createStyleContext } from "../utils/create-styled-context";
-import * as ArkUi from "@ark-ui/react";
 import * as ArkAccordion from "@ark-ui/react/accordion";
 import { twMerge } from "tailwind-merge";
 

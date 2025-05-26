@@ -1,5 +1,11 @@
 import { ChevronDownIcon } from "lucide-react";
-import { Accordion } from "~/components/ui/accordion";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionItemTrigger,
+  AccordionItemIndicator,
+  AccordionItemContent,
+} from "~/components/ui/accordion";
 import { Card } from "~/components/ui/card";
 import { Story } from "./storyHelpers";
 
@@ -12,17 +18,17 @@ const Single = () => {
       <Card.Content>
         <Accordion defaultValue={["React"]}>
           {["React", "Solid", "Vue"].map((item, id) => (
-            <Accordion.Item key={id} value={item} className="min-w-[420px]">
-              <Accordion.ItemTrigger>
+            <AccordionItem key={id} value={item} className="min-w-[420px]">
+              <AccordionItemTrigger>
                 {item}
-                <Accordion.ItemIndicator asChild>
+                <AccordionItemIndicator asChild>
                   <ChevronDownIcon />
-                </Accordion.ItemIndicator>
-              </Accordion.ItemTrigger>
-              <Accordion.ItemContent>
+                </AccordionItemIndicator>
+              </AccordionItemTrigger>
+              <AccordionItemContent>
                 {item} is a JavaScript library for building user interfaces.
-              </Accordion.ItemContent>
-            </Accordion.Item>
+              </AccordionItemContent>
+            </AccordionItem>
           ))}
         </Accordion>
       </Card.Content>
@@ -39,17 +45,17 @@ const Collapsible = () => {
       <Card.Content>
         <Accordion defaultValue={["React"]} collapsible>
           {["React", "Solid", "Vue"].map((item, id) => (
-            <Accordion.Item key={id} value={item} className="min-w-[420px]">
-              <Accordion.ItemTrigger>
+            <AccordionItem key={id} value={item} className="min-w-[420px]">
+              <AccordionItemTrigger>
                 {item}
-                <Accordion.ItemIndicator asChild>
+                <AccordionItemIndicator asChild>
                   <ChevronDownIcon />
-                </Accordion.ItemIndicator>
-              </Accordion.ItemTrigger>
-              <Accordion.ItemContent>
+                </AccordionItemIndicator>
+              </AccordionItemTrigger>
+              <AccordionItemContent>
                 {item} is a JavaScript library for building user interfaces.
-              </Accordion.ItemContent>
-            </Accordion.Item>
+              </AccordionItemContent>
+            </AccordionItem>
           ))}
         </Accordion>
       </Card.Content>
@@ -66,21 +72,17 @@ const Disabled = () => {
       <Card.Content>
         <Accordion defaultValue={["React"]}>
           {(["React", "disabled", "Vue"] as const).map((item, id) => (
-            <Accordion.Item
-              key={id}
-              value={item}
-              disabled={item === "disabled"}
-            >
-              <Accordion.ItemTrigger>
+            <AccordionItem key={id} value={item} disabled={item === "disabled"}>
+              <AccordionItemTrigger>
                 {item}
-                <Accordion.ItemIndicator asChild>
+                <AccordionItemIndicator asChild>
                   <ChevronDownIcon />
-                </Accordion.ItemIndicator>
-              </Accordion.ItemTrigger>
-              <Accordion.ItemContent>
+                </AccordionItemIndicator>
+              </AccordionItemTrigger>
+              <AccordionItemContent>
                 {item} is a JavaScript library for building user interfaces.
-              </Accordion.ItemContent>
-            </Accordion.Item>
+              </AccordionItemContent>
+            </AccordionItem>
           ))}
         </Accordion>
       </Card.Content>
