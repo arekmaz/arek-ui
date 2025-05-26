@@ -4,18 +4,30 @@ import * as ArkUi from "@ark-ui/react";
 import { twMerge } from "tailwind-merge";
 
 export const alertVariants = Tv.tv({
-  base: "[&>svg]:text-foreground relative w-full rounded-lg border px-4 py-3 text-sm [&>svg]:absolute [&>svg]:top-4 [&>svg]:left-4 [&>svg+div]:translate-y-[-3px] [&>svg~*]:pl-7",
+  base: [
+    "relative",
+    "w-full",
+    "rounded-lg",
+    "border",
+    "px-4",
+    "py-3",
+    "text-sm",
+    "[&>svg]:text-foreground",
+    "[&>svg]:absolute",
+    "[&>svg]:top-4",
+    "[&>svg]:left-4",
+    "[&>svg+div]:translate-y-[-3px]",
+    "[&>svg~*]:pl-7",
+  ],
   variants: {
     variant: {
-      default: { root: ["bg-background", "text-foreground"] },
-      destructive: {
-        root: [
-          "border-destructive/50",
-          "text-destructive",
-          "dark:border-destructive",
-          "[&>svg]:text-destructive",
-        ],
-      },
+      default: ["bg-background", "text-foreground"],
+      destructive: [
+        "border-destructive/50",
+        "text-destructive",
+        "dark:border-destructive",
+        "[&>svg]:text-destructive",
+      ],
     },
   },
   defaultVariants: {

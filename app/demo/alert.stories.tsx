@@ -1,28 +1,15 @@
-import { Terminal } from "lucide-react";
-import { Alert } from "~/components/ui/alert";
+import { AlertCircle, Terminal } from "lucide-react";
+import { Alert, AlertDescription, AlertTitle } from "~/components/ui/alert";
 import { Story } from "./storyHelpers";
 
 const Basic = () => {
   return (
     <Alert>
-      <Alert.Icon asChild>
-        <Terminal className="h-4 w-4" />
-      </Alert.Icon>
-      <Alert.Title>Basic Alert!</Alert.Title>
-      <Alert.Description>
+      <Terminal className="h-4 w-4" />
+      <AlertTitle>Heads up!</AlertTitle>
+      <AlertDescription>
         You can add components and dependencies to your app using the cli.
-      </Alert.Description>
-    </Alert>
-  );
-};
-
-const NoIcon = () => {
-  return (
-    <Alert>
-      <Alert.Title>Basic Alert! - no icon</Alert.Title>
-      <Alert.Description>
-        You can add components and dependencies to your app using the cli.
-      </Alert.Description>
+      </AlertDescription>
     </Alert>
   );
 };
@@ -30,13 +17,11 @@ const NoIcon = () => {
 const Error = () => {
   return (
     <Alert variant="destructive">
-      <Alert.Icon asChild>
-        <Terminal className="h-4 w-4" />
-      </Alert.Icon>
-      <Alert.Title>Error Alert!</Alert.Title>
-      <Alert.Description>
-        You can add components and dependencies to your app using the cli.
-      </Alert.Description>
+      <AlertCircle className="h-4 w-4" />
+      <AlertTitle>Error</AlertTitle>
+      <AlertDescription>
+        Your session has expired. Please log in again.
+      </AlertDescription>
     </Alert>
   );
 };
@@ -46,7 +31,6 @@ export const Alerts = () => {
     <Story title="alerts" componentFilename="alert">
       <Basic />
       <Error />
-      <NoIcon />
     </Story>
   );
 };
