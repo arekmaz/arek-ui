@@ -72,5 +72,3 @@ export const AlertDescription = React.forwardRef<
     />
   );
 });
-
-const { withProvider, withContext } = createStyleContext(alertVariants);
