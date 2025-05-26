@@ -3,17 +3,16 @@ import * as ArkUi from "@ark-ui/react";
 import { twMerge } from "tailwind-merge";
 import * as ArkDialog from "@ark-ui/react/dialog";
 import { buttonVariants } from "./button";
-import { cn } from "../utils/cn";
 
 export type AlertDialogProps = ArkDialog.DialogRootProps;
 
 export const AlertDialog = ArkDialog.DialogRoot;
 
-export type DialogTriggerProps = ArkDialog.DialogTriggerProps;
+export type AlertDialogTriggerProps = ArkDialog.DialogTriggerProps;
 
-export const DialogTrigger = React.forwardRef<
+export const AlertDialogTrigger = React.forwardRef<
   HTMLButtonElement,
-  DialogTriggerProps
+  AlertDialogTriggerProps
 >(({ className, ...props }, ref) => {
   return (
     <ArkDialog.DialogTrigger
@@ -24,7 +23,7 @@ export const DialogTrigger = React.forwardRef<
   );
 });
 
-DialogTrigger.displayName = "DialogTrigger";
+AlertDialogTrigger.displayName = "AlertDialogTrigger";
 
 const AlertDialogPortal = ArkUi.Portal;
 
@@ -137,7 +136,7 @@ export const AlertDialogFooter = React.forwardRef<
 ));
 AlertDialogFooter.displayName = "AlertDialogFooter";
 
-type AlertDialogTitleProps = ArkDialog.DialogTitleProps;
+export type AlertDialogTitleProps = ArkDialog.DialogTitleProps;
 
 export const AlertDialogTitle = React.forwardRef<
   HTMLHeadingElement,
@@ -151,9 +150,9 @@ export const AlertDialogTitle = React.forwardRef<
 ));
 AlertDialogTitle.displayName = "AlertDialogTitle";
 
-type AlertDialogDescriptionProps = ArkDialog.DialogDescriptionProps;
+export type AlertDialogDescriptionProps = ArkDialog.DialogDescriptionProps;
 
-const AlertDialogDescription = React.forwardRef<
+export const AlertDialogDescription = React.forwardRef<
   HTMLDivElement,
   AlertDialogDescriptionProps
 >(({ className, ...props }, ref) => (
@@ -164,3 +163,35 @@ const AlertDialogDescription = React.forwardRef<
   />
 ));
 AlertDialogDescription.displayName = "AlertDialogDescription";
+
+export type AlertDialogActionProps = ArkUi.HTMLArkProps<"button">;
+
+export const AlertDialogAction = React.forwardRef<
+  HTMLButtonElement,
+  AlertDialogActionProps
+>(({ className, ...props }, ref) => (
+  <ArkUi.ark.button
+    ref={ref}
+    className={buttonVariants({ className })}
+    {...props}
+  />
+));
+AlertDialogAction.displayName = "AlertDialogAction";
+
+export type AlertDialogCancelProps = ArkDialog.DialogCloseTriggerProps;
+
+export const AlertDialogCancel = React.forwardRef<
+  HTMLButtonElement,
+  AlertDialogCancelProps
+>(({ className, ...props }, ref) => (
+  <ArkDialog.DialogCloseTrigger
+    ref={ref}
+    className={twMerge(
+      buttonVariants({ variant: "outline" }),
+      "mt-2 sm:mt-0",
+      className,
+    )}
+    {...props}
+  />
+));
+AlertDialogCancel.displayName = "AlertDialogCancel";
